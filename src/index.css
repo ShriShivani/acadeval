@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy: #1B2A4A;
+    --color-teal: #1E7F72;
+    --color-gold: #C99A3A;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-slate-50 text-slate-800 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* ─── Cards ──────────────────────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100 p-6 transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  /* ─── Buttons ────────────────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-teal-500 text-white hover:bg-teal-600 active:bg-teal-700 shadow-sm hover:shadow-md;
+  }
+
+  .btn-navy {
+    @apply btn bg-navy-900 text-white hover:bg-navy-800 active:bg-navy-700 shadow-sm hover:shadow-md;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-white hover:bg-gold-600 active:bg-gold-700 shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply btn border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100;
+  }
+
+  /* ─── Form Inputs ────────────────────────────────────────────────────── */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800
+           focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500
+           placeholder-slate-400 text-sm transition-all duration-150;
+  }
+
+  .input-error {
+    @apply input border-red-300 focus:ring-red-500/30 focus:border-red-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1;
+  }
+
+  /* ─── Badges ─────────────────────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-teal    { @apply badge bg-teal-50 text-teal-700 border border-teal-200; }
+  .badge-navy    { @apply badge bg-navy-50 text-navy-900 border border-navy-200; }
+  .badge-gold    { @apply badge bg-gold-50 text-gold-700 border border-gold-200; }
+  .badge-red     { @apply badge bg-red-50 text-red-700 border border-red-200; }
+  .badge-orange  { @apply badge bg-orange-50 text-orange-700 border border-orange-200; }
+  .badge-purple  { @apply badge bg-purple-50 text-purple-700 border border-purple-200; }
+  .badge-slate   { @apply badge bg-slate-100 text-slate-600 border border-slate-200; }
+
+  /* ─── Tables ─────────────────────────────────────────────────────────── */
+  .table-container {
+    @apply w-full overflow-x-auto rounded-2xl border border-slate-100 shadow-card;
+  }
+
+  .table {
+    @apply w-full text-sm;
+  }
+
+  .table thead {
+    @apply bg-slate-50 border-b border-slate-100;
+  }
+
+  .table th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider;
+  }
+
+  .table td {
+    @apply px-4 py-3.5 text-slate-700 border-b border-slate-50;
+  }
+
+  .table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table tbody tr {
+    @apply hover:bg-slate-50/70 transition-colors duration-100;
+  }
+
+  /* ─── Sidebar ────────────────────────────────────────────────────────── */
+  .sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 bg-navy-900 flex flex-col z-40;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-all duration-150 text-sm font-medium mx-2;
+  }
+
+  .sidebar-link.active {
+    @apply text-white bg-white/15 font-semibold;
+  }
+
+  /* ─── Stats Card ─────────────────────────────────────────────────────── */
+  .stat-card {
+    @apply card-hover flex items-start gap-4;
+  }
+
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+
+  /* ─── Score Gauge Background ─────────────────────────────────────────── */
+  .score-high   { @apply text-teal-600; }
+  .score-medium { @apply text-gold-500; }
+  .score-low    { @apply text-red-500; }
+
+  /* ─── Shimmer Loading ────────────────────────────────────────────────── */
+  .shimmer {
+    @apply bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 animate-shimmer rounded-xl;
+    background-size: 200% 100%;
+  }
+
+  /* ─── Toast ──────────────────────────────────────────────────────────── */
+  .toast {
+    @apply fixed top-4 right-4 z-50 bg-white shadow-card-hover rounded-2xl px-5 py-4 flex items-center gap-3 min-w-72 animate-slide-up border border-slate-100;
+  }
+}
+
+@layer utilities {
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #1B2A4A 0%, #223461 100%);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
