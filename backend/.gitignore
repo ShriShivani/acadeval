@@ -1,0 +1,24 @@
+# Backend secrets & environment
+.env
+
+# Python virtual environment (recreate with: python -m venv venv)
+venv/
+
+# Uploaded files (not committed)
+uploads/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store

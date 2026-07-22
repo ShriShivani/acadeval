@@ -1,0 +1,43 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+email-validator==2.3.0
+pydantic==2.10.3
+pydantic-settings==2.7.0
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+celery==5.4.0
+redis==5.2.1
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.20
+bcrypt==4.2.1
+
+# Document parsing
+pymupdf==1.25.1
+python-docx==1.1.2
+python-pptx==1.0.2
+
+# NLP / AI pipeline (Phase 2 — installed now so env is ready)
+spacy==3.8.3
+transformers==4.47.1
+sentence-transformers==3.3.1
+scikit-learn==1.6.0
+rank-bm25==0.2.2
+textstat==0.7.4
+textblob==0.18.0
+lime==0.2.0.1
+shap==0.46.0
+gitpython==3.1.43
+
+# Whisper (Phase 2)
+faster-whisper==1.1.0
+
+# Gemini (Phase 2)
+google-generativeai==0.8.3
+
+# Utilities
+requests==2.32.3
+python-dotenv==1.0.1
+httpx==0.28.1
+aiofiles==24.1.0
