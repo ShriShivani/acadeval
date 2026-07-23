@@ -117,3 +117,24 @@ class HistoricalScore(Base):
     score: Mapped[float] = mapped_column(Float)
     semester: Mapped[str] = mapped_column(String(20))
     year: Mapped[int] = mapped_column(Integer)
+
+
+class FacultyEvaluation(Base):
+    """Module 7: Ground truth faculty ratings validating system novelty scores."""
+    __tablename__ = "faculty_evaluations"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    project_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("projects.id"), index=True)
+    evaluator_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"))
+    faculty_score: Mapped[float] = mapped_column(Float, nullable=False)  # 1..10 scale
+    system_score: Mapped[float] = mapped_column(Float, nullable=False)   # 0..100 scale
+    score_delta: Mapped[float] = mapped_column(Float, default=0.0)
+    override_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    is_confirmed: Mapped[bool] = mapped_column(Boolean, default=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+    )
+
+    project: Mapped["Project"] = relationship("Project")
+    evaluator: Mapped["User"] = relationship("User")
+

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getEvaluationReport, overrideScore, addFacultyNote, publishReview } from '../../api/endpoints';
+import { getEvaluationReport, overrideScore, addFacultyNote, publishReview, getNoveltyReport, submitFacultyNoveltyReview } from '../../api/endpoints';
 import { useAuth } from '../../auth/AuthContext';
 import { LoadingState, ErrorState } from '../../components/States';
 import RadarChart from '../../components/RadarChart';
 import ScoreGauge from '../../components/ScoreGauge';
 import Badge from '../../components/Badge';
 import ExplainabilityViewer from '../../components/ExplainabilityViewer';
+import { NoveltyReportView } from '../../components/NoveltyReportView';
 import type { InternalEvaluationReport } from '../../types';
 import {
   Edit2, Save, X, Flag, StickyNote, Send, CheckCircle, Eye, EyeOff,
-  User, Clock, ChevronDown, ChevronUp, Sparkles,
+  User, Clock, ChevronDown, ChevronUp, Sparkles, Network,
 } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -30,11 +31,12 @@ const ProjectReportView: React.FC = () => {
   const { user } = useAuth();
   const queryClient = useQueryClient();
 
-  const [activeTab, setActiveTab] = useState<'report' | 'explainability' | 'notes' | 'history'>('report');
+  const [activeTab, setActiveTab] = useState<'report' | 'explainability' | 'notes' | 'history' | 'novelty'>('report');
   const [overrideState, setOverrideState] = useState<{ dim: string; value: number; comment: string } | null>(null);
   const [newNote, setNewNote] = useState('');
   const [showPublishConfirm, setShowPublishConfirm] = useState(false);
   const [publishSuccess, setPublishSuccess] = useState(false);
+  const [noveltyAbstract, setNoveltyAbstract] = useState('');
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['internalReport', projectId],
@@ -57,6 +59,15 @@ const ProjectReportView: React.FC = () => {
     onSuccess: () => { setShowPublishConfirm(false); setPublishSuccess(true); },
   });
 
+  const noveltyMutation = useMutation({
+    mutationFn: () => getNoveltyReport(projectId!, noveltyAbstract),
+  });
+
+  const facultyNoveltyReviewMutation = useMutation({
+    mutationFn: ({ facultyScore, reason }: { facultyScore: number; reason: string }) =>
+      submitFacultyNoveltyReview(projectId!, facultyScore, noveltyMutation.data!.overall_novelty_score, reason),
+  });
+
   if (isLoading) return <LoadingState message="Loading project report..." />;
   if (isError || !data) return <ErrorState retry={refetch} />;
 
@@ -64,6 +75,7 @@ const ProjectReportView: React.FC = () => {
 
   const TABS = [
     { id: 'report', label: 'Evaluation Report', icon: <Eye size={15} /> },
+    { id: 'novelty', label: 'Graph Novelty', icon: <Network size={15} /> },
     { id: 'explainability', label: 'AI Explainability', icon: <Sparkles size={15} /> },
     { id: 'notes', label: `Faculty Notes (${r.facultyNotes?.length || 0})`, icon: <StickyNote size={15} /> },
     { id: 'history', label: 'Score History', icon: <Clock size={15} /> },
@@ -236,6 +248,46 @@ const ProjectReportView: React.FC = () => {
               </ul>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Tab: Graph Novelty (AcadEval+) */}
+      {activeTab === 'novelty' && (
+        <div className="space-y-4">
+          {!noveltyMutation.data && (
+            <div className="card space-y-3">
+              <h2 className="font-semibold text-navy-900">Run Graph-Based Novelty Assessment</h2>
+              <p className="text-sm text-slate-500">
+                Paste the project's title/abstract to classify its domain, extract structured entities, and
+                score novelty against the Neo4j project knowledge graph.
+              </p>
+              <textarea
+                value={noveltyAbstract}
+                onChange={e => setNoveltyAbstract(e.target.value)}
+                rows={4}
+                className="input resize-none"
+                placeholder="Paste the project abstract here..."
+              />
+              {noveltyMutation.isError && (
+                <p className="text-sm text-red-600">
+                  Could not compute a novelty score — the graph engine may be unavailable (Neo4j not running).
+                </p>
+              )}
+              <button
+                onClick={() => noveltyMutation.mutate()}
+                disabled={!noveltyAbstract.trim() || noveltyMutation.isPending}
+                className="btn-primary"
+              >
+                <Network size={15} /> {noveltyMutation.isPending ? 'Scoring…' : 'Run Novelty Assessment'}
+              </button>
+            </div>
+          )}
+          {noveltyMutation.data && (
+            <NoveltyReportView
+              report={noveltyMutation.data}
+              onFacultyScoreSubmit={(facultyScore, reason) => facultyNoveltyReviewMutation.mutate({ facultyScore, reason })}
+            />
+          )}
         </div>
       )}
 

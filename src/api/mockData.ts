@@ -14,6 +14,7 @@ import type {
   User,
   ActivityItem,
 } from '../types';
+import type { NoveltyReportData } from '../components/NoveltyReportView';
 
 // ─── Mock Users ───────────────────────────────────────────────────────────────
 export const mockUsers: Record<string, User[]> = {
@@ -244,6 +245,51 @@ export const mockVivaAnswer = (questionId: string, _answer: string): VivaAnswerR
   maxScore: 5,
   feedback: 'Good explanation of the core concept. Could include more specific examples from your project implementation to strengthen the answer.',
   keyPoints: ['Mentioned correct architecture components', 'Could elaborate on training specifics'],
+});
+
+// ─── Mock Novelty Report (AcadEval+ graph engine) ─────────────────────────────
+export const mockNoveltyReport = (projectId: string): NoveltyReportData => ({
+  project_id: projectId,
+  title: mockPublicReport.title,
+  domain: mockPublicReport.domain,
+  sub_domain: 'Computer Vision',
+  overall_novelty_band: 'Moderately Novel',
+  overall_novelty_score: 62.4,
+  signals_breakdown: {
+    graph_distance: 0.61,
+    feature_rarity: 0.54,
+    relationship_rarity: 0.72,
+    graph_density: 0.58,
+    new_connection_discovery: 0.65,
+  },
+  extracted_entities: {
+    algorithms: ['CNN', 'Vision Transformer'],
+    technologies: ['Edge Computing'],
+    frameworks: ['PyTorch'],
+    libraries: ['OpenCV'],
+    datasets: ['PlantVillage'],
+    applications: ['Plant Disease Detection'],
+    hardware: [],
+  },
+  trend_context: {
+    topic: 'Plant Disease Detection',
+    growth_rate_pct: 24.5,
+    paper_count_3yr: 450,
+    citation_velocity: 12.8,
+    trend_status: 'Emerging',
+    data_source: 'semantic_scholar',
+  },
+  most_similar_projects: [
+    { project_id: 'CORPUS-P000412', title: 'CNN-Based Leaf Disease Classifier', similarity_score: 0.71 },
+    { project_id: 'CORPUS-P000198', title: 'Mobile Plant Health Monitoring App', similarity_score: 0.58 },
+  ],
+  explanation_lines: [
+    'Graph Distance Signal (61.0%, via fastrp): Measures structural separation from historical project proposals.',
+    'Feature Rarity Signal (54.0%): Assesses how unique the selected algorithms/technologies are across the corpus.',
+    'Relationship Rarity Signal (72.0%): Checks how rarely these specific entity pairs co-occur.',
+    'Graph Density Signal (58.0%, via gds_clustering_coefficient): Evaluates domain neighborhood sparsity.',
+    'New-Connection Discovery (65.0%): Adamic-Adar metric indicating novel cross-domain feature synthesis.',
+  ],
 });
 
 // ─── Mock Appeals ─────────────────────────────────────────────────────────────

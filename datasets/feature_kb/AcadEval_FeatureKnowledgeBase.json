@@ -1,0 +1,1251 @@
+[
+  {
+    "feature_id": "FEAT-0001",
+    "name": "ResNet",
+    "category": "Algorithm",
+    "aliases": [
+      "ResNet-50",
+      "ResNet-101",
+      "ResNet-18",
+      "Residual Network"
+    ],
+    "first_seen_year": 2015,
+    "description": "Deep residual neural network with skip connections for computer vision.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0002",
+    "name": "YOLO",
+    "category": "Algorithm",
+    "aliases": [
+      "YOLOv5",
+      "YOLOv8",
+      "YOLOv9",
+      "YOLOv10",
+      "You Only Look Once"
+    ],
+    "first_seen_year": 2016,
+    "description": "Real-time single-stage object detection model.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0003",
+    "name": "BERT",
+    "category": "Algorithm",
+    "aliases": [
+      "BioBERT",
+      "ClinicalBERT",
+      "RoBERTa",
+      "DeBERTa"
+    ],
+    "first_seen_year": 2018,
+    "description": "Bidirectional Encoder Representations from Transformers for NLP.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0004",
+    "name": "GPT-4",
+    "category": "Algorithm",
+    "aliases": [
+      "GPT4",
+      "GPT-4o",
+      "Generative Pre-trained Transformer 4"
+    ],
+    "first_seen_year": 2023,
+    "description": "Large-scale multimodal generative language model.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0005",
+    "name": "LLaMA",
+    "category": "Algorithm",
+    "aliases": [
+      "LLaMA-2",
+      "LLaMA-3",
+      "Llama3"
+    ],
+    "first_seen_year": 2023,
+    "description": "Open-weight foundational large language model by Meta.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0006",
+    "name": "Stable Diffusion",
+    "category": "Algorithm",
+    "aliases": [
+      "SDXL",
+      "Latent Diffusion",
+      "DDPM"
+    ],
+    "first_seen_year": 2022,
+    "description": "Latent text-to-image diffusion model.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0007",
+    "name": "Vision Transformer",
+    "category": "Algorithm",
+    "aliases": [
+      "ViT",
+      "Swin Transformer"
+    ],
+    "first_seen_year": 2020,
+    "description": "Transformer architecture applied directly to image patches.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0008",
+    "name": "Graph Convolutional Network",
+    "category": "Algorithm",
+    "aliases": [
+      "GCN",
+      "Graph Convolution"
+    ],
+    "first_seen_year": 2016,
+    "description": "Convolutional neural network for graph-structured data.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0009",
+    "name": "Graph Attention Network",
+    "category": "Algorithm",
+    "aliases": [
+      "GAT",
+      "Graph Attention"
+    ],
+    "first_seen_year": 2017,
+    "description": "Attention-based neural network operating on graphs.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0010",
+    "name": "Mask R-CNN",
+    "category": "Algorithm",
+    "aliases": [
+      "MaskRCNN"
+    ],
+    "first_seen_year": 2017,
+    "description": "Instance segmentation model extending Faster R-CNN.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0011",
+    "name": "Random Forest",
+    "category": "Algorithm",
+    "aliases": [
+      "RandomForest",
+      "RF Classifier"
+    ],
+    "first_seen_year": 2001,
+    "description": "Ensemble learning method combining decision trees.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0012",
+    "name": "XGBoost",
+    "category": "Algorithm",
+    "aliases": [
+      "Extreme Gradient Boosting",
+      "XGB"
+    ],
+    "first_seen_year": 2014,
+    "description": "Optimized distributed gradient boosting library.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0013",
+    "name": "LightGBM",
+    "category": "Algorithm",
+    "aliases": [
+      "LGBM"
+    ],
+    "first_seen_year": 2016,
+    "description": "Gradient boosting framework that uses tree based learning algorithms.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0014",
+    "name": "CatBoost",
+    "category": "Algorithm",
+    "aliases": [
+      "Categorical Boosting"
+    ],
+    "first_seen_year": 2017,
+    "description": "Gradient boosting algorithm tailored for categorical features.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0015",
+    "name": "SVM",
+    "category": "Algorithm",
+    "aliases": [
+      "Support Vector Machine",
+      "SVR"
+    ],
+    "first_seen_year": 1995,
+    "description": "Supervised learning model for classification and regression.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0016",
+    "name": "LSTM",
+    "category": "Algorithm",
+    "aliases": [
+      "Long Short-Term Memory",
+      "Bi-LSTM"
+    ],
+    "first_seen_year": 1997,
+    "description": "Recurrent neural network architecture for sequential data.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0017",
+    "name": "GRU",
+    "category": "Algorithm",
+    "aliases": [
+      "Gated Recurrent Unit"
+    ],
+    "first_seen_year": 2014,
+    "description": "Streamlined recurrent neural network variant.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0018",
+    "name": "Isolation Forest",
+    "category": "Algorithm",
+    "aliases": [
+      "iForest"
+    ],
+    "first_seen_year": 2008,
+    "description": "Unsupervised anomaly detection algorithm based on isolation.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0019",
+    "name": "DBSCAN",
+    "category": "Algorithm",
+    "aliases": [
+      "Density-Based Spatial Clustering"
+    ],
+    "first_seen_year": 1996,
+    "description": "Density-based spatial clustering of applications with noise.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0020",
+    "name": "k-Means",
+    "category": "Algorithm",
+    "aliases": [
+      "KMeans",
+      "K-Means Clustering"
+    ],
+    "first_seen_year": 1967,
+    "description": "Partitioning algorithm dividing data into k clusters.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0021",
+    "name": "A* Search",
+    "category": "Algorithm",
+    "aliases": [
+      "A-Star",
+      "AStar"
+    ],
+    "first_seen_year": 1968,
+    "description": "Graph traversal and path search algorithm.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0022",
+    "name": "RRT*",
+    "category": "Algorithm",
+    "aliases": [
+      "Rapidly-exploring Random Tree Star"
+    ],
+    "first_seen_year": 2011,
+    "description": "Sampling-based optimal motion planning algorithm for robotics.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0023",
+    "name": "AlphaFold",
+    "category": "Algorithm",
+    "aliases": [
+      "AlphaFold2",
+      "AlphaFold3"
+    ],
+    "first_seen_year": 2020,
+    "description": "Deep learning system for predicting 3D protein structures.",
+    "difficulty": "Expert",
+    "default_rarity": 0.8
+  },
+  {
+    "feature_id": "FEAT-0024",
+    "name": "Whisper",
+    "category": "Algorithm",
+    "aliases": [
+      "OpenAI Whisper"
+    ],
+    "first_seen_year": 2022,
+    "description": "Automatic speech recognition and translation model.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0025",
+    "name": "NeRF",
+    "category": "Algorithm",
+    "aliases": [
+      "Neural Radiance Field",
+      "Instant NGP"
+    ],
+    "first_seen_year": 2020,
+    "description": "Implicit neural representation for novel view 3D synthesis.",
+    "difficulty": "Expert",
+    "default_rarity": 0.75
+  },
+  {
+    "feature_id": "FEAT-0026",
+    "name": "3D Gaussian Splatting",
+    "category": "Algorithm",
+    "aliases": [
+      "Gaussian Splatting",
+      "3DGS"
+    ],
+    "first_seen_year": 2023,
+    "description": "Real-time radiance field rendering technique using 3D Gaussians.",
+    "difficulty": "Expert",
+    "default_rarity": 0.85
+  },
+  {
+    "feature_id": "FEAT-0027",
+    "name": "PPO",
+    "category": "Algorithm",
+    "aliases": [
+      "Proximal Policy Optimization"
+    ],
+    "first_seen_year": 2017,
+    "description": "Policy gradient reinforcement learning algorithm.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0028",
+    "name": "DQN",
+    "category": "Algorithm",
+    "aliases": [
+      "Deep Q-Network",
+      "Deep Q Learning"
+    ],
+    "first_seen_year": 2013,
+    "description": "Deep reinforcement learning algorithm combining Q-learning with neural networks.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0029",
+    "name": "SimCLR",
+    "category": "Algorithm",
+    "aliases": [
+      "Simple Framework for Contrastive Learning"
+    ],
+    "first_seen_year": 2020,
+    "description": "Self-supervised contrastive learning framework for visual representations.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0030",
+    "name": "LoRA",
+    "category": "Algorithm",
+    "aliases": [
+      "Low-Rank Adaptation",
+      "QLoRA"
+    ],
+    "first_seen_year": 2021,
+    "description": "Parameter-efficient fine-tuning method for large models.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0031",
+    "name": "FAST-RP",
+    "category": "Algorithm",
+    "aliases": [
+      "Fast Random Projection"
+    ],
+    "first_seen_year": 2019,
+    "description": "Scalable graph node embedding algorithm.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.65
+  },
+  {
+    "feature_id": "FEAT-0032",
+    "name": "Node2Vec",
+    "category": "Algorithm",
+    "aliases": [
+      "node2vec"
+    ],
+    "first_seen_year": 2016,
+    "description": "Algorithmic framework for learning continuous feature representations for nodes in graphs.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.55
+  },
+  {
+    "feature_id": "FEAT-0033",
+    "name": "Adamic-Adar Index",
+    "category": "Algorithm",
+    "aliases": [
+      "Adamic Adar"
+    ],
+    "first_seen_year": 2003,
+    "description": "Link prediction measure based on common neighbors in graph networks.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0034",
+    "name": "PageRank",
+    "category": "Algorithm",
+    "aliases": [
+      "Google PageRank"
+    ],
+    "first_seen_year": 1998,
+    "description": "Graph centrality algorithm ranking web pages and network nodes.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0035",
+    "name": "U-Net",
+    "category": "Algorithm",
+    "aliases": [
+      "UNet",
+      "3D U-Net"
+    ],
+    "first_seen_year": 2015,
+    "description": "Convolutional network for biomedical image segmentation.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0036",
+    "name": "DeepLabV3+",
+    "category": "Algorithm",
+    "aliases": [
+      "DeepLab"
+    ],
+    "first_seen_year": 2018,
+    "description": "Semantic image segmentation network using atrous spatial pyramid pooling.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0037",
+    "name": "PointNet",
+    "category": "Algorithm",
+    "aliases": [
+      "PointNet++"
+    ],
+    "first_seen_year": 2017,
+    "description": "Deep learning architecture for 3D point cloud classification and segmentation.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0038",
+    "name": "Kalman Filter",
+    "category": "Algorithm",
+    "aliases": [
+      "Extended Kalman Filter",
+      "EKF"
+    ],
+    "first_seen_year": 1960,
+    "description": "Algorithm for optimal state estimation from noisy measurements.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0039",
+    "name": "SLAM",
+    "category": "Algorithm",
+    "aliases": [
+      "Visual SLAM",
+      "ORB-SLAM"
+    ],
+    "first_seen_year": 2000,
+    "description": "Simultaneous localization and mapping for robotics.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.55
+  },
+  {
+    "feature_id": "FEAT-0040",
+    "name": "Mamdani Inference",
+    "category": "Algorithm",
+    "aliases": [
+      "Fuzzy Mamdani"
+    ],
+    "first_seen_year": 1975,
+    "description": "Fuzzy logic inference methodology.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0041",
+    "name": "Neo4j",
+    "category": "Technology",
+    "aliases": [
+      "Neo4j Database",
+      "Neo4j Graph Data Science",
+      "GDS"
+    ],
+    "first_seen_year": 2007,
+    "description": "Graph database management system.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0042",
+    "name": "Docker",
+    "category": "Technology",
+    "aliases": [
+      "Docker Container",
+      "Dockerfile"
+    ],
+    "first_seen_year": 2013,
+    "description": "OS-level virtualization platform for containerizing applications.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0043",
+    "name": "Kubernetes",
+    "category": "Technology",
+    "aliases": [
+      "K8s",
+      "k8s"
+    ],
+    "first_seen_year": 2014,
+    "description": "Container orchestration platform for automated deployment and scaling.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0044",
+    "name": "FastAPI",
+    "category": "Technology",
+    "aliases": [
+      "FastAPI Framework"
+    ],
+    "first_seen_year": 2018,
+    "description": "Modern high-performance Web framework for building Python APIs.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0045",
+    "name": "React.js",
+    "category": "Technology",
+    "aliases": [
+      "React",
+      "ReactJS"
+    ],
+    "first_seen_year": 2013,
+    "description": "Frontend JavaScript library for building user interfaces.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.15
+  },
+  {
+    "feature_id": "FEAT-0046",
+    "name": "PostgreSQL",
+    "category": "Technology",
+    "aliases": [
+      "Postgres",
+      "pgvector"
+    ],
+    "first_seen_year": 1996,
+    "description": "Object-relational open-source database system.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.15
+  },
+  {
+    "feature_id": "FEAT-0047",
+    "name": "Redis",
+    "category": "Technology",
+    "aliases": [
+      "Redis Cache"
+    ],
+    "first_seen_year": 2009,
+    "description": "In-memory data structure store used as database, cache, and message broker.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0048",
+    "name": "Apache Kafka",
+    "category": "Technology",
+    "aliases": [
+      "Kafka",
+      "Kafka Streams"
+    ],
+    "first_seen_year": 2011,
+    "description": "Distributed event streaming platform.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0049",
+    "name": "Apache Spark",
+    "category": "Technology",
+    "aliases": [
+      "PySpark",
+      "Spark DataFrames"
+    ],
+    "first_seen_year": 2014,
+    "description": "Unified analytics engine for large-scale data processing.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0050",
+    "name": "MQTT",
+    "category": "Technology",
+    "aliases": [
+      "Mosquitto",
+      "MQTT Protocol"
+    ],
+    "first_seen_year": 1999,
+    "description": "Lightweight publish-subscribe messaging protocol for IoT.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0051",
+    "name": "LoRaWAN",
+    "category": "Technology",
+    "aliases": [
+      "LoRa"
+    ],
+    "first_seen_year": 2015,
+    "description": "Low-power wide-area networking protocol for IoT devices.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0052",
+    "name": "ROS",
+    "category": "Technology",
+    "aliases": [
+      "ROS2",
+      "Robot Operating System"
+    ],
+    "first_seen_year": 2007,
+    "description": "Flexible framework for writing robot software.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0053",
+    "name": "TensorFlow Lite",
+    "category": "Technology",
+    "aliases": [
+      "TFLite",
+      "TFLite Micro"
+    ],
+    "first_seen_year": 2017,
+    "description": "Lightweight solution for mobile and embedded devices.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0054",
+    "name": "ONNX",
+    "category": "Technology",
+    "aliases": [
+      "Open Neural Network Exchange"
+    ],
+    "first_seen_year": 2017,
+    "description": "Open format built to represent machine learning models.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0055",
+    "name": "CUDA",
+    "category": "Technology",
+    "aliases": [
+      "NVIDIA CUDA"
+    ],
+    "first_seen_year": 2007,
+    "description": "Parallel computing platform and API model created by NVIDIA.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0056",
+    "name": "OpenCV",
+    "category": "Technology",
+    "aliases": [
+      "cv2"
+    ],
+    "first_seen_year": 2000,
+    "description": "Open-source computer vision and machine learning software library.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0057",
+    "name": "WebAuthn",
+    "category": "Technology",
+    "aliases": [
+      "FIDO2",
+      "Passkeys"
+    ],
+    "first_seen_year": 2019,
+    "description": "Web standard for secure passwordless authentication.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0058",
+    "name": "Ethereum",
+    "category": "Technology",
+    "aliases": [
+      "EVM",
+      "Solidity"
+    ],
+    "first_seen_year": 2015,
+    "description": "Decentralized blockchain platform with smart contract functionality.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0059",
+    "name": "Hyperledger Fabric",
+    "category": "Technology",
+    "aliases": [
+      "Hyperledger"
+    ],
+    "first_seen_year": 2015,
+    "description": "Permissioned enterprise blockchain framework.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0060",
+    "name": "5G NR",
+    "category": "Technology",
+    "aliases": [
+      "5G New Radio",
+      "5G RAN"
+    ],
+    "first_seen_year": 2018,
+    "description": "Global standard for unified 5G wireless air interface.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0061",
+    "name": "AWS Lambda",
+    "category": "Technology",
+    "aliases": [
+      "Serverless Lambda"
+    ],
+    "first_seen_year": 2014,
+    "description": "Serverless event-driven compute service.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0062",
+    "name": "PyTorch",
+    "category": "Framework",
+    "aliases": [
+      "torch",
+      "PyTorch Lightning"
+    ],
+    "first_seen_year": 2016,
+    "description": "Open-source machine learning framework based on Torch.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0063",
+    "name": "TensorFlow",
+    "category": "Framework",
+    "aliases": [
+      "tf",
+      "Keras"
+    ],
+    "first_seen_year": 2015,
+    "description": "End-to-end open source platform for machine learning.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0064",
+    "name": "scikit-learn",
+    "category": "Library",
+    "aliases": [
+      "sklearn"
+    ],
+    "first_seen_year": 2007,
+    "description": "Machine learning library for Python.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.15
+  },
+  {
+    "feature_id": "FEAT-0065",
+    "name": "Hugging Face Transformers",
+    "category": "Library",
+    "aliases": [
+      "transformers"
+    ],
+    "first_seen_year": 2018,
+    "description": "State-of-the-art machine learning library for PyTorch, TensorFlow, and JAX.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0066",
+    "name": "spaCy",
+    "category": "Library",
+    "aliases": [
+      "spacy"
+    ],
+    "first_seen_year": 2015,
+    "description": "Industrial-strength natural language processing library.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0067",
+    "name": "LangChain",
+    "category": "Framework",
+    "aliases": [
+      "LangGraph"
+    ],
+    "first_seen_year": 2022,
+    "description": "Framework for developing applications powered by language models.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0068",
+    "name": "LlamaIndex",
+    "category": "Framework",
+    "aliases": [
+      "GPT Index"
+    ],
+    "first_seen_year": 2022,
+    "description": "Data framework for LLM-based applications.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0069",
+    "name": "PyTorch Geometric",
+    "category": "Library",
+    "aliases": [
+      "PyG"
+    ],
+    "first_seen_year": 2019,
+    "description": "Geometric deep learning extension library for PyTorch.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.55
+  },
+  {
+    "feature_id": "FEAT-0070",
+    "name": "Open3D",
+    "category": "Library",
+    "aliases": [
+      "open3d"
+    ],
+    "first_seen_year": 2018,
+    "description": "Modern library for 3D data processing.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0071",
+    "name": "MONAI",
+    "category": "Framework",
+    "aliases": [
+      "MONAI Framework"
+    ],
+    "first_seen_year": 2020,
+    "description": "PyTorch-based open source framework for deep learning in healthcare imaging.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.6
+  },
+  {
+    "feature_id": "FEAT-0072",
+    "name": "MediaPipe",
+    "category": "Framework",
+    "aliases": [
+      "BlazePose",
+      "MediaPipe Hands"
+    ],
+    "first_seen_year": 2019,
+    "description": "Cross-platform ML solutions for live and streaming media.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0073",
+    "name": "SHAP",
+    "category": "Library",
+    "aliases": [
+      "shap"
+    ],
+    "first_seen_year": 2017,
+    "description": "Game theoretic approach to explain the output of machine learning models.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0074",
+    "name": "LIME",
+    "category": "Library",
+    "aliases": [
+      "lime"
+    ],
+    "first_seen_year": 2016,
+    "description": "Local Interpretable Model-agnostic Explanations.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0075",
+    "name": "Diffusers",
+    "category": "Library",
+    "aliases": [
+      "huggingface diffusers"
+    ],
+    "first_seen_year": 2022,
+    "description": "Go-to library for state-of-the-art pretrained diffusion models.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0076",
+    "name": "FAISS",
+    "category": "Library",
+    "aliases": [
+      "Facebook AI Similarity Search"
+    ],
+    "first_seen_year": 2017,
+    "description": "Library for efficient similarity search and clustering of dense vectors.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0077",
+    "name": "ChromaDB",
+    "category": "Library",
+    "aliases": [
+      "Chroma"
+    ],
+    "first_seen_year": 2022,
+    "description": "Open-source AI application database for embeddings.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0078",
+    "name": "ImageNet",
+    "category": "Dataset",
+    "aliases": [
+      "ILSVRC"
+    ],
+    "first_seen_year": 2009,
+    "description": "Large-scale visual database designed for use in visual object recognition research.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0079",
+    "name": "COCO",
+    "category": "Dataset",
+    "aliases": [
+      "MS COCO",
+      "Common Objects in Context"
+    ],
+    "first_seen_year": 2014,
+    "description": "Large-scale object detection, segmentation, and captioning dataset.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0080",
+    "name": "MIMIC-III",
+    "category": "Dataset",
+    "aliases": [
+      "MIMIC-IV",
+      "MIMIC Clinical Database"
+    ],
+    "first_seen_year": 2015,
+    "description": "Freely accessible critical care database.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0081",
+    "name": "SQuAD",
+    "category": "Dataset",
+    "aliases": [
+      "SQuAD 2.0"
+    ],
+    "first_seen_year": 2016,
+    "description": "Stanford Question Answering Dataset.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0082",
+    "name": "KITTI",
+    "category": "Dataset",
+    "aliases": [
+      "KITTI Vision Benchmark"
+    ],
+    "first_seen_year": 2012,
+    "description": "Mobile robotics and autonomous driving dataset.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0083",
+    "name": "nuScenes",
+    "category": "Dataset",
+    "aliases": [
+      "nuScenes 3D"
+    ],
+    "first_seen_year": 2019,
+    "description": "Public large-scale dataset for autonomous driving.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0084",
+    "name": "MVTec AD",
+    "category": "Dataset",
+    "aliases": [
+      "MVTec Anomaly Detection"
+    ],
+    "first_seen_year": 2019,
+    "description": "Dataset for benchmarking industrial anomaly detection algorithms.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.5
+  },
+  {
+    "feature_id": "FEAT-0085",
+    "name": "BraTS",
+    "category": "Dataset",
+    "aliases": [
+      "Brain Tumor Segmentation Challenge"
+    ],
+    "first_seen_year": 2012,
+    "description": "Multimodal Brain Tumor Image Segmentation Benchmark.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.55
+  },
+  {
+    "feature_id": "FEAT-0086",
+    "name": "CICIDS-2017",
+    "category": "Dataset",
+    "aliases": [
+      "CICIDS"
+    ],
+    "first_seen_year": 2017,
+    "description": "Network intrusion detection evaluation dataset.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0087",
+    "name": "GLUE",
+    "category": "Dataset",
+    "aliases": [
+      "SuperGLUE"
+    ],
+    "first_seen_year": 2018,
+    "description": "General Language Understanding Evaluation benchmark.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0088",
+    "name": "ChestX-ray14",
+    "category": "Dataset",
+    "aliases": [
+      "NIH Chest X-ray"
+    ],
+    "first_seen_year": 2017,
+    "description": "Hospital-scale chest X-ray database and benchmarks.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0089",
+    "name": "PlantVillage",
+    "category": "Dataset",
+    "aliases": [
+      "PlantVillage Dataset"
+    ],
+    "first_seen_year": 2015,
+    "description": "Dataset of healthy and diseased plant leaf images.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0090",
+    "name": "Autonomous Vehicles",
+    "category": "Application",
+    "aliases": [
+      "Self-Driving Cars",
+      "Robo-taxis"
+    ],
+    "first_seen_year": 2015,
+    "description": "Vehicles capable of sensing environment and operating without human involvement.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0091",
+    "name": "Fraud Detection",
+    "category": "Application",
+    "aliases": [
+      "Credit Card Fraud",
+      "Financial Fraud"
+    ],
+    "first_seen_year": 2005,
+    "description": "Automated system detecting illicit financial transactions.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.25
+  },
+  {
+    "feature_id": "FEAT-0092",
+    "name": "Predictive Maintenance",
+    "category": "Application",
+    "aliases": [
+      "PdM",
+      "Condition Monitoring"
+    ],
+    "first_seen_year": 2010,
+    "description": "Techniques predicting equipment failure to schedule maintenance.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.3
+  },
+  {
+    "feature_id": "FEAT-0093",
+    "name": "Medical Diagnosis",
+    "category": "Application",
+    "aliases": [
+      "Clinical Decision Support",
+      "Radiology AI"
+    ],
+    "first_seen_year": 2015,
+    "description": "AI-assisted clinical decision support for diagnosing patient illnesses.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0094",
+    "name": "Smart Agriculture",
+    "category": "Application",
+    "aliases": [
+      "Precision Agriculture",
+      "Smart Farming"
+    ],
+    "first_seen_year": 2015,
+    "description": "Using modern technology and IoT to increase quantity and quality of agricultural products.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  },
+  {
+    "feature_id": "FEAT-0095",
+    "name": "Raspberry Pi",
+    "category": "Hardware",
+    "aliases": [
+      "Raspberry Pi 4",
+      "RPi 5"
+    ],
+    "first_seen_year": 2012,
+    "description": "Small single-board computers for IoT and embedded prototypes.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0096",
+    "name": "ESP32",
+    "category": "Hardware",
+    "aliases": [
+      "ESP32-CAM",
+      "ESP8266"
+    ],
+    "first_seen_year": 2016,
+    "description": "Low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.",
+    "difficulty": "Beginner",
+    "default_rarity": 0.2
+  },
+  {
+    "feature_id": "FEAT-0097",
+    "name": "NVIDIA Jetson",
+    "category": "Hardware",
+    "aliases": [
+      "Jetson Nano",
+      "Jetson Orin"
+    ],
+    "first_seen_year": 2019,
+    "description": "Leading platform for AI at the edge.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.4
+  },
+  {
+    "feature_id": "FEAT-0098",
+    "name": "LiDAR Sensor",
+    "category": "Hardware",
+    "aliases": [
+      "LiDAR",
+      "3D LiDAR"
+    ],
+    "first_seen_year": 2005,
+    "description": "Method for determining ranges by targeting an object with a laser.",
+    "difficulty": "Advanced",
+    "default_rarity": 0.45
+  },
+  {
+    "feature_id": "FEAT-0099",
+    "name": "STM32",
+    "category": "Hardware",
+    "aliases": [
+      "STM32 Microcontroller"
+    ],
+    "first_seen_year": 2007,
+    "description": "32-bit Flash microcontrollers based on ARM Cortex-M processor.",
+    "difficulty": "Intermediate",
+    "default_rarity": 0.35
+  }
+]

@@ -5,10 +5,11 @@ import type {
   Rubric, LeaderboardEntry, BatchJobStatus, SemesterBenchmark,
   FacultyDashboardStats, HODDeptStats, User, SubmissionType,
 } from '../types';
+import type { NoveltyReportData } from '../components/NoveltyReportView';
 import {
   mockProjects, mockPublicReport, mockInternalReport, mockLeaderboard,
   mockVivaQuestions, mockVivaAnswer, mockAppeals, mockFacultyDashboard,
-  mockRubric, mockBenchmarks, mockHODStats, mockUsers,
+  mockRubric, mockBenchmarks, mockHODStats, mockUsers, mockNoveltyReport,
 } from './mockData';
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
@@ -136,6 +137,30 @@ export const getEvaluationReport = async (
   }
   const { data } = await apiClient.get<InternalEvaluationReport>(`/projects/${projectId}/report/internal`);
   return data;
+};
+
+// ─── AcadEval+ Graph-Based Novelty Engine ─────────────────────────────────────
+export const getNoveltyReport = async (projectId: string, abstract: string): Promise<NoveltyReportData> => {
+  if (USE_MOCK) { await delay(900); return mockNoveltyReport(projectId); }
+  const { data } = await apiClient.get<NoveltyReportData>(`/v1/acadeval/report/${projectId}`, {
+    params: { abstract },
+  });
+  return data;
+};
+
+export const submitFacultyNoveltyReview = async (
+  projectId: string,
+  facultyScore: number,
+  systemScore: number,
+  overrideReason?: string
+): Promise<void> => {
+  if (USE_MOCK) { await delay(500); return; }
+  await apiClient.post('/v1/acadeval/faculty-review', {
+    project_id: projectId,
+    faculty_score: facultyScore,
+    system_score: systemScore,
+    override_reason: overrideReason || null,
+  });
 };
 
 // ─── Review Actions ────────────────────────────────────────────────────────────

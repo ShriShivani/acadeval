@@ -1,0 +1,100 @@
+﻿feature_id,name,category,aliases,first_seen_year,description,difficulty,default_rarity
+FEAT-0001,ResNet,Algorithm,"ResNet-50, ResNet-101, ResNet-18, Residual Network",2015,Deep residual neural network with skip connections for computer vision.,Intermediate,0.3
+FEAT-0002,YOLO,Algorithm,"YOLOv5, YOLOv8, YOLOv9, YOLOv10, You Only Look Once",2016,Real-time single-stage object detection model.,Intermediate,0.3
+FEAT-0003,BERT,Algorithm,"BioBERT, ClinicalBERT, RoBERTa, DeBERTa",2018,Bidirectional Encoder Representations from Transformers for NLP.,Intermediate,0.3
+FEAT-0004,GPT-4,Algorithm,"GPT4, GPT-4o, Generative Pre-trained Transformer 4",2023,Large-scale multimodal generative language model.,Advanced,0.4
+FEAT-0005,LLaMA,Algorithm,"LLaMA-2, LLaMA-3, Llama3",2023,Open-weight foundational large language model by Meta.,Advanced,0.4
+FEAT-0006,Stable Diffusion,Algorithm,"SDXL, Latent Diffusion, DDPM",2022,Latent text-to-image diffusion model.,Advanced,0.4
+FEAT-0007,Vision Transformer,Algorithm,"ViT, Swin Transformer",2020,Transformer architecture applied directly to image patches.,Advanced,0.5
+FEAT-0008,Graph Convolutional Network,Algorithm,"GCN, Graph Convolution",2016,Convolutional neural network for graph-structured data.,Advanced,0.6
+FEAT-0009,Graph Attention Network,Algorithm,"GAT, Graph Attention",2017,Attention-based neural network operating on graphs.,Advanced,0.6
+FEAT-0010,Mask R-CNN,Algorithm,MaskRCNN,2017,Instance segmentation model extending Faster R-CNN.,Advanced,0.4
+FEAT-0011,Random Forest,Algorithm,"RandomForest, RF Classifier",2001,Ensemble learning method combining decision trees.,Beginner,0.2
+FEAT-0012,XGBoost,Algorithm,"Extreme Gradient Boosting, XGB",2014,Optimized distributed gradient boosting library.,Intermediate,0.25
+FEAT-0013,LightGBM,Algorithm,LGBM,2016,Gradient boosting framework that uses tree based learning algorithms.,Intermediate,0.3
+FEAT-0014,CatBoost,Algorithm,Categorical Boosting,2017,Gradient boosting algorithm tailored for categorical features.,Intermediate,0.35
+FEAT-0015,SVM,Algorithm,"Support Vector Machine, SVR",1995,Supervised learning model for classification and regression.,Beginner,0.2
+FEAT-0016,LSTM,Algorithm,"Long Short-Term Memory, Bi-LSTM",1997,Recurrent neural network architecture for sequential data.,Intermediate,0.3
+FEAT-0017,GRU,Algorithm,Gated Recurrent Unit,2014,Streamlined recurrent neural network variant.,Intermediate,0.35
+FEAT-0018,Isolation Forest,Algorithm,iForest,2008,Unsupervised anomaly detection algorithm based on isolation.,Intermediate,0.4
+FEAT-0019,DBSCAN,Algorithm,Density-Based Spatial Clustering,1996,Density-based spatial clustering of applications with noise.,Intermediate,0.3
+FEAT-0020,k-Means,Algorithm,"KMeans, K-Means Clustering",1967,Partitioning algorithm dividing data into k clusters.,Beginner,0.2
+FEAT-0021,A* Search,Algorithm,"A-Star, AStar",1968,Graph traversal and path search algorithm.,Beginner,0.25
+FEAT-0022,RRT*,Algorithm,Rapidly-exploring Random Tree Star,2011,Sampling-based optimal motion planning algorithm for robotics.,Advanced,0.6
+FEAT-0023,AlphaFold,Algorithm,"AlphaFold2, AlphaFold3",2020,Deep learning system for predicting 3D protein structures.,Expert,0.8
+FEAT-0024,Whisper,Algorithm,OpenAI Whisper,2022,Automatic speech recognition and translation model.,Intermediate,0.35
+FEAT-0025,NeRF,Algorithm,"Neural Radiance Field, Instant NGP",2020,Implicit neural representation for novel view 3D synthesis.,Expert,0.75
+FEAT-0026,3D Gaussian Splatting,Algorithm,"Gaussian Splatting, 3DGS",2023,Real-time radiance field rendering technique using 3D Gaussians.,Expert,0.85
+FEAT-0027,PPO,Algorithm,Proximal Policy Optimization,2017,Policy gradient reinforcement learning algorithm.,Advanced,0.5
+FEAT-0028,DQN,Algorithm,"Deep Q-Network, Deep Q Learning",2013,Deep reinforcement learning algorithm combining Q-learning with neural networks.,Advanced,0.45
+FEAT-0029,SimCLR,Algorithm,Simple Framework for Contrastive Learning,2020,Self-supervised contrastive learning framework for visual representations.,Advanced,0.6
+FEAT-0030,LoRA,Algorithm,"Low-Rank Adaptation, QLoRA",2021,Parameter-efficient fine-tuning method for large models.,Advanced,0.4
+FEAT-0031,FAST-RP,Algorithm,Fast Random Projection,2019,Scalable graph node embedding algorithm.,Advanced,0.65
+FEAT-0032,Node2Vec,Algorithm,node2vec,2016,Algorithmic framework for learning continuous feature representations for nodes in graphs.,Advanced,0.55
+FEAT-0033,Adamic-Adar Index,Algorithm,Adamic Adar,2003,Link prediction measure based on common neighbors in graph networks.,Intermediate,0.5
+FEAT-0034,PageRank,Algorithm,Google PageRank,1998,Graph centrality algorithm ranking web pages and network nodes.,Intermediate,0.3
+FEAT-0035,U-Net,Algorithm,"UNet, 3D U-Net",2015,Convolutional network for biomedical image segmentation.,Intermediate,0.3
+FEAT-0036,DeepLabV3+,Algorithm,DeepLab,2018,Semantic image segmentation network using atrous spatial pyramid pooling.,Advanced,0.45
+FEAT-0037,PointNet,Algorithm,PointNet++,2017,Deep learning architecture for 3D point cloud classification and segmentation.,Advanced,0.6
+FEAT-0038,Kalman Filter,Algorithm,"Extended Kalman Filter, EKF",1960,Algorithm for optimal state estimation from noisy measurements.,Intermediate,0.3
+FEAT-0039,SLAM,Algorithm,"Visual SLAM, ORB-SLAM",2000,Simultaneous localization and mapping for robotics.,Advanced,0.55
+FEAT-0040,Mamdani Inference,Algorithm,Fuzzy Mamdani,1975,Fuzzy logic inference methodology.,Intermediate,0.4
+FEAT-0041,Neo4j,Technology,"Neo4j Database, Neo4j Graph Data Science, GDS",2007,Graph database management system.,Intermediate,0.45
+FEAT-0042,Docker,Technology,"Docker Container, Dockerfile",2013,OS-level virtualization platform for containerizing applications.,Beginner,0.2
+FEAT-0043,Kubernetes,Technology,"K8s, k8s",2014,Container orchestration platform for automated deployment and scaling.,Intermediate,0.35
+FEAT-0044,FastAPI,Technology,FastAPI Framework,2018,Modern high-performance Web framework for building Python APIs.,Beginner,0.25
+FEAT-0045,React.js,Technology,"React, ReactJS",2013,Frontend JavaScript library for building user interfaces.,Beginner,0.15
+FEAT-0046,PostgreSQL,Technology,"Postgres, pgvector",1996,Object-relational open-source database system.,Beginner,0.15
+FEAT-0047,Redis,Technology,Redis Cache,2009,"In-memory data structure store used as database, cache, and message broker.",Beginner,0.2
+FEAT-0048,Apache Kafka,Technology,"Kafka, Kafka Streams",2011,Distributed event streaming platform.,Intermediate,0.35
+FEAT-0049,Apache Spark,Technology,"PySpark, Spark DataFrames",2014,Unified analytics engine for large-scale data processing.,Intermediate,0.35
+FEAT-0050,MQTT,Technology,"Mosquitto, MQTT Protocol",1999,Lightweight publish-subscribe messaging protocol for IoT.,Beginner,0.25
+FEAT-0051,LoRaWAN,Technology,LoRa,2015,Low-power wide-area networking protocol for IoT devices.,Intermediate,0.4
+FEAT-0052,ROS,Technology,"ROS2, Robot Operating System",2007,Flexible framework for writing robot software.,Intermediate,0.45
+FEAT-0053,TensorFlow Lite,Technology,"TFLite, TFLite Micro",2017,Lightweight solution for mobile and embedded devices.,Intermediate,0.4
+FEAT-0054,ONNX,Technology,Open Neural Network Exchange,2017,Open format built to represent machine learning models.,Intermediate,0.35
+FEAT-0055,CUDA,Technology,NVIDIA CUDA,2007,Parallel computing platform and API model created by NVIDIA.,Intermediate,0.3
+FEAT-0056,OpenCV,Technology,cv2,2000,Open-source computer vision and machine learning software library.,Beginner,0.2
+FEAT-0057,WebAuthn,Technology,"FIDO2, Passkeys",2019,Web standard for secure passwordless authentication.,Intermediate,0.45
+FEAT-0058,Ethereum,Technology,"EVM, Solidity",2015,Decentralized blockchain platform with smart contract functionality.,Intermediate,0.35
+FEAT-0059,Hyperledger Fabric,Technology,Hyperledger,2015,Permissioned enterprise blockchain framework.,Advanced,0.5
+FEAT-0060,5G NR,Technology,"5G New Radio, 5G RAN",2018,Global standard for unified 5G wireless air interface.,Advanced,0.5
+FEAT-0061,AWS Lambda,Technology,Serverless Lambda,2014,Serverless event-driven compute service.,Intermediate,0.25
+FEAT-0062,PyTorch,Framework,"torch, PyTorch Lightning",2016,Open-source machine learning framework based on Torch.,Beginner,0.2
+FEAT-0063,TensorFlow,Framework,"tf, Keras",2015,End-to-end open source platform for machine learning.,Beginner,0.2
+FEAT-0064,scikit-learn,Library,sklearn,2007,Machine learning library for Python.,Beginner,0.15
+FEAT-0065,Hugging Face Transformers,Library,transformers,2018,"State-of-the-art machine learning library for PyTorch, TensorFlow, and JAX.",Beginner,0.25
+FEAT-0066,spaCy,Library,spacy,2015,Industrial-strength natural language processing library.,Beginner,0.25
+FEAT-0067,LangChain,Framework,LangGraph,2022,Framework for developing applications powered by language models.,Intermediate,0.3
+FEAT-0068,LlamaIndex,Framework,GPT Index,2022,Data framework for LLM-based applications.,Intermediate,0.35
+FEAT-0069,PyTorch Geometric,Library,PyG,2019,Geometric deep learning extension library for PyTorch.,Advanced,0.55
+FEAT-0070,Open3D,Library,open3d,2018,Modern library for 3D data processing.,Intermediate,0.5
+FEAT-0071,MONAI,Framework,MONAI Framework,2020,PyTorch-based open source framework for deep learning in healthcare imaging.,Advanced,0.6
+FEAT-0072,MediaPipe,Framework,"BlazePose, MediaPipe Hands",2019,Cross-platform ML solutions for live and streaming media.,Intermediate,0.3
+FEAT-0073,SHAP,Library,shap,2017,Game theoretic approach to explain the output of machine learning models.,Intermediate,0.35
+FEAT-0074,LIME,Library,lime,2016,Local Interpretable Model-agnostic Explanations.,Intermediate,0.4
+FEAT-0075,Diffusers,Library,huggingface diffusers,2022,Go-to library for state-of-the-art pretrained diffusion models.,Intermediate,0.35
+FEAT-0076,FAISS,Library,Facebook AI Similarity Search,2017,Library for efficient similarity search and clustering of dense vectors.,Intermediate,0.4
+FEAT-0077,ChromaDB,Library,Chroma,2022,Open-source AI application database for embeddings.,Intermediate,0.3
+FEAT-0078,ImageNet,Dataset,ILSVRC,2009,Large-scale visual database designed for use in visual object recognition research.,Beginner,0.2
+FEAT-0079,COCO,Dataset,"MS COCO, Common Objects in Context",2014,"Large-scale object detection, segmentation, and captioning dataset.",Beginner,0.25
+FEAT-0080,MIMIC-III,Dataset,"MIMIC-IV, MIMIC Clinical Database",2015,Freely accessible critical care database.,Intermediate,0.45
+FEAT-0081,SQuAD,Dataset,SQuAD 2.0,2016,Stanford Question Answering Dataset.,Intermediate,0.35
+FEAT-0082,KITTI,Dataset,KITTI Vision Benchmark,2012,Mobile robotics and autonomous driving dataset.,Intermediate,0.4
+FEAT-0083,nuScenes,Dataset,nuScenes 3D,2019,Public large-scale dataset for autonomous driving.,Advanced,0.5
+FEAT-0084,MVTec AD,Dataset,MVTec Anomaly Detection,2019,Dataset for benchmarking industrial anomaly detection algorithms.,Intermediate,0.5
+FEAT-0085,BraTS,Dataset,Brain Tumor Segmentation Challenge,2012,Multimodal Brain Tumor Image Segmentation Benchmark.,Advanced,0.55
+FEAT-0086,CICIDS-2017,Dataset,CICIDS,2017,Network intrusion detection evaluation dataset.,Intermediate,0.4
+FEAT-0087,GLUE,Dataset,SuperGLUE,2018,General Language Understanding Evaluation benchmark.,Intermediate,0.35
+FEAT-0088,ChestX-ray14,Dataset,NIH Chest X-ray,2017,Hospital-scale chest X-ray database and benchmarks.,Intermediate,0.4
+FEAT-0089,PlantVillage,Dataset,PlantVillage Dataset,2015,Dataset of healthy and diseased plant leaf images.,Beginner,0.3
+FEAT-0090,Autonomous Vehicles,Application,"Self-Driving Cars, Robo-taxis",2015,Vehicles capable of sensing environment and operating without human involvement.,Advanced,0.4
+FEAT-0091,Fraud Detection,Application,"Credit Card Fraud, Financial Fraud",2005,Automated system detecting illicit financial transactions.,Intermediate,0.25
+FEAT-0092,Predictive Maintenance,Application,"PdM, Condition Monitoring",2010,Techniques predicting equipment failure to schedule maintenance.,Intermediate,0.3
+FEAT-0093,Medical Diagnosis,Application,"Clinical Decision Support, Radiology AI",2015,AI-assisted clinical decision support for diagnosing patient illnesses.,Advanced,0.35
+FEAT-0094,Smart Agriculture,Application,"Precision Agriculture, Smart Farming",2015,Using modern technology and IoT to increase quantity and quality of agricultural products.,Intermediate,0.35
+FEAT-0095,Raspberry Pi,Hardware,"Raspberry Pi 4, RPi 5",2012,Small single-board computers for IoT and embedded prototypes.,Beginner,0.2
+FEAT-0096,ESP32,Hardware,"ESP32-CAM, ESP8266",2016,"Low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.",Beginner,0.2
+FEAT-0097,NVIDIA Jetson,Hardware,"Jetson Nano, Jetson Orin",2019,Leading platform for AI at the edge.,Intermediate,0.4
+FEAT-0098,LiDAR Sensor,Hardware,"LiDAR, 3D LiDAR",2005,Method for determining ranges by targeting an object with a laser.,Advanced,0.45
+FEAT-0099,STM32,Hardware,STM32 Microcontroller,2007,32-bit Flash microcontrollers based on ARM Cortex-M processor.,Intermediate,0.35

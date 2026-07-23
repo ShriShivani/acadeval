@@ -4,10 +4,12 @@ from fastapi.staticfiles import StaticFiles
 import os
 
 from app.config import settings
+from app.services.graph_db import graph_service
 from app.routers import (
     auth, projects, reports, reviews,
     appeals, rubrics, viva,
     leaderboard, dashboard, users,
+    acadeval_plus
 )
 
 app = FastAPI(
@@ -34,16 +36,27 @@ app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_DIR), name="uploads"
 # ── Routers ───────────────────────────────────────────────────────────────────
 API_PREFIX = "/api"
 
-app.include_router(auth.router,        prefix=API_PREFIX)
-app.include_router(projects.router,    prefix=API_PREFIX)
-app.include_router(reports.router,     prefix=API_PREFIX)
-app.include_router(reviews.router,     prefix=API_PREFIX)
-app.include_router(appeals.router,     prefix=API_PREFIX)
-app.include_router(rubrics.router,     prefix=API_PREFIX)
-app.include_router(viva.router,        prefix=API_PREFIX)
-app.include_router(leaderboard.router, prefix=API_PREFIX)
-app.include_router(dashboard.router,   prefix=API_PREFIX)
-app.include_router(users.router,       prefix=API_PREFIX)
+app.include_router(auth.router,          prefix=API_PREFIX)
+app.include_router(projects.router,      prefix=API_PREFIX)
+app.include_router(reports.router,       prefix=API_PREFIX)
+app.include_router(reviews.router,       prefix=API_PREFIX)
+app.include_router(appeals.router,       prefix=API_PREFIX)
+app.include_router(rubrics.router,       prefix=API_PREFIX)
+app.include_router(viva.router,          prefix=API_PREFIX)
+app.include_router(leaderboard.router,   prefix=API_PREFIX)
+app.include_router(dashboard.router,     prefix=API_PREFIX)
+app.include_router(users.router,         prefix=API_PREFIX)
+app.include_router(acadeval_plus.router, prefix=API_PREFIX)
+
+
+@app.on_event("startup")
+def on_startup():
+    graph_service.ensure_constraints()
+
+
+@app.on_event("shutdown")
+def on_shutdown():
+    graph_service.close()
 
 
 @app.get("/health")
