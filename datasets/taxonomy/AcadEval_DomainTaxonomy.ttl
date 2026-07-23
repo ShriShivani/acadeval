@@ -1,0 +1,3219 @@
+@prefix ae:   <http://acadeval.io/taxonomy#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+
+ae:AE_0001 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Expert_Systems ;
+    rdfs:label "Rule-Based Systems" ;
+    dc:description "Systems emulating expert decision-making using if-then rules and inference engines." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Expert_Systems rdfs:label "Expert Systems" .
+
+ae:AE_0002 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Expert_Systems ;
+    rdfs:label "Fuzzy Logic Systems" ;
+    dc:description "AI systems using fuzzy logic to handle uncertainty and approximate reasoning." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Expert_Systems rdfs:label "Expert Systems" .
+
+ae:AE_0003 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Expert_Systems ;
+    rdfs:label "Ontology Engineering" ;
+    dc:description "Design and implementation of formal ontologies for knowledge representation." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Expert_Systems rdfs:label "Expert Systems" .
+
+ae:AE_0004 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Knowledge_Representation ;
+    rdfs:label "Knowledge Graphs" ;
+    dc:description "Graph-based structures representing entities and relationships for AI reasoning." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Knowledge_Representation rdfs:label "Knowledge Representation" .
+
+ae:AE_0005 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Knowledge_Representation ;
+    rdfs:label "Common Sense Reasoning" ;
+    dc:description "AI systems reasoning about everyday situations using background knowledge." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Knowledge_Representation rdfs:label "Knowledge Representation" .
+
+ae:AE_0006 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Planning_&_Reasoning ;
+    rdfs:label "Automated Planning" ;
+    dc:description "AI techniques generating action sequences to achieve goals from initial states." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Planning_&_Reasoning rdfs:label "Planning & Reasoning" .
+
+ae:AE_0007 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Planning_&_Reasoning ;
+    rdfs:label "Constraint Satisfaction" ;
+    dc:description "Solving problems by finding assignments satisfying all given constraints." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Planning_&_Reasoning rdfs:label "Planning & Reasoning" .
+
+ae:AE_0008 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:AI_Ethics_&_Fairness ;
+    rdfs:label "Bias Detection and Mitigation" ;
+    dc:description "Methods for identifying and reducing algorithmic bias in AI systems." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:AI_Ethics_&_Fairness rdfs:label "AI Ethics & Fairness" .
+
+ae:AE_0009 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Explainable_AI ;
+    rdfs:label "Feature Attribution Methods" ;
+    dc:description "Techniques explaining model predictions by attributing importance to features." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Explainable_AI rdfs:label "Explainable AI" .
+
+ae:AE_0010 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Explainable_AI ;
+    rdfs:label "Counterfactual Explanations" ;
+    dc:description "Generating what-if scenarios to explain AI model decisions." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Explainable_AI rdfs:label "Explainable AI" .
+
+ae:AE_0011 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Cognitive_Computing ;
+    rdfs:label "Human-Level AI Benchmarking" ;
+    dc:description "Evaluating AI systems against human performance benchmarks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Cognitive_Computing rdfs:label "Cognitive Computing" .
+
+ae:AE_0012 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Evolutionary_Computation ;
+    rdfs:label "Genetic Algorithms" ;
+    dc:description "Optimization algorithms inspired by natural selection and genetics." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Evolutionary_Computation rdfs:label "Evolutionary Computation" .
+
+ae:AE_0013 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:Swarm_Intelligence ;
+    rdfs:label "Particle Swarm Optimization" ;
+    dc:description "Population-based optimization inspired by social behavior of birds and fish." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:Swarm_Intelligence rdfs:label "Swarm Intelligence" .
+
+ae:AE_0014 a ae:Topic ;
+    ae:domain ae:Artificial_Intelligence ;
+    ae:subDomain ae:AI_Safety ;
+    rdfs:label "Adversarial Robustness" ;
+    dc:description "Making AI systems robust against adversarial inputs and distribution shifts." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Artificial_Intelligence rdfs:label "Artificial Intelligence" .
+ae:AI_Safety rdfs:label "AI Safety" .
+
+ae:AE_0015 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Supervised_Learning ;
+    rdfs:label "Classification" ;
+    dc:description "Predicting discrete class labels from labeled training data." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Supervised_Learning rdfs:label "Supervised Learning" .
+
+ae:AE_0016 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Supervised_Learning ;
+    rdfs:label "Regression" ;
+    dc:description "Predicting continuous output values from labeled training data." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Supervised_Learning rdfs:label "Supervised Learning" .
+
+ae:AE_0017 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Supervised_Learning ;
+    rdfs:label "Time Series Forecasting" ;
+    dc:description "Predicting future values in temporal sequences from historical data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Supervised_Learning rdfs:label "Supervised Learning" .
+
+ae:AE_0018 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Unsupervised_Learning ;
+    rdfs:label "Clustering" ;
+    dc:description "Grouping unlabeled data into clusters based on similarity measures." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Unsupervised_Learning rdfs:label "Unsupervised Learning" .
+
+ae:AE_0019 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Unsupervised_Learning ;
+    rdfs:label "Dimensionality Reduction" ;
+    dc:description "Reducing the number of features while preserving important data structure." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Unsupervised_Learning rdfs:label "Unsupervised Learning" .
+
+ae:AE_0020 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Unsupervised_Learning ;
+    rdfs:label "Anomaly Detection" ;
+    dc:description "Identifying unusual patterns that deviate significantly from expected behavior." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Unsupervised_Learning rdfs:label "Unsupervised Learning" .
+
+ae:AE_0021 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Reinforcement_Learning ;
+    rdfs:label "Q-Learning" ;
+    dc:description "Learning optimal action policies through reward-based trial and error interaction." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Reinforcement_Learning rdfs:label "Reinforcement Learning" .
+
+ae:AE_0022 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Reinforcement_Learning ;
+    rdfs:label "Deep Reinforcement Learning" ;
+    dc:description "Combining deep neural networks with RL for complex high-dimensional environments." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Reinforcement_Learning rdfs:label "Reinforcement Learning" .
+
+ae:AE_0023 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Transfer_Learning ;
+    rdfs:label "Fine-tuning Pre-trained Models" ;
+    dc:description "Adapting pre-trained models to new tasks with minimal labeled data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Transfer_Learning rdfs:label "Transfer Learning" .
+
+ae:AE_0024 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Federated_Learning ;
+    rdfs:label "Privacy-Preserving ML" ;
+    dc:description "Training ML models across decentralized devices without sharing raw data." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Federated_Learning rdfs:label "Federated Learning" .
+
+ae:AE_0025 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:AutoML ;
+    rdfs:label "Neural Architecture Search" ;
+    dc:description "Automatically discovering optimal neural network architectures for given tasks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:AutoML rdfs:label "AutoML" .
+
+ae:AE_0026 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Ensemble_Methods ;
+    rdfs:label "Gradient Boosting" ;
+    dc:description "Sequential ensemble method that builds models to correct errors of predecessors." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Ensemble_Methods rdfs:label "Ensemble Methods" .
+
+ae:AE_0027 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Ensemble_Methods ;
+    rdfs:label "Random Forest" ;
+    dc:description "Ensemble of decision trees using bagging and random feature subspace selection." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Ensemble_Methods rdfs:label "Ensemble Methods" .
+
+ae:AE_0028 a ae:Topic ;
+    ae:domain ae:Machine_Learning ;
+    ae:subDomain ae:Optimization ;
+    rdfs:label "Bayesian Optimization" ;
+    dc:description "Probabilistic model-based optimization for expensive black-box functions." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Machine_Learning rdfs:label "Machine Learning" .
+ae:Optimization rdfs:label "Optimization" .
+
+ae:AE_0029 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Convolutional_Neural_Networks ;
+    rdfs:label "Image Classification" ;
+    dc:description "Deep learning technique using convolutional layers for visual pattern recognition." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Convolutional_Neural_Networks rdfs:label "Convolutional Neural Networks" .
+
+ae:AE_0030 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Convolutional_Neural_Networks ;
+    rdfs:label "Object Detection" ;
+    dc:description "Detecting and localizing objects in images using deep CNNs." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Convolutional_Neural_Networks rdfs:label "Convolutional Neural Networks" .
+
+ae:AE_0031 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Recurrent_Neural_Networks ;
+    rdfs:label "Sequence Modeling" ;
+    dc:description "Neural networks designed for sequential data with hidden state memory." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Recurrent_Neural_Networks rdfs:label "Recurrent Neural Networks" .
+
+ae:AE_0032 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Transformers ;
+    rdfs:label "Self-Attention Mechanisms" ;
+    dc:description "Attention-based neural architecture enabling parallel sequence processing." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Transformers rdfs:label "Transformers" .
+
+ae:AE_0033 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Graph_Neural_Networks ;
+    rdfs:label "Graph Classification" ;
+    dc:description "Neural networks operating on graph-structured data for various prediction tasks." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Graph_Neural_Networks rdfs:label "Graph Neural Networks" .
+
+ae:AE_0034 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Generative_Models ;
+    rdfs:label "Generative Adversarial Networks" ;
+    dc:description "Adversarial training framework with generator and discriminator for data synthesis." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Generative_Models rdfs:label "Generative Models" .
+
+ae:AE_0035 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Self-Supervised_Learning ;
+    rdfs:label "Contrastive Learning" ;
+    dc:description "Learning representations by contrasting similar and dissimilar sample pairs." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Self-Supervised_Learning rdfs:label "Self-Supervised Learning" .
+
+ae:AE_0036 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Model_Compression ;
+    rdfs:label "Knowledge Distillation" ;
+    dc:description "Training compact student models to mimic larger teacher model outputs." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Model_Compression rdfs:label "Model Compression" .
+
+ae:AE_0037 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Model_Compression ;
+    rdfs:label "Neural Network Pruning" ;
+    dc:description "Removing redundant weights or neurons to reduce model size and inference cost." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Model_Compression rdfs:label "Model Compression" .
+
+ae:AE_0038 a ae:Topic ;
+    ae:domain ae:Deep_Learning ;
+    ae:subDomain ae:Neural_Architecture_Search ;
+    rdfs:label "DARTS" ;
+    dc:description "Differentiable architecture search enabling gradient-based optimization of network topology." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Deep_Learning rdfs:label "Deep Learning" .
+ae:Neural_Architecture_Search rdfs:label "Neural Architecture Search" .
+
+ae:AE_0039 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Face_Analysis ;
+    rdfs:label "Face Recognition" ;
+    dc:description "Identifying or verifying persons from facial features using deep learning." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Face_Analysis rdfs:label "Face Analysis" .
+
+ae:AE_0040 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Face_Analysis ;
+    rdfs:label "Facial Expression Recognition" ;
+    dc:description "Classifying emotional states from facial muscle movements and expressions." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Face_Analysis rdfs:label "Face Analysis" .
+
+ae:AE_0041 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Image_Segmentation ;
+    rdfs:label "Semantic Segmentation" ;
+    dc:description "Assigning class labels to every pixel in an image." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Image_Segmentation rdfs:label "Image Segmentation" .
+
+ae:AE_0042 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Image_Segmentation ;
+    rdfs:label "Instance Segmentation" ;
+    dc:description "Detecting and delineating each distinct object instance at pixel level." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Image_Segmentation rdfs:label "Image Segmentation" .
+
+ae:AE_0043 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Pose_Estimation ;
+    rdfs:label "Human Pose Estimation" ;
+    dc:description "Detecting and tracking human body keypoints for pose analysis." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Pose_Estimation rdfs:label "Pose Estimation" .
+
+ae:AE_0044 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Optical_Character_Recognition ;
+    rdfs:label "Scene Text Recognition" ;
+    dc:description "Detecting and recognizing text in natural scene images." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Optical_Character_Recognition rdfs:label "Optical Character Recognition" .
+
+ae:AE_0045 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Video_Analysis ;
+    rdfs:label "Action Recognition" ;
+    dc:description "Classifying human actions and activities in video streams using deep learning." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Video_Analysis rdfs:label "Video Analysis" .
+
+ae:AE_0046 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:3D_Vision ;
+    rdfs:label "Point Cloud Processing" ;
+    dc:description "Processing and analyzing 3D point cloud data from LiDAR and depth sensors." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:3D_Vision rdfs:label "3D Vision" .
+
+ae:AE_0047 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Image_Restoration ;
+    rdfs:label "Super Resolution" ;
+    dc:description "Upscaling low-resolution images to high-resolution using deep learning." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Image_Restoration rdfs:label "Image Restoration" .
+
+ae:AE_0048 a ae:Topic ;
+    ae:domain ae:Computer_Vision ;
+    ae:subDomain ae:Video_Analysis ;
+    rdfs:label "Video Object Tracking" ;
+    dc:description "Tracking the location and trajectory of objects across video frames." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Vision rdfs:label "Computer Vision" .
+ae:Video_Analysis rdfs:label "Video Analysis" .
+
+ae:AE_0049 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Text_Classification ;
+    rdfs:label "Sentiment Analysis" ;
+    dc:description "Determining sentiment polarity from text using NLP and ML." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Text_Classification rdfs:label "Text Classification" .
+
+ae:AE_0050 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Text_Classification ;
+    rdfs:label "Spam Detection" ;
+    dc:description "Classifying messages as spam or legitimate content automatically." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Text_Classification rdfs:label "Text Classification" .
+
+ae:AE_0051 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Named_Entity_Recognition ;
+    rdfs:label "NER Systems" ;
+    dc:description "Identifying and classifying named entities in text into predefined categories." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Named_Entity_Recognition rdfs:label "Named Entity Recognition" .
+
+ae:AE_0052 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Machine_Translation ;
+    rdfs:label "Neural Machine Translation" ;
+    dc:description "Translating text between languages using neural sequence-to-sequence models." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Machine_Translation rdfs:label "Machine Translation" .
+
+ae:AE_0053 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Question_Answering ;
+    rdfs:label "Extractive QA" ;
+    dc:description "Extracting exact answer spans from a context document for given questions." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Question_Answering rdfs:label "Question Answering" .
+
+ae:AE_0054 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Question_Answering ;
+    rdfs:label "Retrieval Augmented Generation" ;
+    dc:description "Grounding LLM responses with retrieved external knowledge to reduce hallucination." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Question_Answering rdfs:label "Question Answering" .
+
+ae:AE_0055 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Text_Summarization ;
+    rdfs:label "Abstractive Summarization" ;
+    dc:description "Generating concise summaries by paraphrasing content using language models." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Text_Summarization rdfs:label "Text Summarization" .
+
+ae:AE_0056 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Information_Extraction ;
+    rdfs:label "Relation Extraction" ;
+    dc:description "Identifying relationships between entities in unstructured text." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Information_Extraction rdfs:label "Information Extraction" .
+
+ae:AE_0057 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Dialogue_Systems ;
+    rdfs:label "Task-Oriented Dialogue" ;
+    dc:description "Conversational agents designed to help users accomplish specific tasks." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Dialogue_Systems rdfs:label "Dialogue Systems" .
+
+ae:AE_0058 a ae:Topic ;
+    ae:domain ae:Natural_Language_Processing ;
+    ae:subDomain ae:Text_Generation ;
+    rdfs:label "Language Modeling" ;
+    dc:description "Modeling probability distributions over text sequences for generation tasks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Natural_Language_Processing rdfs:label "Natural Language Processing" .
+ae:Text_Generation rdfs:label "Text Generation" .
+
+ae:AE_0059 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Large_Language_Models ;
+    rdfs:label "Instruction Fine-tuning" ;
+    dc:description "Fine-tuning LLMs on instruction-response pairs for better task alignment." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Large_Language_Models rdfs:label "Large Language Models" .
+
+ae:AE_0060 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Diffusion_Models ;
+    rdfs:label "Text-to-Image Generation" ;
+    dc:description "Generating high-quality images from text prompts using denoising diffusion." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Diffusion_Models rdfs:label "Diffusion Models" .
+
+ae:AE_0061 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Diffusion_Models ;
+    rdfs:label "Image Inpainting" ;
+    dc:description "Filling missing or corrupted regions in images using generative models." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Diffusion_Models rdfs:label "Diffusion Models" .
+
+ae:AE_0062 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Code_Generation ;
+    rdfs:label "AI-Assisted Programming" ;
+    dc:description "Using LLMs to generate, complete, and explain code from natural language." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Code_Generation rdfs:label "Code Generation" .
+
+ae:AE_0063 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Multimodal_AI ;
+    rdfs:label "Vision-Language Models" ;
+    dc:description "Models that jointly understand and generate both visual and textual content." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Multimodal_AI rdfs:label "Multimodal AI" .
+
+ae:AE_0064 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Multimodal_AI ;
+    rdfs:label "Audio-Text Generation" ;
+    dc:description "Generating and understanding audio content using language model techniques." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Multimodal_AI rdfs:label "Multimodal AI" .
+
+ae:AE_0065 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Prompt_Engineering ;
+    rdfs:label "Chain-of-Thought Prompting" ;
+    dc:description "Eliciting multi-step reasoning from LLMs through structured prompt design." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Prompt_Engineering rdfs:label "Prompt Engineering" .
+
+ae:AE_0066 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:AI_Agents ;
+    rdfs:label "Autonomous AI Agents" ;
+    dc:description "LLM-powered agents that can plan, use tools, and take actions autonomously." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:AI_Agents rdfs:label "AI Agents" .
+
+ae:AE_0067 a ae:Topic ;
+    ae:domain ae:Generative_AI ;
+    ae:subDomain ae:Video_Generation ;
+    rdfs:label "Text-to-Video Models" ;
+    dc:description "Generating realistic video clips from text descriptions using generative models." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Generative_AI rdfs:label "Generative AI" .
+ae:Video_Generation rdfs:label "Video Generation" .
+
+ae:AE_0068 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Robot_Perception ;
+    rdfs:label "SLAM" ;
+    dc:description "Simultaneous Localization and Mapping for robots navigating unknown environments." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Robot_Perception rdfs:label "Robot Perception" .
+
+ae:AE_0069 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Robot_Motion_Planning ;
+    rdfs:label "Path Planning" ;
+    dc:description "Computing collision-free paths for robots to navigate from start to goal." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Robot_Motion_Planning rdfs:label "Robot Motion Planning" .
+
+ae:AE_0070 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Robot_Manipulation ;
+    rdfs:label "Grasp Planning" ;
+    dc:description "Planning and executing robot grasps on objects using perception and control." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Robot_Manipulation rdfs:label "Robot Manipulation" .
+
+ae:AE_0071 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Human-Robot_Interaction ;
+    rdfs:label "Collaborative Robots" ;
+    dc:description "Robots designed to safely work alongside humans in shared workspaces." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Human-Robot_Interaction rdfs:label "Human-Robot Interaction" .
+
+ae:AE_0072 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Swarm_Robotics ;
+    rdfs:label "Multi-Robot Coordination" ;
+    dc:description "Coordinating large groups of simple robots to achieve complex collective tasks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Swarm_Robotics rdfs:label "Swarm Robotics" .
+
+ae:AE_0073 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Aerial_Robotics ;
+    rdfs:label "Drone Navigation" ;
+    dc:description "Autonomous navigation and control of unmanned aerial vehicles." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Aerial_Robotics rdfs:label "Aerial Robotics" .
+
+ae:AE_0074 a ae:Topic ;
+    ae:domain ae:Robotics ;
+    ae:subDomain ae:Surgical_Robotics ;
+    rdfs:label "Autonomous Surgical Systems" ;
+    dc:description "AI-powered robotic systems assisting in minimally invasive surgical procedures." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Robotics rdfs:label "Robotics" .
+ae:Surgical_Robotics rdfs:label "Surgical Robotics" .
+
+ae:AE_0075 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:Smart_Home ;
+    rdfs:label "Home Automation" ;
+    dc:description "Connected devices enabling remote control and automation of home appliances." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:Smart_Home rdfs:label "Smart Home" .
+
+ae:AE_0076 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:Industrial_IoT ;
+    rdfs:label "Predictive Maintenance" ;
+    dc:description "Using sensor data to predict equipment failures before they occur." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:Industrial_IoT rdfs:label "Industrial IoT" .
+
+ae:AE_0077 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:Healthcare_IoT ;
+    rdfs:label "Wearable Health Monitoring" ;
+    dc:description "Continuous patient health monitoring using wearable IoT sensors." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:Healthcare_IoT rdfs:label "Healthcare IoT" .
+
+ae:AE_0078 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:Edge_Computing ;
+    rdfs:label "Edge AI Inference" ;
+    dc:description "Running AI model inference on edge devices close to data sources." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:Edge_Computing rdfs:label "Edge Computing" .
+
+ae:AE_0079 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:IoT_Security ;
+    rdfs:label "Device Authentication" ;
+    dc:description "Securing IoT device identity and communications against unauthorized access." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:IoT_Security rdfs:label "IoT Security" .
+
+ae:AE_0080 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:IoT_Protocols ;
+    rdfs:label "MQTT and Message Brokers" ;
+    dc:description "Lightweight publish-subscribe messaging protocol for IoT communication." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:IoT_Protocols rdfs:label "IoT Protocols" .
+
+ae:AE_0081 a ae:Topic ;
+    ae:domain ae:Internet_of_Things ;
+    ae:subDomain ae:Smart_Agriculture_IoT ;
+    rdfs:label "Soil and Crop Sensing" ;
+    dc:description "IoT sensor networks for real-time monitoring of soil and crop conditions." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Internet_of_Things rdfs:label "Internet of Things" .
+ae:Smart_Agriculture_IoT rdfs:label "Smart Agriculture IoT" .
+
+ae:AE_0082 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Network_Security ;
+    rdfs:label "Intrusion Detection Systems" ;
+    dc:description "Detecting malicious activity in network traffic using ML and rule-based systems." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Network_Security rdfs:label "Network Security" .
+
+ae:AE_0083 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Malware_Analysis ;
+    rdfs:label "Static Malware Analysis" ;
+    dc:description "Analyzing malware binary features without execution to detect threats." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Malware_Analysis rdfs:label "Malware Analysis" .
+
+ae:AE_0084 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Malware_Analysis ;
+    rdfs:label "Dynamic Malware Analysis" ;
+    dc:description "Executing malware in sandboxed environments to observe runtime behavior." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Malware_Analysis rdfs:label "Malware Analysis" .
+
+ae:AE_0085 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Cryptography ;
+    rdfs:label "Post-Quantum Cryptography" ;
+    dc:description "Cryptographic algorithms resistant to attacks by quantum computers." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Cryptography rdfs:label "Cryptography" .
+
+ae:AE_0086 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Web_Security ;
+    rdfs:label "SQL Injection Detection" ;
+    dc:description "Detecting and preventing SQL injection attacks in web applications." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Web_Security rdfs:label "Web Security" .
+
+ae:AE_0087 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Identity_Management ;
+    rdfs:label "Multi-Factor Authentication" ;
+    dc:description "Enhancing authentication security by requiring multiple verification factors." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Identity_Management rdfs:label "Identity Management" .
+
+ae:AE_0088 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Threat_Intelligence ;
+    rdfs:label "Cyber Threat Hunting" ;
+    dc:description "Proactively searching for hidden threats within networks and systems." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Threat_Intelligence rdfs:label "Threat Intelligence" .
+
+ae:AE_0089 a ae:Topic ;
+    ae:domain ae:Cyber_Security ;
+    ae:subDomain ae:Cloud_Security ;
+    rdfs:label "Zero Trust Architecture" ;
+    dc:description "Security model that verifies every user and device before granting resource access." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cyber_Security rdfs:label "Cyber Security" .
+ae:Cloud_Security rdfs:label "Cloud Security" .
+
+ae:AE_0090 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:Smart_Contracts ;
+    rdfs:label "Ethereum Smart Contracts" ;
+    dc:description "Self-executing contracts coded on blockchain with automated enforcement." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:Smart_Contracts rdfs:label "Smart Contracts" .
+
+ae:AE_0091 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:Consensus_Mechanisms ;
+    rdfs:label "Proof of Stake" ;
+    dc:description "Energy-efficient blockchain consensus where validators stake cryptocurrency." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:Consensus_Mechanisms rdfs:label "Consensus Mechanisms" .
+
+ae:AE_0092 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:Decentralized_Finance ;
+    rdfs:label "DeFi Protocols" ;
+    dc:description "Blockchain-based financial applications replacing traditional intermediaries." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:Decentralized_Finance rdfs:label "Decentralized Finance" .
+
+ae:AE_0093 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:Supply_Chain_Blockchain ;
+    rdfs:label "Provenance Tracking" ;
+    dc:description "Using blockchain to track product origin and journey through supply chains." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:Supply_Chain_Blockchain rdfs:label "Supply Chain Blockchain" .
+
+ae:AE_0094 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:NFT_and_Digital_Assets ;
+    rdfs:label "NFT Marketplaces" ;
+    dc:description "Non-fungible tokens representing unique digital ownership on blockchain." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:NFT_and_Digital_Assets rdfs:label "NFT and Digital Assets" .
+
+ae:AE_0095 a ae:Topic ;
+    ae:domain ae:Blockchain ;
+    ae:subDomain ae:Blockchain_Privacy ;
+    rdfs:label "Zero-Knowledge Proofs" ;
+    dc:description "Cryptographic protocols enabling one party to prove knowledge without revealing it." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Blockchain rdfs:label "Blockchain" .
+ae:Blockchain_Privacy rdfs:label "Blockchain Privacy" .
+
+ae:AE_0096 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:Containerization ;
+    rdfs:label "Docker and Kubernetes" ;
+    dc:description "Packaging and orchestrating applications in lightweight containers." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:Containerization rdfs:label "Containerization" .
+
+ae:AE_0097 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:Serverless_Computing ;
+    rdfs:label "Function as a Service" ;
+    dc:description "Event-driven computing model where code executes without managing servers." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:Serverless_Computing rdfs:label "Serverless Computing" .
+
+ae:AE_0098 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:MLOps ;
+    rdfs:label "ML Pipeline Orchestration" ;
+    dc:description "Automating end-to-end ML pipelines from data ingestion to deployment." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:MLOps rdfs:label "MLOps" .
+
+ae:AE_0099 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:Cloud_Storage ;
+    rdfs:label "Distributed Storage Systems" ;
+    dc:description "Scalable, fault-tolerant storage systems for large-scale data management." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:Cloud_Storage rdfs:label "Cloud Storage" .
+
+ae:AE_0100 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:Cloud_Security ;
+    rdfs:label "Identity and Access Management" ;
+    dc:description "Controlling user and service access to cloud resources securely." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:Cloud_Security rdfs:label "Cloud Security" .
+
+ae:AE_0101 a ae:Topic ;
+    ae:domain ae:Cloud_Computing ;
+    ae:subDomain ae:Cloud_Cost_Optimization ;
+    rdfs:label "FinOps" ;
+    dc:description "Optimizing cloud resource spending through financial operations practices." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Cloud_Computing rdfs:label "Cloud Computing" .
+ae:Cloud_Cost_Optimization rdfs:label "Cloud Cost Optimization" .
+
+ae:AE_0102 a ae:Topic ;
+    ae:domain ae:Big_Data ;
+    ae:subDomain ae:Batch_Processing ;
+    rdfs:label "Apache Spark" ;
+    dc:description "Large-scale distributed data processing using Apache Spark's in-memory engine." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Big_Data rdfs:label "Big Data" .
+ae:Batch_Processing rdfs:label "Batch Processing" .
+
+ae:AE_0103 a ae:Topic ;
+    ae:domain ae:Big_Data ;
+    ae:subDomain ae:Stream_Processing ;
+    rdfs:label "Apache Kafka" ;
+    dc:description "Real-time event streaming platform for high-throughput data pipelines." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Big_Data rdfs:label "Big Data" .
+ae:Stream_Processing rdfs:label "Stream Processing" .
+
+ae:AE_0104 a ae:Topic ;
+    ae:domain ae:Big_Data ;
+    ae:subDomain ae:Data_Warehousing ;
+    rdfs:label "OLAP and Data Cubes" ;
+    dc:description "Multi-dimensional analytical query processing for business intelligence." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Big_Data rdfs:label "Big Data" .
+ae:Data_Warehousing rdfs:label "Data Warehousing" .
+
+ae:AE_0105 a ae:Topic ;
+    ae:domain ae:Big_Data ;
+    ae:subDomain ae:NoSQL_Databases ;
+    rdfs:label "Graph Databases" ;
+    dc:description "Database systems storing data as graphs for complex relationship queries." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Big_Data rdfs:label "Big Data" .
+ae:NoSQL_Databases rdfs:label "NoSQL Databases" .
+
+ae:AE_0106 a ae:Topic ;
+    ae:domain ae:Big_Data ;
+    ae:subDomain ae:Data_Lake ;
+    rdfs:label "Lakehouse Architecture" ;
+    dc:description "Unified storage and analytics platform combining data lake and warehouse features." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Big_Data rdfs:label "Big Data" .
+ae:Data_Lake rdfs:label "Data Lake" .
+
+ae:AE_0107 a ae:Topic ;
+    ae:domain ae:Data_Science ;
+    ae:subDomain ae:Exploratory_Data_Analysis ;
+    rdfs:label "Statistical Analysis" ;
+    dc:description "Investigating datasets using statistical and visual methods to discover patterns." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Data_Science rdfs:label "Data Science" .
+ae:Exploratory_Data_Analysis rdfs:label "Exploratory Data Analysis" .
+
+ae:AE_0108 a ae:Topic ;
+    ae:domain ae:Data_Science ;
+    ae:subDomain ae:Feature_Engineering ;
+    rdfs:label "Feature Selection" ;
+    dc:description "Selecting the most informative features to improve model performance." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Data_Science rdfs:label "Data Science" .
+ae:Feature_Engineering rdfs:label "Feature Engineering" .
+
+ae:AE_0109 a ae:Topic ;
+    ae:domain ae:Data_Science ;
+    ae:subDomain ae:Data_Visualization ;
+    rdfs:label "Interactive Dashboards" ;
+    dc:description "Creating interactive charts and dashboards for data exploration and storytelling." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Data_Science rdfs:label "Data Science" .
+ae:Data_Visualization rdfs:label "Data Visualization" .
+
+ae:AE_0110 a ae:Topic ;
+    ae:domain ae:Data_Science ;
+    ae:subDomain ae:Data_Preprocessing ;
+    rdfs:label "Data Imputation" ;
+    dc:description "Filling missing values in datasets using statistical and ML techniques." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Data_Science rdfs:label "Data Science" .
+ae:Data_Preprocessing rdfs:label "Data Preprocessing" .
+
+ae:AE_0111 a ae:Topic ;
+    ae:domain ae:Data_Science ;
+    ae:subDomain ae:A_B_Testing ;
+    rdfs:label "Statistical Experimentation" ;
+    dc:description "Controlled experiments comparing two variants to determine which performs better." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Data_Science rdfs:label "Data Science" .
+ae:A_B_Testing rdfs:label "A/B Testing" .
+
+ae:AE_0112 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:Software_Design_Patterns ;
+    rdfs:label "Creational Patterns" ;
+    dc:description "Patterns for object creation mechanisms providing flexibility and reuse." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:Software_Design_Patterns rdfs:label "Software Design Patterns" .
+
+ae:AE_0113 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:Software_Testing ;
+    rdfs:label "Unit Testing" ;
+    dc:description "Testing individual units of code in isolation to verify correctness." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:Software_Testing rdfs:label "Software Testing" .
+
+ae:AE_0114 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:DevOps ;
+    rdfs:label "CI/CD Pipelines" ;
+    dc:description "Automated software delivery pipelines for continuous integration and deployment." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:DevOps rdfs:label "DevOps" .
+
+ae:AE_0115 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:Code_Analysis ;
+    rdfs:label "Static Code Analysis" ;
+    dc:description "Analyzing source code for defects, vulnerabilities, and quality issues." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:Code_Analysis rdfs:label "Code Analysis" .
+
+ae:AE_0116 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:Software_Architecture ;
+    rdfs:label "Microservices Architecture" ;
+    dc:description "Decomposing applications into small, independent services communicating over APIs." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:Software_Architecture rdfs:label "Software Architecture" .
+
+ae:AE_0117 a ae:Topic ;
+    ae:domain ae:Software_Engineering ;
+    ae:subDomain ae:Requirements_Engineering ;
+    rdfs:label "AI-assisted Requirements Analysis" ;
+    dc:description "Using NLP and AI to extract, classify, and analyze software requirements." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Software_Engineering rdfs:label "Software Engineering" .
+ae:Requirements_Engineering rdfs:label "Requirements Engineering" .
+
+ae:AE_0118 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Frontend_Development ;
+    rdfs:label "React.js Applications" ;
+    dc:description "Building interactive user interfaces with the React.js component library." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Frontend_Development rdfs:label "Frontend Development" .
+
+ae:AE_0119 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Backend_Development ;
+    rdfs:label "REST API Design" ;
+    dc:description "Designing and implementing RESTful APIs for web and mobile applications." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Backend_Development rdfs:label "Backend Development" .
+
+ae:AE_0120 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Backend_Development ;
+    rdfs:label "GraphQL" ;
+    dc:description "Query language for APIs providing flexible and efficient data fetching." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Backend_Development rdfs:label "Backend Development" .
+
+ae:AE_0121 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Web_Performance ;
+    rdfs:label "Core Web Vitals Optimization" ;
+    dc:description "Improving user-facing performance metrics including LCP, FID, CLS." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Web_Performance rdfs:label "Web Performance" .
+
+ae:AE_0122 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Web_Security ;
+    rdfs:label "OWASP Top 10 Vulnerabilities" ;
+    dc:description "Addressing the most critical web application security risks." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Web_Security rdfs:label "Web Security" .
+
+ae:AE_0123 a ae:Topic ;
+    ae:domain ae:Web_Development ;
+    ae:subDomain ae:Progressive_Web_Apps ;
+    rdfs:label "Service Workers and Offline" ;
+    dc:description "Building web applications with native-like features using service workers." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Web_Development rdfs:label "Web Development" .
+ae:Progressive_Web_Apps rdfs:label "Progressive Web Apps" .
+
+ae:AE_0124 a ae:Topic ;
+    ae:domain ae:Mobile_Application_Development ;
+    ae:subDomain ae:Cross-Platform_Development ;
+    rdfs:label "Flutter Applications" ;
+    dc:description "Building native mobile apps from a single Dart codebase using Flutter." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Mobile_Application_Development rdfs:label "Mobile Application Development" .
+ae:Cross-Platform_Development rdfs:label "Cross-Platform Development" .
+
+ae:AE_0125 a ae:Topic ;
+    ae:domain ae:Mobile_Application_Development ;
+    ae:subDomain ae:Android_Development ;
+    rdfs:label "Jetpack Compose" ;
+    dc:description "Modern declarative UI toolkit for building native Android interfaces." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Mobile_Application_Development rdfs:label "Mobile Application Development" .
+ae:Android_Development rdfs:label "Android Development" .
+
+ae:AE_0126 a ae:Topic ;
+    ae:domain ae:Mobile_Application_Development ;
+    ae:subDomain ae:iOS_Development ;
+    rdfs:label "SwiftUI" ;
+    dc:description "Declarative framework for building Apple platform user interfaces with Swift." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Mobile_Application_Development rdfs:label "Mobile Application Development" .
+ae:iOS_Development rdfs:label "iOS Development" .
+
+ae:AE_0127 a ae:Topic ;
+    ae:domain ae:Mobile_Application_Development ;
+    ae:subDomain ae:Mobile_AI ;
+    rdfs:label "On-device ML" ;
+    dc:description "Running machine learning models directly on mobile devices for offline intelligence." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Mobile_Application_Development rdfs:label "Mobile Application Development" .
+ae:Mobile_AI rdfs:label "Mobile AI" .
+
+ae:AE_0128 a ae:Topic ;
+    ae:domain ae:Mobile_Application_Development ;
+    ae:subDomain ae:Mobile_Security ;
+    rdfs:label "App Security Testing" ;
+    dc:description "Identifying and preventing security vulnerabilities in mobile applications." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Mobile_Application_Development rdfs:label "Mobile Application Development" .
+ae:Mobile_Security rdfs:label "Mobile Security" .
+
+ae:AE_0129 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Clinical_Decision_Support ;
+    rdfs:label "Disease Prediction" ;
+    dc:description "AI systems assisting clinicians in predicting patient disease risk." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Clinical_Decision_Support rdfs:label "Clinical Decision Support" .
+
+ae:AE_0130 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Drug_Discovery ;
+    rdfs:label "Molecular Property Prediction" ;
+    dc:description "Predicting chemical and biological properties of drug candidate molecules." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Drug_Discovery rdfs:label "Drug Discovery" .
+
+ae:AE_0131 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Electronic_Health_Records ;
+    rdfs:label "Clinical NLP" ;
+    dc:description "Extracting structured information from unstructured clinical text." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Electronic_Health_Records rdfs:label "Electronic Health Records" .
+
+ae:AE_0132 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Mental_Health_AI ;
+    rdfs:label "Depression and Anxiety Detection" ;
+    dc:description "Detecting mental health conditions from speech, text, and behavioral signals." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Mental_Health_AI rdfs:label "Mental Health AI" .
+
+ae:AE_0133 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Telemedicine ;
+    rdfs:label "Remote Patient Monitoring" ;
+    dc:description "Using digital technologies to provide healthcare remotely through connected devices." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Telemedicine rdfs:label "Telemedicine" .
+
+ae:AE_0134 a ae:Topic ;
+    ae:domain ae:Healthcare ;
+    ae:subDomain ae:Pandemic_and_Epidemiology ;
+    rdfs:label "Epidemic Spread Modeling" ;
+    dc:description "Mathematical and ML models predicting the spread of infectious diseases." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Healthcare rdfs:label "Healthcare" .
+ae:Pandemic_and_Epidemiology rdfs:label "Pandemic and Epidemiology" .
+
+ae:AE_0135 a ae:Topic ;
+    ae:domain ae:Medical_Imaging ;
+    ae:subDomain ae:Radiology_AI ;
+    rdfs:label "X-ray Analysis" ;
+    dc:description "Automated analysis of chest X-rays for pathology detection." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Medical_Imaging rdfs:label "Medical Imaging" .
+ae:Radiology_AI rdfs:label "Radiology AI" .
+
+ae:AE_0136 a ae:Topic ;
+    ae:domain ae:Medical_Imaging ;
+    ae:subDomain ae:Radiology_AI ;
+    rdfs:label "CT Scan Analysis" ;
+    dc:description "AI-based analysis of 3D CT scans for organ segmentation and lesion detection." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Medical_Imaging rdfs:label "Medical Imaging" .
+ae:Radiology_AI rdfs:label "Radiology AI" .
+
+ae:AE_0137 a ae:Topic ;
+    ae:domain ae:Medical_Imaging ;
+    ae:subDomain ae:Pathology_AI ;
+    rdfs:label "Whole Slide Image Analysis" ;
+    dc:description "Analyzing gigapixel pathology slides using computational methods." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Medical_Imaging rdfs:label "Medical Imaging" .
+ae:Pathology_AI rdfs:label "Pathology AI" .
+
+ae:AE_0138 a ae:Topic ;
+    ae:domain ae:Medical_Imaging ;
+    ae:subDomain ae:MRI_Analysis ;
+    rdfs:label "Brain MRI Segmentation" ;
+    dc:description "Segmenting brain structures and lesions from MRI scans." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Medical_Imaging rdfs:label "Medical Imaging" .
+ae:MRI_Analysis rdfs:label "MRI Analysis" .
+
+ae:AE_0139 a ae:Topic ;
+    ae:domain ae:Medical_Imaging ;
+    ae:subDomain ae:Ultrasound_Analysis ;
+    rdfs:label "Fetal Ultrasound Screening" ;
+    dc:description "AI-based analysis of ultrasound images for fetal health assessment." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Medical_Imaging rdfs:label "Medical Imaging" .
+ae:Ultrasound_Analysis rdfs:label "Ultrasound Analysis" .
+
+ae:AE_0140 a ae:Topic ;
+    ae:domain ae:Bioinformatics ;
+    ae:subDomain ae:Genomics ;
+    rdfs:label "DNA Sequence Analysis" ;
+    dc:description "Computational analysis of DNA sequences for variant calling and genome assembly." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Bioinformatics rdfs:label "Bioinformatics" .
+ae:Genomics rdfs:label "Genomics" .
+
+ae:AE_0141 a ae:Topic ;
+    ae:domain ae:Bioinformatics ;
+    ae:subDomain ae:Proteomics ;
+    rdfs:label "Protein Structure Prediction" ;
+    dc:description "Predicting 3D protein structure from amino acid sequences." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Bioinformatics rdfs:label "Bioinformatics" .
+ae:Proteomics rdfs:label "Proteomics" .
+
+ae:AE_0142 a ae:Topic ;
+    ae:domain ae:Bioinformatics ;
+    ae:subDomain ae:Transcriptomics ;
+    rdfs:label "Single-cell RNA Sequencing" ;
+    dc:description "Analyzing gene expression at single-cell resolution using scRNA-seq." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Bioinformatics rdfs:label "Bioinformatics" .
+ae:Transcriptomics rdfs:label "Transcriptomics" .
+
+ae:AE_0143 a ae:Topic ;
+    ae:domain ae:Bioinformatics ;
+    ae:subDomain ae:Systems_Biology ;
+    rdfs:label "Gene Regulatory Networks" ;
+    dc:description "Modeling networks of gene interactions controlling biological processes." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Bioinformatics rdfs:label "Bioinformatics" .
+ae:Systems_Biology rdfs:label "Systems Biology" .
+
+ae:AE_0144 a ae:Topic ;
+    ae:domain ae:Bioinformatics ;
+    ae:subDomain ae:Metagenomics ;
+    rdfs:label "Microbiome Analysis" ;
+    dc:description "Analyzing microbial communities directly from environmental samples." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Bioinformatics rdfs:label "Bioinformatics" .
+ae:Metagenomics rdfs:label "Metagenomics" .
+
+ae:AE_0145 a ae:Topic ;
+    ae:domain ae:Agriculture ;
+    ae:subDomain ae:Crop_Disease_Detection ;
+    rdfs:label "Image-based Disease Detection" ;
+    dc:description "Using computer vision to identify plant diseases from leaf images." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Agriculture rdfs:label "Agriculture" .
+ae:Crop_Disease_Detection rdfs:label "Crop Disease Detection" .
+
+ae:AE_0146 a ae:Topic ;
+    ae:domain ae:Agriculture ;
+    ae:subDomain ae:Yield_Prediction ;
+    rdfs:label "Crop Yield Forecasting" ;
+    dc:description "Predicting crop yield using satellite imagery, weather, and soil data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Agriculture rdfs:label "Agriculture" .
+ae:Yield_Prediction rdfs:label "Yield Prediction" .
+
+ae:AE_0147 a ae:Topic ;
+    ae:domain ae:Agriculture ;
+    ae:subDomain ae:Soil_Analysis ;
+    rdfs:label "Soil Health Monitoring" ;
+    dc:description "Assessing soil nutrients, pH, and moisture using sensors and ML." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Agriculture rdfs:label "Agriculture" .
+ae:Soil_Analysis rdfs:label "Soil Analysis" .
+
+ae:AE_0148 a ae:Topic ;
+    ae:domain ae:Agriculture ;
+    ae:subDomain ae:Livestock_Monitoring ;
+    rdfs:label "Animal Behavior Analysis" ;
+    dc:description "Using sensors and vision AI to monitor livestock health and behavior." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "Yes" .
+
+ae:Agriculture rdfs:label "Agriculture" .
+ae:Livestock_Monitoring rdfs:label "Livestock Monitoring" .
+
+ae:AE_0149 a ae:Topic ;
+    ae:domain ae:Agriculture ;
+    ae:subDomain ae:Crop_Water_Management ;
+    rdfs:label "Irrigation Efficiency Analysis" ;
+    dc:description "Analyzing crop water consumption to optimize irrigation strategies." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Agriculture rdfs:label "Agriculture" .
+ae:Crop_Water_Management rdfs:label "Crop Water Management" .
+
+ae:AE_0150 a ae:Topic ;
+    ae:domain ae:Smart_Farming ;
+    ae:subDomain ae:Precision_Irrigation ;
+    rdfs:label "AI-based Irrigation Scheduling" ;
+    dc:description "Optimizing irrigation timing and volume using AI and IoT sensor data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Farming rdfs:label "Smart Farming" .
+ae:Precision_Irrigation rdfs:label "Precision Irrigation" .
+
+ae:AE_0151 a ae:Topic ;
+    ae:domain ae:Smart_Farming ;
+    ae:subDomain ae:Agricultural_Robotics ;
+    rdfs:label "Harvesting Robots" ;
+    dc:description "Autonomous robots for picking, sorting, and harvesting crops." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Farming rdfs:label "Smart Farming" .
+ae:Agricultural_Robotics rdfs:label "Agricultural Robotics" .
+
+ae:AE_0152 a ae:Topic ;
+    ae:domain ae:Smart_Farming ;
+    ae:subDomain ae:Drone-based_Farming ;
+    rdfs:label "Agricultural Drone Spraying" ;
+    dc:description "Using drones for precise pesticide and fertilizer application." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Farming rdfs:label "Smart Farming" .
+ae:Drone-based_Farming rdfs:label "Drone-based Farming" .
+
+ae:AE_0153 a ae:Topic ;
+    ae:domain ae:Smart_Farming ;
+    ae:subDomain ae:Greenhouse_Automation ;
+    rdfs:label "Climate Control in Greenhouses" ;
+    dc:description "Automated control of temperature, humidity, CO2, and lighting in greenhouses." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Farming rdfs:label "Smart Farming" .
+ae:Greenhouse_Automation rdfs:label "Greenhouse Automation" .
+
+ae:AE_0154 a ae:Topic ;
+    ae:domain ae:Smart_Farming ;
+    ae:subDomain ae:Crop_Monitoring ;
+    rdfs:label "Multi-spectral Crop Analysis" ;
+    dc:description "Using multi-spectral imagery from drones or satellites to assess crop health." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Smart_Farming rdfs:label "Smart Farming" .
+ae:Crop_Monitoring rdfs:label "Crop Monitoring" .
+
+ae:AE_0155 a ae:Topic ;
+    ae:domain ae:Education ;
+    ae:subDomain ae:Intelligent_Tutoring_Systems ;
+    rdfs:label "Adaptive Learning" ;
+    dc:description "AI-driven educational systems that personalize content to individual learners." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Education rdfs:label "Education" .
+ae:Intelligent_Tutoring_Systems rdfs:label "Intelligent Tutoring Systems" .
+
+ae:AE_0156 a ae:Topic ;
+    ae:domain ae:Education ;
+    ae:subDomain ae:Learning_Analytics ;
+    rdfs:label "Student Performance Prediction" ;
+    dc:description "Predicting student academic outcomes from learning behavior data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Education rdfs:label "Education" .
+ae:Learning_Analytics rdfs:label "Learning Analytics" .
+
+ae:AE_0157 a ae:Topic ;
+    ae:domain ae:Education ;
+    ae:subDomain ae:Automated_Assessment ;
+    rdfs:label "Essay Grading" ;
+    dc:description "Automated scoring of student essays and open-ended responses." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Education rdfs:label "Education" .
+ae:Automated_Assessment rdfs:label "Automated Assessment" .
+
+ae:AE_0158 a ae:Topic ;
+    ae:domain ae:Education ;
+    ae:subDomain ae:Educational_Games ;
+    rdfs:label "Gamification in Learning" ;
+    dc:description "Applying game mechanics to educational contexts to improve engagement." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Education rdfs:label "Education" .
+ae:Educational_Games rdfs:label "Educational Games" .
+
+ae:AE_0159 a ae:Topic ;
+    ae:domain ae:Education ;
+    ae:subDomain ae:MOOCs ;
+    rdfs:label "Course Recommendation Systems" ;
+    dc:description "Recommending online courses based on learner profiles and learning goals." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Education rdfs:label "Education" .
+ae:MOOCs rdfs:label "MOOCs" .
+
+ae:AE_0160 a ae:Topic ;
+    ae:domain ae:FinTech ;
+    ae:subDomain ae:Fraud_Detection ;
+    rdfs:label "Credit Card Fraud Detection" ;
+    dc:description "Detecting fraudulent transactions using ML on imbalanced transaction data." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:FinTech rdfs:label "FinTech" .
+ae:Fraud_Detection rdfs:label "Fraud Detection" .
+
+ae:AE_0161 a ae:Topic ;
+    ae:domain ae:FinTech ;
+    ae:subDomain ae:Algorithmic_Trading ;
+    rdfs:label "Stock Price Prediction" ;
+    dc:description "Predicting stock prices and generating trading signals using ML." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:FinTech rdfs:label "FinTech" .
+ae:Algorithmic_Trading rdfs:label "Algorithmic Trading" .
+
+ae:AE_0162 a ae:Topic ;
+    ae:domain ae:FinTech ;
+    ae:subDomain ae:Credit_Risk ;
+    rdfs:label "Loan Default Prediction" ;
+    dc:description "Predicting probability of loan default to manage lending risk." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:FinTech rdfs:label "FinTech" .
+ae:Credit_Risk rdfs:label "Credit Risk" .
+
+ae:AE_0163 a ae:Topic ;
+    ae:domain ae:FinTech ;
+    ae:subDomain ae:RegTech ;
+    rdfs:label "Anti-Money Laundering" ;
+    dc:description "Automated detection of money laundering patterns in financial transactions." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:FinTech rdfs:label "FinTech" .
+ae:RegTech rdfs:label "RegTech" .
+
+ae:AE_0164 a ae:Topic ;
+    ae:domain ae:FinTech ;
+    ae:subDomain ae:InsurTech ;
+    rdfs:label "Insurance Risk Scoring" ;
+    dc:description "AI-driven risk assessment for insurance pricing and underwriting." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:FinTech rdfs:label "FinTech" .
+ae:InsurTech rdfs:label "InsurTech" .
+
+ae:AE_0165 a ae:Topic ;
+    ae:domain ae:E-Commerce ;
+    ae:subDomain ae:Recommendation_Systems ;
+    rdfs:label "Collaborative Filtering" ;
+    dc:description "Recommending products based on user-item interaction patterns." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:E-Commerce rdfs:label "E-Commerce" .
+ae:Recommendation_Systems rdfs:label "Recommendation Systems" .
+
+ae:AE_0166 a ae:Topic ;
+    ae:domain ae:E-Commerce ;
+    ae:subDomain ae:Dynamic_Pricing ;
+    rdfs:label "Price Optimization" ;
+    dc:description "Optimizing product prices in real-time based on demand and competition." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:E-Commerce rdfs:label "E-Commerce" .
+ae:Dynamic_Pricing rdfs:label "Dynamic Pricing" .
+
+ae:AE_0167 a ae:Topic ;
+    ae:domain ae:E-Commerce ;
+    ae:subDomain ae:Customer_Churn ;
+    rdfs:label "Churn Prediction" ;
+    dc:description "Predicting which customers are likely to stop using a service." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:E-Commerce rdfs:label "E-Commerce" .
+ae:Customer_Churn rdfs:label "Customer Churn" .
+
+ae:AE_0168 a ae:Topic ;
+    ae:domain ae:E-Commerce ;
+    ae:subDomain ae:Visual_Search ;
+    rdfs:label "Image-based Product Search" ;
+    dc:description "Allowing users to search for products using images instead of text." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:E-Commerce rdfs:label "E-Commerce" .
+ae:Visual_Search rdfs:label "Visual Search" .
+
+ae:AE_0169 a ae:Topic ;
+    ae:domain ae:E-Commerce ;
+    ae:subDomain ae:Conversational_Commerce ;
+    rdfs:label "Shopping Chatbots" ;
+    dc:description "AI chatbots that guide customers through product discovery and purchase." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:E-Commerce rdfs:label "E-Commerce" .
+ae:Conversational_Commerce rdfs:label "Conversational Commerce" .
+
+ae:AE_0170 a ae:Topic ;
+    ae:domain ae:Embedded_Systems ;
+    ae:subDomain ae:Real-Time_Operating_Systems ;
+    rdfs:label "RTOS Design" ;
+    dc:description "Designing real-time operating systems for deterministic task scheduling." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Embedded_Systems rdfs:label "Embedded Systems" .
+ae:Real-Time_Operating_Systems rdfs:label "Real-Time Operating Systems" .
+
+ae:AE_0171 a ae:Topic ;
+    ae:domain ae:Embedded_Systems ;
+    ae:subDomain ae:Firmware_Development ;
+    rdfs:label "Bare-metal Programming" ;
+    dc:description "Programming microcontrollers directly without an OS for maximum efficiency." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Embedded_Systems rdfs:label "Embedded Systems" .
+ae:Firmware_Development rdfs:label "Firmware Development" .
+
+ae:AE_0172 a ae:Topic ;
+    ae:domain ae:Embedded_Systems ;
+    ae:subDomain ae:TinyML ;
+    rdfs:label "Machine Learning on Microcontrollers" ;
+    dc:description "Running ML inference on microcontrollers with extreme resource constraints." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Embedded_Systems rdfs:label "Embedded Systems" .
+ae:TinyML rdfs:label "TinyML" .
+
+ae:AE_0173 a ae:Topic ;
+    ae:domain ae:Embedded_Systems ;
+    ae:subDomain ae:Signal_Acquisition ;
+    rdfs:label "ADC and DAC Interfacing" ;
+    dc:description "Interfacing analog sensors to digital microcontrollers through ADC/DAC." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Embedded_Systems rdfs:label "Embedded Systems" .
+ae:Signal_Acquisition rdfs:label "Signal Acquisition" .
+
+ae:AE_0174 a ae:Topic ;
+    ae:domain ae:Embedded_Systems ;
+    ae:subDomain ae:Embedded_Linux ;
+    rdfs:label "Linux on ARM Embedded" ;
+    dc:description "Running Linux on ARM-based embedded systems for richer processing capability." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Embedded_Systems rdfs:label "Embedded Systems" .
+ae:Embedded_Linux rdfs:label "Embedded Linux" .
+
+ae:AE_0175 a ae:Topic ;
+    ae:domain ae:Electronics ;
+    ae:subDomain ae:VLSI_Design ;
+    rdfs:label "Digital Circuit Design" ;
+    dc:description "Designing complex digital circuits using hardware description languages." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Electronics rdfs:label "Electronics" .
+ae:VLSI_Design rdfs:label "VLSI Design" .
+
+ae:AE_0176 a ae:Topic ;
+    ae:domain ae:Electronics ;
+    ae:subDomain ae:Power_Electronics ;
+    rdfs:label "DC-DC Converter Design" ;
+    dc:description "Designing efficient power conversion circuits for electronic systems." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Electronics rdfs:label "Electronics" .
+ae:Power_Electronics rdfs:label "Power Electronics" .
+
+ae:AE_0177 a ae:Topic ;
+    ae:domain ae:Electronics ;
+    ae:subDomain ae:Analog_Circuit_Design ;
+    rdfs:label "Op-Amp Circuit Design" ;
+    dc:description "Designing operational amplifier circuits for signal conditioning and processing." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Electronics rdfs:label "Electronics" .
+ae:Analog_Circuit_Design rdfs:label "Analog Circuit Design" .
+
+ae:AE_0178 a ae:Topic ;
+    ae:domain ae:Electronics ;
+    ae:subDomain ae:PCB_Design ;
+    rdfs:label "High-speed PCB Design" ;
+    dc:description "Designing printed circuit boards for high-speed digital signal integrity." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "Yes" .
+
+ae:Electronics rdfs:label "Electronics" .
+ae:PCB_Design rdfs:label "PCB Design" .
+
+ae:AE_0179 a ae:Topic ;
+    ae:domain ae:Electronics ;
+    ae:subDomain ae:Sensors_and_Transducers ;
+    rdfs:label "MEMS Sensor Design" ;
+    dc:description "Design and characterization of MEMS-based sensors for IoT and consumer applications." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Electronics rdfs:label "Electronics" .
+ae:Sensors_and_Transducers rdfs:label "Sensors and Transducers" .
+
+ae:AE_0180 a ae:Topic ;
+    ae:domain ae:Networking ;
+    ae:subDomain ae:Software_Defined_Networking ;
+    rdfs:label "SDN Controller" ;
+    dc:description "Centralizing network control logic in software for flexible network management." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Networking rdfs:label "Networking" .
+ae:Software_Defined_Networking rdfs:label "Software Defined Networking" .
+
+ae:AE_0181 a ae:Topic ;
+    ae:domain ae:Networking ;
+    ae:subDomain ae:Network_Traffic_Analysis ;
+    rdfs:label "QoS Management" ;
+    dc:description "Classifying and prioritizing network traffic to ensure quality of service." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Networking rdfs:label "Networking" .
+ae:Network_Traffic_Analysis rdfs:label "Network Traffic Analysis" .
+
+ae:AE_0182 a ae:Topic ;
+    ae:domain ae:Networking ;
+    ae:subDomain ae:Network_Simulation ;
+    rdfs:label "ns-3 Simulation" ;
+    dc:description "Simulating network protocols and topologies using ns-3 discrete event simulator." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Networking rdfs:label "Networking" .
+ae:Network_Simulation rdfs:label "Network Simulation" .
+
+ae:AE_0183 a ae:Topic ;
+    ae:domain ae:Networking ;
+    ae:subDomain ae:Network_Security ;
+    rdfs:label "DDoS Detection and Mitigation" ;
+    dc:description "Detecting and mitigating distributed denial-of-service attacks using ML." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Networking rdfs:label "Networking" .
+ae:Network_Security rdfs:label "Network Security" .
+
+ae:AE_0184 a ae:Topic ;
+    ae:domain ae:Networking ;
+    ae:subDomain ae:Content_Delivery_Networks ;
+    rdfs:label "CDN Optimization" ;
+    dc:description "Optimizing content delivery to users through geographically distributed edge servers." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Networking rdfs:label "Networking" .
+ae:Content_Delivery_Networks rdfs:label "Content Delivery Networks" .
+
+ae:AE_0185 a ae:Topic ;
+    ae:domain ae:Wireless_Communication ;
+    ae:subDomain ae:5G_Networks ;
+    rdfs:label "5G NR Physical Layer" ;
+    dc:description "Physical layer techniques for 5G New Radio including massive MIMO and beamforming." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Wireless_Communication rdfs:label "Wireless Communication" .
+ae:5G_Networks rdfs:label "5G Networks" .
+
+ae:AE_0186 a ae:Topic ;
+    ae:domain ae:Wireless_Communication ;
+    ae:subDomain ae:Channel_Estimation ;
+    rdfs:label "Deep Learning Channel Estimation" ;
+    dc:description "Using deep learning to estimate wireless channel characteristics." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Wireless_Communication rdfs:label "Wireless Communication" .
+ae:Channel_Estimation rdfs:label "Channel Estimation" .
+
+ae:AE_0187 a ae:Topic ;
+    ae:domain ae:Wireless_Communication ;
+    ae:subDomain ae:LoRaWAN ;
+    rdfs:label "LPWAN for IoT" ;
+    dc:description "Long-range, low-power wireless protocol for IoT device connectivity." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Wireless_Communication rdfs:label "Wireless Communication" .
+ae:LoRaWAN rdfs:label "LoRaWAN" .
+
+ae:AE_0188 a ae:Topic ;
+    ae:domain ae:Wireless_Communication ;
+    ae:subDomain ae:WiFi ;
+    rdfs:label "WiFi Sensing" ;
+    dc:description "Using WiFi signals for non-intrusive sensing of human activity and environment." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Wireless_Communication rdfs:label "Wireless Communication" .
+ae:WiFi rdfs:label "WiFi" .
+
+ae:AE_0189 a ae:Topic ;
+    ae:domain ae:Wireless_Communication ;
+    ae:subDomain ae:Satellite_Communication ;
+    rdfs:label "LEO Satellite Networks" ;
+    dc:description "Low-earth orbit satellite constellation for global broadband internet coverage." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Wireless_Communication rdfs:label "Wireless Communication" .
+ae:Satellite_Communication rdfs:label "Satellite Communication" .
+
+ae:AE_0190 a ae:Topic ;
+    ae:domain ae:AR_VR ;
+    ae:subDomain ae:Augmented_Reality ;
+    rdfs:label "Marker-based AR" ;
+    dc:description "Overlaying digital content on real-world views using visual markers." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:AR_VR rdfs:label "AR/VR" .
+ae:Augmented_Reality rdfs:label "Augmented Reality" .
+
+ae:AE_0191 a ae:Topic ;
+    ae:domain ae:AR_VR ;
+    ae:subDomain ae:Virtual_Reality ;
+    rdfs:label "VR Interaction Design" ;
+    dc:description "Designing immersive 3D interactive experiences in virtual reality environments." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:AR_VR rdfs:label "AR/VR" .
+ae:Virtual_Reality rdfs:label "Virtual Reality" .
+
+ae:AE_0192 a ae:Topic ;
+    ae:domain ae:AR_VR ;
+    ae:subDomain ae:Mixed_Reality ;
+    rdfs:label "HoloLens Applications" ;
+    dc:description "Blending physical and digital worlds using spatial computing platforms." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:AR_VR rdfs:label "AR/VR" .
+ae:Mixed_Reality rdfs:label "Mixed Reality" .
+
+ae:AE_0193 a ae:Topic ;
+    ae:domain ae:AR_VR ;
+    ae:subDomain ae:Extended_Reality ;
+    rdfs:label "XR for Training" ;
+    dc:description "Using XR technologies for immersive training and skill development." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:AR_VR rdfs:label "AR/VR" .
+ae:Extended_Reality rdfs:label "Extended Reality" .
+
+ae:AE_0194 a ae:Topic ;
+    ae:domain ae:AR_VR ;
+    ae:subDomain ae:AR_for_Industry ;
+    rdfs:label "Industrial AR Inspection" ;
+    dc:description "Using AR to assist workers during manufacturing inspection and maintenance tasks." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:AR_VR rdfs:label "AR/VR" .
+ae:AR_for_Industry rdfs:label "AR for Industry" .
+
+ae:AE_0195 a ae:Topic ;
+    ae:domain ae:Digital_Twin ;
+    ae:subDomain ae:Simulation_Modeling ;
+    rdfs:label "Physics-based Simulation" ;
+    dc:description "Creating digital replicas of physical systems using physics-based models." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Digital_Twin rdfs:label "Digital Twin" .
+ae:Simulation_Modeling rdfs:label "Simulation Modeling" .
+
+ae:AE_0196 a ae:Topic ;
+    ae:domain ae:Digital_Twin ;
+    ae:subDomain ae:IoT_Data_Integration ;
+    rdfs:label "Real-time Digital Twin" ;
+    dc:description "Integrating live IoT sensor streams into digital twin models for real-time updates." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Digital_Twin rdfs:label "Digital Twin" .
+ae:IoT_Data_Integration rdfs:label "IoT Data Integration" .
+
+ae:AE_0197 a ae:Topic ;
+    ae:domain ae:Digital_Twin ;
+    ae:subDomain ae:Predictive_Digital_Twin ;
+    rdfs:label "Digital Twin for Structural Health" ;
+    dc:description "Using digital twins to monitor and predict structural integrity of physical assets." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Digital_Twin rdfs:label "Digital Twin" .
+ae:Predictive_Digital_Twin rdfs:label "Predictive Digital Twin" .
+
+ae:AE_0198 a ae:Topic ;
+    ae:domain ae:Digital_Twin ;
+    ae:subDomain ae:Urban_Digital_Twin ;
+    rdfs:label "Smart City Digital Twin" ;
+    dc:description "Digital twin models of entire cities for urban planning and management." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Digital_Twin rdfs:label "Digital Twin" .
+ae:Urban_Digital_Twin rdfs:label "Urban Digital Twin" .
+
+ae:AE_0199 a ae:Topic ;
+    ae:domain ae:Smart_Cities ;
+    ae:subDomain ae:Smart_Traffic_Management ;
+    rdfs:label "Traffic Flow Prediction" ;
+    dc:description "Predicting and optimizing urban traffic flow using ML and sensor data." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Cities rdfs:label "Smart Cities" .
+ae:Smart_Traffic_Management rdfs:label "Smart Traffic Management" .
+
+ae:AE_0200 a ae:Topic ;
+    ae:domain ae:Smart_Cities ;
+    ae:subDomain ae:Urban_Energy_Management ;
+    rdfs:label "Smart Grid" ;
+    dc:description "Intelligent management of electricity distribution and consumption in urban grids." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Cities rdfs:label "Smart Cities" .
+ae:Urban_Energy_Management rdfs:label "Urban Energy Management" .
+
+ae:AE_0201 a ae:Topic ;
+    ae:domain ae:Smart_Cities ;
+    ae:subDomain ae:Waste_Management ;
+    rdfs:label "Smart Waste Collection" ;
+    dc:description "Optimizing municipal solid waste collection using IoT sensors and route optimization." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Cities rdfs:label "Smart Cities" .
+ae:Waste_Management rdfs:label "Waste Management" .
+
+ae:AE_0202 a ae:Topic ;
+    ae:domain ae:Smart_Cities ;
+    ae:subDomain ae:Smart_Lighting ;
+    rdfs:label "Adaptive Street Lighting" ;
+    dc:description "Automatically adjusting street light intensity based on ambient conditions and traffic." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Smart_Cities rdfs:label "Smart Cities" .
+ae:Smart_Lighting rdfs:label "Smart Lighting" .
+
+ae:AE_0203 a ae:Topic ;
+    ae:domain ae:Smart_Cities ;
+    ae:subDomain ae:Smart_Water_Management ;
+    rdfs:label "Water Quality Monitoring" ;
+    dc:description "Real-time monitoring and prediction of water quality parameters using IoT and ML." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Smart_Cities rdfs:label "Smart Cities" .
+ae:Smart_Water_Management rdfs:label "Smart Water Management" .
+
+ae:AE_0204 a ae:Topic ;
+    ae:domain ae:Autonomous_Vehicles ;
+    ae:subDomain ae:Sensor_Fusion ;
+    rdfs:label "Camera-LiDAR Fusion" ;
+    dc:description "Combining data from cameras and LiDAR for robust 3D environment perception." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Autonomous_Vehicles rdfs:label "Autonomous Vehicles" .
+ae:Sensor_Fusion rdfs:label "Sensor Fusion" .
+
+ae:AE_0205 a ae:Topic ;
+    ae:domain ae:Autonomous_Vehicles ;
+    ae:subDomain ae:Path_Planning ;
+    rdfs:label "Motion Planning for AV" ;
+    dc:description "Planning safe and efficient trajectories for autonomous vehicles in dynamic environments." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Autonomous_Vehicles rdfs:label "Autonomous Vehicles" .
+ae:Path_Planning rdfs:label "Path Planning" .
+
+ae:AE_0206 a ae:Topic ;
+    ae:domain ae:Autonomous_Vehicles ;
+    ae:subDomain ae:Perception ;
+    rdfs:label "Lane Detection" ;
+    dc:description "Detecting and tracking lane markings on roads for autonomous navigation." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Autonomous_Vehicles rdfs:label "Autonomous Vehicles" .
+ae:Perception rdfs:label "Perception" .
+
+ae:AE_0207 a ae:Topic ;
+    ae:domain ae:Autonomous_Vehicles ;
+    ae:subDomain ae:HD_Maps ;
+    rdfs:label "Mapping and Localization" ;
+    dc:description "Creating and using high-definition maps for precise vehicle localization." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Autonomous_Vehicles rdfs:label "Autonomous Vehicles" .
+ae:HD_Maps rdfs:label "HD Maps" .
+
+ae:AE_0208 a ae:Topic ;
+    ae:domain ae:Autonomous_Vehicles ;
+    ae:subDomain ae:V2X_Communication ;
+    rdfs:label "Vehicle-to-Infrastructure" ;
+    dc:description "Enabling communication between vehicles and road infrastructure for safety." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Autonomous_Vehicles rdfs:label "Autonomous Vehicles" .
+ae:V2X_Communication rdfs:label "V2X Communication" .
+
+ae:AE_0209 a ae:Topic ;
+    ae:domain ae:Renewable_Energy ;
+    ae:subDomain ae:Solar_Energy ;
+    rdfs:label "PV Power Forecasting" ;
+    dc:description "Forecasting photovoltaic power output using weather and irradiance data." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Renewable_Energy rdfs:label "Renewable Energy" .
+ae:Solar_Energy rdfs:label "Solar Energy" .
+
+ae:AE_0210 a ae:Topic ;
+    ae:domain ae:Renewable_Energy ;
+    ae:subDomain ae:Wind_Energy ;
+    rdfs:label "Wind Power Prediction" ;
+    dc:description "Predicting wind turbine power output from meteorological inputs." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Renewable_Energy rdfs:label "Renewable Energy" .
+ae:Wind_Energy rdfs:label "Wind Energy" .
+
+ae:AE_0211 a ae:Topic ;
+    ae:domain ae:Renewable_Energy ;
+    ae:subDomain ae:Energy_Storage ;
+    rdfs:label "Battery State of Health Estimation" ;
+    dc:description "Estimating battery degradation and remaining useful life using ML." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Renewable_Energy rdfs:label "Renewable Energy" .
+ae:Energy_Storage rdfs:label "Energy Storage" .
+
+ae:AE_0212 a ae:Topic ;
+    ae:domain ae:Renewable_Energy ;
+    ae:subDomain ae:Smart_Grid ;
+    rdfs:label "Demand Side Management" ;
+    dc:description "Managing electricity demand through incentives and automated control of loads." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Renewable_Energy rdfs:label "Renewable Energy" .
+ae:Smart_Grid rdfs:label "Smart Grid" .
+
+ae:AE_0213 a ae:Topic ;
+    ae:domain ae:Renewable_Energy ;
+    ae:subDomain ae:Hydrogen_Energy ;
+    rdfs:label "Green Hydrogen Production Optimization" ;
+    dc:description "Optimizing electrolysis-based green hydrogen production from renewable energy." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Renewable_Energy rdfs:label "Renewable Energy" .
+ae:Hydrogen_Energy rdfs:label "Hydrogen Energy" .
+
+ae:AE_0214 a ae:Topic ;
+    ae:domain ae:Manufacturing ;
+    ae:subDomain ae:Quality_Control ;
+    rdfs:label "Visual Defect Detection" ;
+    dc:description "Detecting surface defects and product anomalies using computer vision." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Manufacturing rdfs:label "Manufacturing" .
+ae:Quality_Control rdfs:label "Quality Control" .
+
+ae:AE_0215 a ae:Topic ;
+    ae:domain ae:Manufacturing ;
+    ae:subDomain ae:Production_Optimization ;
+    rdfs:label "Manufacturing Scheduling" ;
+    dc:description "Optimizing production schedules to minimize costs and maximize throughput." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Manufacturing rdfs:label "Manufacturing" .
+ae:Production_Optimization rdfs:label "Production Optimization" .
+
+ae:AE_0216 a ae:Topic ;
+    ae:domain ae:Manufacturing ;
+    ae:subDomain ae:Additive_Manufacturing ;
+    rdfs:label "3D Printing Process Optimization" ;
+    dc:description "Optimizing 3D printing parameters for improved part quality and speed." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Manufacturing rdfs:label "Manufacturing" .
+ae:Additive_Manufacturing rdfs:label "Additive Manufacturing" .
+
+ae:AE_0217 a ae:Topic ;
+    ae:domain ae:Manufacturing ;
+    ae:subDomain ae:Robot-based_Manufacturing ;
+    rdfs:label "Welding Robots" ;
+    dc:description "Automated robot welding for precision joining in manufacturing." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Manufacturing rdfs:label "Manufacturing" .
+ae:Robot-based_Manufacturing rdfs:label "Robot-based Manufacturing" .
+
+ae:AE_0218 a ae:Topic ;
+    ae:domain ae:Manufacturing ;
+    ae:subDomain ae:CNC_Machining ;
+    rdfs:label "Tool Wear Monitoring" ;
+    dc:description "Monitoring cutting tool wear during CNC machining using sensor signals." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Manufacturing rdfs:label "Manufacturing" .
+ae:CNC_Machining rdfs:label "CNC Machining" .
+
+ae:AE_0219 a ae:Topic ;
+    ae:domain ae:Industry_4.0 ;
+    ae:subDomain ae:Cyber-Physical_Systems ;
+    rdfs:label "IIoT Integration" ;
+    dc:description "Integrating industrial machinery with digital networked intelligence." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Industry_4.0 rdfs:label "Industry 4.0" .
+ae:Cyber-Physical_Systems rdfs:label "Cyber-Physical Systems" .
+
+ae:AE_0220 a ae:Topic ;
+    ae:domain ae:Industry_4.0 ;
+    ae:subDomain ae:Smart_Factory ;
+    rdfs:label "Autonomous Mobile Robots in Factory" ;
+    dc:description "Using autonomous mobile robots for material handling in smart factories." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Industry_4.0 rdfs:label "Industry 4.0" .
+ae:Smart_Factory rdfs:label "Smart Factory" .
+
+ae:AE_0221 a ae:Topic ;
+    ae:domain ae:Industry_4.0 ;
+    ae:subDomain ae:Digital_Manufacturing ;
+    rdfs:label "Computer-Aided Manufacturing" ;
+    dc:description "Using software tools to plan, simulate, and control manufacturing processes." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Industry_4.0 rdfs:label "Industry 4.0" .
+ae:Digital_Manufacturing rdfs:label "Digital Manufacturing" .
+
+ae:AE_0222 a ae:Topic ;
+    ae:domain ae:Industry_4.0 ;
+    ae:subDomain ae:Human-Machine_Interface ;
+    rdfs:label "Industrial HMI Design" ;
+    dc:description "Designing intuitive operator interfaces for industrial control systems." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "Yes" .
+
+ae:Industry_4.0 rdfs:label "Industry 4.0" .
+ae:Human-Machine_Interface rdfs:label "Human-Machine Interface" .
+
+ae:AE_0223 a ae:Topic ;
+    ae:domain ae:Industry_4.0 ;
+    ae:subDomain ae:Mass_Customization ;
+    rdfs:label "Configure-to-Order Systems" ;
+    dc:description "Enabling customer-driven product configuration while maintaining manufacturing efficiency." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "Yes" .
+
+ae:Industry_4.0 rdfs:label "Industry 4.0" .
+ae:Mass_Customization rdfs:label "Mass Customization" .
+
+ae:AE_0224 a ae:Topic ;
+    ae:domain ae:Supply_Chain ;
+    ae:subDomain ae:Demand_Forecasting ;
+    rdfs:label "Sales Demand Planning" ;
+    dc:description "Forecasting product demand across SKUs and locations for supply chain planning." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Supply_Chain rdfs:label "Supply Chain" .
+ae:Demand_Forecasting rdfs:label "Demand Forecasting" .
+
+ae:AE_0225 a ae:Topic ;
+    ae:domain ae:Supply_Chain ;
+    ae:subDomain ae:Logistics_Optimization ;
+    rdfs:label "Vehicle Routing" ;
+    dc:description "Optimizing delivery routes for fleets of vehicles to minimize cost and time." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Supply_Chain rdfs:label "Supply Chain" .
+ae:Logistics_Optimization rdfs:label "Logistics Optimization" .
+
+ae:AE_0226 a ae:Topic ;
+    ae:domain ae:Supply_Chain ;
+    ae:subDomain ae:Inventory_Management ;
+    rdfs:label "Safety Stock Optimization" ;
+    dc:description "Determining optimal safety stock levels to balance service level and holding cost." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Supply_Chain rdfs:label "Supply Chain" .
+ae:Inventory_Management rdfs:label "Inventory Management" .
+
+ae:AE_0227 a ae:Topic ;
+    ae:domain ae:Supply_Chain ;
+    ae:subDomain ae:Procurement ;
+    rdfs:label "Supplier Risk Assessment" ;
+    dc:description "Evaluating and mitigating risks from supply chain disruptions and supplier failures." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Supply_Chain rdfs:label "Supply Chain" .
+ae:Procurement rdfs:label "Procurement" .
+
+ae:AE_0228 a ae:Topic ;
+    ae:domain ae:Supply_Chain ;
+    ae:subDomain ae:Cold_Chain_Management ;
+    rdfs:label "Temperature-controlled Logistics" ;
+    dc:description "Monitoring and ensuring product quality in temperature-sensitive supply chains." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Supply_Chain rdfs:label "Supply Chain" .
+ae:Cold_Chain_Management rdfs:label "Cold Chain Management" .
+
+ae:AE_0229 a ae:Topic ;
+    ae:domain ae:Business_Analytics ;
+    ae:subDomain ae:Customer_Analytics ;
+    rdfs:label "Customer Segmentation" ;
+    dc:description "Grouping customers by behavior and demographics for targeted marketing." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Business_Analytics rdfs:label "Business Analytics" .
+ae:Customer_Analytics rdfs:label "Customer Analytics" .
+
+ae:AE_0230 a ae:Topic ;
+    ae:domain ae:Business_Analytics ;
+    ae:subDomain ae:Marketing_Analytics ;
+    rdfs:label "Marketing Mix Modeling" ;
+    dc:description "Measuring the impact of marketing activities on sales using statistical models." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Business_Analytics rdfs:label "Business Analytics" .
+ae:Marketing_Analytics rdfs:label "Marketing Analytics" .
+
+ae:AE_0231 a ae:Topic ;
+    ae:domain ae:Business_Analytics ;
+    ae:subDomain ae:Financial_Analytics ;
+    rdfs:label "Financial Statement Analysis" ;
+    dc:description "Automated analysis of financial statements for investment and credit decisions." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Business_Analytics rdfs:label "Business Analytics" .
+ae:Financial_Analytics rdfs:label "Financial Analytics" .
+
+ae:AE_0232 a ae:Topic ;
+    ae:domain ae:Business_Analytics ;
+    ae:subDomain ae:Operations_Analytics ;
+    rdfs:label "Process Mining" ;
+    dc:description "Discovering, monitoring, and improving real processes from event logs." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Business_Analytics rdfs:label "Business Analytics" .
+ae:Operations_Analytics rdfs:label "Operations Analytics" .
+
+ae:AE_0233 a ae:Topic ;
+    ae:domain ae:Business_Analytics ;
+    ae:subDomain ae:HR_Analytics ;
+    rdfs:label "Employee Attrition Prediction" ;
+    dc:description "Predicting employee voluntary turnover using HR data and ML." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Business_Analytics rdfs:label "Business Analytics" .
+ae:HR_Analytics rdfs:label "HR Analytics" .
+
+ae:AE_0234 a ae:Topic ;
+    ae:domain ae:Human_Computer_Interaction ;
+    ae:subDomain ae:User_Interface_Design ;
+    rdfs:label "Usability Testing" ;
+    dc:description "Evaluating user interface designs through structured usability tests." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Human_Computer_Interaction rdfs:label "Human Computer Interaction" .
+ae:User_Interface_Design rdfs:label "User Interface Design" .
+
+ae:AE_0235 a ae:Topic ;
+    ae:domain ae:Human_Computer_Interaction ;
+    ae:subDomain ae:Brain-Computer_Interface ;
+    rdfs:label "EEG-based BCI" ;
+    dc:description "Enabling direct communication between the brain and computers using EEG signals." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Human_Computer_Interaction rdfs:label "Human Computer Interaction" .
+ae:Brain-Computer_Interface rdfs:label "Brain-Computer Interface" .
+
+ae:AE_0236 a ae:Topic ;
+    ae:domain ae:Human_Computer_Interaction ;
+    ae:subDomain ae:Gesture_Recognition ;
+    rdfs:label "Hand Gesture Recognition" ;
+    dc:description "Recognizing hand gestures for natural and touchless computer interaction." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Human_Computer_Interaction rdfs:label "Human Computer Interaction" .
+ae:Gesture_Recognition rdfs:label "Gesture Recognition" .
+
+ae:AE_0237 a ae:Topic ;
+    ae:domain ae:Human_Computer_Interaction ;
+    ae:subDomain ae:Affective_Computing ;
+    rdfs:label "Emotion Recognition from Physiological Signals" ;
+    dc:description "Recognizing human emotional states from physiological sensor signals." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Human_Computer_Interaction rdfs:label "Human Computer Interaction" .
+ae:Affective_Computing rdfs:label "Affective Computing" .
+
+ae:AE_0238 a ae:Topic ;
+    ae:domain ae:Human_Computer_Interaction ;
+    ae:subDomain ae:Accessibility ;
+    rdfs:label "AI for Assistive Technology" ;
+    dc:description "Developing AI-powered tools to improve accessibility for people with disabilities." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Human_Computer_Interaction rdfs:label "Human Computer Interaction" .
+ae:Accessibility rdfs:label "Accessibility" .
+
+ae:AE_0239 a ae:Topic ;
+    ae:domain ae:Computer_Graphics ;
+    ae:subDomain ae:3D_Rendering ;
+    rdfs:label "Real-time 3D Rendering" ;
+    dc:description "Generating 3D images in real-time using rasterization and ray tracing." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Graphics rdfs:label "Computer Graphics" .
+ae:3D_Rendering rdfs:label "3D Rendering" .
+
+ae:AE_0240 a ae:Topic ;
+    ae:domain ae:Computer_Graphics ;
+    ae:subDomain ae:Neural_Rendering ;
+    rdfs:label "NeRF (Neural Radiance Fields)" ;
+    dc:description "Representing 3D scenes as neural networks for novel view synthesis." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Graphics rdfs:label "Computer Graphics" .
+ae:Neural_Rendering rdfs:label "Neural Rendering" .
+
+ae:AE_0241 a ae:Topic ;
+    ae:domain ae:Computer_Graphics ;
+    ae:subDomain ae:Procedural_Generation ;
+    rdfs:label "Terrain Generation" ;
+    dc:description "Algorithmically generating terrain and landscape data for virtual environments." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Computer_Graphics rdfs:label "Computer Graphics" .
+ae:Procedural_Generation rdfs:label "Procedural Generation" .
+
+ae:AE_0242 a ae:Topic ;
+    ae:domain ae:Computer_Graphics ;
+    ae:subDomain ae:Animation ;
+    rdfs:label "Character Animation" ;
+    dc:description "Creating lifelike character motion using physics and data-driven techniques." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Graphics rdfs:label "Computer Graphics" .
+ae:Animation rdfs:label "Animation" .
+
+ae:AE_0243 a ae:Topic ;
+    ae:domain ae:Computer_Graphics ;
+    ae:subDomain ae:3D_Modeling ;
+    rdfs:label "Generative 3D Shape Synthesis" ;
+    dc:description "Generating 3D shapes and objects using deep generative models." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Computer_Graphics rdfs:label "Computer Graphics" .
+ae:3D_Modeling rdfs:label "3D Modeling" .
+
+ae:AE_0244 a ae:Topic ;
+    ae:domain ae:Image_Processing ;
+    ae:subDomain ae:Morphological_Processing ;
+    rdfs:label "Image Enhancement" ;
+    dc:description "Applying morphological operations and filters to improve image quality." ;
+    ae:difficultyLevel "Beginner" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Image_Processing rdfs:label "Image Processing" .
+ae:Morphological_Processing rdfs:label "Morphological Processing" .
+
+ae:AE_0245 a ae:Topic ;
+    ae:domain ae:Image_Processing ;
+    ae:subDomain ae:Image_Compression ;
+    rdfs:label "Learned Image Compression" ;
+    dc:description "Learning optimal image encoding and decoding using neural networks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Image_Processing rdfs:label "Image Processing" .
+ae:Image_Compression rdfs:label "Image Compression" .
+
+ae:AE_0246 a ae:Topic ;
+    ae:domain ae:Image_Processing ;
+    ae:subDomain ae:Image_Registration ;
+    rdfs:label "Multi-modal Image Registration" ;
+    dc:description "Aligning images from different modalities or time points into a common coordinate system." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Image_Processing rdfs:label "Image Processing" .
+ae:Image_Registration rdfs:label "Image Registration" .
+
+ae:AE_0247 a ae:Topic ;
+    ae:domain ae:Image_Processing ;
+    ae:subDomain ae:Texture_Analysis ;
+    rdfs:label "Texture Classification" ;
+    dc:description "Characterizing and classifying surface textures in images." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Image_Processing rdfs:label "Image Processing" .
+ae:Texture_Analysis rdfs:label "Texture Analysis" .
+
+ae:AE_0248 a ae:Topic ;
+    ae:domain ae:Image_Processing ;
+    ae:subDomain ae:Watermarking ;
+    rdfs:label "Digital Image Watermarking" ;
+    dc:description "Embedding imperceptible marks in images for ownership verification and authentication." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Image_Processing rdfs:label "Image Processing" .
+ae:Watermarking rdfs:label "Watermarking" .
+
+ae:AE_0249 a ae:Topic ;
+    ae:domain ae:Signal_Processing ;
+    ae:subDomain ae:Speech_Processing ;
+    rdfs:label "Speech Recognition" ;
+    dc:description "Converting spoken language into text using acoustic and language models." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Signal_Processing rdfs:label "Signal Processing" .
+ae:Speech_Processing rdfs:label "Speech Processing" .
+
+ae:AE_0250 a ae:Topic ;
+    ae:domain ae:Signal_Processing ;
+    ae:subDomain ae:ECG_EEG_Analysis ;
+    rdfs:label "ECG Arrhythmia Detection" ;
+    dc:description "Detecting cardiac arrhythmias from ECG signals using ML." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Signal_Processing rdfs:label "Signal Processing" .
+ae:ECG_EEG_Analysis rdfs:label "ECG/EEG Analysis" .
+
+ae:AE_0251 a ae:Topic ;
+    ae:domain ae:Signal_Processing ;
+    ae:subDomain ae:Audio_Signal_Processing ;
+    rdfs:label "Music Information Retrieval" ;
+    dc:description "Analyzing music audio for tasks like classification, transcription, and retrieval." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:Signal_Processing rdfs:label "Signal Processing" .
+ae:Audio_Signal_Processing rdfs:label "Audio Signal Processing" .
+
+ae:AE_0252 a ae:Topic ;
+    ae:domain ae:Signal_Processing ;
+    ae:subDomain ae:Radar_Signal_Processing ;
+    rdfs:label "Radar Target Detection" ;
+    dc:description "Detecting and classifying targets in radar signals using signal processing and ML." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Signal_Processing rdfs:label "Signal Processing" .
+ae:Radar_Signal_Processing rdfs:label "Radar Signal Processing" .
+
+ae:AE_0253 a ae:Topic ;
+    ae:domain ae:Signal_Processing ;
+    ae:subDomain ae:Vibration_Analysis ;
+    rdfs:label "Mechanical Vibration Signal Analysis" ;
+    dc:description "Analyzing vibration signals for fault detection in rotating machinery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Signal_Processing rdfs:label "Signal Processing" .
+ae:Vibration_Analysis rdfs:label "Vibration Analysis" .
+
+ae:AE_0254 a ae:Topic ;
+    ae:domain ae:Drone_Technology ;
+    ae:subDomain ae:UAV_Computer_Vision ;
+    rdfs:label "Drone Object Detection" ;
+    dc:description "Detecting and tracking objects from aerial drone imagery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Drone_Technology rdfs:label "Drone Technology" .
+ae:UAV_Computer_Vision rdfs:label "UAV Computer Vision" .
+
+ae:AE_0255 a ae:Topic ;
+    ae:domain ae:Drone_Technology ;
+    ae:subDomain ae:Autonomous_Drone_Systems ;
+    rdfs:label "Drone Swarm Control" ;
+    dc:description "Coordinating multiple drones autonomously for collaborative missions." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Drone_Technology rdfs:label "Drone Technology" .
+ae:Autonomous_Drone_Systems rdfs:label "Autonomous Drone Systems" .
+
+ae:AE_0256 a ae:Topic ;
+    ae:domain ae:Drone_Technology ;
+    ae:subDomain ae:Drone_Inspection ;
+    rdfs:label "Infrastructure Inspection by Drone" ;
+    dc:description "Using drones with cameras to inspect bridges, towers, and pipelines." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Drone_Technology rdfs:label "Drone Technology" .
+ae:Drone_Inspection rdfs:label "Drone Inspection" .
+
+ae:AE_0257 a ae:Topic ;
+    ae:domain ae:Drone_Technology ;
+    ae:subDomain ae:Drone_Mapping ;
+    rdfs:label "Photogrammetry and 3D Reconstruction" ;
+    dc:description "Creating accurate 3D terrain models and orthomosaics from drone imagery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Drone_Technology rdfs:label "Drone Technology" .
+ae:Drone_Mapping rdfs:label "Drone Mapping" .
+
+ae:AE_0258 a ae:Topic ;
+    ae:domain ae:Drone_Technology ;
+    ae:subDomain ae:Drone_Delivery ;
+    rdfs:label "Urban Air Mobility" ;
+    dc:description "Autonomous delivery of packages using drones in urban environments." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Drone_Technology rdfs:label "Drone Technology" .
+ae:Drone_Delivery rdfs:label "Drone Delivery" .
+
+ae:AE_0259 a ae:Topic ;
+    ae:domain ae:GIS ;
+    ae:subDomain ae:Spatial_Analysis ;
+    rdfs:label "Urban Land Use Classification" ;
+    dc:description "Classifying urban land use from satellite and aerial imagery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:GIS rdfs:label "GIS" .
+ae:Spatial_Analysis rdfs:label "Spatial Analysis" .
+
+ae:AE_0260 a ae:Topic ;
+    ae:domain ae:GIS ;
+    ae:subDomain ae:Route_Optimization ;
+    rdfs:label "Geospatial Route Planning" ;
+    dc:description "Planning optimal geographic routes using spatial data and constraints." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:GIS rdfs:label "GIS" .
+ae:Route_Optimization rdfs:label "Route Optimization" .
+
+ae:AE_0261 a ae:Topic ;
+    ae:domain ae:GIS ;
+    ae:subDomain ae:Environmental_Monitoring ;
+    rdfs:label "Flood Mapping" ;
+    dc:description "Mapping and predicting flood extents using remote sensing and GIS." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:GIS rdfs:label "GIS" .
+ae:Environmental_Monitoring rdfs:label "Environmental Monitoring" .
+
+ae:AE_0262 a ae:Topic ;
+    ae:domain ae:GIS ;
+    ae:subDomain ae:Crime_Mapping ;
+    rdfs:label "Predictive Policing" ;
+    dc:description "Spatial analysis of crime patterns to predict and prevent future incidents." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "Medium" ;
+    ae:emergingTopic "No" .
+
+ae:GIS rdfs:label "GIS" .
+ae:Crime_Mapping rdfs:label "Crime Mapping" .
+
+ae:AE_0263 a ae:Topic ;
+    ae:domain ae:GIS ;
+    ae:subDomain ae:Geospatial_ML ;
+    rdfs:label "Geospatial Foundation Models" ;
+    dc:description "Training large-scale foundation models for geospatial understanding tasks." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:GIS rdfs:label "GIS" .
+ae:Geospatial_ML rdfs:label "Geospatial ML" .
+
+ae:AE_0264 a ae:Topic ;
+    ae:domain ae:Remote_Sensing ;
+    ae:subDomain ae:Satellite_Image_Analysis ;
+    rdfs:label "Change Detection" ;
+    dc:description "Detecting changes in land surface between multi-temporal satellite images." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Remote_Sensing rdfs:label "Remote Sensing" .
+ae:Satellite_Image_Analysis rdfs:label "Satellite Image Analysis" .
+
+ae:AE_0265 a ae:Topic ;
+    ae:domain ae:Remote_Sensing ;
+    ae:subDomain ae:Hyperspectral_Imaging ;
+    rdfs:label "Hyperspectral Classification" ;
+    dc:description "Classifying materials and land cover from hundreds of spectral bands." ;
+    ae:difficultyLevel "Expert" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Remote_Sensing rdfs:label "Remote Sensing" .
+ae:Hyperspectral_Imaging rdfs:label "Hyperspectral Imaging" .
+
+ae:AE_0266 a ae:Topic ;
+    ae:domain ae:Remote_Sensing ;
+    ae:subDomain ae:SAR_Analysis ;
+    rdfs:label "SAR Ship Detection" ;
+    dc:description "Detecting and classifying ships in Synthetic Aperture Radar satellite images." ;
+    ae:difficultyLevel "Advanced" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Remote_Sensing rdfs:label "Remote Sensing" .
+ae:SAR_Analysis rdfs:label "SAR Analysis" .
+
+ae:AE_0267 a ae:Topic ;
+    ae:domain ae:Remote_Sensing ;
+    ae:subDomain ae:Aerial_Image_Analysis ;
+    rdfs:label "Building Footprint Extraction" ;
+    dc:description "Automatically detecting and delineating building footprints from aerial imagery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "No" .
+
+ae:Remote_Sensing rdfs:label "Remote Sensing" .
+ae:Aerial_Image_Analysis rdfs:label "Aerial Image Analysis" .
+
+ae:AE_0268 a ae:Topic ;
+    ae:domain ae:Remote_Sensing ;
+    ae:subDomain ae:Vegetation_Monitoring ;
+    rdfs:label "Forest Cover Analysis" ;
+    dc:description "Monitoring forest cover change and health using multi-temporal satellite imagery." ;
+    ae:difficultyLevel "Intermediate" ;
+    ae:trendLevel "High" ;
+    ae:emergingTopic "Yes" .
+
+ae:Remote_Sensing rdfs:label "Remote Sensing" .
+ae:Vegetation_Monitoring rdfs:label "Vegetation Monitoring" .

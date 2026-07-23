@@ -1,0 +1,3253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AcadEval Domain Taxonomy</title>
+<style>
+  body { font-family: Inter, sans-serif; padding: 24px; }
+  h1 { color: #1B2A4A; }
+  .taxonomy-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  .taxonomy-table th { background: #1B2A4A; color: #fff; padding: 8px 12px; text-align: left; }
+  .taxonomy-table td { padding: 6px 12px; border-bottom: 1px solid #e5e7eb; }
+  .taxonomy-table tr:hover { background: #f0f4ff; }
+</style>
+</head>
+<body>
+<h1>AcadEval Domain Taxonomy</h1>
+<p><strong>Total:</strong> 268 topics across 44 domains.</p>
+<table class="dataframe taxonomy-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Taxonomy_ID</th>
+      <th>Domain</th>
+      <th>Sub_Domain</th>
+      <th>Topic</th>
+      <th>Difficulty_Level</th>
+      <th>Trend_Level</th>
+      <th>Emerging_Topic</th>
+      <th>Technologies</th>
+      <th>Algorithms</th>
+      <th>Typical_Datasets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AE-0001</td>
+      <td>Artificial Intelligence</td>
+      <td>Expert Systems</td>
+      <td>Rule-Based Systems</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, Prolog, Java</td>
+      <td>Forward Chaining,Backward Chaining,Rete Algorithm</td>
+      <td>UCI Repository,Domain Expert Interviews</td>
+    </tr>
+    <tr>
+      <td>AE-0002</td>
+      <td>Artificial Intelligence</td>
+      <td>Expert Systems</td>
+      <td>Fuzzy Logic Systems</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>Mamdani Inference,Sugeno Inference,Centroid Defuzzification</td>
+      <td>Fuzzy benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0003</td>
+      <td>Artificial Intelligence</td>
+      <td>Expert Systems</td>
+      <td>Ontology Engineering</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, Java</td>
+      <td>SPARQL Query Processing,Reasoner Algorithms</td>
+      <td>DBpedia,Wikidata,WordNet</td>
+    </tr>
+    <tr>
+      <td>AE-0004</td>
+      <td>Artificial Intelligence</td>
+      <td>Knowledge Representation</td>
+      <td>Knowledge Graphs</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Java</td>
+      <td>TransE,RotatE,ComplEx,DistMult,GAT</td>
+      <td>Freebase,Wikidata,DBpedia,YAGO</td>
+    </tr>
+    <tr>
+      <td>AE-0005</td>
+      <td>Artificial Intelligence</td>
+      <td>Knowledge Representation</td>
+      <td>Common Sense Reasoning</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Spreading Activation,Path-based Reasoning</td>
+      <td>ConceptNet,VisualCOMET,ATOMIC</td>
+    </tr>
+    <tr>
+      <td>AE-0006</td>
+      <td>Artificial Intelligence</td>
+      <td>Planning &amp; Reasoning</td>
+      <td>Automated Planning</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, Lisp</td>
+      <td>A* Search,HTN Planning,LAMA,FF Planner</td>
+      <td>IPC Benchmark Domains</td>
+    </tr>
+    <tr>
+      <td>AE-0007</td>
+      <td>Artificial Intelligence</td>
+      <td>Planning &amp; Reasoning</td>
+      <td>Constraint Satisfaction</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, Prolog</td>
+      <td>Backtracking,AC-3,Min-Conflicts,Forward Checking</td>
+      <td>Benchmark CSP instances</td>
+    </tr>
+    <tr>
+      <td>AE-0008</td>
+      <td>Artificial Intelligence</td>
+      <td>AI Ethics &amp; Fairness</td>
+      <td>Bias Detection and Mitigation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Reweighing,Adversarial Debiasing,Calibrated Equalized Odds</td>
+      <td>Adult Income,COMPAS,German Credit</td>
+    </tr>
+    <tr>
+      <td>AE-0009</td>
+      <td>Artificial Intelligence</td>
+      <td>Explainable AI</td>
+      <td>Feature Attribution Methods</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SHAP,LIME,ANCHOR,Integrated Gradients</td>
+      <td>Tabular,Image,Text benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0010</td>
+      <td>Artificial Intelligence</td>
+      <td>Explainable AI</td>
+      <td>Counterfactual Explanations</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>DiCE,Growing Spheres,MACE,Wachter</td>
+      <td>Adult Income,German Credit,HELOC</td>
+    </tr>
+    <tr>
+      <td>AE-0011</td>
+      <td>Artificial Intelligence</td>
+      <td>Cognitive Computing</td>
+      <td>Human-Level AI Benchmarking</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Few-shot Learning,Chain-of-Thought Prompting</td>
+      <td>ARC,Winogrande,HellaSwag,BIG-Bench,MMLU</td>
+    </tr>
+    <tr>
+      <td>AE-0012</td>
+      <td>Artificial Intelligence</td>
+      <td>Evolutionary Computation</td>
+      <td>Genetic Algorithms</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>Roulette Selection,Tournament Selection,SBX Crossover</td>
+      <td>CEC benchmark functions,BBOB</td>
+    </tr>
+    <tr>
+      <td>AE-0013</td>
+      <td>Artificial Intelligence</td>
+      <td>Swarm Intelligence</td>
+      <td>Particle Swarm Optimization</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>Standard PSO,APSO,DPSO</td>
+      <td>CEC benchmark functions,engineering design problems</td>
+    </tr>
+    <tr>
+      <td>AE-0014</td>
+      <td>Artificial Intelligence</td>
+      <td>AI Safety</td>
+      <td>Adversarial Robustness</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>FGSM,PGD,CW Attack,AutoAttack,Randomized Smoothing</td>
+      <td>MNIST,CIFAR-10,ImageNet adversarial benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0015</td>
+      <td>Machine Learning</td>
+      <td>Supervised Learning</td>
+      <td>Classification</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>SVM,Random Forest,k-NN,Logistic Regression,XGBoost,LightGBM</td>
+      <td>Iris,MNIST,CIFAR-10,Adult Income,Breast Cancer Wisconsin</td>
+    </tr>
+    <tr>
+      <td>AE-0016</td>
+      <td>Machine Learning</td>
+      <td>Supervised Learning</td>
+      <td>Regression</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Linear Regression,Ridge,Lasso,Elastic Net,SVR,Random Forest Regressor</td>
+      <td>Boston Housing,California Housing,Diabetes Dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0017</td>
+      <td>Machine Learning</td>
+      <td>Supervised Learning</td>
+      <td>Time Series Forecasting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>ARIMA,SARIMA,Prophet,LSTM,TCN,Transformer,N-BEATS</td>
+      <td>M4 Competition,ETT,Exchange Rate,Traffic,Electricity</td>
+    </tr>
+    <tr>
+      <td>AE-0018</td>
+      <td>Machine Learning</td>
+      <td>Unsupervised Learning</td>
+      <td>Clustering</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>k-Means,DBSCAN,HDBSCAN,Agglomerative,GMM,Spectral Clustering</td>
+      <td>Mall Customer,Wholesale,Iris (unsupervised)</td>
+    </tr>
+    <tr>
+      <td>AE-0019</td>
+      <td>Machine Learning</td>
+      <td>Unsupervised Learning</td>
+      <td>Dimensionality Reduction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>PCA,t-SNE,UMAP,LDA,ICA,Autoencoders</td>
+      <td>MNIST,Fashion-MNIST,Gene Expression datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0020</td>
+      <td>Machine Learning</td>
+      <td>Unsupervised Learning</td>
+      <td>Anomaly Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Isolation Forest,LOF,One-Class SVM,Autoencoder,COPOD</td>
+      <td>KDD Cup 1999,CICIDS,MVTec,SWaT</td>
+    </tr>
+    <tr>
+      <td>AE-0021</td>
+      <td>Machine Learning</td>
+      <td>Reinforcement Learning</td>
+      <td>Q-Learning</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Q-Learning,SARSA,Double Q-Learning,DQN</td>
+      <td>CartPole,Atari Games,FrozenLake</td>
+    </tr>
+    <tr>
+      <td>AE-0022</td>
+      <td>Machine Learning</td>
+      <td>Reinforcement Learning</td>
+      <td>Deep Reinforcement Learning</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>DQN,PPO,A3C,SAC,TD3,DDPG,Rainbow</td>
+      <td>Atari,MuJoCo,StarCraft II,CARLA</td>
+    </tr>
+    <tr>
+      <td>AE-0023</td>
+      <td>Machine Learning</td>
+      <td>Transfer Learning</td>
+      <td>Fine-tuning Pre-trained Models</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Fine-tuning,Progressive Training,Layer Freezing</td>
+      <td>ImageNet,GLUE,SuperGLUE</td>
+    </tr>
+    <tr>
+      <td>AE-0024</td>
+      <td>Machine Learning</td>
+      <td>Federated Learning</td>
+      <td>Privacy-Preserving ML</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>FedAvg,FedProx,SCAFFOLD,Ditto</td>
+      <td>LEAF Benchmark (FEMNIST,Shakespeare),CIFAR-10 partitioned</td>
+    </tr>
+    <tr>
+      <td>AE-0025</td>
+      <td>Machine Learning</td>
+      <td>AutoML</td>
+      <td>Neural Architecture Search</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>DARTS,ENAS,SNAS,Random Search,Bayesian Optimization</td>
+      <td>CIFAR-10,ImageNet</td>
+    </tr>
+    <tr>
+      <td>AE-0026</td>
+      <td>Machine Learning</td>
+      <td>Ensemble Methods</td>
+      <td>Gradient Boosting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>XGBoost,LightGBM,CatBoost,Gradient Boosting Machine</td>
+      <td>Kaggle tabular competition datasets,Adult Income,Titanic</td>
+    </tr>
+    <tr>
+      <td>AE-0027</td>
+      <td>Machine Learning</td>
+      <td>Ensemble Methods</td>
+      <td>Random Forest</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Random Forest,Extra Trees,Bagging Classifier</td>
+      <td>Iris,UCI Repository datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0028</td>
+      <td>Machine Learning</td>
+      <td>Optimization</td>
+      <td>Bayesian Optimization</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Gaussian Process Regression,Tree Parzen Estimator,CMA-ES</td>
+      <td>HPOBench</td>
+    </tr>
+    <tr>
+      <td>AE-0029</td>
+      <td>Deep Learning</td>
+      <td>Convolutional Neural Networks</td>
+      <td>Image Classification</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ResNet,VGG,EfficientNet,MobileNet,DenseNet</td>
+      <td>ImageNet,CIFAR-10,CIFAR-100,Fashion-MNIST</td>
+    </tr>
+    <tr>
+      <td>AE-0030</td>
+      <td>Deep Learning</td>
+      <td>Convolutional Neural Networks</td>
+      <td>Object Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>YOLO,SSD,Faster R-CNN,RetinaNet,DETR,RT-DETR</td>
+      <td>COCO,Pascal VOC,Open Images,VisDrone</td>
+    </tr>
+    <tr>
+      <td>AE-0031</td>
+      <td>Deep Learning</td>
+      <td>Recurrent Neural Networks</td>
+      <td>Sequence Modeling</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>LSTM,GRU,Bidirectional LSTM,Multi-layer RNN</td>
+      <td>PTB,Wikitext-2,IMDb,Time series datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0032</td>
+      <td>Deep Learning</td>
+      <td>Transformers</td>
+      <td>Self-Attention Mechanisms</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Multi-head Attention,Scaled Dot-Product Attention,Flash Attention</td>
+      <td>GLUE,SuperGLUE,SQuAD,WMT,ImageNet</td>
+    </tr>
+    <tr>
+      <td>AE-0033</td>
+      <td>Deep Learning</td>
+      <td>Graph Neural Networks</td>
+      <td>Graph Classification</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>GCN,GAT,GraphSAGE,GIN,Graph Transformer</td>
+      <td>Cora,Citeseer,Ogbn-arxiv,MUTAG,TU Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0034</td>
+      <td>Deep Learning</td>
+      <td>Generative Models</td>
+      <td>Generative Adversarial Networks</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>DCGAN,StyleGAN2,ProGAN,BigGAN,Pix2Pix,CycleGAN</td>
+      <td>CelebA,LSUN,FFHQ,ImageNet,CIFAR-10</td>
+    </tr>
+    <tr>
+      <td>AE-0035</td>
+      <td>Deep Learning</td>
+      <td>Self-Supervised Learning</td>
+      <td>Contrastive Learning</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SimCLR,MoCo,BYOL,SimSiam,DINO</td>
+      <td>ImageNet,STL-10,CIFAR-10 (unlabeled)</td>
+    </tr>
+    <tr>
+      <td>AE-0036</td>
+      <td>Deep Learning</td>
+      <td>Model Compression</td>
+      <td>Knowledge Distillation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Response Distillation,Feature Distillation,Online Distillation</td>
+      <td>ImageNet,CIFAR-10,GLUE</td>
+    </tr>
+    <tr>
+      <td>AE-0037</td>
+      <td>Deep Learning</td>
+      <td>Model Compression</td>
+      <td>Neural Network Pruning</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Magnitude Pruning,L1-norm Pruning,Taylor Expansion Pruning</td>
+      <td>ImageNet,CIFAR,BERT benchmark</td>
+    </tr>
+    <tr>
+      <td>AE-0038</td>
+      <td>Deep Learning</td>
+      <td>Neural Architecture Search</td>
+      <td>DARTS</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>DARTS,PC-DARTS,SNAS,FairDARTS</td>
+      <td>CIFAR-10,ImageNet</td>
+    </tr>
+    <tr>
+      <td>AE-0039</td>
+      <td>Computer Vision</td>
+      <td>Face Analysis</td>
+      <td>Face Recognition</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>FaceNet,ArcFace,CosFace,AdaFace,LBPH,Eigenfaces</td>
+      <td>LFW,MS-Celeb-1M,CASIA-WebFace,VGGFace2</td>
+    </tr>
+    <tr>
+      <td>AE-0040</td>
+      <td>Computer Vision</td>
+      <td>Face Analysis</td>
+      <td>Facial Expression Recognition</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CNN,ResNet,Graph-based Models,Transformer</td>
+      <td>AffectNet,RAF-DB,FER2013,SFEW</td>
+    </tr>
+    <tr>
+      <td>AE-0041</td>
+      <td>Computer Vision</td>
+      <td>Image Segmentation</td>
+      <td>Semantic Segmentation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>FCN,U-Net,DeepLabV3+,SegFormer,Mask2Former</td>
+      <td>ADE20K,Cityscapes,Pascal VOC,COCO</td>
+    </tr>
+    <tr>
+      <td>AE-0042</td>
+      <td>Computer Vision</td>
+      <td>Image Segmentation</td>
+      <td>Instance Segmentation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Mask R-CNN,YOLACT,SOLOv2,CondInst,QueryInst</td>
+      <td>COCO,Cityscapes,LiTS,NuCLS</td>
+    </tr>
+    <tr>
+      <td>AE-0043</td>
+      <td>Computer Vision</td>
+      <td>Pose Estimation</td>
+      <td>Human Pose Estimation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>OpenPose,HRNet,ViTPose,MediaPipe BlazePose</td>
+      <td>COCO-WholeBody,MPII,LSP,PoseTrack</td>
+    </tr>
+    <tr>
+      <td>AE-0044</td>
+      <td>Computer Vision</td>
+      <td>Optical Character Recognition</td>
+      <td>Scene Text Recognition</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>CRNN,ASTER,TrOCR,ABINet,DBNet,CRAFT</td>
+      <td>IIIT5K,SVT,TextVQA,COCO-Text</td>
+    </tr>
+    <tr>
+      <td>AE-0045</td>
+      <td>Computer Vision</td>
+      <td>Video Analysis</td>
+      <td>Action Recognition</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>C3D,I3D,SlowFast,TimeSformer,VideoMAE,PoseConv3D</td>
+      <td>Kinetics-400,UCF-101,HMDB51,NTU RGB+D</td>
+    </tr>
+    <tr>
+      <td>AE-0046</td>
+      <td>Computer Vision</td>
+      <td>3D Vision</td>
+      <td>Point Cloud Processing</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>PointNet,PointNet++,VoxelNet,PointPillar,SECOND</td>
+      <td>ModelNet40,ShapeNet,KITTI,nuScenes,S3DIS</td>
+    </tr>
+    <tr>
+      <td>AE-0047</td>
+      <td>Computer Vision</td>
+      <td>Image Restoration</td>
+      <td>Super Resolution</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SRCNN,ESRGAN,RRDB,SwinIR,Real-ESRGAN</td>
+      <td>Set5,Set14,BSD100,DIV2K</td>
+    </tr>
+    <tr>
+      <td>AE-0048</td>
+      <td>Computer Vision</td>
+      <td>Video Analysis</td>
+      <td>Video Object Tracking</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SORT,ByteTrack,DeepSORT,OC-SORT,StrongSORT</td>
+      <td>MOT17,MOT20,DanceTrack,LaSOT</td>
+    </tr>
+    <tr>
+      <td>AE-0049</td>
+      <td>Natural Language Processing</td>
+      <td>Text Classification</td>
+      <td>Sentiment Analysis</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BERT,RoBERTa,VADER,TextCNN,Bi-LSTM</td>
+      <td>SST-2,IMDb,SemEval,Twitter Sentiment,Amazon Reviews</td>
+    </tr>
+    <tr>
+      <td>AE-0050</td>
+      <td>Natural Language Processing</td>
+      <td>Text Classification</td>
+      <td>Spam Detection</td>
+      <td>Beginner</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Naive Bayes,SVM,BERT,Logistic Regression</td>
+      <td>Enron Email,SMS Spam Collection,SpamAssassin</td>
+    </tr>
+    <tr>
+      <td>AE-0051</td>
+      <td>Natural Language Processing</td>
+      <td>Named Entity Recognition</td>
+      <td>NER Systems</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BiLSTM-CRF,BERT-NER,SpanBERT,Flair</td>
+      <td>CoNLL-2003,OntoNotes,i2b2,BC5CDR</td>
+    </tr>
+    <tr>
+      <td>AE-0052</td>
+      <td>Natural Language Processing</td>
+      <td>Machine Translation</td>
+      <td>Neural Machine Translation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Transformer,mBART,MarianMT,M2M-100,NLLB</td>
+      <td>WMT Datasets,FLORES-200,OPUS</td>
+    </tr>
+    <tr>
+      <td>AE-0053</td>
+      <td>Natural Language Processing</td>
+      <td>Question Answering</td>
+      <td>Extractive QA</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BERT,RoBERTa,ALBERT,ELECTRA,DeBERTa</td>
+      <td>SQuAD 1.1,SQuAD 2.0,TriviaQA,Natural Questions</td>
+    </tr>
+    <tr>
+      <td>AE-0054</td>
+      <td>Natural Language Processing</td>
+      <td>Question Answering</td>
+      <td>Retrieval Augmented Generation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Dense Passage Retrieval,RAG,HyDE,Self-RAG</td>
+      <td>NaturalQuestions,TriviaQA,MSMARCO</td>
+    </tr>
+    <tr>
+      <td>AE-0055</td>
+      <td>Natural Language Processing</td>
+      <td>Text Summarization</td>
+      <td>Abstractive Summarization</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BART,T5,PEGASUS,mT5,UniSumm</td>
+      <td>CNN/DM,XSum,Arxiv,PubMed,MultiNews</td>
+    </tr>
+    <tr>
+      <td>AE-0056</td>
+      <td>Natural Language Processing</td>
+      <td>Information Extraction</td>
+      <td>Relation Extraction</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>BERT,SpanBERT,REBEL,UniRE</td>
+      <td>TACRED,DocRED,NYT10,REBEL dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0057</td>
+      <td>Natural Language Processing</td>
+      <td>Dialogue Systems</td>
+      <td>Task-Oriented Dialogue</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BERT,GPT-2,MinTL,SPACE,GALAXY</td>
+      <td>MultiWOZ,DSTC,SGD,CamRest676</td>
+    </tr>
+    <tr>
+      <td>AE-0058</td>
+      <td>Natural Language Processing</td>
+      <td>Text Generation</td>
+      <td>Language Modeling</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>GPT-2,GPT-3,LLaMA,Falcon,Mistral,Gemma</td>
+      <td>Pile,C4,RedPajama,OpenWebText</td>
+    </tr>
+    <tr>
+      <td>AE-0059</td>
+      <td>Generative AI</td>
+      <td>Large Language Models</td>
+      <td>Instruction Fine-tuning</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SFT,RLHF,DPO,PPO,LoRA,QLoRA</td>
+      <td>Alpaca,Dolly,OpenAssistant,ShareGPT</td>
+    </tr>
+    <tr>
+      <td>AE-0060</td>
+      <td>Generative AI</td>
+      <td>Diffusion Models</td>
+      <td>Text-to-Image Generation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>DDPM,DDIM,LDM,SDXL,ControlNet,IP-Adapter</td>
+      <td>LAION-5B,CC12M,COCO Captions</td>
+    </tr>
+    <tr>
+      <td>AE-0061</td>
+      <td>Generative AI</td>
+      <td>Diffusion Models</td>
+      <td>Image Inpainting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Stable Diffusion Inpainting,LaMa,MAT,RePaint</td>
+      <td>Places2,FFHQ,ImageNet</td>
+    </tr>
+    <tr>
+      <td>AE-0062</td>
+      <td>Generative AI</td>
+      <td>Code Generation</td>
+      <td>AI-Assisted Programming</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, JavaScript, TypeScript</td>
+      <td>GPT-4,Codex,StarCoder,DeepSeek-Coder,CodeLlama</td>
+      <td>HumanEval,MBPP,CodeContests,SWE-Bench</td>
+    </tr>
+    <tr>
+      <td>AE-0063</td>
+      <td>Generative AI</td>
+      <td>Multimodal AI</td>
+      <td>Vision-Language Models</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CLIP,BLIP,LLaVA,Flamingo,GPT-4V,Gemini</td>
+      <td>COCO Captions,VQA v2,Flickr30K,NoCaps</td>
+    </tr>
+    <tr>
+      <td>AE-0064</td>
+      <td>Generative AI</td>
+      <td>Multimodal AI</td>
+      <td>Audio-Text Generation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Whisper,EnCodec,AudioLM,VoiceBox,Bark</td>
+      <td>LibriSpeech,VCTK,AudioSet,CommonVoice</td>
+    </tr>
+    <tr>
+      <td>AE-0065</td>
+      <td>Generative AI</td>
+      <td>Prompt Engineering</td>
+      <td>Chain-of-Thought Prompting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Zero-shot CoT,Few-shot CoT,Self-Consistency,Tree-of-Thought</td>
+      <td>GSM8K,MATH,ARC,StrategyQA</td>
+    </tr>
+    <tr>
+      <td>AE-0066</td>
+      <td>Generative AI</td>
+      <td>AI Agents</td>
+      <td>Autonomous AI Agents</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>ReAct,Plan-and-Execute,Reflexion,AutoGen</td>
+      <td>WebArena,AgentBench,SWE-Bench</td>
+    </tr>
+    <tr>
+      <td>AE-0067</td>
+      <td>Generative AI</td>
+      <td>Video Generation</td>
+      <td>Text-to-Video Models</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>VideoLDM,Sora,Runway Gen-2,Lumiere,CogVideo</td>
+      <td>WebVid,UCF-101,Kinetics</td>
+    </tr>
+    <tr>
+      <td>AE-0068</td>
+      <td>Robotics</td>
+      <td>Robot Perception</td>
+      <td>SLAM</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>No</td>
+      <td>C++, Python</td>
+      <td>EKF-SLAM,Graph-based SLAM,ORB-SLAM,LIO-SAM,LOAM</td>
+      <td>KITTI,EuRoC,TUM RGB-D</td>
+    </tr>
+    <tr>
+      <td>AE-0069</td>
+      <td>Robotics</td>
+      <td>Robot Motion Planning</td>
+      <td>Path Planning</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>C++, Python</td>
+      <td>A*,Dijkstra,RRT,RRT*,PRM,D* Lite,DWA</td>
+      <td>Gazebo Simulation,MoveIt Benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0070</td>
+      <td>Robotics</td>
+      <td>Robot Manipulation</td>
+      <td>Grasp Planning</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>GQ-CNN,6-DoF GraspNet,Contact-GraspNet</td>
+      <td>GraspNet-1Billion,YCB Objects,Dex-YCB</td>
+    </tr>
+    <tr>
+      <td>AE-0071</td>
+      <td>Robotics</td>
+      <td>Human-Robot Interaction</td>
+      <td>Collaborative Robots</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Safety-guaranteed Control,Compliance Control</td>
+      <td>HRC Benchmarks,Assembly Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0072</td>
+      <td>Robotics</td>
+      <td>Swarm Robotics</td>
+      <td>Multi-Robot Coordination</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Boid Algorithm,Consensus Algorithms,Auction Algorithms</td>
+      <td>ARGoS Benchmark,Robocup</td>
+    </tr>
+    <tr>
+      <td>AE-0073</td>
+      <td>Robotics</td>
+      <td>Aerial Robotics</td>
+      <td>Drone Navigation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>PID Control,MPC,SLAM,Deep RL</td>
+      <td>MAVSDK Flight Datasets,UAV123</td>
+    </tr>
+    <tr>
+      <td>AE-0074</td>
+      <td>Robotics</td>
+      <td>Surgical Robotics</td>
+      <td>Autonomous Surgical Systems</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Semantic Segmentation,RL-based Surgical Control,LSTM</td>
+      <td>Cholec80,EndoVis,JIGSAWS,m2cai16</td>
+    </tr>
+    <tr>
+      <td>AE-0075</td>
+      <td>Internet of Things</td>
+      <td>Smart Home</td>
+      <td>Home Automation</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, C</td>
+      <td>Rule-based Automation,ML-based Scheduling</td>
+      <td>UCI Appliances Energy,REFIT Smart Home</td>
+    </tr>
+    <tr>
+      <td>AE-0076</td>
+      <td>Internet of Things</td>
+      <td>Industrial IoT</td>
+      <td>Predictive Maintenance</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,CNN,Isolation Forest,Random Forest,XGBoost</td>
+      <td>NASA CMAPSS,PRONOSTIA,CWRU Bearing,PHM Data Challenge</td>
+    </tr>
+    <tr>
+      <td>AE-0077</td>
+      <td>Internet of Things</td>
+      <td>Healthcare IoT</td>
+      <td>Wearable Health Monitoring</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C</td>
+      <td>CNN,LSTM,Decision Tree,SVM</td>
+      <td>PhysioNet,MIMIC-III,WESAD,PAMAP2</td>
+    </tr>
+    <tr>
+      <td>AE-0078</td>
+      <td>Internet of Things</td>
+      <td>Edge Computing</td>
+      <td>Edge AI Inference</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C, Python</td>
+      <td>Quantization-aware Training,Post-training Quantization</td>
+      <td>MLCommons Edge Benchmark,MLPerf Tiny</td>
+    </tr>
+    <tr>
+      <td>AE-0079</td>
+      <td>Internet of Things</td>
+      <td>IoT Security</td>
+      <td>Device Authentication</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C, Python</td>
+      <td>Lightweight Cryptography,PUF,Challenge-Response</td>
+      <td>N-BaIoT,IoT-23,MedBIoT</td>
+    </tr>
+    <tr>
+      <td>AE-0080</td>
+      <td>Internet of Things</td>
+      <td>IoT Protocols</td>
+      <td>MQTT and Message Brokers</td>
+      <td>Beginner</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, C</td>
+      <td>QoS Algorithms,Message Routing</td>
+      <td>IoT benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0081</td>
+      <td>Internet of Things</td>
+      <td>Smart Agriculture IoT</td>
+      <td>Soil and Crop Sensing</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C</td>
+      <td>Statistical Analysis,ML Regression</td>
+      <td>Kaggle Agricultural IoT datasets,USDA crop monitoring data</td>
+    </tr>
+    <tr>
+      <td>AE-0082</td>
+      <td>Cyber Security</td>
+      <td>Network Security</td>
+      <td>Intrusion Detection Systems</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,LSTM,CNN,Autoencoder,Isolation Forest</td>
+      <td>CICIDS-2017,NSL-KDD,UNSW-NB15,CAIDA</td>
+    </tr>
+    <tr>
+      <td>AE-0083</td>
+      <td>Cyber Security</td>
+      <td>Malware Analysis</td>
+      <td>Static Malware Analysis</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,CNN on byte sequences,Graph Neural Networks</td>
+      <td>VirusTotal,MalwareBazaar,BODMAS,EMBER</td>
+    </tr>
+    <tr>
+      <td>AE-0084</td>
+      <td>Cyber Security</td>
+      <td>Malware Analysis</td>
+      <td>Dynamic Malware Analysis</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Sequence Models,LSTM,Attention,HMM</td>
+      <td>Cuckoo Sandbox Reports,VirusShare,MalBehavD</td>
+    </tr>
+    <tr>
+      <td>AE-0085</td>
+      <td>Cyber Security</td>
+      <td>Cryptography</td>
+      <td>Post-Quantum Cryptography</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C, Python</td>
+      <td>Kyber,Dilithium,FALCON,SPHINCS+</td>
+      <td>NIST PQC Competition Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0086</td>
+      <td>Cyber Security</td>
+      <td>Web Security</td>
+      <td>SQL Injection Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ML-based WAF,Pattern Matching,BERT for vulnerability detection</td>
+      <td>CSIC 2010,AWID,WAF Benchmark Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0087</td>
+      <td>Cyber Security</td>
+      <td>Identity Management</td>
+      <td>Multi-Factor Authentication</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, JavaScript</td>
+      <td>Risk Scoring,Behavioral Biometrics</td>
+      <td>Authentication Datasets,Keystroke Dynamics</td>
+    </tr>
+    <tr>
+      <td>AE-0088</td>
+      <td>Cyber Security</td>
+      <td>Threat Intelligence</td>
+      <td>Cyber Threat Hunting</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Graph Analysis,ML on SIEM Logs,NLP on Threat Reports</td>
+      <td>MITRE ATT&amp;CK Evaluations,APT datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0089</td>
+      <td>Cyber Security</td>
+      <td>Cloud Security</td>
+      <td>Zero Trust Architecture</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Policy Engine,Risk-based Access Control</td>
+      <td>Cloud security audit datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0090</td>
+      <td>Blockchain</td>
+      <td>Smart Contracts</td>
+      <td>Ethereum Smart Contracts</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Solidity, JavaScript</td>
+      <td>Formal Verification,Symbolic Execution</td>
+      <td>Ethereum Mainnet Data,Kaggle Smart Contract Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0091</td>
+      <td>Blockchain</td>
+      <td>Consensus Mechanisms</td>
+      <td>Proof of Stake</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Go, Rust</td>
+      <td>Casper FFG,Tendermint BFT,Gasper</td>
+      <td>Ethereum Beacon Chain,Cosmos Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0092</td>
+      <td>Blockchain</td>
+      <td>Decentralized Finance</td>
+      <td>DeFi Protocols</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Solidity, Python</td>
+      <td>AMM Pricing,Flash Loan Arbitrage,Liquidation</td>
+      <td>DeFi Pulse,The Graph,Ethereum DeFi transaction history</td>
+    </tr>
+    <tr>
+      <td>AE-0093</td>
+      <td>Blockchain</td>
+      <td>Supply Chain Blockchain</td>
+      <td>Provenance Tracking</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Solidity, Python</td>
+      <td>Hash Chain,Merkle Tree,Consensus</td>
+      <td>Supply chain transaction datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0094</td>
+      <td>Blockchain</td>
+      <td>NFT and Digital Assets</td>
+      <td>NFT Marketplaces</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Solidity, JavaScript</td>
+      <td>Token Standards,Auction Mechanisms</td>
+      <td>OpenSea NFT Transaction Data,Ethereum NFT Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0095</td>
+      <td>Blockchain</td>
+      <td>Blockchain Privacy</td>
+      <td>Zero-Knowledge Proofs</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Rust, Python</td>
+      <td>Groth16,PLONK,STARKs,zk-Rollup</td>
+      <td>ZK benchmark circuits</td>
+    </tr>
+    <tr>
+      <td>AE-0096</td>
+      <td>Cloud Computing</td>
+      <td>Containerization</td>
+      <td>Docker and Kubernetes</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>YAML, Python, Go</td>
+      <td>Bin Packing,Resource Scheduling,Auto-scaling</td>
+      <td>Alibaba Cluster Trace,Google Cluster Workload Traces</td>
+    </tr>
+    <tr>
+      <td>AE-0097</td>
+      <td>Cloud Computing</td>
+      <td>Serverless Computing</td>
+      <td>Function as a Service</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, JavaScript, Go</td>
+      <td>Cold Start Optimization,Auto-scaling Algorithms</td>
+      <td>Azure Function execution trace datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0098</td>
+      <td>Cloud Computing</td>
+      <td>MLOps</td>
+      <td>ML Pipeline Orchestration</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Automated Retraining,Canary Testing,Shadow Deployment</td>
+      <td>ML system benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0099</td>
+      <td>Cloud Computing</td>
+      <td>Cloud Storage</td>
+      <td>Distributed Storage Systems</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Java, Python, Go</td>
+      <td>Erasure Coding,Consistent Hashing,Raft Consensus</td>
+      <td>TPC-H,TPC-DS,storage benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0100</td>
+      <td>Cloud Computing</td>
+      <td>Cloud Security</td>
+      <td>Identity and Access Management</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, JSON</td>
+      <td>RBAC Policy Enforcement,Anomaly-based Access Control</td>
+      <td>IAM audit log datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0101</td>
+      <td>Cloud Computing</td>
+      <td>Cloud Cost Optimization</td>
+      <td>FinOps</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Cost Forecasting,Anomaly Detection for Cost,Scheduling Optimization</td>
+      <td>Cloud cost datasets,AWS Cost and Usage Reports</td>
+    </tr>
+    <tr>
+      <td>AE-0102</td>
+      <td>Big Data</td>
+      <td>Batch Processing</td>
+      <td>Apache Spark</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, Scala, Java</td>
+      <td>MapReduce,In-memory Aggregation,Broadcast Join</td>
+      <td>TPC-DS,NYC Taxi,Wikimedia Clickstream</td>
+    </tr>
+    <tr>
+      <td>AE-0103</td>
+      <td>Big Data</td>
+      <td>Stream Processing</td>
+      <td>Apache Kafka</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Java, Python, Scala</td>
+      <td>Log-structured Storage,Pub-Sub,Event Sourcing</td>
+      <td>Kafka benchmark datasets,stock tick data</td>
+    </tr>
+    <tr>
+      <td>AE-0104</td>
+      <td>Big Data</td>
+      <td>Data Warehousing</td>
+      <td>OLAP and Data Cubes</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>SQL, Python</td>
+      <td>Aggregation,Cube Computation,Bitmap Indexing</td>
+      <td>TPC-H,TPC-DS,Adventure Works</td>
+    </tr>
+    <tr>
+      <td>AE-0105</td>
+      <td>Big Data</td>
+      <td>NoSQL Databases</td>
+      <td>Graph Databases</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Java</td>
+      <td>Graph Traversal,BFS,DFS,PageRank</td>
+      <td>SNAP Datasets,knowledge graph benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0106</td>
+      <td>Big Data</td>
+      <td>Data Lake</td>
+      <td>Lakehouse Architecture</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Scala</td>
+      <td>ACID Transaction Management,Schema Evolution</td>
+      <td>TPC-DS adapted for lakehouse,open datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0107</td>
+      <td>Data Science</td>
+      <td>Exploratory Data Analysis</td>
+      <td>Statistical Analysis</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>T-test,ANOVA,Chi-squared,Kolmogorov-Smirnov</td>
+      <td>UCI Repository,Kaggle Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0108</td>
+      <td>Data Science</td>
+      <td>Feature Engineering</td>
+      <td>Feature Selection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Mutual Information,LASSO,RFE,Boruta,SHAP</td>
+      <td>UCI Repository tabular datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0109</td>
+      <td>Data Science</td>
+      <td>Data Visualization</td>
+      <td>Interactive Dashboards</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, JavaScript</td>
+      <td>Layout Optimization,Responsive Rendering</td>
+      <td>Sample retail/financial datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0110</td>
+      <td>Data Science</td>
+      <td>Data Preprocessing</td>
+      <td>Data Imputation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>KNN Imputation,MICE,Matrix Factorization,GAIN</td>
+      <td>UCI Repository datasets with missingness</td>
+    </tr>
+    <tr>
+      <td>AE-0111</td>
+      <td>Data Science</td>
+      <td>A/B Testing</td>
+      <td>Statistical Experimentation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>t-test,Mann-Whitney U,Chi-squared,Bootstrap</td>
+      <td>Simulated experiment datasets,company internal datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0112</td>
+      <td>Software Engineering</td>
+      <td>Software Design Patterns</td>
+      <td>Creational Patterns</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Java, Python, C++</td>
+      <td>Factory Method,Singleton,Builder,Prototype</td>
+      <td>Design Pattern Benchmark Codebases</td>
+    </tr>
+    <tr>
+      <td>AE-0113</td>
+      <td>Software Engineering</td>
+      <td>Software Testing</td>
+      <td>Unit Testing</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, Java, JavaScript</td>
+      <td>Mutation Testing,Property-based Testing</td>
+      <td>Defects4J,GitHub test suites</td>
+    </tr>
+    <tr>
+      <td>AE-0114</td>
+      <td>Software Engineering</td>
+      <td>DevOps</td>
+      <td>CI/CD Pipelines</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>YAML, Python, Shell</td>
+      <td>Blue-green Deployment,Canary Deployment,Rolling Update</td>
+      <td>DevOps benchmark repositories</td>
+    </tr>
+    <tr>
+      <td>AE-0115</td>
+      <td>Software Engineering</td>
+      <td>Code Analysis</td>
+      <td>Static Code Analysis</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Java, JavaScript</td>
+      <td>AST Analysis,Data Flow Analysis,Control Flow Graph</td>
+      <td>Defects4J,CodeSearchNet,BigCloneBench</td>
+    </tr>
+    <tr>
+      <td>AE-0116</td>
+      <td>Software Engineering</td>
+      <td>Software Architecture</td>
+      <td>Microservices Architecture</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Java, Python, Go</td>
+      <td>Service Mesh,Circuit Breaker,Saga Pattern</td>
+      <td>Microservices benchmark datasets,Alibaba microservice traces</td>
+    </tr>
+    <tr>
+      <td>AE-0117</td>
+      <td>Software Engineering</td>
+      <td>Requirements Engineering</td>
+      <td>AI-assisted Requirements Analysis</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>BERT,BiLSTM,Sentence Transformers</td>
+      <td>PROMISE dataset,Requirements datasets from GitHub</td>
+    </tr>
+    <tr>
+      <td>AE-0118</td>
+      <td>Web Development</td>
+      <td>Frontend Development</td>
+      <td>React.js Applications</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>JavaScript, TypeScript</td>
+      <td>Component Reconciliation,Virtual DOM Diffing</td>
+      <td>Web UI benchmark datasets,Lighthouse scores</td>
+    </tr>
+    <tr>
+      <td>AE-0119</td>
+      <td>Web Development</td>
+      <td>Backend Development</td>
+      <td>REST API Design</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, JavaScript, Go, Java</td>
+      <td>Resource-oriented Design,Caching,Rate Limiting</td>
+      <td>API benchmark datasets,Postman collections</td>
+    </tr>
+    <tr>
+      <td>AE-0120</td>
+      <td>Web Development</td>
+      <td>Backend Development</td>
+      <td>GraphQL</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>JavaScript, Python</td>
+      <td>DataLoader Batching,Schema Stitching,Federation</td>
+      <td>GitHub GraphQL,SpaceX GraphQL public APIs</td>
+    </tr>
+    <tr>
+      <td>AE-0121</td>
+      <td>Web Development</td>
+      <td>Web Performance</td>
+      <td>Core Web Vitals Optimization</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>JavaScript, HTML, CSS</td>
+      <td>Critical Rendering Path Optimization</td>
+      <td>HTTPArchive Web Almanac Dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0122</td>
+      <td>Web Development</td>
+      <td>Web Security</td>
+      <td>OWASP Top 10 Vulnerabilities</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, JavaScript</td>
+      <td>Fuzzing,SAST,DAST,Penetration Testing</td>
+      <td>WebGoat,DVWA,BWAPP</td>
+    </tr>
+    <tr>
+      <td>AE-0123</td>
+      <td>Web Development</td>
+      <td>Progressive Web Apps</td>
+      <td>Service Workers and Offline</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>JavaScript</td>
+      <td>Cache Strategies,Background Sync</td>
+      <td>PWA benchmark datasets,Lighthouse PWA audits</td>
+    </tr>
+    <tr>
+      <td>AE-0124</td>
+      <td>Mobile Application Development</td>
+      <td>Cross-Platform Development</td>
+      <td>Flutter Applications</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Dart</td>
+      <td>State Management Patterns,Widget Tree Rendering</td>
+      <td>Flutter app performance benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0125</td>
+      <td>Mobile Application Development</td>
+      <td>Android Development</td>
+      <td>Jetpack Compose</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Kotlin</td>
+      <td>Recomposition Optimization,State Hoisting</td>
+      <td>Android app benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0126</td>
+      <td>Mobile Application Development</td>
+      <td>iOS Development</td>
+      <td>SwiftUI</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Swift</td>
+      <td>Declarative Rendering,Data Binding</td>
+      <td>iOS app benchmark data</td>
+    </tr>
+    <tr>
+      <td>AE-0127</td>
+      <td>Mobile Application Development</td>
+      <td>Mobile AI</td>
+      <td>On-device ML</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, Swift, Kotlin</td>
+      <td>Quantization,Pruning,Knowledge Distillation</td>
+      <td>MLCommons Mobile Benchmark</td>
+    </tr>
+    <tr>
+      <td>AE-0128</td>
+      <td>Mobile Application Development</td>
+      <td>Mobile Security</td>
+      <td>App Security Testing</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, Java</td>
+      <td>Static Analysis,Taint Analysis,Symbolic Execution</td>
+      <td>AndroZoo,MalDroid,iOS security datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0129</td>
+      <td>Healthcare</td>
+      <td>Clinical Decision Support</td>
+      <td>Disease Prediction</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>XGBoost,Random Forest,LSTM,BERT-based Clinical NLP</td>
+      <td>MIMIC-III,MIMIC-IV,eICU,PhysioNet</td>
+    </tr>
+    <tr>
+      <td>AE-0130</td>
+      <td>Healthcare</td>
+      <td>Drug Discovery</td>
+      <td>Molecular Property Prediction</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>GNN,Random Forest,Transformer on SMILES</td>
+      <td>MoleculeNet,ChEMBL,ZINC,PubChem</td>
+    </tr>
+    <tr>
+      <td>AE-0131</td>
+      <td>Healthcare</td>
+      <td>Electronic Health Records</td>
+      <td>Clinical NLP</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>BioBERT,ClinicalBERT,scispaCy,MetaMap</td>
+      <td>i2b2,n2c2,MIMIC-III Notes</td>
+    </tr>
+    <tr>
+      <td>AE-0132</td>
+      <td>Healthcare</td>
+      <td>Mental Health AI</td>
+      <td>Depression and Anxiety Detection</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>BERT,LSTM,Random Forest,SVM,Transformer</td>
+      <td>DAIC-WoZ,CLPsych,AVEC,Reddit Mental Health Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0133</td>
+      <td>Healthcare</td>
+      <td>Telemedicine</td>
+      <td>Remote Patient Monitoring</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, JavaScript</td>
+      <td>Time Series Analysis,Alert Algorithms</td>
+      <td>Remote patient monitoring datasets,PhysioNet</td>
+    </tr>
+    <tr>
+      <td>AE-0134</td>
+      <td>Healthcare</td>
+      <td>Pandemic and Epidemiology</td>
+      <td>Epidemic Spread Modeling</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>SIR/SEIR,LSTM,Graph Neural Networks,Gaussian Process</td>
+      <td>Johns Hopkins COVID-19,WHO Influenza,GLEAM</td>
+    </tr>
+    <tr>
+      <td>AE-0135</td>
+      <td>Medical Imaging</td>
+      <td>Radiology AI</td>
+      <td>X-ray Analysis</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>DenseNet,ResNet,U-Net,Vision Transformer</td>
+      <td>CheXpert,MIMIC-CXR,ChestX-ray14,NIH Chest X-ray</td>
+    </tr>
+    <tr>
+      <td>AE-0136</td>
+      <td>Medical Imaging</td>
+      <td>Radiology AI</td>
+      <td>CT Scan Analysis</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>3D U-Net,nnU-Net,Swin UNETR,MONAI networks</td>
+      <td>LIDC-IDRI,KiTS21,Decathlon,TotalSegmentator</td>
+    </tr>
+    <tr>
+      <td>AE-0137</td>
+      <td>Medical Imaging</td>
+      <td>Pathology AI</td>
+      <td>Whole Slide Image Analysis</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>MIL,CLAM,TransMIL,HoverNet</td>
+      <td>TCGA,CAMELYON16,PANDA,TCGA-LUNG</td>
+    </tr>
+    <tr>
+      <td>AE-0138</td>
+      <td>Medical Imaging</td>
+      <td>MRI Analysis</td>
+      <td>Brain MRI Segmentation</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>U-Net,nnU-Net,3D U-Net,SynthSeg</td>
+      <td>BraTS,ABIDE,HCP,OASIS</td>
+    </tr>
+    <tr>
+      <td>AE-0139</td>
+      <td>Medical Imaging</td>
+      <td>Ultrasound Analysis</td>
+      <td>Fetal Ultrasound Screening</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CNN,U-Net,YOLO,Transformer</td>
+      <td>FETAL Planes,HC18 Grand Challenge,Thyroid Ultrasound</td>
+    </tr>
+    <tr>
+      <td>AE-0140</td>
+      <td>Bioinformatics</td>
+      <td>Genomics</td>
+      <td>DNA Sequence Analysis</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Smith-Waterman,Needleman-Wunsch,de Bruijn Graph Assembly</td>
+      <td>1000 Genomes,ENCODE,TCGA,GnomAD</td>
+    </tr>
+    <tr>
+      <td>AE-0141</td>
+      <td>Bioinformatics</td>
+      <td>Proteomics</td>
+      <td>Protein Structure Prediction</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>AlphaFold2,RoseTTAFold,ESMFold,ProteinBERT</td>
+      <td>PDB,CATH,SCOPe,CASP targets</td>
+    </tr>
+    <tr>
+      <td>AE-0142</td>
+      <td>Bioinformatics</td>
+      <td>Transcriptomics</td>
+      <td>Single-cell RNA Sequencing</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>Clustering,Trajectory Inference,Cell-type Annotation</td>
+      <td>10x Genomics Datasets,Human Cell Atlas,Tabula Muris</td>
+    </tr>
+    <tr>
+      <td>AE-0143</td>
+      <td>Bioinformatics</td>
+      <td>Systems Biology</td>
+      <td>Gene Regulatory Networks</td>
+      <td>Expert</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>GENIE3,ARACNE,Weighted Correlation Network Analysis</td>
+      <td>GEO,STRING,ENCODE</td>
+    </tr>
+    <tr>
+      <td>AE-0144</td>
+      <td>Bioinformatics</td>
+      <td>Metagenomics</td>
+      <td>Microbiome Analysis</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>QIIME2,Kraken2,MetaPhlAn,Random Forest</td>
+      <td>Human Microbiome Project,EBI Metagenomics</td>
+    </tr>
+    <tr>
+      <td>AE-0145</td>
+      <td>Agriculture</td>
+      <td>Crop Disease Detection</td>
+      <td>Image-based Disease Detection</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ResNet,EfficientNet,MobileNet,VGG</td>
+      <td>PlantVillage,PlantDoc,Cassava Leaf Disease (Kaggle)</td>
+    </tr>
+    <tr>
+      <td>AE-0146</td>
+      <td>Agriculture</td>
+      <td>Yield Prediction</td>
+      <td>Crop Yield Forecasting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Random Forest,LSTM,CNN-LSTM,Gaussian Process</td>
+      <td>USDA NASS,Eurostat,Sentinel-2,Landsat</td>
+    </tr>
+    <tr>
+      <td>AE-0147</td>
+      <td>Agriculture</td>
+      <td>Soil Analysis</td>
+      <td>Soil Health Monitoring</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,SVM,ANN,XGBoost</td>
+      <td>LUCAS Soil Dataset,Soil Survey Geographic Database</td>
+    </tr>
+    <tr>
+      <td>AE-0148</td>
+      <td>Agriculture</td>
+      <td>Livestock Monitoring</td>
+      <td>Animal Behavior Analysis</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CNN,LSTM,Random Forest</td>
+      <td>Animal behavior datasets,farm sensor datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0149</td>
+      <td>Agriculture</td>
+      <td>Crop Water Management</td>
+      <td>Irrigation Efficiency Analysis</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Regression,LSTM,Energy Balance Models</td>
+      <td>FAO AQUASTAT,USDA AquaCrop,Landsat thermal bands</td>
+    </tr>
+    <tr>
+      <td>AE-0150</td>
+      <td>Smart Farming</td>
+      <td>Precision Irrigation</td>
+      <td>AI-based Irrigation Scheduling</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Random Forest,LSTM,Fuzzy Control</td>
+      <td>NASA POWER,USDA AquaCrop,OpenET</td>
+    </tr>
+    <tr>
+      <td>AE-0151</td>
+      <td>Smart Farming</td>
+      <td>Agricultural Robotics</td>
+      <td>Harvesting Robots</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, ROS</td>
+      <td>YOLO,Mask R-CNN,PointNet for fruit localization</td>
+      <td>MinneApple,Fuji Apple Dataset,WUR Tomato</td>
+    </tr>
+    <tr>
+      <td>AE-0152</td>
+      <td>Smart Farming</td>
+      <td>Drone-based Farming</td>
+      <td>Agricultural Drone Spraying</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Path Planning,Coverage Optimization</td>
+      <td>Drone spraying field datasets,UAV NDVI datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0153</td>
+      <td>Smart Farming</td>
+      <td>Greenhouse Automation</td>
+      <td>Climate Control in Greenhouses</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C</td>
+      <td>PID,Fuzzy Logic,Model Predictive Control,RL</td>
+      <td>Dutch greenhouse datasets,KWIN greenhouse data</td>
+    </tr>
+    <tr>
+      <td>AE-0154</td>
+      <td>Smart Farming</td>
+      <td>Crop Monitoring</td>
+      <td>Multi-spectral Crop Analysis</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,CNN,U-Net,SNIC</td>
+      <td>Sentinel-2,DJI Phantom multispectral datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0155</td>
+      <td>Education</td>
+      <td>Intelligent Tutoring Systems</td>
+      <td>Adaptive Learning</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Bayesian Knowledge Tracing,Deep Knowledge Tracing (DKT)</td>
+      <td>ASSISTments,JUNYI Academy,Ednet</td>
+    </tr>
+    <tr>
+      <td>AE-0156</td>
+      <td>Education</td>
+      <td>Learning Analytics</td>
+      <td>Student Performance Prediction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Logistic Regression,Random Forest,XGBoost,LSTM</td>
+      <td>Open University Learning Analytics (OULAD),Kaggle Student Performance</td>
+    </tr>
+    <tr>
+      <td>AE-0157</td>
+      <td>Education</td>
+      <td>Automated Assessment</td>
+      <td>Essay Grading</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>BERT,BiLSTM,Regression Models</td>
+      <td>ASAP Essay Scoring (Kaggle),Feedback Prize (Kaggle)</td>
+    </tr>
+    <tr>
+      <td>AE-0158</td>
+      <td>Education</td>
+      <td>Educational Games</td>
+      <td>Gamification in Learning</td>
+      <td>Beginner</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, JavaScript, Unity</td>
+      <td>Reinforcement Learning for Adaptive Games</td>
+      <td>Game-based learning interaction datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0159</td>
+      <td>Education</td>
+      <td>MOOCs</td>
+      <td>Course Recommendation Systems</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Collaborative Filtering,Content-based Filtering,Hybrid Models</td>
+      <td>MOOC user interaction datasets,Coursera Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0160</td>
+      <td>FinTech</td>
+      <td>Fraud Detection</td>
+      <td>Credit Card Fraud Detection</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>XGBoost,LightGBM,Isolation Forest,Autoencoder,GNN</td>
+      <td>IEEE-CIS Fraud Detection,PaySim,Kaggle Credit Card Fraud</td>
+    </tr>
+    <tr>
+      <td>AE-0161</td>
+      <td>FinTech</td>
+      <td>Algorithmic Trading</td>
+      <td>Stock Price Prediction</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,Transformer,ARIMA,RL-based Trading</td>
+      <td>Yahoo Finance,Quandl,Alpha Vantage</td>
+    </tr>
+    <tr>
+      <td>AE-0162</td>
+      <td>FinTech</td>
+      <td>Credit Risk</td>
+      <td>Loan Default Prediction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Logistic Regression,XGBoost,LightGBM,Neural Network</td>
+      <td>Lending Club,Home Credit,German Credit (UCI)</td>
+    </tr>
+    <tr>
+      <td>AE-0163</td>
+      <td>FinTech</td>
+      <td>RegTech</td>
+      <td>Anti-Money Laundering</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>GNN,LSTM,Isolation Forest,Link Analysis</td>
+      <td>Synthetic AML datasets,SWIFT transaction data</td>
+    </tr>
+    <tr>
+      <td>AE-0164</td>
+      <td>FinTech</td>
+      <td>InsurTech</td>
+      <td>Insurance Risk Scoring</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>GLM,XGBoost,GBM,Neural Networks,Survival Analysis</td>
+      <td>ClaimPrediction Kaggle,French Motor Insurance</td>
+    </tr>
+    <tr>
+      <td>AE-0165</td>
+      <td>E-Commerce</td>
+      <td>Recommendation Systems</td>
+      <td>Collaborative Filtering</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>SVD,NMF,ALS,Neural Collaborative Filtering,LightGCN</td>
+      <td>MovieLens,Amazon Reviews,Netflix Prize,Yelp</td>
+    </tr>
+    <tr>
+      <td>AE-0166</td>
+      <td>E-Commerce</td>
+      <td>Dynamic Pricing</td>
+      <td>Price Optimization</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>XGBoost,Reinforcement Learning,Bayesian Optimization</td>
+      <td>Retail pricing datasets,Kaggle pricing competitions</td>
+    </tr>
+    <tr>
+      <td>AE-0167</td>
+      <td>E-Commerce</td>
+      <td>Customer Churn</td>
+      <td>Churn Prediction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>XGBoost,Random Forest,Logistic Regression,LSTM</td>
+      <td>Telco Customer Churn (Kaggle),IBM Telco</td>
+    </tr>
+    <tr>
+      <td>AE-0168</td>
+      <td>E-Commerce</td>
+      <td>Visual Search</td>
+      <td>Image-based Product Search</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CLIP,ResNet,EfficientNet,FAISS-based Retrieval</td>
+      <td>DeepFashion,Stanford Online Products,In-shop Clothes Retrieval</td>
+    </tr>
+    <tr>
+      <td>AE-0169</td>
+      <td>E-Commerce</td>
+      <td>Conversational Commerce</td>
+      <td>Shopping Chatbots</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>BERT,GPT,Rasa,DialoGPT</td>
+      <td>E-commerce dialogue datasets,TaskBot dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0170</td>
+      <td>Embedded Systems</td>
+      <td>Real-Time Operating Systems</td>
+      <td>RTOS Design</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C</td>
+      <td>Priority Scheduling,EDF,Rate Monotonic</td>
+      <td>RTOS benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0171</td>
+      <td>Embedded Systems</td>
+      <td>Firmware Development</td>
+      <td>Bare-metal Programming</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C, Assembly</td>
+      <td>Polling,Interrupt-driven,DMA</td>
+      <td>Embedded benchmark suites (EEMBC)</td>
+    </tr>
+    <tr>
+      <td>AE-0172</td>
+      <td>Embedded Systems</td>
+      <td>TinyML</td>
+      <td>Machine Learning on Microcontrollers</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C, Python</td>
+      <td>Quantization,Pruning,Knowledge Distillation</td>
+      <td>MLPerf Tiny,Google Speech Commands,Harvard TinyML Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0173</td>
+      <td>Embedded Systems</td>
+      <td>Signal Acquisition</td>
+      <td>ADC and DAC Interfacing</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C</td>
+      <td>Sigma-Delta ADC,SAR ADC,Pipeline ADC</td>
+      <td>Embedded signal datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0174</td>
+      <td>Embedded Systems</td>
+      <td>Embedded Linux</td>
+      <td>Linux on ARM Embedded</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C, Python, Shell</td>
+      <td>Real-time Extensions (PREEMPT-RT),Virtualization</td>
+      <td>Buildroot regression datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0175</td>
+      <td>Electronics</td>
+      <td>VLSI Design</td>
+      <td>Digital Circuit Design</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Verilog, VHDL, Python</td>
+      <td>Logic Synthesis,Technology Mapping,Timing Analysis</td>
+      <td>ISCAS benchmark circuits</td>
+    </tr>
+    <tr>
+      <td>AE-0176</td>
+      <td>Electronics</td>
+      <td>Power Electronics</td>
+      <td>DC-DC Converter Design</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>MATLAB, Python</td>
+      <td>PID Control,Model Predictive Control</td>
+      <td>Power converter benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0177</td>
+      <td>Electronics</td>
+      <td>Analog Circuit Design</td>
+      <td>Op-Amp Circuit Design</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>MATLAB, Python</td>
+      <td>Bode Analysis,Monte Carlo Simulation,SPICE</td>
+      <td>SPICE simulation benchmark datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0178</td>
+      <td>Electronics</td>
+      <td>PCB Design</td>
+      <td>High-speed PCB Design</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Signal Integrity Simulation,EMI Prediction</td>
+      <td>PCB signal integrity benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0179</td>
+      <td>Electronics</td>
+      <td>Sensors and Transducers</td>
+      <td>MEMS Sensor Design</td>
+      <td>Expert</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>MATLAB, Python</td>
+      <td>FEM Simulation,Kalman Filter for Sensor Fusion</td>
+      <td>IMU datasets,MEMS sensor characterization datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0180</td>
+      <td>Networking</td>
+      <td>Software Defined Networking</td>
+      <td>SDN Controller</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Routing Algorithms,Load Balancing,Traffic Engineering</td>
+      <td>CAIDA,OpenFlow network traces</td>
+    </tr>
+    <tr>
+      <td>AE-0181</td>
+      <td>Networking</td>
+      <td>Network Traffic Analysis</td>
+      <td>QoS Management</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ML Traffic Classification,CBWFQ,LLQ</td>
+      <td>CAIDA,MAWI,Auckland traces</td>
+    </tr>
+    <tr>
+      <td>AE-0182</td>
+      <td>Networking</td>
+      <td>Network Simulation</td>
+      <td>ns-3 Simulation</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C++, Python</td>
+      <td>Discrete Event Simulation,Statistical Multiplexing</td>
+      <td>ns-3 simulation trace datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0183</td>
+      <td>Networking</td>
+      <td>Network Security</td>
+      <td>DDoS Detection and Mitigation</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,LSTM,CNN,Isolation Forest</td>
+      <td>CAIDA DDoS Attack 2007,CIC-DDoS2019,UNSW-NB15</td>
+    </tr>
+    <tr>
+      <td>AE-0184</td>
+      <td>Networking</td>
+      <td>Content Delivery Networks</td>
+      <td>CDN Optimization</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ML Cache Replacement,Latency Prediction</td>
+      <td>CDN log datasets,CAIDA traces</td>
+    </tr>
+    <tr>
+      <td>AE-0185</td>
+      <td>Wireless Communication</td>
+      <td>5G Networks</td>
+      <td>5G NR Physical Layer</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>OFDM,LDPC,Polar Codes,Massive MIMO,Beamforming</td>
+      <td>3GPP NR datasets,DeepMIMO</td>
+    </tr>
+    <tr>
+      <td>AE-0186</td>
+      <td>Wireless Communication</td>
+      <td>Channel Estimation</td>
+      <td>Deep Learning Channel Estimation</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,CNN,Transformer for Channel Estimation</td>
+      <td>DeepMIMO,COST 2100,CDL/TDL channel models</td>
+    </tr>
+    <tr>
+      <td>AE-0187</td>
+      <td>Wireless Communication</td>
+      <td>LoRaWAN</td>
+      <td>LPWAN for IoT</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C, Python</td>
+      <td>Adaptive Data Rate,Spreading Factor Optimization</td>
+      <td>LoRaWAN field measurement datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0188</td>
+      <td>Wireless Communication</td>
+      <td>WiFi</td>
+      <td>WiFi Sensing</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CNN,LSTM,Transformer for CSI</td>
+      <td>WiAR,WiGesture,ARIL WiFi datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0189</td>
+      <td>Wireless Communication</td>
+      <td>Satellite Communication</td>
+      <td>LEO Satellite Networks</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Orbit Propagation,Beam Scheduling,Handover Optimization</td>
+      <td>Starlink latency measurements,SatCom measurement datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0190</td>
+      <td>AR/VR</td>
+      <td>Augmented Reality</td>
+      <td>Marker-based AR</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, C++, JavaScript</td>
+      <td>Pose Estimation,Homography,PnP</td>
+      <td>ARToolKit datasets,HoloLens datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0191</td>
+      <td>AR/VR</td>
+      <td>Virtual Reality</td>
+      <td>VR Interaction Design</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C#, C++</td>
+      <td>Inverse Kinematics,Physics Simulation,Rendering</td>
+      <td>VR user study datasets,VR sickness datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0192</td>
+      <td>AR/VR</td>
+      <td>Mixed Reality</td>
+      <td>HoloLens Applications</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C#</td>
+      <td>Spatial Mapping,Inside-out Tracking</td>
+      <td>HoloLens scenario datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0193</td>
+      <td>AR/VR</td>
+      <td>Extended Reality</td>
+      <td>XR for Training</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C#, Python</td>
+      <td>Adaptive Training Algorithms,Performance Analytics</td>
+      <td>XR training effectiveness datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0194</td>
+      <td>AR/VR</td>
+      <td>AR for Industry</td>
+      <td>Industrial AR Inspection</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C#, Python</td>
+      <td>Object Detection,Pose Estimation for Tool Tracking</td>
+      <td>Industrial AR interaction datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0195</td>
+      <td>Digital Twin</td>
+      <td>Simulation Modeling</td>
+      <td>Physics-based Simulation</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>FEM,CFD,MBS,State-space Modeling</td>
+      <td>Ansys benchmark problems,NASA engineering datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0196</td>
+      <td>Digital Twin</td>
+      <td>IoT Data Integration</td>
+      <td>Real-time Digital Twin</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Kalman Filter,Particle Filter,Data Assimilation</td>
+      <td>Microsoft Azure Digital Twins datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0197</td>
+      <td>Digital Twin</td>
+      <td>Predictive Digital Twin</td>
+      <td>Digital Twin for Structural Health</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>Bayesian Updating,Neural Network Surrogate,Modal Analysis</td>
+      <td>ASCE SHM benchmark,Stanford structural datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0198</td>
+      <td>Digital Twin</td>
+      <td>Urban Digital Twin</td>
+      <td>Smart City Digital Twin</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Agent-based Simulation,Traffic Simulation,Energy Modeling</td>
+      <td>OpenStreetMap,EU Urban Atlas</td>
+    </tr>
+    <tr>
+      <td>AE-0199</td>
+      <td>Smart Cities</td>
+      <td>Smart Traffic Management</td>
+      <td>Traffic Flow Prediction</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,GCN,DCRNN,Graph Transformer</td>
+      <td>METR-LA,PEMS-BAY,PeMS,UTD19</td>
+    </tr>
+    <tr>
+      <td>AE-0200</td>
+      <td>Smart Cities</td>
+      <td>Urban Energy Management</td>
+      <td>Smart Grid</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,XGBoost,Reinforcement Learning,Federated Learning</td>
+      <td>Global Energy Forecasting Competition,AEMO,ENTSO-E</td>
+    </tr>
+    <tr>
+      <td>AE-0201</td>
+      <td>Smart Cities</td>
+      <td>Waste Management</td>
+      <td>Smart Waste Collection</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Route Optimization,Predictive Fill Level,Scheduling</td>
+      <td>City waste management IoT datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0202</td>
+      <td>Smart Cities</td>
+      <td>Smart Lighting</td>
+      <td>Adaptive Street Lighting</td>
+      <td>Beginner</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, C</td>
+      <td>Rule-based Control,ML-based Dimming</td>
+      <td>Smart city lighting datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0203</td>
+      <td>Smart Cities</td>
+      <td>Smart Water Management</td>
+      <td>Water Quality Monitoring</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,Random Forest,SVM,Isolation Forest</td>
+      <td>UCI Water Quality,Singapore PUB dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0204</td>
+      <td>Autonomous Vehicles</td>
+      <td>Sensor Fusion</td>
+      <td>Camera-LiDAR Fusion</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>PointPainting,MVP,BEVFusion,AVOD</td>
+      <td>KITTI,nuScenes,Waymo Open Dataset,Argoverse</td>
+    </tr>
+    <tr>
+      <td>AE-0205</td>
+      <td>Autonomous Vehicles</td>
+      <td>Path Planning</td>
+      <td>Motion Planning for AV</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C++, Python</td>
+      <td>A*,RRT,MPC,Lattice Planner,Imitation Learning</td>
+      <td>Argoverse,WOMD,Lyft Motion</td>
+    </tr>
+    <tr>
+      <td>AE-0206</td>
+      <td>Autonomous Vehicles</td>
+      <td>Perception</td>
+      <td>Lane Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>UFLD,LaneATT,CLRNet,BEV-LaneDet</td>
+      <td>TuSimple,CULane,Apollo 3D Lane,OpenLane</td>
+    </tr>
+    <tr>
+      <td>AE-0207</td>
+      <td>Autonomous Vehicles</td>
+      <td>HD Maps</td>
+      <td>Mapping and Localization</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C++, Python</td>
+      <td>NDT (Normal Distributions Transform),Map Matching</td>
+      <td>nuScenes,Argoverse 2,Waymo Open Dataset HD Maps</td>
+    </tr>
+    <tr>
+      <td>AE-0208</td>
+      <td>Autonomous Vehicles</td>
+      <td>V2X Communication</td>
+      <td>Vehicle-to-Infrastructure</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C++, Python</td>
+      <td>Resource Allocation,Cooperative Perception</td>
+      <td>V2X simulation datasets,ETSI conformance test data</td>
+    </tr>
+    <tr>
+      <td>AE-0209</td>
+      <td>Renewable Energy</td>
+      <td>Solar Energy</td>
+      <td>PV Power Forecasting</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>LSTM,XGBoost,CNN-LSTM,Prophet</td>
+      <td>NSRDB,ERA5,Global Solar Atlas,PVDAQ</td>
+    </tr>
+    <tr>
+      <td>AE-0210</td>
+      <td>Renewable Energy</td>
+      <td>Wind Energy</td>
+      <td>Wind Power Prediction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>LSTM,GRU,XGBoost,Gaussian Process</td>
+      <td>Kaggle Wind Energy,NREL WIND Toolkit,ENTSO-E</td>
+    </tr>
+    <tr>
+      <td>AE-0211</td>
+      <td>Renewable Energy</td>
+      <td>Energy Storage</td>
+      <td>Battery State of Health Estimation</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>LSTM,Gaussian Process,Equivalent Circuit Model</td>
+      <td>NASA Battery Dataset,CALCE Battery Dataset,Oxford Battery Degradation</td>
+    </tr>
+    <tr>
+      <td>AE-0212</td>
+      <td>Renewable Energy</td>
+      <td>Smart Grid</td>
+      <td>Demand Side Management</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Reinforcement Learning,LSTM,Linear Programming</td>
+      <td>Pecan Street,OpenEI,UK Smart Meter</td>
+    </tr>
+    <tr>
+      <td>AE-0213</td>
+      <td>Renewable Energy</td>
+      <td>Hydrogen Energy</td>
+      <td>Green Hydrogen Production Optimization</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>Optimization,Predictive Control,Degradation Modeling</td>
+      <td>Hydrogen production datasets,IEA Hydrogen datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0214</td>
+      <td>Manufacturing</td>
+      <td>Quality Control</td>
+      <td>Visual Defect Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ResNet,EfficientNet,PatchCore,PaDiM,FastFlow</td>
+      <td>MVTec AD,VisA,DAGM,Severstal Steel Defect</td>
+    </tr>
+    <tr>
+      <td>AE-0215</td>
+      <td>Manufacturing</td>
+      <td>Production Optimization</td>
+      <td>Manufacturing Scheduling</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Genetic Algorithm,MILP,DRL,Metaheuristics</td>
+      <td>OR Library,Taillard Benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0216</td>
+      <td>Manufacturing</td>
+      <td>Additive Manufacturing</td>
+      <td>3D Printing Process Optimization</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>DOE,Gaussian Process,Random Forest,CNN for layer monitoring</td>
+      <td>AM process parameter datasets,NIST AM datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0217</td>
+      <td>Manufacturing</td>
+      <td>Robot-based Manufacturing</td>
+      <td>Welding Robots</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, C++</td>
+      <td>Computer Vision-guided Welding,Deep RL for Welding</td>
+      <td>Welding quality datasets,seam tracking datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0218</td>
+      <td>Manufacturing</td>
+      <td>CNC Machining</td>
+      <td>Tool Wear Monitoring</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>CNN,LSTM,SVM,Random Forest on vibration signals</td>
+      <td>PHM 2010 Challenge,UC Berkeley CNC Mill dataset,NASA Milling dataset</td>
+    </tr>
+    <tr>
+      <td>AE-0219</td>
+      <td>Industry 4.0</td>
+      <td>Cyber-Physical Systems</td>
+      <td>IIoT Integration</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C</td>
+      <td>Control Algorithms,Digital Twin Synchronization</td>
+      <td>Industrial datasets,Kaggle industrial IoT</td>
+    </tr>
+    <tr>
+      <td>AE-0220</td>
+      <td>Industry 4.0</td>
+      <td>Smart Factory</td>
+      <td>Autonomous Mobile Robots in Factory</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>SLAM,Path Planning,Reinforcement Learning</td>
+      <td>AMR benchmark datasets,Amazon robotics datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0221</td>
+      <td>Industry 4.0</td>
+      <td>Digital Manufacturing</td>
+      <td>Computer-Aided Manufacturing</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>ML-based Toolpath Optimization,Process Simulation</td>
+      <td>CAM process parameter datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0222</td>
+      <td>Industry 4.0</td>
+      <td>Human-Machine Interface</td>
+      <td>Industrial HMI Design</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>Python, JavaScript</td>
+      <td>Anomaly Detection for Process Alarms</td>
+      <td>LOPAL alarm datasets,DCS HMI datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0223</td>
+      <td>Industry 4.0</td>
+      <td>Mass Customization</td>
+      <td>Configure-to-Order Systems</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Constraint Satisfaction,Recommendation Engine</td>
+      <td>Industrial product configuration datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0224</td>
+      <td>Supply Chain</td>
+      <td>Demand Forecasting</td>
+      <td>Sales Demand Planning</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>ARIMA,Prophet,LightGBM,N-BEATS,WaveNet</td>
+      <td>M5 Competition,Kaggle Walmart,Favorita</td>
+    </tr>
+    <tr>
+      <td>AE-0225</td>
+      <td>Supply Chain</td>
+      <td>Logistics Optimization</td>
+      <td>Vehicle Routing</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>OR-Tools,Genetic Algorithm,DRL,LKH3</td>
+      <td>OR Library,CVRPLIB,Amazon Last-Mile Challenge</td>
+    </tr>
+    <tr>
+      <td>AE-0226</td>
+      <td>Supply Chain</td>
+      <td>Inventory Management</td>
+      <td>Safety Stock Optimization</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Newsvendor Model,Stochastic Simulation,RL</td>
+      <td>Kaggle inventory datasets,M5 competition</td>
+    </tr>
+    <tr>
+      <td>AE-0227</td>
+      <td>Supply Chain</td>
+      <td>Procurement</td>
+      <td>Supplier Risk Assessment</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>NLP on News/Reports,Risk Scoring Model,GNN</td>
+      <td>Supplier risk datasets,Panjiva trade datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0228</td>
+      <td>Supply Chain</td>
+      <td>Cold Chain Management</td>
+      <td>Temperature-controlled Logistics</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Anomaly Detection,Route Optimization for Cold Chain</td>
+      <td>Cold chain IoT datasets,pharmaceutical logistics data</td>
+    </tr>
+    <tr>
+      <td>AE-0229</td>
+      <td>Business Analytics</td>
+      <td>Customer Analytics</td>
+      <td>Customer Segmentation</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>k-Means,Hierarchical Clustering,GMM,DBSCAN</td>
+      <td>Online Retail UCI,Telco Churn,E-commerce transactional datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0230</td>
+      <td>Business Analytics</td>
+      <td>Marketing Analytics</td>
+      <td>Marketing Mix Modeling</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>Regression,Bayesian MMM,Shapley Values</td>
+      <td>Simulated MMM datasets,Kaggle marketing attribution</td>
+    </tr>
+    <tr>
+      <td>AE-0231</td>
+      <td>Business Analytics</td>
+      <td>Financial Analytics</td>
+      <td>Financial Statement Analysis</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, R</td>
+      <td>NLP,Random Forest,XGBoost,Regression</td>
+      <td>Compustat,S&amp;P Capital IQ,EDGAR 10-K filings</td>
+    </tr>
+    <tr>
+      <td>AE-0232</td>
+      <td>Business Analytics</td>
+      <td>Operations Analytics</td>
+      <td>Process Mining</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Alpha Algorithm,Heuristic Miner,Inductive Miner</td>
+      <td>BPI Challenge (BPIC) datasets,IEEE CIS event logs</td>
+    </tr>
+    <tr>
+      <td>AE-0233</td>
+      <td>Business Analytics</td>
+      <td>HR Analytics</td>
+      <td>Employee Attrition Prediction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Logistic Regression,XGBoost,Random Forest,SHAP</td>
+      <td>IBM HR Analytics (Kaggle),Glassdoor datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0234</td>
+      <td>Human Computer Interaction</td>
+      <td>User Interface Design</td>
+      <td>Usability Testing</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, JavaScript</td>
+      <td>Log Analysis,Statistical Testing</td>
+      <td>User study datasets,CHI ACM datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0235</td>
+      <td>Human Computer Interaction</td>
+      <td>Brain-Computer Interface</td>
+      <td>EEG-based BCI</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CSP,LDA,EEGNet,DeepConvNet,Transformer</td>
+      <td>BCI Competition IV,PhysioNet EEG,MOABB</td>
+    </tr>
+    <tr>
+      <td>AE-0236</td>
+      <td>Human Computer Interaction</td>
+      <td>Gesture Recognition</td>
+      <td>Hand Gesture Recognition</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CNN,LSTM,Transformer,MediaPipe</td>
+      <td>Jester,EgoGesture,NUS Hand Gesture,ASL datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0237</td>
+      <td>Human Computer Interaction</td>
+      <td>Affective Computing</td>
+      <td>Emotion Recognition from Physiological Signals</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>SVM,Random Forest,LSTM,CNN-LSTM</td>
+      <td>DEAP,DREAMER,MAHNOB-HCI,WESAD</td>
+    </tr>
+    <tr>
+      <td>AE-0238</td>
+      <td>Human Computer Interaction</td>
+      <td>Accessibility</td>
+      <td>AI for Assistive Technology</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Object Detection for Navigation,Speech-to-text,NLP for AAC</td>
+      <td>SignDict,Common Voice,AVSpeech</td>
+    </tr>
+    <tr>
+      <td>AE-0239</td>
+      <td>Computer Graphics</td>
+      <td>3D Rendering</td>
+      <td>Real-time 3D Rendering</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>C++, GLSL, HLSL</td>
+      <td>Rasterization,Path Tracing,Deferred Rendering,DLSS</td>
+      <td>McGuire Computer Graphics Archive,Lumberyard benchmarks</td>
+    </tr>
+    <tr>
+      <td>AE-0240</td>
+      <td>Computer Graphics</td>
+      <td>Neural Rendering</td>
+      <td>NeRF (Neural Radiance Fields)</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>NeRF,Instant NGP,Mip-NeRF,TensoRF,3D Gaussian Splatting</td>
+      <td>NeRF Synthetic,LLFF,Tanks and Temples</td>
+    </tr>
+    <tr>
+      <td>AE-0241</td>
+      <td>Computer Graphics</td>
+      <td>Procedural Generation</td>
+      <td>Terrain Generation</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>C++, Python, C#</td>
+      <td>Perlin Noise,Diamond-Square,Hydraulic Erosion</td>
+      <td>OpenTerrainGenerator datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0242</td>
+      <td>Computer Graphics</td>
+      <td>Animation</td>
+      <td>Character Animation</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++, C#</td>
+      <td>Motion Matching,Physics-based Animation,GAN for Motion</td>
+      <td>CMU MoCap database,AMASS,Human3.6M</td>
+    </tr>
+    <tr>
+      <td>AE-0243</td>
+      <td>Computer Graphics</td>
+      <td>3D Modeling</td>
+      <td>Generative 3D Shape Synthesis</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>PointFlow,OccNet,ImplicitSDF,Zero123,DreamFusion</td>
+      <td>ShapeNet,ModelNet40,Objaverse</td>
+    </tr>
+    <tr>
+      <td>AE-0244</td>
+      <td>Image Processing</td>
+      <td>Morphological Processing</td>
+      <td>Image Enhancement</td>
+      <td>Beginner</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, MATLAB, C++</td>
+      <td>Gaussian Filter,Median Filter,CLAHE,Histogram Equalization</td>
+      <td>USC SIPI Image Database,Kodak Lossless True Color Image Suite</td>
+    </tr>
+    <tr>
+      <td>AE-0245</td>
+      <td>Image Processing</td>
+      <td>Image Compression</td>
+      <td>Learned Image Compression</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Hyperprior,Joint Autoregressive,VVC Intra</td>
+      <td>Kodak,CLIC,Tecnick</td>
+    </tr>
+    <tr>
+      <td>AE-0246</td>
+      <td>Image Processing</td>
+      <td>Image Registration</td>
+      <td>Multi-modal Image Registration</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>ITK registration,ANTs,VoxelMorph,TransMorph</td>
+      <td>EMPIRE10,ACROBAT (Kaggle),NLST CT pairs</td>
+    </tr>
+    <tr>
+      <td>AE-0247</td>
+      <td>Image Processing</td>
+      <td>Texture Analysis</td>
+      <td>Texture Classification</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>GLCM features,LBP,CNN for texture</td>
+      <td>DTD,KTH-TIPS,FMD,MINC</td>
+    </tr>
+    <tr>
+      <td>AE-0248</td>
+      <td>Image Processing</td>
+      <td>Watermarking</td>
+      <td>Digital Image Watermarking</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>DCT Watermark,DWT Watermark,Neural Watermarking,HiDDeN</td>
+      <td>Watermarking evaluation datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0249</td>
+      <td>Signal Processing</td>
+      <td>Speech Processing</td>
+      <td>Speech Recognition</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>CTC,LAS,Conformer,Whisper,wav2vec 2.0</td>
+      <td>LibriSpeech,CommonVoice,VoxPopuli,AISHELL</td>
+    </tr>
+    <tr>
+      <td>AE-0250</td>
+      <td>Signal Processing</td>
+      <td>ECG/EEG Analysis</td>
+      <td>ECG Arrhythmia Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>CNN,LSTM,Transformer,ResNet-1D,Pan-Tompkins</td>
+      <td>MIT-BIH,PhysioNet Computing in Cardiology,PTB-XL</td>
+    </tr>
+    <tr>
+      <td>AE-0251</td>
+      <td>Signal Processing</td>
+      <td>Audio Signal Processing</td>
+      <td>Music Information Retrieval</td>
+      <td>Intermediate</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>CNN,CRF,RNN,Transformer</td>
+      <td>GTZAN,FMA,MusicNet,MAPS,MedleyDB</td>
+    </tr>
+    <tr>
+      <td>AE-0252</td>
+      <td>Signal Processing</td>
+      <td>Radar Signal Processing</td>
+      <td>Radar Target Detection</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>CFAR,MTI Filter,CNN on RDMS,LSTM for gesture</td>
+      <td>DSTL Satellite Imagery (SAR),MSTAR,RadarRAD</td>
+    </tr>
+    <tr>
+      <td>AE-0253</td>
+      <td>Signal Processing</td>
+      <td>Vibration Analysis</td>
+      <td>Mechanical Vibration Signal Analysis</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python, MATLAB</td>
+      <td>FFT,Wavelet Transform,CNN,LSTM,SVM</td>
+      <td>CWRU Bearing Dataset,PHM Data Challenge,PRONOSTIA</td>
+    </tr>
+    <tr>
+      <td>AE-0254</td>
+      <td>Drone Technology</td>
+      <td>UAV Computer Vision</td>
+      <td>Drone Object Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>YOLO,Faster R-CNN,DETR,RetinaNet</td>
+      <td>VisDrone,UAVDT,AerialMPTNet</td>
+    </tr>
+    <tr>
+      <td>AE-0255</td>
+      <td>Drone Technology</td>
+      <td>Autonomous Drone Systems</td>
+      <td>Drone Swarm Control</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Consensus Algorithm,Auction-based Task Allocation,Boid</td>
+      <td>Swarm benchmark datasets,ARGoS multi-UAV</td>
+    </tr>
+    <tr>
+      <td>AE-0256</td>
+      <td>Drone Technology</td>
+      <td>Drone Inspection</td>
+      <td>Infrastructure Inspection by Drone</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>YOLO,Mask R-CNN,PointNet,DeepCrack</td>
+      <td>CODEBRIM (bridge defect),CrackTree,UAV inspection datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0257</td>
+      <td>Drone Technology</td>
+      <td>Drone Mapping</td>
+      <td>Photogrammetry and 3D Reconstruction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>SfM,MVS,NeRF for Drone</td>
+      <td>UAV photogrammetry datasets,DroneDeploy datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0258</td>
+      <td>Drone Technology</td>
+      <td>Drone Delivery</td>
+      <td>Urban Air Mobility</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, C++</td>
+      <td>Path Planning,Obstacle Avoidance,Reinforcement Learning</td>
+      <td>UAM traffic datasets,DJI delivery test data</td>
+    </tr>
+    <tr>
+      <td>AE-0259</td>
+      <td>GIS</td>
+      <td>Spatial Analysis</td>
+      <td>Urban Land Use Classification</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Random Forest,CNN,SegFormer,ResNet</td>
+      <td>Sentinel-2 Land Use,OpenStreetMap,DeepGlobe</td>
+    </tr>
+    <tr>
+      <td>AE-0260</td>
+      <td>GIS</td>
+      <td>Route Optimization</td>
+      <td>Geospatial Route Planning</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>Dijkstra,A*,Contraction Hierarchies,RL-based Routing</td>
+      <td>OpenStreetMap,TIGER/Line,HERE Maps</td>
+    </tr>
+    <tr>
+      <td>AE-0261</td>
+      <td>GIS</td>
+      <td>Environmental Monitoring</td>
+      <td>Flood Mapping</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Random Forest,U-Net on SAR,Hydraulic Simulation (HEC-RAS)</td>
+      <td>DFO Flood Archive,Copernicus EMS,UNOSAT Flood Datasets</td>
+    </tr>
+    <tr>
+      <td>AE-0262</td>
+      <td>GIS</td>
+      <td>Crime Mapping</td>
+      <td>Predictive Policing</td>
+      <td>Advanced</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>Python, R</td>
+      <td>Kernel Density Estimation,Random Forest,DBSCAN,KDE</td>
+      <td>Chicago Crime dataset,LAPD crime data,NYPD Crime Statistics</td>
+    </tr>
+    <tr>
+      <td>AE-0263</td>
+      <td>GIS</td>
+      <td>Geospatial ML</td>
+      <td>Geospatial Foundation Models</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>ViT,ResNet,SatMAE,GeoFM,Prithvi</td>
+      <td>BigEarthNet,Functional Map of the World (fMoW),SEN12MS</td>
+    </tr>
+    <tr>
+      <td>AE-0264</td>
+      <td>Remote Sensing</td>
+      <td>Satellite Image Analysis</td>
+      <td>Change Detection</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Siamese CNN,DDAN,TransUNet,Diff-CNN</td>
+      <td>LEVIR-CD,WHU-CD,OSCD Onera</td>
+    </tr>
+    <tr>
+      <td>AE-0265</td>
+      <td>Remote Sensing</td>
+      <td>Hyperspectral Imaging</td>
+      <td>Hyperspectral Classification</td>
+      <td>Expert</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python, MATLAB</td>
+      <td>SVM,3D CNN,Transformer,Spectral-Spatial CNN</td>
+      <td>Indian Pines,Salinas,Pavia University</td>
+    </tr>
+    <tr>
+      <td>AE-0266</td>
+      <td>Remote Sensing</td>
+      <td>SAR Analysis</td>
+      <td>SAR Ship Detection</td>
+      <td>Advanced</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>CFAR,CNN,YOLO on SAR,Transformer</td>
+      <td>SAR-Ship,SSDD,OpenSARShip,xView3-SAR</td>
+    </tr>
+    <tr>
+      <td>AE-0267</td>
+      <td>Remote Sensing</td>
+      <td>Aerial Image Analysis</td>
+      <td>Building Footprint Extraction</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>No</td>
+      <td>Python</td>
+      <td>U-Net,Mask R-CNN,PolygonRNN,Segment Anything</td>
+      <td>SpaceNet,WHU Building,INRIA Aerial Image Labeling</td>
+    </tr>
+    <tr>
+      <td>AE-0268</td>
+      <td>Remote Sensing</td>
+      <td>Vegetation Monitoring</td>
+      <td>Forest Cover Analysis</td>
+      <td>Intermediate</td>
+      <td>High</td>
+      <td>Yes</td>
+      <td>Python</td>
+      <td>Random Forest,U-Net,LSTM for time-series</td>
+      <td>Hansen Global Forest Change,Global Forest Watch,Copernicus Land Cover</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,383 @@
+{
+  "generated_at": "2026-07-23T11:59:11.490339",
+  "version": "1.0.0",
+  "schema_columns": 24,
+  "total_rows": 268,
+  "domains": 44,
+  "sub_domains": 245,
+  "unique_topics": 268,
+  "total_keywords": 3070,
+  "unique_keywords": 2679,
+  "unique_technologies": 31,
+  "unique_algorithms": 739,
+  "emerging_topics_count": 147,
+  "difficulty_distribution": {
+    "Intermediate": 109,
+    "Advanced": 86,
+    "Expert": 53,
+    "Beginner": 20
+  },
+  "trend_distribution": {
+    "High": 226,
+    "Medium": 42
+  },
+  "domains_list": [
+    "AR/VR",
+    "Agriculture",
+    "Artificial Intelligence",
+    "Autonomous Vehicles",
+    "Big Data",
+    "Bioinformatics",
+    "Blockchain",
+    "Business Analytics",
+    "Cloud Computing",
+    "Computer Graphics",
+    "Computer Vision",
+    "Cyber Security",
+    "Data Science",
+    "Deep Learning",
+    "Digital Twin",
+    "Drone Technology",
+    "E-Commerce",
+    "Education",
+    "Electronics",
+    "Embedded Systems",
+    "FinTech",
+    "GIS",
+    "Generative AI",
+    "Healthcare",
+    "Human Computer Interaction",
+    "Image Processing",
+    "Industry 4.0",
+    "Internet of Things",
+    "Machine Learning",
+    "Manufacturing",
+    "Medical Imaging",
+    "Mobile Application Development",
+    "Natural Language Processing",
+    "Networking",
+    "Remote Sensing",
+    "Renewable Energy",
+    "Robotics",
+    "Signal Processing",
+    "Smart Cities",
+    "Smart Farming",
+    "Software Engineering",
+    "Supply Chain",
+    "Web Development",
+    "Wireless Communication"
+  ],
+  "top_20_technologies": [
+    [
+      "Python",
+      254
+    ],
+    [
+      "R",
+      27
+    ],
+    [
+      "C++",
+      25
+    ],
+    [
+      "JavaScript",
+      19
+    ],
+    [
+      "MATLAB",
+      18
+    ],
+    [
+      "C",
+      16
+    ],
+    [
+      "Java",
+      13
+    ],
+    [
+      "Go",
+      6
+    ],
+    [
+      "C#",
+      6
+    ],
+    [
+      "Solidity",
+      4
+    ],
+    [
+      "Scala",
+      3
+    ],
+    [
+      "Prolog",
+      2
+    ],
+    [
+      "TypeScript",
+      2
+    ],
+    [
+      "Rust",
+      2
+    ],
+    [
+      "YAML",
+      2
+    ],
+    [
+      "Shell",
+      2
+    ],
+    [
+      "Kotlin",
+      2
+    ],
+    [
+      "Swift",
+      2
+    ],
+    [
+      "Lisp",
+      1
+    ],
+    [
+      "JSON",
+      1
+    ]
+  ],
+  "top_20_algorithms": [
+    [
+      "LSTM",
+      33
+    ],
+    [
+      "Random Forest",
+      26
+    ],
+    [
+      "CNN",
+      17
+    ],
+    [
+      "XGBoost",
+      16
+    ],
+    [
+      "Transformer",
+      12
+    ],
+    [
+      "SVM",
+      10
+    ],
+    [
+      "BERT",
+      9
+    ],
+    [
+      "ResNet",
+      8
+    ],
+    [
+      "Isolation Forest",
+      7
+    ],
+    [
+      "U-Net",
+      7
+    ],
+    [
+      "Logistic Regression",
+      6
+    ],
+    [
+      "LightGBM",
+      5
+    ],
+    [
+      "YOLO",
+      5
+    ],
+    [
+      "Gaussian Process",
+      5
+    ],
+    [
+      "Reinforcement Learning",
+      5
+    ],
+    [
+      "EfficientNet",
+      4
+    ],
+    [
+      "Mask R-CNN",
+      4
+    ],
+    [
+      "GNN",
+      4
+    ],
+    [
+      "SHAP",
+      3
+    ],
+    [
+      "ARIMA",
+      3
+    ]
+  ],
+  "emerging_topics": [
+    "Knowledge Graphs",
+    "Common Sense Reasoning",
+    "Bias Detection and Mitigation",
+    "Feature Attribution Methods",
+    "Counterfactual Explanations",
+    "Human-Level AI Benchmarking",
+    "Adversarial Robustness",
+    "Anomaly Detection",
+    "Deep Reinforcement Learning",
+    "Privacy-Preserving ML",
+    "Neural Architecture Search",
+    "Bayesian Optimization",
+    "Graph Classification",
+    "Contrastive Learning",
+    "Knowledge Distillation",
+    "Neural Network Pruning",
+    "DARTS",
+    "Facial Expression Recognition",
+    "Human Pose Estimation",
+    "Point Cloud Processing",
+    "Super Resolution",
+    "Video Object Tracking",
+    "Retrieval Augmented Generation",
+    "Relation Extraction",
+    "Language Modeling",
+    "Instruction Fine-tuning",
+    "Text-to-Image Generation",
+    "AI-Assisted Programming",
+    "Vision-Language Models",
+    "Audio-Text Generation",
+    "Chain-of-Thought Prompting",
+    "Autonomous AI Agents",
+    "Text-to-Video Models",
+    "Grasp Planning",
+    "Collaborative Robots",
+    "Multi-Robot Coordination",
+    "Drone Navigation",
+    "Autonomous Surgical Systems",
+    "Predictive Maintenance",
+    "Wearable Health Monitoring",
+    "Edge AI Inference",
+    "Device Authentication",
+    "Soil and Crop Sensing",
+    "Post-Quantum Cryptography",
+    "Multi-Factor Authentication",
+    "Cyber Threat Hunting",
+    "Zero Trust Architecture",
+    "Ethereum Smart Contracts",
+    "Proof of Stake",
+    "DeFi Protocols",
+    "Provenance Tracking",
+    "Zero-Knowledge Proofs",
+    "Function as a Service",
+    "ML Pipeline Orchestration",
+    "Identity and Access Management",
+    "FinOps",
+    "Graph Databases",
+    "Lakehouse Architecture",
+    "Static Code Analysis",
+    "AI-assisted Requirements Analysis",
+    "Jetpack Compose",
+    "SwiftUI",
+    "On-device ML",
+    "Disease Prediction",
+    "Molecular Property Prediction",
+    "Depression and Anxiety Detection",
+    "Remote Patient Monitoring",
+    "Epidemic Spread Modeling",
+    "CT Scan Analysis",
+    "Whole Slide Image Analysis",
+    "Brain MRI Segmentation",
+    "Fetal Ultrasound Screening",
+    "Protein Structure Prediction",
+    "Single-cell RNA Sequencing",
+    "Microbiome Analysis",
+    "Animal Behavior Analysis",
+    "AI-based Irrigation Scheduling",
+    "Harvesting Robots",
+    "Agricultural Drone Spraying",
+    "Climate Control in Greenhouses",
+    "Adaptive Learning",
+    "Essay Grading",
+    "Stock Price Prediction",
+    "Anti-Money Laundering",
+    "Insurance Risk Scoring",
+    "Price Optimization",
+    "Image-based Product Search",
+    "Shopping Chatbots",
+    "Machine Learning on Microcontrollers",
+    "Digital Circuit Design",
+    "DC-DC Converter Design",
+    "High-speed PCB Design",
+    "SDN Controller",
+    "5G NR Physical Layer",
+    "Deep Learning Channel Estimation",
+    "WiFi Sensing",
+    "LEO Satellite Networks",
+    "VR Interaction Design",
+    "HoloLens Applications",
+    "XR for Training",
+    "Industrial AR Inspection",
+    "Physics-based Simulation",
+    "Real-time Digital Twin",
+    "Digital Twin for Structural Health",
+    "Smart City Digital Twin",
+    "Traffic Flow Prediction",
+    "Smart Grid",
+    "Smart Waste Collection",
+    "Water Quality Monitoring",
+    "Camera-LiDAR Fusion",
+    "Motion Planning for AV",
+    "Mapping and Localization",
+    "Vehicle-to-Infrastructure",
+    "Battery State of Health Estimation",
+    "Demand Side Management",
+    "Green Hydrogen Production Optimization",
+    "3D Printing Process Optimization",
+    "IIoT Integration",
+    "Autonomous Mobile Robots in Factory",
+    "Industrial HMI Design",
+    "Configure-to-Order Systems",
+    "Supplier Risk Assessment",
+    "Temperature-controlled Logistics",
+    "Marketing Mix Modeling",
+    "Financial Statement Analysis",
+    "Process Mining",
+    "EEG-based BCI",
+    "Hand Gesture Recognition",
+    "Emotion Recognition from Physiological Signals",
+    "AI for Assistive Technology",
+    "Real-time 3D Rendering",
+    "NeRF (Neural Radiance Fields)",
+    "Character Animation",
+    "Generative 3D Shape Synthesis",
+    "Learned Image Compression",
+    "Digital Image Watermarking",
+    "Radar Target Detection",
+    "Drone Object Detection",
+    "Drone Swarm Control",
+    "Infrastructure Inspection by Drone",
+    "Urban Air Mobility",
+    "Flood Mapping",
+    "Geospatial Foundation Models",
+    "Change Detection",
+    "Hyperspectral Classification",
+    "SAR Ship Detection",
+    "Forest Cover Analysis"
+  ]
+}
