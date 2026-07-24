@@ -59,8 +59,9 @@ class ProjectGraphService:
             return
         self._connect_attempted = True
         try:
+            user = settings.effective_neo4j_user
             self.driver = GraphDatabase.driver(
-                settings.NEO4J_URI, auth=(settings.NEO4J_USER, settings.NEO4J_PASSWORD)
+                settings.NEO4J_URI, auth=(user, settings.NEO4J_PASSWORD)
             )
             self.driver.verify_connectivity()
             log.info("Connected to Neo4j at %s", settings.NEO4J_URI)
