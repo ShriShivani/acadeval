@@ -46,7 +46,7 @@ const ProjectReportView: React.FC = () => {
     enabled: !!projectId && !!user,
   });
 
-  const r = data as InternalEvaluationReport | undefined;
+  const r = data as InternalEvaluationReport;
 
   // Auto-fill abstract from student submission
   useEffect(() => {
@@ -301,7 +301,7 @@ const ProjectReportView: React.FC = () => {
               </p>
               <div className="flex items-center gap-3 pt-2">
                 <button
-                  onClick={() => noveltyMutation.mutate()}
+                  onClick={() => noveltyMutation.mutate(noveltyAbstract)}
                   className="btn-primary"
                 >
                   <RefreshCw size={14} /> Retry Automatic Assessment
@@ -366,14 +366,14 @@ const ProjectReportView: React.FC = () => {
         <div className="card">
           <div className="flex items-center gap-2 mb-5">
             <Sparkles size={18} className="text-gold-500" />
-            <h2 className="font-semibold text-navy-900">AI Explainability (Internal — LIME/SHAP)</h2>
+            <h2 className="font-semibold text-navy-900">AI Explainability</h2>
           </div>
           <div className="bg-gold-50 rounded-xl p-3 border border-gold-100 mb-5">
             <p className="text-xs text-gold-700">
-              🔒 <strong>Internal Only</strong> — This view shows sentence-level feature attribution scores from the AI pipeline. It is never shown to students.
-            </p>
+  <strong>Internal Only</strong> — This view explains how each novelty signal contributed to the final composite novelty score. It is never shown to students.
+</p>
           </div>
-          <ExplainabilityViewer annotations={r.explainabilityAnnotations || []} />
+          <ExplainabilityViewer explainability={r.explainability} />
         </div>
       )}
 
