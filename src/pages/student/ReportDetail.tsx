@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getEvaluationReport } from '../../api/endpoints';
+import { getEvaluationReport, getProjectEntities } from '../../api/endpoints';
 import { useAuth } from '../../auth/AuthContext';
 import { LoadingState, ErrorState } from '../../components/States';
 import RadarChart from '../../components/RadarChart';
 import ScoreGauge from '../../components/ScoreGauge';
 import Badge from '../../components/Badge';
 import AppealModal from '../../components/AppealModal';
+import EntityExtractionPanel from '../../components/EntityExtractionPanel';
 import type { PublicEvaluationReport } from '../../types';
 import {
   AlertTriangle, CheckCircle, XCircle, Download, BookOpen,
@@ -109,6 +110,12 @@ const ReportDetail: React.FC = () => {
     enabled: !!projectId && !!user,
   });
 
+  const { data: entityData, isLoading: entitiesLoading } = useQuery({
+    queryKey: ['project-entities', projectId],
+    queryFn: () => getProjectEntities(projectId!),
+    enabled: !!projectId,
+  });
+
   if (isLoading) return <LoadingState message="Loading evaluation report..." />;
   if (isError || !report) return <ErrorState retry={refetch} />;
 
@@ -178,6 +185,12 @@ const ReportDetail: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Module 3 — Extracted Entities Panel */}
+      <EntityExtractionPanel
+        entities={entityData?.extracted_entities}
+        isLoading={entitiesLoading}
+      />
 
       {/* Two Columns: Radar + Scores */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

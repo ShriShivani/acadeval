@@ -28,14 +28,14 @@ log = logging.getLogger(__name__)
 
 # category key (as produced by extractor_service.extract_entities) -> (Node label, relationship type)
 CATEGORY_EDGE_MAP = {
-    "algorithms": ("Algorithm", "USES_ALGORITHM"),
-    "technologies": ("Technology", "USES_TECHNOLOGY"),
-    "frameworks": ("Framework", "USES_FRAMEWORK"),
-    "libraries": ("Library", "USES_LIBRARY"),
-    "datasets": ("Dataset", "USES_DATASET"),
-    "applications": ("Application", "TARGETS_APPLICATION"),
-    "hardware": ("Hardware", "RUNS_ON"),
-    "metrics": ("Metric", "EVALUATED_BY"),
+    "algorithms":    ("Algorithm",   "USES_ALGORITHM"),
+    "technologies":  ("Technology",  "USES_TECHNOLOGY"),
+    "frameworks":    ("Framework",   "USES_FRAMEWORK"),
+    "libraries":     ("Library",     "USES_LIBRARY"),
+    "datasets":      ("Dataset",     "USES_DATASET"),
+    "applications":  ("Application", "TARGETS_APPLICATION"),
+    "hardware":      ("Hardware",    "RUNS_ON"),
+    "metrics":       ("Metric",      "EVALUATED_BY"),   # Module 3 step 7 \u2014 was missing
 }
 
 ENTITY_LABELS = [label for label, _ in CATEGORY_EDGE_MAP.values()]
@@ -64,7 +64,11 @@ class ProjectGraphService:
                 settings.NEO4J_URI, auth=(user, settings.NEO4J_PASSWORD)
             )
             self.driver.verify_connectivity()
-            log.info("Connected to Neo4j at %s", settings.NEO4J_URI)
+            db_label = settings.NEO4J_DATABASE or "default"
+            log.info(
+                "Connected to Neo4j Aura at %s  (database=%s)",
+                settings.NEO4J_URI, db_label,
+            )
         except Exception as e:
             log.warning("Neo4j unavailable at %s (%s).", settings.NEO4J_URI, e)
             self.driver = None
@@ -83,9 +87,11 @@ class ProjectGraphService:
         if not self.driver:
             raise GraphUnavailableError(
                 "Neo4j is not reachable. Start it with `docker compose up -d neo4j` "
-                "and confirm NEO4J_URI/NEO4J_USER/NEO4J_PASSWORD in .env."
+                "and confirm NEO4J_URI/NEO4J_USERNAME/NEO4J_PASSWORD in .env."
             )
-        session = self.driver.session()
+        # Use NEO4J_DATABASE if provided (required for Neo4j Aura)
+        db_name = settings.NEO4J_DATABASE or None
+        session = self.driver.session(database=db_name) if db_name else self.driver.session()
         try:
             yield session
         except (ServiceUnavailable, Neo4jError) as e:
@@ -197,6 +203,51 @@ class ProjectGraphService:
             """,
             pairs=pair_params,
         )
+
+
+    def ping(self) -> dict:
+        """Returns connectivity status — safe to call from a /health endpoint."""
+        try:
+            with self.session() as s:
+                result = s.run("RETURN 1 AS ok")
+                result.single()
+            return {"connected": True, "uri": settings.NEO4J_URI,
+                    "database": settings.NEO4J_DATABASE or "default"}
+        except GraphUnavailableError as e:
+            return {"connected": False, "uri": settings.NEO4J_URI, "error": str(e)}
+        except Exception as e:
+            return {"connected": False, "uri": settings.NEO4J_URI, "error": str(e)}
+
+    def get_graph_stats(self) -> dict:
+        """Returns node/edge counts per label — used by the /graph/stats API."""
+        try:
+            with self.session() as s:
+                labels_res = s.run(
+                    "CALL apoc.meta.stats() YIELD labels, relTypesCount "
+                    "RETURN labels, relTypesCount"
+                )
+                row = labels_res.single()
+                if row:
+                    return {"labels": dict(row["labels"]),
+                            "relationships": dict(row["relTypesCount"]),
+                            "source": "apoc"}
+        except Exception:
+            pass  # APOC not available on all Aura tiers — fall back
+        try:
+            with self.session() as s:
+                counts = {}
+                for label in ["Project", "Domain", "Subdomain",
+                              "Algorithm", "Technology", "Framework",
+                              "Library", "Dataset", "Application",
+                              "Hardware", "Metric"]:
+                    r = s.run(f"MATCH (n:{label}) RETURN count(n) AS c")
+                    counts[label] = r.single()["c"]
+                rel_r = s.run("MATCH ()-[r]->() RETURN count(r) AS c")
+                return {"labels": counts,
+                        "total_relationships": rel_r.single()["c"],
+                        "source": "manual_count"}
+        except GraphUnavailableError as e:
+            return {"error": str(e)}
 
 
 # Singleton instance

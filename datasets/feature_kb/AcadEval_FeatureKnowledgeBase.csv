@@ -1,100 +1,236 @@
-﻿feature_id,name,category,aliases,first_seen_year,description,difficulty,default_rarity
-FEAT-0001,ResNet,Algorithm,"ResNet-50, ResNet-101, ResNet-18, Residual Network",2015,Deep residual neural network with skip connections for computer vision.,Intermediate,0.3
-FEAT-0002,YOLO,Algorithm,"YOLOv5, YOLOv8, YOLOv9, YOLOv10, You Only Look Once",2016,Real-time single-stage object detection model.,Intermediate,0.3
-FEAT-0003,BERT,Algorithm,"BioBERT, ClinicalBERT, RoBERTa, DeBERTa",2018,Bidirectional Encoder Representations from Transformers for NLP.,Intermediate,0.3
-FEAT-0004,GPT-4,Algorithm,"GPT4, GPT-4o, Generative Pre-trained Transformer 4",2023,Large-scale multimodal generative language model.,Advanced,0.4
-FEAT-0005,LLaMA,Algorithm,"LLaMA-2, LLaMA-3, Llama3",2023,Open-weight foundational large language model by Meta.,Advanced,0.4
-FEAT-0006,Stable Diffusion,Algorithm,"SDXL, Latent Diffusion, DDPM",2022,Latent text-to-image diffusion model.,Advanced,0.4
-FEAT-0007,Vision Transformer,Algorithm,"ViT, Swin Transformer",2020,Transformer architecture applied directly to image patches.,Advanced,0.5
-FEAT-0008,Graph Convolutional Network,Algorithm,"GCN, Graph Convolution",2016,Convolutional neural network for graph-structured data.,Advanced,0.6
-FEAT-0009,Graph Attention Network,Algorithm,"GAT, Graph Attention",2017,Attention-based neural network operating on graphs.,Advanced,0.6
-FEAT-0010,Mask R-CNN,Algorithm,MaskRCNN,2017,Instance segmentation model extending Faster R-CNN.,Advanced,0.4
-FEAT-0011,Random Forest,Algorithm,"RandomForest, RF Classifier",2001,Ensemble learning method combining decision trees.,Beginner,0.2
-FEAT-0012,XGBoost,Algorithm,"Extreme Gradient Boosting, XGB",2014,Optimized distributed gradient boosting library.,Intermediate,0.25
-FEAT-0013,LightGBM,Algorithm,LGBM,2016,Gradient boosting framework that uses tree based learning algorithms.,Intermediate,0.3
-FEAT-0014,CatBoost,Algorithm,Categorical Boosting,2017,Gradient boosting algorithm tailored for categorical features.,Intermediate,0.35
-FEAT-0015,SVM,Algorithm,"Support Vector Machine, SVR",1995,Supervised learning model for classification and regression.,Beginner,0.2
-FEAT-0016,LSTM,Algorithm,"Long Short-Term Memory, Bi-LSTM",1997,Recurrent neural network architecture for sequential data.,Intermediate,0.3
-FEAT-0017,GRU,Algorithm,Gated Recurrent Unit,2014,Streamlined recurrent neural network variant.,Intermediate,0.35
-FEAT-0018,Isolation Forest,Algorithm,iForest,2008,Unsupervised anomaly detection algorithm based on isolation.,Intermediate,0.4
-FEAT-0019,DBSCAN,Algorithm,Density-Based Spatial Clustering,1996,Density-based spatial clustering of applications with noise.,Intermediate,0.3
-FEAT-0020,k-Means,Algorithm,"KMeans, K-Means Clustering",1967,Partitioning algorithm dividing data into k clusters.,Beginner,0.2
-FEAT-0021,A* Search,Algorithm,"A-Star, AStar",1968,Graph traversal and path search algorithm.,Beginner,0.25
-FEAT-0022,RRT*,Algorithm,Rapidly-exploring Random Tree Star,2011,Sampling-based optimal motion planning algorithm for robotics.,Advanced,0.6
-FEAT-0023,AlphaFold,Algorithm,"AlphaFold2, AlphaFold3",2020,Deep learning system for predicting 3D protein structures.,Expert,0.8
-FEAT-0024,Whisper,Algorithm,OpenAI Whisper,2022,Automatic speech recognition and translation model.,Intermediate,0.35
-FEAT-0025,NeRF,Algorithm,"Neural Radiance Field, Instant NGP",2020,Implicit neural representation for novel view 3D synthesis.,Expert,0.75
-FEAT-0026,3D Gaussian Splatting,Algorithm,"Gaussian Splatting, 3DGS",2023,Real-time radiance field rendering technique using 3D Gaussians.,Expert,0.85
-FEAT-0027,PPO,Algorithm,Proximal Policy Optimization,2017,Policy gradient reinforcement learning algorithm.,Advanced,0.5
-FEAT-0028,DQN,Algorithm,"Deep Q-Network, Deep Q Learning",2013,Deep reinforcement learning algorithm combining Q-learning with neural networks.,Advanced,0.45
-FEAT-0029,SimCLR,Algorithm,Simple Framework for Contrastive Learning,2020,Self-supervised contrastive learning framework for visual representations.,Advanced,0.6
-FEAT-0030,LoRA,Algorithm,"Low-Rank Adaptation, QLoRA",2021,Parameter-efficient fine-tuning method for large models.,Advanced,0.4
-FEAT-0031,FAST-RP,Algorithm,Fast Random Projection,2019,Scalable graph node embedding algorithm.,Advanced,0.65
-FEAT-0032,Node2Vec,Algorithm,node2vec,2016,Algorithmic framework for learning continuous feature representations for nodes in graphs.,Advanced,0.55
-FEAT-0033,Adamic-Adar Index,Algorithm,Adamic Adar,2003,Link prediction measure based on common neighbors in graph networks.,Intermediate,0.5
-FEAT-0034,PageRank,Algorithm,Google PageRank,1998,Graph centrality algorithm ranking web pages and network nodes.,Intermediate,0.3
-FEAT-0035,U-Net,Algorithm,"UNet, 3D U-Net",2015,Convolutional network for biomedical image segmentation.,Intermediate,0.3
-FEAT-0036,DeepLabV3+,Algorithm,DeepLab,2018,Semantic image segmentation network using atrous spatial pyramid pooling.,Advanced,0.45
-FEAT-0037,PointNet,Algorithm,PointNet++,2017,Deep learning architecture for 3D point cloud classification and segmentation.,Advanced,0.6
-FEAT-0038,Kalman Filter,Algorithm,"Extended Kalman Filter, EKF",1960,Algorithm for optimal state estimation from noisy measurements.,Intermediate,0.3
-FEAT-0039,SLAM,Algorithm,"Visual SLAM, ORB-SLAM",2000,Simultaneous localization and mapping for robotics.,Advanced,0.55
-FEAT-0040,Mamdani Inference,Algorithm,Fuzzy Mamdani,1975,Fuzzy logic inference methodology.,Intermediate,0.4
-FEAT-0041,Neo4j,Technology,"Neo4j Database, Neo4j Graph Data Science, GDS",2007,Graph database management system.,Intermediate,0.45
-FEAT-0042,Docker,Technology,"Docker Container, Dockerfile",2013,OS-level virtualization platform for containerizing applications.,Beginner,0.2
-FEAT-0043,Kubernetes,Technology,"K8s, k8s",2014,Container orchestration platform for automated deployment and scaling.,Intermediate,0.35
-FEAT-0044,FastAPI,Technology,FastAPI Framework,2018,Modern high-performance Web framework for building Python APIs.,Beginner,0.25
-FEAT-0045,React.js,Technology,"React, ReactJS",2013,Frontend JavaScript library for building user interfaces.,Beginner,0.15
-FEAT-0046,PostgreSQL,Technology,"Postgres, pgvector",1996,Object-relational open-source database system.,Beginner,0.15
-FEAT-0047,Redis,Technology,Redis Cache,2009,"In-memory data structure store used as database, cache, and message broker.",Beginner,0.2
-FEAT-0048,Apache Kafka,Technology,"Kafka, Kafka Streams",2011,Distributed event streaming platform.,Intermediate,0.35
-FEAT-0049,Apache Spark,Technology,"PySpark, Spark DataFrames",2014,Unified analytics engine for large-scale data processing.,Intermediate,0.35
-FEAT-0050,MQTT,Technology,"Mosquitto, MQTT Protocol",1999,Lightweight publish-subscribe messaging protocol for IoT.,Beginner,0.25
-FEAT-0051,LoRaWAN,Technology,LoRa,2015,Low-power wide-area networking protocol for IoT devices.,Intermediate,0.4
-FEAT-0052,ROS,Technology,"ROS2, Robot Operating System",2007,Flexible framework for writing robot software.,Intermediate,0.45
-FEAT-0053,TensorFlow Lite,Technology,"TFLite, TFLite Micro",2017,Lightweight solution for mobile and embedded devices.,Intermediate,0.4
-FEAT-0054,ONNX,Technology,Open Neural Network Exchange,2017,Open format built to represent machine learning models.,Intermediate,0.35
-FEAT-0055,CUDA,Technology,NVIDIA CUDA,2007,Parallel computing platform and API model created by NVIDIA.,Intermediate,0.3
-FEAT-0056,OpenCV,Technology,cv2,2000,Open-source computer vision and machine learning software library.,Beginner,0.2
-FEAT-0057,WebAuthn,Technology,"FIDO2, Passkeys",2019,Web standard for secure passwordless authentication.,Intermediate,0.45
-FEAT-0058,Ethereum,Technology,"EVM, Solidity",2015,Decentralized blockchain platform with smart contract functionality.,Intermediate,0.35
-FEAT-0059,Hyperledger Fabric,Technology,Hyperledger,2015,Permissioned enterprise blockchain framework.,Advanced,0.5
-FEAT-0060,5G NR,Technology,"5G New Radio, 5G RAN",2018,Global standard for unified 5G wireless air interface.,Advanced,0.5
-FEAT-0061,AWS Lambda,Technology,Serverless Lambda,2014,Serverless event-driven compute service.,Intermediate,0.25
-FEAT-0062,PyTorch,Framework,"torch, PyTorch Lightning",2016,Open-source machine learning framework based on Torch.,Beginner,0.2
-FEAT-0063,TensorFlow,Framework,"tf, Keras",2015,End-to-end open source platform for machine learning.,Beginner,0.2
-FEAT-0064,scikit-learn,Library,sklearn,2007,Machine learning library for Python.,Beginner,0.15
-FEAT-0065,Hugging Face Transformers,Library,transformers,2018,"State-of-the-art machine learning library for PyTorch, TensorFlow, and JAX.",Beginner,0.25
-FEAT-0066,spaCy,Library,spacy,2015,Industrial-strength natural language processing library.,Beginner,0.25
-FEAT-0067,LangChain,Framework,LangGraph,2022,Framework for developing applications powered by language models.,Intermediate,0.3
-FEAT-0068,LlamaIndex,Framework,GPT Index,2022,Data framework for LLM-based applications.,Intermediate,0.35
-FEAT-0069,PyTorch Geometric,Library,PyG,2019,Geometric deep learning extension library for PyTorch.,Advanced,0.55
-FEAT-0070,Open3D,Library,open3d,2018,Modern library for 3D data processing.,Intermediate,0.5
-FEAT-0071,MONAI,Framework,MONAI Framework,2020,PyTorch-based open source framework for deep learning in healthcare imaging.,Advanced,0.6
-FEAT-0072,MediaPipe,Framework,"BlazePose, MediaPipe Hands",2019,Cross-platform ML solutions for live and streaming media.,Intermediate,0.3
-FEAT-0073,SHAP,Library,shap,2017,Game theoretic approach to explain the output of machine learning models.,Intermediate,0.35
-FEAT-0074,LIME,Library,lime,2016,Local Interpretable Model-agnostic Explanations.,Intermediate,0.4
-FEAT-0075,Diffusers,Library,huggingface diffusers,2022,Go-to library for state-of-the-art pretrained diffusion models.,Intermediate,0.35
-FEAT-0076,FAISS,Library,Facebook AI Similarity Search,2017,Library for efficient similarity search and clustering of dense vectors.,Intermediate,0.4
-FEAT-0077,ChromaDB,Library,Chroma,2022,Open-source AI application database for embeddings.,Intermediate,0.3
-FEAT-0078,ImageNet,Dataset,ILSVRC,2009,Large-scale visual database designed for use in visual object recognition research.,Beginner,0.2
-FEAT-0079,COCO,Dataset,"MS COCO, Common Objects in Context",2014,"Large-scale object detection, segmentation, and captioning dataset.",Beginner,0.25
-FEAT-0080,MIMIC-III,Dataset,"MIMIC-IV, MIMIC Clinical Database",2015,Freely accessible critical care database.,Intermediate,0.45
-FEAT-0081,SQuAD,Dataset,SQuAD 2.0,2016,Stanford Question Answering Dataset.,Intermediate,0.35
-FEAT-0082,KITTI,Dataset,KITTI Vision Benchmark,2012,Mobile robotics and autonomous driving dataset.,Intermediate,0.4
-FEAT-0083,nuScenes,Dataset,nuScenes 3D,2019,Public large-scale dataset for autonomous driving.,Advanced,0.5
-FEAT-0084,MVTec AD,Dataset,MVTec Anomaly Detection,2019,Dataset for benchmarking industrial anomaly detection algorithms.,Intermediate,0.5
-FEAT-0085,BraTS,Dataset,Brain Tumor Segmentation Challenge,2012,Multimodal Brain Tumor Image Segmentation Benchmark.,Advanced,0.55
-FEAT-0086,CICIDS-2017,Dataset,CICIDS,2017,Network intrusion detection evaluation dataset.,Intermediate,0.4
-FEAT-0087,GLUE,Dataset,SuperGLUE,2018,General Language Understanding Evaluation benchmark.,Intermediate,0.35
-FEAT-0088,ChestX-ray14,Dataset,NIH Chest X-ray,2017,Hospital-scale chest X-ray database and benchmarks.,Intermediate,0.4
-FEAT-0089,PlantVillage,Dataset,PlantVillage Dataset,2015,Dataset of healthy and diseased plant leaf images.,Beginner,0.3
-FEAT-0090,Autonomous Vehicles,Application,"Self-Driving Cars, Robo-taxis",2015,Vehicles capable of sensing environment and operating without human involvement.,Advanced,0.4
-FEAT-0091,Fraud Detection,Application,"Credit Card Fraud, Financial Fraud",2005,Automated system detecting illicit financial transactions.,Intermediate,0.25
-FEAT-0092,Predictive Maintenance,Application,"PdM, Condition Monitoring",2010,Techniques predicting equipment failure to schedule maintenance.,Intermediate,0.3
-FEAT-0093,Medical Diagnosis,Application,"Clinical Decision Support, Radiology AI",2015,AI-assisted clinical decision support for diagnosing patient illnesses.,Advanced,0.35
-FEAT-0094,Smart Agriculture,Application,"Precision Agriculture, Smart Farming",2015,Using modern technology and IoT to increase quantity and quality of agricultural products.,Intermediate,0.35
-FEAT-0095,Raspberry Pi,Hardware,"Raspberry Pi 4, RPi 5",2012,Small single-board computers for IoT and embedded prototypes.,Beginner,0.2
-FEAT-0096,ESP32,Hardware,"ESP32-CAM, ESP8266",2016,"Low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.",Beginner,0.2
-FEAT-0097,NVIDIA Jetson,Hardware,"Jetson Nano, Jetson Orin",2019,Leading platform for AI at the edge.,Intermediate,0.4
-FEAT-0098,LiDAR Sensor,Hardware,"LiDAR, 3D LiDAR",2005,Method for determining ranges by targeting an object with a laser.,Advanced,0.45
-FEAT-0099,STM32,Hardware,STM32 Microcontroller,2007,32-bit Flash microcontrollers based on ARM Cortex-M processor.,Intermediate,0.35
+name,category,aliases,first_seen_year,description
+ResNet,Algorithm,ResNet-50|ResNet-101|ResNet-18|Residual Network,2015,Deep residual neural network with skip connections for computer vision.
+YOLO,Algorithm,YOLOv5|YOLOv8|YOLOv9|YOLOv10|You Only Look Once,2016,Real-time single-stage object detection model.
+BERT,Algorithm,BioBERT|ClinicalBERT|RoBERTa|DeBERTa,2018,Bidirectional Encoder Representations from Transformers for NLP.
+GPT-4,Algorithm,GPT4|GPT-4o|Generative Pre-trained Transformer 4,2023,Large-scale multimodal generative language model.
+LLaMA,Algorithm,LLaMA-2|LLaMA-3|Llama3,2023,Open-weight foundational large language model by Meta.
+Stable Diffusion,Algorithm,SDXL|Latent Diffusion|DDPM,2022,Latent text-to-image diffusion model.
+Vision Transformer,Algorithm,ViT|Swin Transformer,2020,Transformer architecture applied directly to image patches.
+Graph Convolutional Network,Algorithm,GCN|Graph Convolution,2016,Convolutional neural network for graph-structured data.
+Graph Attention Network,Algorithm,GAT|Graph Attention,2017,Attention-based neural network operating on graphs.
+Mask R-CNN,Algorithm,MaskRCNN,2017,Instance segmentation model extending Faster R-CNN.
+Random Forest,Algorithm,RandomForest|RF Classifier,2001,Ensemble learning method combining decision trees.
+XGBoost,Algorithm,Extreme Gradient Boosting|XGB,2014,Optimized distributed gradient boosting library.
+LightGBM,Algorithm,LGBM,2016,Gradient boosting framework that uses tree based learning algorithms.
+CatBoost,Algorithm,Categorical Boosting,2017,Gradient boosting algorithm tailored for categorical features.
+SVM,Algorithm,Support Vector Machine|SVR,1995,Supervised learning model for classification and regression.
+LSTM,Algorithm,Long Short-Term Memory|Bi-LSTM,1997,Recurrent neural network architecture for sequential data.
+GRU,Algorithm,Gated Recurrent Unit,2014,Streamlined recurrent neural network variant.
+Isolation Forest,Algorithm,iForest,2008,Unsupervised anomaly detection algorithm based on isolation.
+DBSCAN,Algorithm,Density-Based Spatial Clustering,1996,Density-based spatial clustering of applications with noise.
+k-Means,Algorithm,KMeans|K-Means Clustering,1967,Partitioning algorithm dividing data into k clusters.
+A* Search,Algorithm,A-Star|AStar,1968,Graph traversal and path search algorithm.
+RRT*,Algorithm,Rapidly-exploring Random Tree Star,2011,Sampling-based optimal motion planning algorithm for robotics.
+AlphaFold,Algorithm,AlphaFold2|AlphaFold3,2020,Deep learning system for predicting 3D protein structures.
+Whisper,Algorithm,OpenAI Whisper,2022,Automatic speech recognition and translation model.
+NeRF,Algorithm,Neural Radiance Field|Instant NGP,2020,Implicit neural representation for novel view 3D synthesis.
+3D Gaussian Splatting,Algorithm,Gaussian Splatting|3DGS,2023,Real-time radiance field rendering technique using 3D Gaussians.
+PPO,Algorithm,Proximal Policy Optimization,2017,Policy gradient reinforcement learning algorithm.
+DQN,Algorithm,Deep Q-Network|Deep Q Learning,2013,Deep reinforcement learning algorithm combining Q-learning with neural networks.
+SimCLR,Algorithm,Simple Framework for Contrastive Learning,2020,Self-supervised contrastive learning framework for visual representations.
+LoRA,Algorithm,Low-Rank Adaptation|QLoRA,2021,Parameter-efficient fine-tuning method for large models.
+FAST-RP,Algorithm,Fast Random Projection,2019,Scalable graph node embedding algorithm.
+Node2Vec,Algorithm,node2vec,2016,Algorithmic framework for learning continuous feature representations for nodes in graphs.
+Adamic-Adar Index,Algorithm,Adamic Adar,2003,Link prediction measure based on common neighbors in graph networks.
+PageRank,Algorithm,Google PageRank,1998,Graph centrality algorithm ranking web pages and network nodes.
+U-Net,Algorithm,UNet|3D U-Net,2015,Convolutional network for biomedical image segmentation.
+DeepLabV3+,Algorithm,DeepLab,2018,Semantic image segmentation network using atrous spatial pyramid pooling.
+PointNet,Algorithm,PointNet++,2017,Deep learning architecture for 3D point cloud classification and segmentation.
+Kalman Filter,Algorithm,Extended Kalman Filter|EKF,1960,Algorithm for optimal state estimation from noisy measurements.
+SLAM,Algorithm,Visual SLAM|ORB-SLAM,2000,Simultaneous localization and mapping for robotics.
+Mamdani Inference,Algorithm,Fuzzy Mamdani,1975,Fuzzy logic inference methodology.
+Neo4j,Technology,Neo4j Database|Neo4j Graph Data Science|GDS,2007,Graph database management system.
+Docker,Technology,Docker Container|Dockerfile,2013,OS-level virtualization platform for containerizing applications.
+Kubernetes,Technology,K8s|k8s,2014,Container orchestration platform for automated deployment and scaling.
+FastAPI,Technology,FastAPI Framework,2018,Modern high-performance Web framework for building Python APIs.
+React.js,Technology,React|ReactJS,2013,Frontend JavaScript library for building user interfaces.
+PostgreSQL,Technology,Postgres|pgvector,1996,Object-relational open-source database system.
+Redis,Technology,Redis Cache,2009,"In-memory data structure store used as database, cache, and message broker."
+Apache Kafka,Technology,Kafka|Kafka Streams,2011,Distributed event streaming platform.
+Apache Spark,Technology,PySpark|Spark DataFrames,2014,Unified analytics engine for large-scale data processing.
+MQTT,Technology,Mosquitto|MQTT Protocol,1999,Lightweight publish-subscribe messaging protocol for IoT.
+LoRaWAN,Technology,LoRa,2015,Low-power wide-area networking protocol for IoT devices.
+ROS,Technology,ROS2|Robot Operating System,2007,Flexible framework for writing robot software.
+TensorFlow Lite,Technology,TFLite|TFLite Micro,2017,Lightweight solution for mobile and embedded devices.
+ONNX,Technology,Open Neural Network Exchange,2017,Open format built to represent machine learning models.
+CUDA,Technology,NVIDIA CUDA,2007,Parallel computing platform and API model created by NVIDIA.
+OpenCV,Technology,cv2,2000,Open-source computer vision and machine learning software library.
+WebAuthn,Technology,FIDO2|Passkeys,2019,Web standard for secure passwordless authentication.
+Ethereum,Technology,EVM|Solidity,2015,Decentralized blockchain platform with smart contract functionality.
+Hyperledger Fabric,Technology,Hyperledger,2015,Permissioned enterprise blockchain framework.
+5G NR,Technology,5G New Radio|5G RAN,2018,Global standard for unified 5G wireless air interface.
+AWS Lambda,Technology,Serverless Lambda,2014,Serverless event-driven compute service.
+PyTorch,Framework,torch|PyTorch Lightning,2016,Open-source machine learning framework based on Torch.
+TensorFlow,Framework,tf|Keras,2015,End-to-end open source platform for machine learning.
+scikit-learn,Library,sklearn,2007,Machine learning library for Python.
+Hugging Face Transformers,Library,transformers,2018,"State-of-the-art machine learning library for PyTorch, TensorFlow, and JAX."
+spaCy,Library,spacy,2015,Industrial-strength natural language processing library.
+LangChain,Framework,LangGraph,2022,Framework for developing applications powered by language models.
+LlamaIndex,Framework,GPT Index,2022,Data framework for LLM-based applications.
+PyTorch Geometric,Library,PyG,2019,Geometric deep learning extension library for PyTorch.
+Open3D,Library,open3d,2018,Modern library for 3D data processing.
+MONAI,Framework,MONAI Framework,2020,PyTorch-based open source framework for deep learning in healthcare imaging.
+MediaPipe,Framework,BlazePose|MediaPipe Hands,2019,Cross-platform ML solutions for live and streaming media.
+SHAP,Library,shap,2017,Game theoretic approach to explain the output of machine learning models.
+LIME,Library,lime,2016,Local Interpretable Model-agnostic Explanations.
+Diffusers,Library,huggingface diffusers,2022,Go-to library for state-of-the-art pretrained diffusion models.
+FAISS,Library,Facebook AI Similarity Search,2017,Library for efficient similarity search and clustering of dense vectors.
+ChromaDB,Library,Chroma,2022,Open-source AI application database for embeddings.
+ImageNet,Dataset,ILSVRC,2009,Large-scale visual database designed for use in visual object recognition research.
+COCO,Dataset,MS COCO|Common Objects in Context,2014,"Large-scale object detection, segmentation, and captioning dataset."
+MIMIC-III,Dataset,MIMIC-IV|MIMIC Clinical Database,2015,Freely accessible critical care database.
+SQuAD,Dataset,SQuAD 2.0,2016,Stanford Question Answering Dataset.
+KITTI,Dataset,KITTI Vision Benchmark,2012,Mobile robotics and autonomous driving dataset.
+nuScenes,Dataset,nuScenes 3D,2019,Public large-scale dataset for autonomous driving.
+MVTec AD,Dataset,MVTec Anomaly Detection,2019,Dataset for benchmarking industrial anomaly detection algorithms.
+BraTS,Dataset,Brain Tumor Segmentation Challenge,2012,Multimodal Brain Tumor Image Segmentation Benchmark.
+CICIDS-2017,Dataset,CICIDS,2017,Network intrusion detection evaluation dataset.
+GLUE,Dataset,SuperGLUE,2018,General Language Understanding Evaluation benchmark.
+ChestX-ray14,Dataset,NIH Chest X-ray,2017,Hospital-scale chest X-ray database and benchmarks.
+PlantVillage,Dataset,PlantVillage Dataset,2015,Dataset of healthy and diseased plant leaf images.
+Autonomous Vehicles,Application,Self-Driving Cars|Robo-taxis,2015,Vehicles capable of sensing environment and operating without human involvement.
+Fraud Detection,Application,Credit Card Fraud|Financial Fraud,2005,Automated system detecting illicit financial transactions.
+Predictive Maintenance,Application,PdM|Condition Monitoring,2010,Techniques predicting equipment failure to schedule maintenance.
+Medical Diagnosis,Application,Clinical Decision Support|Radiology AI,2015,AI-assisted clinical decision support for diagnosing patient illnesses.
+Smart Agriculture,Application,Precision Agriculture|Smart Farming,2015,Using modern technology and IoT to increase quantity and quality of agricultural products.
+Raspberry Pi,Hardware,Raspberry Pi 4|RPi 5,2012,Small single-board computers for IoT and embedded prototypes.
+ESP32,Hardware,ESP32-CAM|ESP8266,2016,"Low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth."
+NVIDIA Jetson,Hardware,Jetson Nano|Jetson Orin,2019,Leading platform for AI at the edge.
+LiDAR Sensor,Hardware,LiDAR|3D LiDAR,2005,Method for determining ranges by targeting an object with a laser.
+STM32,Hardware,STM32 Microcontroller,2007,32-bit Flash microcontrollers based on ARM Cortex-M processor.
+Convolutional Neural Network,Algorithm,CNN|ConvNet|Conv2D,1989,Deep neural network architecture using convolutional layers for spatial feature extraction.
+Graph Neural Network,Algorithm,GNN|Graph Net,2009,Neural network that operates on graph-structured data via message passing.
+Heterogeneous Graph Neural Network,Algorithm,HetGNN|HGNN|Heterogeneous GNN,2019,GNN variant that handles graphs with multiple node/edge types.
+Graph Transformer,Algorithm,GT|Graphormer,2020,Transformer architecture adapted for graph-structured inputs.
+Transformer,Algorithm,Attention Mechanism|Multi-Head Attention|Self-Attention,2017,"Self-attention based sequence model (Vaswani et al., Attention Is All You Need)."
+Federated Learning,Algorithm,FL|Federated ML|FedAvg|FedProx,2016,Distributed ML training where data never leaves the client device.
+Transfer Learning,Algorithm,Fine-tuning|Domain Adaptation|Pre-trained Model,1993,Reusing a model trained on one task as a starting point for another.
+Reinforcement Learning,Algorithm,RL|Deep RL|Model-Free RL,1992,Learning by interaction with an environment to maximize cumulative reward.
+Generative Adversarial Network,Algorithm,GAN|cGAN|DCGAN|StyleGAN|CycleGAN,2014,Generator–discriminator framework for synthesizing realistic data.
+Variational Autoencoder,Algorithm,VAE|VQ-VAE,2013,Generative latent variable model that learns a structured embedding space.
+Anomaly Detection,Algorithm,Outlier Detection|Novelty Detection|One-Class Classification,1980,Identifies data points significantly different from the expected distribution.
+Logistic Regression,Algorithm,LR|Logit Regression,1958,Linear model for binary or multiclass classification using sigmoid output.
+Decision Tree,Algorithm,DT|Classification Tree|Regression Tree|CART,1986,Hierarchical rule-based classifier splitting data on feature thresholds.
+Naive Bayes,Algorithm,NB|Gaussian Naive Bayes|Multinomial NB,1960,Probabilistic classifier based on Bayes theorem with feature independence assumption.
+K-Nearest Neighbor,Algorithm,KNN|k-NN|kNN,1967,Instance-based learning classifying by majority vote of k nearest neighbors.
+Gradient Descent,Algorithm,SGD|Adam|AdaGrad|RMSProp|AdamW,1847,Iterative optimization algorithm minimizing a loss function.
+SMOTE,Algorithm,Synthetic Minority Oversampling Technique|ADASYN,2002,Oversampling technique to handle class imbalance via synthetic sample generation.
+Neural Architecture Search,Algorithm,NAS|AutoML|Efficient NAS|DARTS,2016,Automated search for optimal neural network architectures.
+EfficientNet,Algorithm,EfficientNetV2|EfficientDet,2019,Compound-scaled CNN family achieving high accuracy with fewer parameters.
+MobileNet,Algorithm,MobileNetV2|MobileNetV3|MobileViT,2017,Lightweight depthwise-separable CNN optimized for mobile/edge deployment.
+FaceNet,Algorithm,Face Embedding|ArcFace|CosFace,2015,Deep embedding model for face recognition using triplet loss.
+DeepFace,Algorithm,Face Verification|InsightFace,2014,Deep learning based face identification system (Meta).
+Named Entity Recognition,Algorithm,NER|Entity Extraction|Information Extraction,1996,"NLP task identifying named entities (persons, organizations, etc.) in text."
+Text Classification,Algorithm,Document Classification|Sentiment Classification,1992,Categorizing text into predefined classes.
+Object Detection,Algorithm,Bounding Box Detection|Faster R-CNN|SSD,2001,Localizing and classifying multiple objects within an image.
+Semantic Segmentation,Algorithm,Pixel Classification|Scene Parsing,2015,Assigning a class label to every pixel in an image.
+Action Recognition,Algorithm,Activity Recognition|Gesture Recognition|Video Classification,2001,Classifying human actions or activities from video sequences.
+Pose Estimation,Algorithm,Human Pose Estimation|Skeleton Detection|OpenPose|HRNet,2014,Detecting and localizing body keypoints for human pose analysis.
+Optical Flow,Algorithm,Dense Optical Flow|FlowNet|RAFT,1981,Estimating per-pixel motion between consecutive video frames.
+Causal Inference,Algorithm,Causal AI|Do-Calculus|Structural Causal Model,2000,Reasoning about cause-effect relationships beyond correlation.
+Counterfactual Explanation,Algorithm,Counterfactual AI|Contrastive Explanation|DiCE,2017,Explaining model decisions by describing minimal input changes to flip the outcome.
+Quantum Machine Learning,Algorithm,QML|Quantum Deep Learning|Quantum Neural Network,2014,Applying quantum computing to accelerate or enhance ML algorithms.
+Variational Quantum Circuit,Algorithm,VQC|Quantum Variational Eigensolver|QAOA,2014,Parameterized quantum circuit trained with classical optimization.
+Recurrent Neural Network,Algorithm,RNN|Sequence Model|Encoder-Decoder,1986,Neural network with temporal feedback connections for sequential data.
+Grad-CAM,Algorithm,Gradient-weighted Class Activation Map|GradCAM|Grad-CAM++,2016,Visual explanation technique highlighting image regions driving CNN predictions.
+Sentence-BERT,Algorithm,SBERT|Sentence Transformers|all-MiniLM-L6-v2,2019,BERT variant producing semantically meaningful sentence embeddings.
+Word2Vec,Algorithm,Word Embeddings|GloVe|FastText,2013,Shallow neural network producing dense word vector representations.
+Bayesian Optimization,Algorithm,Hyperparameter Optimization|Optuna|Hyperopt,1998,Probabilistic black-box optimization for hyperparameter tuning.
+Mean Shift,Algorithm,Mean Shift Clustering|Bandwidth Estimation,1995,Non-parametric clustering algorithm seeking density mode.
+Phishing Detection,Application,Scam Website Detection|Malicious URL Detection|Blacklist-free Detection,2004,Classifying URLs or emails as phishing/legitimate using ML features.
+Network Intrusion Detection,Application,IDS|NIDS|Intrusion Prevention System|IPS|Intrusion Detection,1987,Monitoring network traffic to identify malicious activity.
+Landslide Detection,Application,Landslide Alert System|Slope Stability Monitoring,2005,Using remote sensing and ML for landslide risk detection and early warning.
+Emotion Recognition,Application,Facial Emotion Recognition|Affective Computing|Sentiment Analysis,1997,"Identifying human emotional states from facial, vocal, or physiological signals."
+Chatbot,Application,Conversational AI|Dialogue System|Virtual Assistant|LLM Chatbot,1966,AI system engaging in human-like text or voice dialogue.
+Herbal Traceability,Application,Botanical Traceability|Drug Authentication|Supply Chain Traceability,2010,Blockchain-based tracking of herbal/pharmaceutical products from source to consumer.
+Dysgraphia Detection,Application,Handwriting Disorder Detection|Learning Disability Detection|Handwriting Analysis,2012,Automated identification of dysgraphia through handwriting pattern analysis.
+Sports Analytics,Application,Sports AI|Game Analysis|Player Tracking,2003,Using AI/ML to analyze athlete performance and game events.
+Heart Attack Detection,Application,Myocardial Infarction Detection|Cardiac Event Detection|Neurocardiac Monitoring,1995,Real-time ECG/PPG analysis for early detection of cardiac events.
+Supply Chain Optimization,Application,Supply Chain Management|Logistics Optimization|Inventory Optimization,1985,Using ML/RL to minimize cost and improve efficiency in supply chains.
+Academic Project Evaluation,Application,Project Assessment Tool|Academic Evaluation Support,2010,AI-based system for evaluating and scoring academic project submissions.
+Privacy Preserving Machine Learning,Application,PPML|Privacy-secure AI|Secure ML,2010,"ML techniques that protect individual data privacy (FL, DP, HE)."
+Video Analytics,Application,Video Intelligence|Video Surveillance AI|Smart CCTV,2003,"Automated analysis of video streams for events, objects, and behavior."
+Edge AI,Application,On-device AI|Edge Inference|TinyML,2017,Running AI inference at the network edge without cloud roundtrips.
+Explainable AI,Application,XAI|Model Interpretability|AI Transparency,2016,Methods and tools to make ML model decisions understandable to humans.
+Blockchain,Technology,Distributed Ledger|DLT|Web3,2008,Decentralized immutable ledger securing transactions via cryptographic hashing.
+Smart Contract,Technology,Self-executing Contract|Solidity Contract|ERC-20,1994,Self-executing code stored on a blockchain that enforces contract terms.
+IPFS,Technology,InterPlanetary File System|Content Addressing|Filecoin,2014,Peer-to-peer distributed file system using content-addressed storage.
+Differential Privacy,Technology,DP|Epsilon-Delta Privacy|Noise Injection,2006,Mathematical framework guaranteeing individual records cannot be re-identified.
+Homomorphic Encryption,Technology,HE|FHE|Fully Homomorphic Encryption|CKKS|BFV,2009,Encryption scheme allowing computation on ciphertext without decryption.
+TensorRT,Technology,NVIDIA TensorRT|TRT,2017,NVIDIA SDK for high-performance deep learning inference on GPU.
+ONNX Runtime,Technology,ORT|ONNX Inference,2018,High-performance inference engine for ONNX models across hardware backends.
+NVIDIA DeepStream,Technology,DeepStream SDK|DeepStream,2018,NVIDIA SDK for AI-powered video analytics pipelines on Jetson/GPU.
+Edge Computing,Technology,Fog Computing|Multi-access Edge Computing|MEC,2009,Distributed computing paradigm that processes data near the source.
+Quantum Computing,Technology,Quantum Hardware|Qiskit|Cirq|PennyLane,1981,Computing using quantum-mechanical phenomena like superposition and entanglement.
+Remote Sensing,Technology,Satellite Imagery|SAR|Synthetic Aperture Radar|Earth Observation,1960,Acquiring information about the Earth's surface without physical contact.
+Wearable Sensor,Technology,Wearable Device|Biosensor|IoT Sensor|ECG Sensor|PPG Sensor,1998,Body-worn sensor collecting physiological or motion data.
+GDPR,Technology,General Data Protection Regulation|Data Privacy Regulation|CCPA,2016,EU regulation governing personal data protection and privacy.
+Secure Aggregation,Technology,SecAgg|Privacy-preserving Aggregation,2017,Cryptographic protocol aggregating model updates in FL without exposing individuals.
+Grafana,Technology,Grafana Dashboard|Prometheus,2014,Open-source analytics and monitoring visualization platform.
+Elasticsearch,Technology,Elastic Search|ELK Stack|OpenSearch,2010,Distributed search and analytics engine for log and data analysis.
+Whisper API,Technology,OpenAI Whisper API|Speech-to-Text API,2022,Cloud API for automatic speech recognition using OpenAI Whisper model.
+Firebase,Technology,Firebase Realtime DB|Firestore|Firebase Auth,2012,Google's mobile and web application development platform with BaaS features.
+MongoDB,Technology,Mongo|NoSQL Database|Document Database,2009,Document-oriented NoSQL database storing data in flexible JSON-like BSON format.
+WebRTC,Technology,Real-Time Communication|WebSocket|Peer-to-Peer,2011,Browser API enabling real-time audio/video/data peer-to-peer communication.
+Coral Edge TPU,Hardware,Google Coral|Coral Dev Board|Coral USB Accelerator,2019,Google's ASIC for accelerating TensorFlow Lite inference at the edge.
+FPGA,Hardware,Field Programmable Gate Array|Xilinx FPGA|Intel FPGA|Altera,1985,Reconfigurable hardware for custom digital logic acceleration.
+Arduino,Hardware,Arduino Uno|Arduino Nano|Arduino Mega,2005,Open-source microcontroller platform widely used in IoT prototyping.
+IMU Sensor,Hardware,Inertial Measurement Unit|Accelerometer|Gyroscope|MPU-6050,1954,"Sensor measuring acceleration, angular velocity, and magnetic field."
+Ultrasonic Sensor,Hardware,HC-SR04|Sonar Sensor|Proximity Sensor,1940,Sensor using sound waves to measure distance.
+Pandas,Library,pandas|DataFrame|Python Data Analysis,2008,Python library for data manipulation and analysis with DataFrame abstraction.
+NumPy,Library,numpy|np,2006,Python library for numerical computation with multi-dimensional arrays.
+Matplotlib,Library,pyplot|Seaborn|Plotly,2003,Python 2D/3D plotting library for data visualization.
+NetworkX,Library,networkx,2004,Python library for creation and analysis of complex networks and graphs.
+NLTK,Library,Natural Language Toolkit|nltk,2001,Python platform for building NLP programs with text corpora.
+Dlib,Library,dlib,2009,C++ ML toolkit with Python bindings for face detection and landmark prediction.
+Librosa,Library,librosa|Audio Feature Extraction,2015,Python library for music and audio analysis.
+Streamlit,Library,streamlit|Streamlit App,2019,Python framework for rapidly building interactive ML/data apps.
+Gradio,Library,gradio,2019,Python library for building ML demo web interfaces in minutes.
+Detectron2,Framework,Facebook Detectron2|detectron2,2019,Meta's modular object detection and segmentation research platform.
+MMDetection,Framework,mmdet|OpenMMLab,2019,OpenMMLab's detection toolbox supporting 100+ detection algorithms.
+Hugging Face PEFT,Framework,PEFT|LoRA PEFT|Parameter Efficient Fine-Tuning,2023,"Hugging Face library for parameter-efficient fine-tuning (LoRA, IA3, etc.)."
+PhiUSIIL,Dataset,Phishing URL Dataset|UCI Phishing Dataset,2012,Benchmark dataset of phishing and legitimate URLs for ML classification.
+MNIST,Dataset,Modified NIST|Handwritten Digits Dataset,1998,"70,000 handwritten digit images widely used for classification benchmarks."
+UCF-101,Dataset,UCF101|Action Recognition Dataset,2012,101-class human action recognition dataset from YouTube videos.
+HMDB-51,Dataset,HMDB51|Human Motion Database,2011,51-class action recognition benchmark from movie/web video clips.
+NSL-KDD,Dataset,NSL KDD|KDD Cup 99 Updated|Network Intrusion Dataset,2009,Benchmark dataset for network intrusion detection research.
+UNSW-NB15,Dataset,UNSW NB15|Cyber Attack Dataset,2015,Network traffic dataset with 9 attack categories for IDS evaluation.
+PhysioNet,Dataset,MIT-BIH|ECG Dataset|PTB-XL|PhysioBank,2000,Repository of physiological signal datasets for biomedical research.
+ISIC Dataset,Dataset,ISIC|Skin Lesion Dataset|Dermoscopy Dataset,2016,International Skin Imaging Collaboration dataset for melanoma classification.
+Thyroid Ultrasound Dataset,Dataset,TN3K|DDTI|Thyroid Dataset,2010,Ultrasound image dataset for thyroid nodule detection/classification.
+Open Images,Dataset,Google Open Images|OID,2016,"Large-scale dataset with 9M images, 600 object classes with bounding boxes."
+CIFAR-10,Dataset,CIFAR10|CIFAR-100,2009,"60,000 32x32 images in 10 object classes for image classification benchmarks."
+F1-Score,Metric,F1|F-Measure|F1 Score|Macro F1|Micro F1,1992,Harmonic mean of precision and recall for classification evaluation.
+Accuracy,Metric,Classification Accuracy|Top-1 Accuracy|Top-5 Accuracy,1955,Proportion of correct predictions to total predictions.
+Precision,Metric,Positive Predictive Value|PPV,1955,Ratio of true positives to all predicted positives.
+Recall,Metric,Sensitivity|True Positive Rate|TPR,1955,Ratio of true positives to all actual positives.
+AUC-ROC,Metric,ROC Curve|AUC|AUROC,1975,Area under the receiver operating characteristic curve.
+Mean Average Precision,Metric,mAP|mAP@50|mAP@0.5:0.95,2006,Average detection accuracy over multiple IoU thresholds used in COCO benchmark.
+BLEU Score,Metric,BLEU|Bilingual Evaluation Understudy,2002,N-gram overlap metric for evaluating machine translation quality.
+ROUGE,Metric,ROUGE-L|ROUGE-1|ROUGE-2,2004,Recall-oriented metric set for automatic summarization evaluation.
+Intersection over Union,Metric,IoU|Jaccard Index|mIoU,1901,Overlap measure between predicted and ground truth bounding boxes/masks.
+Mean Squared Error,Metric,MSE|RMSE|Root Mean Squared Error|MAE,1900,Average squared difference between predictions and actual values.
+Perplexity,Metric,PPL|Language Model Perplexity,1977,Measure of how well a language model predicts a text sample.
+FID Score,Metric,Frechet Inception Distance|FID,2017,Quality metric for generative models comparing feature distributions.
+Latency,Metric,Inference Latency|Response Time|FPS,1950,Time taken for a model to process one input and return an output.
+Specificity,Metric,True Negative Rate|TNR,1955,Proportion of true negatives correctly identified.
+Feature Engineering,Algorithm,Feature Extraction|Feature Selection|URL Feature Extraction,1990,Creating informative input features from raw data for ML models.
+URL Classification,Application,Web URL Analysis|Malicious URL Classification|Blacklist Alternative,2007,Classifying web URLs as benign or malicious using ML features.
+Kabaddi Analytics,Application,Kabaddi AI|Midline Crossing Detection,2020,AI-based player tracking and rule-violation detection in Kabaddi.
+TI-RADS,Algorithm,Thyroid Imaging Reporting and Data System|ACR TI-RADS,2017,Grading system for thyroid nodule risk from ultrasound imaging.
+Deep Learning,Algorithm,DL|Neural Network|Deep Neural Network|DNN,2006,Multi-layer neural networks learning hierarchical feature representations.
+Data Augmentation,Algorithm,Image Augmentation|Synthetic Augmentation,1980,Artificially increasing dataset size by transforming existing samples.
+Knowledge Distillation,Algorithm,Model Compression|Teacher-Student Distillation|Pruning,2006,Compressing a large model into a smaller one by transferring knowledge.
+Contrastive Learning,Algorithm,Self-Supervised Learning|CLIP|DINO|MoCo,2005,Self-supervised learning comparing positive and negative sample pairs.
+N-gram,Algorithm,Unigram|Bigram|TF-IDF|Bag of Words|BoW,1948,Statistical text feature representing contiguous token sequences.
+Node Classification,Algorithm,Graph Node Classification,2016,Predicting labels for graph nodes using neighborhood aggregation.
+Link Prediction,Algorithm,Edge Prediction|Relation Prediction,2003,Predicting the existence of edges in a graph.
+Cloud Computing,Technology,AWS|GCP|Azure|Cloud Platform,2006,On-demand delivery of computing resources over the internet.
+Flask,Framework,Flask API|Werkzeug,2010,Lightweight Python WSGI web framework for REST APIs.
+Flutter,Framework,Flutter SDK|Dart UI,2018,Google UI toolkit for natively compiled multi-platform apps.
+React Native,Framework,RN|Expo,2015,Facebook framework for native mobile apps using React.
+MIT-BIH Arrhythmia,Dataset,MIT-BIH|ECG Arrhythmia Dataset,1980,Classic 48-record ECG dataset for arrhythmia classification.
+RAVDESS,Dataset,Emotional Speech Dataset|Ryerson Audio-Visual Database,2018,24-actor emotional speech and song recording dataset.
+EfficientDet,Algorithm,EfficientDet-D0|EfficientDet-D7,2020,Scalable efficient object detection model from Google Brain.
+Multimodal AI,Algorithm,Multimodal Learning|Multimodal Fusion|Vision-Language Model,2017,"AI processing and fusing multiple modalities like text, image, audio."
+Class Activation Mapping,Algorithm,CAM|Score-CAM|EigenCAM,2015,Visualization highlighting discriminative regions for CNN predictions.

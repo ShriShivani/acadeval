@@ -9,7 +9,7 @@ from app.routers import (
     auth, projects, reports, reviews,
     appeals, rubrics, viva,
     leaderboard, dashboard, users,
-    acadeval_plus
+    acadeval_plus, entities, graph
 )
 
 app = FastAPI(
@@ -47,6 +47,8 @@ app.include_router(leaderboard.router,   prefix=API_PREFIX)
 app.include_router(dashboard.router,     prefix=API_PREFIX)
 app.include_router(users.router,         prefix=API_PREFIX)
 app.include_router(acadeval_plus.router, prefix=API_PREFIX)
+app.include_router(entities.router,      prefix=API_PREFIX)  # Module 3 — entity KB & pending review
+app.include_router(graph.router,         prefix=API_PREFIX)  # Module 4 — Knowledge Graph engine
 
 
 @app.on_event("startup")

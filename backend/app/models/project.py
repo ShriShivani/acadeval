@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from sqlalchemy import (
     String, Enum, Boolean, DateTime, ForeignKey, Text
 )
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
@@ -58,6 +58,10 @@ class Project(Base):
         default=lambda: datetime.now(timezone.utc),
         onupdate=lambda: datetime.now(timezone.utc),
     )
+
+    # Module 3 output — cached entity extraction result so it is never re-computed
+    # on every report request. Shape mirrors extractor_service.extract_entities() output.
+    extracted_entities: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
 
     # Relationships
     student: Mapped["User"] = relationship(

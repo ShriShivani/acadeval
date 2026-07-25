@@ -4,7 +4,7 @@ import { useAuth } from '../auth/AuthContext';
 import {
   LayoutDashboard, Users, Inbox, ClipboardList, Upload,
   BarChart2, Settings, LogOut, GraduationCap, ChevronRight,
-  Bell, Scale, History, MessageSquare,
+  Bell, Scale, History, MessageSquare, FlaskConical, Network,
 } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -17,6 +17,8 @@ const navItems = [
   { to: '/faculty/rubric', icon: <Scale size={18} />, label: 'Rubric Builder' },
   { to: '/faculty/appeals', icon: <MessageSquare size={18} />, label: 'Appeals Inbox' },
   { to: '/faculty/benchmarks', icon: <History size={18} />, label: 'Benchmarks' },
+  { to: '/faculty/entity-review', icon: <FlaskConical size={18} />, label: 'Entity Review' },
+  { to: '/faculty/graph-explorer', icon: <Network size={18} />, label: 'Graph Explorer' },
 ];
 
 const FacultyLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

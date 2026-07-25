@@ -472,3 +472,64 @@ T0043,Digital Forensics,Forensics AI,digital forensics malware,2022,465536,0,0,,
 T0043,Digital Forensics,Forensics AI,digital forensics malware,2023,531532,0,0,,0.4901,CrossRef API,2026-07-24T14:23:30.355663
 T0043,Digital Forensics,Forensics AI,digital forensics malware,2024,614552,0,0,,0.4901,CrossRef API,2026-07-24T14:23:30.355663
 T0043,Digital Forensics,Forensics AI,digital forensics malware,2025,734332,0,0,,0.4901,CrossRef API,2026-07-24T14:23:30.355663
+T0044,Healthcare & Medical Technology,Medical Imaging AI,federated averaging,2025,482,0,0,,0.89,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0045,Healthcare & Medical Technology,Medical Imaging AI,medical imaging ai,2025,101,0,0,,0.756,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0046,Cybersecurity,Web Security & Phishing Detection,graphsage,2025,644,0,0,,0.82,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0047,Cybersecurity,Web Security & Phishing Detection,web security & phishing detection,2025,75,0,0,,0.697,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0048,Artificial Intelligence,Neuromorphic Computing,spiking neural network,2025,728,0,0,,0.91,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0049,Artificial Intelligence,Neuromorphic Computing,neuromorphic computing,2025,269,0,0,,0.773,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0050,Cybersecurity,Quantum Cryptography,bb84 protocol,2025,717,0,0,,0.87,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0051,Cybersecurity,Quantum Cryptography,quantum cryptography,2025,164,0,0,,0.739,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0052,Artificial Intelligence,Continual & Lifelong Learning,elastic weight consolidation,2025,587,0,0,,0.85,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0053,Artificial Intelligence,Continual & Lifelong Learning,continual & lifelong learning,2025,374,0,0,,0.722,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0054,Artificial Intelligence,Network Security & Quantum ML,variational quantum circuit,2025,297,0,0,,0.88,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0055,Artificial Intelligence,Network Security & Quantum ML,network security & quantum ml,2025,233,0,0,,0.748,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0056,Healthcare & Medical Technology,Mental Health AI & Speech Analysis,multi-task transformer,2025,484,0,0,,0.86,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0057,Healthcare & Medical Technology,Mental Health AI & Speech Analysis,mental health ai & speech analysis,2025,388,0,0,,0.731,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0058,Robotics,Swarm Robotics & Collective Intelligence,stigmergy,2025,327,0,0,,0.83,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0059,Robotics,Swarm Robotics & Collective Intelligence,swarm robotics & collective intelligence,2025,322,0,0,,0.705,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0060,Bioinformatics & Computational Biology,Gene Regulatory Network Analysis,granger causality,2025,599,0,0,,0.84,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0061,Bioinformatics & Computational Biology,Gene Regulatory Network Analysis,gene regulatory network analysis,2025,254,0,0,,0.714,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0062,Natural Language Processing,Indic Languages & Computational Linguistics,bert,2025,380,0,0,,0.78,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0063,Natural Language Processing,Indic Languages & Computational Linguistics,indic languages & computational linguistics,2025,367,0,0,,0.663,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0064,Healthcare & Medical Technology,Digital Pathology & Computational Oncology,attention multiple instance learning,2025,596,0,0,,0.9,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0065,Healthcare & Medical Technology,Digital Pathology & Computational Oncology,digital pathology & computational oncology,2025,159,0,0,,0.765,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0066,Artificial Intelligence,Affective Computing & Conversational AI,roberta,2025,711,0,0,,0.87,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0067,Artificial Intelligence,Affective Computing & Conversational AI,affective computing & conversational ai,2025,281,0,0,,0.739,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0068,Computer Vision,Sports AI & Referee Automation,vitpose,2025,634,0,0,,0.8,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0069,Computer Vision,Sports AI & Referee Automation,sports ai & referee automation,2025,309,0,0,,0.68,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0070,Healthcare & Medical Technology,Learning Disability Detection & Therapy,xgboost,2025,161,0,0,,0.81,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0071,Healthcare & Medical Technology,Learning Disability Detection & Therapy,learning disability detection & therapy,2025,365,0,0,,0.689,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0072,Blockchain & Web3,Supply Chain Integrity & Traceability,smart contract,2025,531,0,0,,0.79,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0073,Blockchain & Web3,Supply Chain Integrity & Traceability,supply chain integrity & traceability,2025,224,0,0,,0.671,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0074,Smart Cities,Disaster Management & Environmental AI,physics-informed neural network,2025,360,0,0,,0.88,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0075,Smart Cities,Disaster Management & Environmental AI,disaster management & environmental ai,2025,350,0,0,,0.748,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0076,Healthcare & Medical Technology,Environmental Monitoring & Spectroscopy AI,1d-cnn,2025,620,0,0,,0.82,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0077,Healthcare & Medical Technology,Environmental Monitoring & Spectroscopy AI,environmental monitoring & spectroscopy ai,2025,159,0,0,,0.697,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0078,Healthcare & Medical Technology,Brain-Computer Interface & Neural Decoding,eegnet,2025,675,0,0,,0.9,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0079,Healthcare & Medical Technology,Brain-Computer Interface & Neural Decoding,brain-computer interface & neural decoding,2025,150,0,0,,0.765,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0080,Smart Cities,Geoscience AI & Seismology,earthquaketransformer,2025,459,0,0,,0.83,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0081,Smart Cities,Geoscience AI & Seismology,geoscience ai & seismology,2025,388,0,0,,0.705,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0082,Healthcare & Medical Technology,Ophthalmology AI & Federated Learning,u-net++,2025,370,0,0,,0.87,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0083,Healthcare & Medical Technology,Ophthalmology AI & Federated Learning,ophthalmology ai & federated learning,2025,356,0,0,,0.739,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0084,Smart Cities,Geotechnical AI & Disaster Resilience,geotechnical ai & disaster resilience,2025,91,0,0,,0.68,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0085,Healthcare & Medical Technology,Traditional Medicine Informatics,mbert,2025,356,0,0,,0.82,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0086,Healthcare & Medical Technology,Traditional Medicine Informatics,traditional medicine informatics,2025,370,0,0,,0.697,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0087,Cybersecurity,Adversarial Robustness & AI Security,expectation over transformation,2025,165,0,0,,0.86,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0088,Cybersecurity,Adversarial Robustness & AI Security,adversarial robustness & ai security,2025,177,0,0,,0.731,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0089,Aerospace & Aviation,Space AI & Orbital Mechanics,ppo,2025,123,0,0,,0.85,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0090,Aerospace & Aviation,Space AI & Orbital Mechanics,space ai & orbital mechanics,2025,128,0,0,,0.722,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0091,Healthcare & Medical Technology,Wearable Health Monitoring & Cardiac AI,cnn-bilstm,2025,460,0,0,,0.91,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0092,Healthcare & Medical Technology,Wearable Health Monitoring & Cardiac AI,wearable health monitoring & cardiac ai,2025,317,0,0,,0.773,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0093,Finance & FinTech,Supply Chain & Operations Research AI,qmix,2025,578,0,0,,0.84,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0094,Finance & FinTech,Supply Chain & Operations Research AI,supply chain & operations research ai,2025,315,0,0,,0.714,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0095,Cybersecurity,Privacy Auditing & Federated Security,membership inference attack,2025,205,0,0,,0.88,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0096,Cybersecurity,Privacy Auditing & Federated Security,privacy auditing & federated security,2025,89,0,0,,0.748,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0097,Computer Vision,Sports AI & Game Analysis,yolo,2025,378,0,0,,0.79,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0098,Computer Vision,Sports AI & Game Analysis,sports ai & game analysis,2025,273,0,0,,0.671,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0099,Smart Cities,Acoustic AI & Traffic Management,resnet-34,2025,660,0,0,,0.78,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0100,Smart Cities,Acoustic AI & Traffic Management,acoustic ai & traffic management,2025,124,0,0,,0.663,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0101,Aerospace & Aviation,Maritime AI & Vessel Monitoring,lstm autoencoder,2025,248,0,0,,0.84,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0102,Aerospace & Aviation,Maritime AI & Vessel Monitoring,maritime ai & vessel monitoring,2025,89,0,0,,0.714,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0103,Healthcare & Medical Technology,Computational Neuroscience & Seizure Prediction,power-law fitting,2025,680,0,0,,0.86,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119
+T0104,Healthcare & Medical Technology,Computational Neuroscience & Seizure Prediction,computational neuroscience & seizure prediction,2025,111,0,0,,0.731,AcadEval Niche Expansion v2,2026-07-25T06:29:54.955119

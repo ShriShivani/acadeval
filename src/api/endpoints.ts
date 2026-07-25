@@ -319,3 +319,176 @@ export const updateUserRole = async (userId: string, role: string): Promise<void
   if (USE_MOCK) { await delay(); return; }
   await apiClient.patch(`/users/${userId}`, { role });
 };
+
+// ─── Module 3 \u2014 Entity Knowledge Base & Pending Review ─────────────────────────
+
+export const getKnowledgeBase = async (params?: {
+  category?: string; search?: string; limit?: number; offset?: number;
+}) => {
+  if (USE_MOCK) {
+    await delay(400);
+    // Return a handful of mock KB entries
+    const mockKB = [
+      { name: 'CNN', category: 'algorithm', aliases: ['Convolutional Neural Network', 'ConvNet'], first_seen_year: 1989 },
+      { name: 'YOLO', category: 'algorithm', aliases: ['You Only Look Once'], first_seen_year: 2015 },
+      { name: 'TensorFlow', category: 'framework', aliases: ['TF'], first_seen_year: 2015 },
+      { name: 'PyTorch', category: 'framework', aliases: [], first_seen_year: 2016 },
+      { name: 'COCO', category: 'dataset', aliases: ['MS COCO'], first_seen_year: 2014 },
+      { name: 'Raspberry Pi', category: 'hardware', aliases: ['RPi'], first_seen_year: 2012 },
+      { name: 'F1-Score', category: 'metric', aliases: ['F1', 'F-measure'], first_seen_year: 1992 },
+    ];
+    const filtered = mockKB.filter(e =>
+      (!params?.category || e.category === params.category) &&
+      (!params?.search || e.name.toLowerCase().includes(params.search.toLowerCase()))
+    );
+    return { total: filtered.length, offset: 0, limit: 100, entries: filtered };
+  }
+  const { data } = await apiClient.get('/entities/knowledge-base', { params });
+  return data;
+};
+
+export const getProjectEntities = async (projectId: string) => {
+  if (USE_MOCK) {
+    await delay(300);
+    return {
+      project_id: projectId,
+      title: 'Sample Project',
+      extracted_entities: {
+        algorithms: ['CNN', 'SVM'],
+        technologies: ['Edge Computing', 'REST API'],
+        frameworks: ['TensorFlow'],
+        libraries: ['OpenCV', 'NumPy'],
+        datasets: ['COCO'],
+        applications: ['Medical Diagnosis'],
+        hardware: ['Raspberry Pi'],
+        metrics: ['F1-Score', 'Accuracy'],
+        unmatched_spans: [],
+        all_extracted: [],
+      },
+      has_been_extracted: true,
+    };
+  }
+  const { data } = await apiClient.get(`/entities/project/${projectId}`);
+  return data;
+};
+
+export const getPendingReviewEntities = async () => {
+  if (USE_MOCK) {
+    await delay(300);
+    return {
+      total: 2,
+      items: [
+        { name: 'EfficientDet', category: 'algorithm', source_project_id: 'mock-proj-001' },
+        { name: 'Coral Edge TPU', category: 'hardware', source_project_id: 'mock-proj-002' },
+      ],
+    };
+  }
+  const { data } = await apiClient.get('/entities/pending-review');
+  return data;
+};
+
+export const approveEntityReview = async (name: string, payload: object) => {
+  if (USE_MOCK) { await delay(500); return { status: 'approved', entry: { name }, pending_remaining: 1 }; }
+  const { data } = await apiClient.post(`/entities/pending-review/${encodeURIComponent(name)}/approve`, payload);
+  return data;
+};
+
+export const rejectEntityReview = async (name: string) => {
+  if (USE_MOCK) { await delay(300); return { status: 'rejected', removed: name, pending_remaining: 1 }; }
+  const { data } = await apiClient.post(`/entities/pending-review/${encodeURIComponent(name)}/reject`);
+  return data;
+};
+
+// ─── Module 4 Knowledge Graph ────────────────────────────────────────────────
+export const getGraphSummary = async (refresh = false) => {
+  if (USE_MOCK) {
+    await delay(300);
+    return {
+      status: 'ok',
+      metrics: {
+        nodes_count: 42,
+        edges_count: 128,
+        density: 0.074,
+        node_type_distribution: { Project: 8, Algorithm: 12, Technology: 10, Dataset: 5, Application: 4, Metric: 3 },
+        relationship_distribution: { HAS_DOMAIN: 8, USES_ALGORITHM: 24, USES_TECHNOLOGY: 32, CO_OCCURS: 64 },
+        top_centrality_nodes: [
+          { id: 1, name: 'CNN', type: 'Algorithm', degree: 14, centrality_score: 0.34 },
+          { id: 2, name: 'PyTorch', type: 'Technology', degree: 11, centrality_score: 0.26 },
+          { id: 3, name: 'Medical Diagnosis', type: 'Application', degree: 9, centrality_score: 0.21 },
+        ],
+      },
+    };
+  }
+  const { data } = await apiClient.get(`/graph/summary${refresh ? '?refresh=true' : ''}`);
+  return data;
+};
+
+export const getGraphVisualization = async (limit = 300, nodeTypes?: string) => {
+  if (USE_MOCK) {
+    await delay(400);
+    return {
+      status: 'ok',
+      total_graph_nodes: 25,
+      total_graph_edges: 40,
+      returned_nodes: 25,
+      returned_links: 40,
+      nodes: [
+        { id: 1, name: 'Brain MRI Tumor Segmentation', type: 'Project', degree: 8 },
+        { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
+        { id: 3, name: 'PyTorch', type: 'Technology', degree: 10 },
+        { id: 4, name: 'BraTS 2021', type: 'Dataset', degree: 4 },
+        { id: 5, name: 'Dice Score', type: 'Metric', degree: 3 },
+        { id: 6, name: 'Oncology Diagnostics', type: 'Application', degree: 5 },
+      ],
+      links: [
+        { source: 1, target: 2, relationship: 'USES_ALGORITHM', confidence: 1.0 },
+        { source: 1, target: 3, relationship: 'USES_TECHNOLOGY', confidence: 1.0 },
+        { source: 1, target: 4, relationship: 'USES_DATASET', confidence: 1.0 },
+        { source: 1, target: 5, relationship: 'EVALUATED_BY', confidence: 1.0 },
+        { source: 1, target: 6, relationship: 'TARGETS_APPLICATION', confidence: 1.0 },
+        { source: 2, target: 3, relationship: 'CO_OCCURS', confidence: 1.0 },
+        { source: 2, target: 4, relationship: 'CO_OCCURS', confidence: 1.0 },
+      ],
+    };
+  }
+  const params = new URLSearchParams();
+  if (limit) params.append('limit', limit.toString());
+  if (nodeTypes) params.append('node_types', nodeTypes);
+  const { data } = await apiClient.get(`/graph/visualization?${params.toString()}`);
+  return data;
+};
+
+export const getNodeNeighborhood = async (query: string, radius = 1) => {
+  if (USE_MOCK) {
+    await delay(300);
+    return {
+      status: 'ok',
+      target_node: { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
+      radius,
+      neighborhood_nodes: 5,
+      graph: {
+        nodes: [
+          { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
+          { id: 1, name: 'Brain MRI Tumor Segmentation', type: 'Project', degree: 8 },
+          { id: 3, name: 'PyTorch', type: 'Technology', degree: 10 },
+        ],
+        links: [
+          { source: 1, target: 2, relationship: 'USES_ALGORITHM' },
+          { source: 2, target: 3, relationship: 'CO_OCCURS' },
+        ],
+      },
+    };
+  }
+  const { data } = await apiClient.get(`/graph/node/${encodeURIComponent(query)}?radius=${radius}`);
+  return data;
+};
+
+export const rebuildKnowledgeGraph = async () => {
+  if (USE_MOCK) {
+    await delay(600);
+    return { status: 'rebuilt', result: { projects_processed: 8, relational_nodes: 42, relational_edges: 128 } };
+  }
+  const { data } = await apiClient.post('/graph/rebuild');
+  return data;
+};
+

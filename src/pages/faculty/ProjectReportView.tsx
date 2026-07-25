@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getEvaluationReport, overrideScore, addFacultyNote, publishReview, getNoveltyReport, submitFacultyNoveltyReview } from '../../api/endpoints';
+import { getEvaluationReport, overrideScore, addFacultyNote, publishReview, getNoveltyReport, submitFacultyNoveltyReview, getProjectEntities } from '../../api/endpoints';
 import { useAuth } from '../../auth/AuthContext';
 import { LoadingState, ErrorState } from '../../components/States';
 import RadarChart from '../../components/RadarChart';
@@ -9,10 +9,11 @@ import ScoreGauge from '../../components/ScoreGauge';
 import Badge from '../../components/Badge';
 import ExplainabilityViewer from '../../components/ExplainabilityViewer';
 import { NoveltyReportView } from '../../components/NoveltyReportView';
+import EntityExtractionPanel from '../../components/EntityExtractionPanel';
 import type { InternalEvaluationReport } from '../../types';
 import {
   Edit2, Save, X, Flag, StickyNote, Send, CheckCircle, Eye, EyeOff,
-  User, Clock, ChevronDown, ChevronUp, Sparkles, Network,
+  User, Clock, ChevronDown, ChevronUp, Sparkles, Network, RefreshCw,
 } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -37,12 +38,23 @@ const ProjectReportView: React.FC = () => {
   const [showPublishConfirm, setShowPublishConfirm] = useState(false);
   const [publishSuccess, setPublishSuccess] = useState(false);
   const [noveltyAbstract, setNoveltyAbstract] = useState('');
+  const [showManualEdit, setShowManualEdit] = useState(false);
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['internalReport', projectId],
     queryFn: () => getEvaluationReport(projectId!, user!.role),
     enabled: !!projectId && !!user,
   });
+
+  const r = data as InternalEvaluationReport | undefined;
+
+  // Auto-fill abstract from student submission
+  useEffect(() => {
+    if (r && !noveltyAbstract) {
+      const autoText = `${r.title}. ${r.domain} project evaluation and implementation.`;
+      setNoveltyAbstract(autoText);
+    }
+  }, [r]);
 
   const overrideMutation = useMutation({
     mutationFn: () => overrideScore(projectId!, overrideState!.dim, overrideState!.value, overrideState!.comment),
@@ -60,18 +72,31 @@ const ProjectReportView: React.FC = () => {
   });
 
   const noveltyMutation = useMutation({
-    mutationFn: () => getNoveltyReport(projectId!, noveltyAbstract),
+    mutationFn: (abstractOverride?: string) =>
+      getNoveltyReport(projectId!, abstractOverride || noveltyAbstract || `${r?.title}. Domain: ${r?.domain}.`),
   });
+
+  // Auto-run novelty assessment as soon as novelty tab is opened
+  useEffect(() => {
+    if (activeTab === 'novelty' && !noveltyMutation.data && !noveltyMutation.isPending && r) {
+      const textToUse = noveltyAbstract || `${r.title}. Domain: ${r.domain}.`;
+      noveltyMutation.mutate(textToUse);
+    }
+  }, [activeTab, r]);
 
   const facultyNoveltyReviewMutation = useMutation({
     mutationFn: ({ facultyScore, reason }: { facultyScore: number; reason: string }) =>
       submitFacultyNoveltyReview(projectId!, facultyScore, noveltyMutation.data!.overall_novelty_score, reason),
   });
 
+  const { data: entityData, isLoading: entitiesLoading, refetch: refetchEntities } = useQuery({
+    queryKey: ['project-entities', projectId],
+    queryFn: () => getProjectEntities(projectId!),
+    enabled: !!projectId,
+  });
+
   if (isLoading) return <LoadingState message="Loading project report..." />;
   if (isError || !data) return <ErrorState retry={refetch} />;
-
-  const r = data as InternalEvaluationReport;
 
   const TABS = [
     { id: 'report', label: 'Evaluation Report', icon: <Eye size={15} /> },
@@ -140,6 +165,14 @@ const ProjectReportView: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Module 3 — Extracted Entities Panel (faculty view with Re-extract) */}
+      <EntityExtractionPanel
+        entities={entityData?.extracted_entities}
+        isLoading={entitiesLoading}
+        showReExtract={true}
+        onReExtract={() => refetchEntities()}
+      />
 
       {/* Tabs */}
       <div className="flex gap-1 bg-slate-100 rounded-2xl p-1">
@@ -254,39 +287,76 @@ const ProjectReportView: React.FC = () => {
       {/* Tab: Graph Novelty (AcadEval+) */}
       {activeTab === 'novelty' && (
         <div className="space-y-4">
-          {!noveltyMutation.data && (
-            <div className="card space-y-3">
-              <h2 className="font-semibold text-navy-900">Run Graph-Based Novelty Assessment</h2>
-              <p className="text-sm text-slate-500">
-                Paste the project's title/abstract to classify its domain, extract structured entities, and
-                score novelty against the Neo4j project knowledge graph.
+          {(!noveltyMutation.data || noveltyMutation.isPending) && !noveltyMutation.isError && (
+            <LoadingState message="Extracting project entities & computing Graph-Based Novelty assessment..." />
+          )}
+
+          {noveltyMutation.isError && !noveltyMutation.isPending && (
+            <div className="card bg-red-50 border-red-200 space-y-3">
+              <h2 className="font-semibold text-red-900 flex items-center gap-2">
+                <Network size={18} className="text-red-600" /> Novelty Assessment Error
+              </h2>
+              <p className="text-sm text-red-700">
+                Could not compute graph novelty score automatically. Ensure the backend and graph services are running.
               </p>
+              <div className="flex items-center gap-3 pt-2">
+                <button
+                  onClick={() => noveltyMutation.mutate()}
+                  className="btn-primary"
+                >
+                  <RefreshCw size={14} /> Retry Automatic Assessment
+                </button>
+                <button
+                  onClick={() => setShowManualEdit(!showManualEdit)}
+                  className="btn-secondary text-xs"
+                >
+                  {showManualEdit ? 'Hide Manual Edit' : 'Manually Edit Abstract'}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Optional manual edit accordion */}
+          {showManualEdit && (
+            <div className="card bg-slate-50 border-slate-200 space-y-3">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600">Customise Abstract Input</h3>
               <textarea
                 value={noveltyAbstract}
                 onChange={e => setNoveltyAbstract(e.target.value)}
-                rows={4}
-                className="input resize-none"
-                placeholder="Paste the project abstract here..."
+                rows={3}
+                className="input resize-none text-xs"
+                placeholder="Edit proposal abstract for graph re-scoring..."
               />
-              {noveltyMutation.isError && (
-                <p className="text-sm text-red-600">
-                  Could not compute a novelty score — the graph engine may be unavailable (Neo4j not running).
-                </p>
-              )}
               <button
-                onClick={() => noveltyMutation.mutate()}
-                disabled={!noveltyAbstract.trim() || noveltyMutation.isPending}
-                className="btn-primary"
+                onClick={() => noveltyMutation.mutate(noveltyAbstract)}
+                disabled={noveltyMutation.isPending}
+                className="btn-primary text-xs"
               >
-                <Network size={15} /> {noveltyMutation.isPending ? 'Scoring…' : 'Run Novelty Assessment'}
+                <Network size={14} /> Re-run Assessment
               </button>
             </div>
           )}
-          {noveltyMutation.data && (
-            <NoveltyReportView
-              report={noveltyMutation.data}
-              onFacultyScoreSubmit={(facultyScore, reason) => facultyNoveltyReviewMutation.mutate({ facultyScore, reason })}
-            />
+
+          {noveltyMutation.data && !noveltyMutation.isPending && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between bg-indigo-50 border border-indigo-100 px-4 py-2.5 rounded-xl text-xs text-indigo-900">
+                <span className="font-medium flex items-center gap-2">
+                  <CheckCircle size={15} className="text-indigo-600" />
+                  Automatically extracted from student proposal: <strong>{r?.title}</strong>
+                </span>
+                <button
+                  onClick={() => setShowManualEdit(!showManualEdit)}
+                  className="text-indigo-700 font-semibold hover:underline"
+                >
+                  {showManualEdit ? 'Close Editor' : 'Edit Text & Re-score'}
+                </button>
+              </div>
+
+              <NoveltyReportView
+                report={noveltyMutation.data}
+                onFacultyScoreSubmit={(facultyScore, reason) => facultyNoveltyReviewMutation.mutate({ facultyScore, reason })}
+              />
+            </div>
           )}
         </div>
       )}

@@ -92,13 +92,36 @@ def _sync_evaluation_report_novelty(db: Session, project: Project, composite_sco
     db.commit()
 
 
-def _run_pipeline(project: Project, abstract: str) -> dict:
+def _run_pipeline(project: Project, abstract: str, db) -> dict:
     try:
+        # Module 3: extract entities from title + abstract, then persist result
+        entities = extractor_service.extract_from_full_proposal(
+            title=project.title, abstract=abstract
+        )
+        project.extracted_entities = entities  # Step 7 — persist to DB
+        project.pipeline_status = "ai_processing"
+        db.commit()
+
+        # Module 4: Ingest into Relational Graph & NetworkX
+        try:
+            from app.services.graph_builder import ingest_project_to_relational_graph
+            ingest_project_to_relational_graph(
+                db=db,
+                project_id=str(project.id),
+                title=project.title,
+                domain=project.domain or "General CSE",
+                sub_domain=entities.get("sub_domain", "Machine Learning"),
+                extracted_entities=entities,
+            )
+        except Exception as ge:
+            log.warning("Module 4 relational graph ingestion failed during submission (%s)", ge)
+
         return report_generator_service.generate_full_report(
             project_id=str(project.id), title=project.title, abstract=abstract
         )
     except GraphUnavailableError as e:
         raise HTTPException(status_code=503, detail=str(e))
+
 
 
 def _pearson(xs: list[float], ys: list[float]) -> float:
@@ -132,7 +155,7 @@ def submit_proposal(payload: SubmitProposalRequest, current_user: CurrentUser, d
     project = _get_project_or_404(payload.project_id, db)
     _require_project_access(project, current_user)
 
-    report = _run_pipeline(project, payload.abstract)
+    report = _run_pipeline(project, payload.abstract, db)
     _sync_evaluation_report_novelty(
         db, project, report["overall_novelty_score"], report["overall_novelty_band"]
     )
@@ -204,7 +227,7 @@ def get_novelty_report(project_id: uuid.UUID, current_user: CurrentUser, db: DB,
     project = _get_project_or_404(project_id, db)
     _require_project_access(project, current_user)
 
-    report = _run_pipeline(project, abstract)
+    report = _run_pipeline(project, abstract, db)
     _sync_evaluation_report_novelty(
         db, project, report["overall_novelty_score"], report["overall_novelty_band"]
     )
