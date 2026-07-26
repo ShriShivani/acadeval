@@ -41,19 +41,19 @@ if ($redisReady) {
 
 # ── Step 2: FastAPI backend ───────────────────────────────────────────────────
 Write-Host "  [2/5] Starting FastAPI backend (port 8000)..." -ForegroundColor Yellow
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; `$host.UI.RawUI.WindowTitle = 'AcadEval Backend'; uvicorn app.main:app --reload --port 8000"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; if (Test-Path 'venv\Scripts\activate.ps1') { .\venv\Scripts\activate }; `$host.UI.RawUI.WindowTitle = 'AcadEval Backend'; uvicorn app.main:app --reload --port 8000"
 Write-Host "        [OK] Backend window launched" -ForegroundColor Green
 
 Start-Sleep -Seconds 2
 
 # ── Step 3: Celery worker ─────────────────────────────────────────────────────
 Write-Host "  [3/5] Starting Celery worker..." -ForegroundColor Yellow
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Worker'; celery -A app.worker worker --loglevel=info --queues=pipeline,periodic --concurrency=2"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; if (Test-Path 'venv\Scripts\activate.ps1') { .\venv\Scripts\activate }; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Worker'; celery -A app.worker worker --loglevel=info --queues=pipeline,periodic --concurrency=2"
 Write-Host "        [OK] Celery worker window launched" -ForegroundColor Green
 
 # ── Step 4: Celery beat ───────────────────────────────────────────────────────
 Write-Host "  [4/5] Starting Celery beat scheduler..." -ForegroundColor Yellow
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Beat'; celery -A app.worker beat --loglevel=info"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; if (Test-Path 'venv\Scripts\activate.ps1') { .\venv\Scripts\activate }; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Beat'; celery -A app.worker beat --loglevel=info"
 Write-Host "        [OK] Celery beat window launched" -ForegroundColor Green
 
 # ── Step 5: Vite frontend ─────────────────────────────────────────────────────
