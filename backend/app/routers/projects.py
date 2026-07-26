@@ -334,7 +334,6 @@ async def upload_project(
     db.commit()
     db.refresh(project)
 
-<<<<<<< HEAD
     project_id_str = str(project.id)
 
     # ── Enqueue Celery pipeline ────────────────────────────────────────────────
