@@ -35,9 +35,10 @@ const MODES: { id: UploadMode; icon: React.ReactNode; label: string; description
 const Upload: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+  const [mode, setMode] = useState<UploadMode>('document');
   const [projectTitle, setProjectTitle] = useState('');
   const [projectDomain, setProjectDomain] = useState('AI/ML');
+  const [githubUrl, setGithubUrl] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
 
