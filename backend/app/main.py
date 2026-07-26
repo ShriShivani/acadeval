@@ -11,6 +11,7 @@ from app.routers import (
     leaderboard, dashboard, users,
     acadeval_plus, entities, graph, integrations
 )
+from app.database import engine, Base
 
 app = FastAPI(
     title="AcadEval API",
@@ -23,7 +24,7 @@ app = FastAPI(
 # ── CORS ──────────────────────────────────────────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_ORIGIN, "http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,6 +55,8 @@ app.include_router(integrations.router,  prefix=API_PREFIX)  # Module 13 — SS 
 
 @app.on_event("startup")
 def on_startup():
+    # Make sure AcadEval_NovelBench and other unregistered tables are created
+    Base.metadata.create_all(bind=engine)
     graph_service.ensure_constraints()
 
 

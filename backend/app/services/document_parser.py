@@ -1,7 +1,7 @@
 """
 Document Ingestion & Parsing Service
 ====================================
-Parses uploaded capstone proposal files (PDF, DOCX, PPTX, TXT/MD) into
+Parses uploaded capstone proposal files (PDF, DOCX, PPTX, TXT/MD, video) into
 clean, structured JSON: title, abstract, body sections, and reference list.
 """
 
@@ -266,7 +266,6 @@ Respond with a single JSON object only:
         if not github_url or "github.com" not in github_url:
             return {"raw_text": "", "extracted_entities": {}}
 
-        # Extract user and repo name from URL (e.g., https://github.com/user/repo)
         clean_url = github_url.strip().rstrip("/")
         parts = clean_url.split("github.com/")[-1].split("/")
         if len(parts) < 2:
@@ -278,7 +277,6 @@ Respond with a single JSON object only:
 
         fetched_text = []
 
-        # Try fetching README.md
         for base in [raw_base, raw_base_master]:
             try:
                 req = urllib.request.Request(f"{base}/README.md", headers={"User-Agent": "AcadEval-Parser"})
@@ -289,7 +287,6 @@ Respond with a single JSON object only:
             except Exception:
                 continue
 
-        # Try fetching requirements.txt or package.json
         for base in [raw_base, raw_base_master]:
             try:
                 req = urllib.request.Request(f"{base}/requirements.txt", headers={"User-Agent": "AcadEval-Parser"})
@@ -339,4 +336,33 @@ Respond with a single JSON object only:
 
 # Singleton instance
 document_parser_service = DocumentParserService()
+
+
+# Additional standalone helper functions for compatibility
+def extract_text(storage_path: str, file_type: str) -> str:
+    parsed = document_parser_service.parse_uploaded_file(storage_path, Path(storage_path).name)
+    return parsed.get("raw_text", "")
+
+
+_ABSTRACT_HEADERS = re.compile(r"\babstract\b", re.IGNORECASE)
+_SECTION_HEADERS = re.compile(
+    r"\b(introduction|1\.\s|chapter\s*1|table of contents|keywords)\b", re.IGNORECASE
+)
+
+
+def split_title_abstract(full_text: str, fallback_title: str = "") -> dict:
+    lines = [l.strip() for l in full_text.splitlines() if l.strip()]
+    title = fallback_title or (lines[0] if lines else "Untitled Project")
+
+    m = _ABSTRACT_HEADERS.search(full_text)
+    abstract = ""
+    if m:
+        after = full_text[m.end():]
+        end = _SECTION_HEADERS.search(after)
+        abstract = after[: end.start()] if end else after[:2000]
+        abstract = abstract.strip(" :\n\t")
+    if not abstract:
+        abstract = " ".join(full_text.split()[:120])
+
+    return {"title": title.strip(), "abstract": abstract.strip(), "full_text": full_text}
 

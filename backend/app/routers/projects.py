@@ -1,17 +1,9 @@
 """
 Projects router — Module 11 edition
 =====================================
-Key changes vs the original:
-  - POST /projects/upload  now enqueues the Celery pipeline chain and returns
-    immediately with { projectId, jobId }.  The old synchronous
-    _mark_ai_processing BackgroundTask is removed.
-  - GET  /projects/{project_id}/pipeline-status  polls the Celery AsyncResult
-    and the DB pipeline_status together so the frontend always gets a rich
-    status object without needing a WebSocket.
-  - POST /projects/batch  stores jobs in Redis (via Celery group) instead of
-    the in-memory _batch_store dict so batch status survives worker restarts.
 """
 
+import logging
 import uuid
 from datetime import datetime, timezone
 from typing import List, Optional
@@ -27,6 +19,8 @@ from app.schemas.project import (
     BatchUploadResponse, BatchJobStatusResponse,
 )
 from app.utils.files import save_upload_file, get_file_type
+
+log = logging.getLogger(__name__)
 
 router = APIRouter(tags=["Projects"])
 
@@ -340,6 +334,7 @@ async def upload_project(
     db.commit()
     db.refresh(project)
 
+<<<<<<< HEAD
     project_id_str = str(project.id)
 
     # ── Enqueue Celery pipeline ────────────────────────────────────────────────

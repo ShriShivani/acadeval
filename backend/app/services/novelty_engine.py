@@ -20,6 +20,9 @@ the output record which path actually ran, so results stay explainable.
 import logging
 import math
 
+import joblib
+from pathlib import Path
+
 from app.services.graph_db import graph_service
 
 log = logging.getLogger(__name__)
@@ -27,6 +30,20 @@ log = logging.getLogger(__name__)
 GDS_GRAPH_NAME = "acadeval_novelty_graph"
 FASTRP_DIMENSIONS = 64
 SIMILAR_PROJECTS_TOP_K = 5
+
+_RIDGE_PATH = Path(__file__).resolve().parent / "weights" / "ridge_novelty_combiner.joblib"
+
+
+def _combine(signals: list[float]) -> float:
+    if _RIDGE_PATH.exists():
+        try:
+            model = joblib.load(_RIDGE_PATH)
+            import numpy as np
+            return float(np.clip(model.predict([signals])[0], 0.0, 100.0))
+        except Exception as e:
+            log.warning("Ridge combiner load failed (%s); using v1 weighted average.", e)
+    weights = [0.25, 0.20, 0.20, 0.15, 0.20]
+    return round(sum(s * w for s, w in zip(signals, weights)) * 100.0, 1)
 
 
 class NoveltyEngineService:
@@ -41,11 +58,7 @@ class NoveltyEngineService:
             signal_4, density_method = self._signal_graph_density(session, project_id, sub_domain)
             signal_5 = self._signal_new_connection_discovery(session, entity_pairs)
 
-        weights = [0.25, 0.20, 0.20, 0.15, 0.20]
-        composite_score = round(
-            (signal_1 * weights[0] + signal_2 * weights[1] + signal_3 * weights[2]
-             + signal_4 * weights[3] + signal_5 * weights[4]) * 100.0, 1
-        )
+        composite_score = _combine([signal_1, signal_2, signal_3, signal_4, signal_5])
 
         if composite_score >= 75.0:
             novelty_band = "Highly Novel"

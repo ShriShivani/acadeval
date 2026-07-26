@@ -36,10 +36,8 @@ const Upload: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const [mode, setMode] = useState<UploadMode>('document');
   const [projectTitle, setProjectTitle] = useState('');
   const [projectDomain, setProjectDomain] = useState('AI/ML');
-  const [githubUrl, setGithubUrl] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -60,6 +58,7 @@ const Upload: React.FC = () => {
     mutationFn: () => {
       const fd = new FormData();
       fd.append('mode', mode);
+      fd.append('domain', projectDomain);
       fd.append('studentId', user?.id || '');
       if (projectTitle) fd.append('title', projectTitle);
       if (projectDomain) fd.append('domain', projectDomain);
