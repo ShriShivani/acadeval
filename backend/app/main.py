@@ -11,6 +11,9 @@ from app.routers import (
     leaderboard, dashboard, users,
     acadeval_plus, entities, graph
 )
+from app.module5_novelty.api.novelty_routes import router as novelty_router
+from app.database import engine, Base
+import app.module5_novelty.models  # load models to metadata
 
 app = FastAPI(
     title="AcadEval API",
@@ -49,10 +52,13 @@ app.include_router(users.router,         prefix=API_PREFIX)
 app.include_router(acadeval_plus.router, prefix=API_PREFIX)
 app.include_router(entities.router,      prefix=API_PREFIX)  # Module 3 — entity KB & pending review
 app.include_router(graph.router,         prefix=API_PREFIX)  # Module 4 — Knowledge Graph engine
+app.include_router(novelty_router,       prefix=API_PREFIX)  # Module 5 — Graph Novelty engine
 
 
 @app.on_event("startup")
 def on_startup():
+    # Make sure AcadEval_NovelBench and other unregistered tables are created
+    Base.metadata.create_all(bind=engine)
     graph_service.ensure_constraints()
 
 
