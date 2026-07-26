@@ -85,9 +85,9 @@ const ProjectReportView: React.FC = () => {
   }, [activeTab, r]);
 
   const facultyNoveltyReviewMutation = useMutation({
-    mutationFn: ({ facultyScore, reason }: { facultyScore: number; reason: string }) =>
-      submitFacultyNoveltyReview(projectId!, facultyScore, noveltyMutation.data!.overall_novelty_score, reason),
-  });
+  mutationFn: ({ facultyScore, reason }: { facultyScore: number; reason: string }) =>
+    submitFacultyNoveltyReview(projectId!, facultyScore, reason),
+});
 
   const { data: entityData, isLoading: entitiesLoading, refetch: refetchEntities } = useQuery({
     queryKey: ['project-entities', projectId],
