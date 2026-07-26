@@ -1,3 +1,4 @@
+import logging
 import uuid
 from datetime import datetime, timezone
 from typing import List, Optional
@@ -13,6 +14,8 @@ from app.schemas.project import (
     BatchUploadResponse, BatchJobStatusResponse,
 )
 from app.utils.files import save_upload_file, get_file_type
+
+log = logging.getLogger(__name__)
 
 router = APIRouter(tags=["Projects"])
 
@@ -113,20 +116,67 @@ async def upload_project(
     db.commit()
     db.refresh(project)
 
-    # Background: move status to ai_processing (Phase 2 will hand off to Celery)
-    background_tasks.add_task(_mark_ai_processing, project.id)
+    # Background: run document parsing and full Modules 1-6 AI pipeline
+    background_tasks.add_task(_run_full_pipeline_background, project.id)
 
     return UploadResponse(projectId=str(project.id))
 
 
-def _mark_ai_processing(project_id: uuid.UUID):
-    """Placeholder background task — Phase 2 will enqueue Celery job here."""
+def _run_full_pipeline_background(project_id: uuid.UUID):
+    """
+    Module 1 -> 6, run right after upload:
+    parse file(s) -> derive abstract -> classify/extract/graph/novelty/report.
+    """
     from app.database import SessionLocal
+    from app.services.document_parser import extract_text, split_title_abstract
+    from app.services.report_generator import report_generator_service
+
     db = SessionLocal()
     try:
         project = db.query(Project).filter(Project.id == project_id).first()
+        if not project:
+            return
+
+        project.pipeline_status = PipelineStatus.ai_processing
+        db.commit()
+
+        # Module 1: parse every uploaded file, concatenate
+        full_text = ""
+        for pf in project.files:
+            full_text += "\n" + extract_text(pf.storage_path, pf.file_type)
+
+        parsed = split_title_abstract(full_text, fallback_title=project.title)
+        project.parsed_text = parsed["full_text"]
+        project.abstract = parsed["abstract"]
+        if not project.title or project.title.endswith("Project"):
+            project.title = parsed["title"]
+        db.commit()
+
+        # Modules 2-6: classify -> extract -> graph -> novelty -> trend -> report
+        report = report_generator_service.generate_full_report(
+            project_id=str(project.id), title=project.title, abstract=project.abstract
+        )
+
+        from app.models.evaluation import EvaluationReport
+        ev = project.evaluation or EvaluationReport(project_id=project.id, overall_score=0, grade="")
+        ev.novelty_score = report["overall_novelty_score"]
+        ev.novelty_verdict = {
+            "Highly Novel": "Novel",
+            "Moderately Novel": "Somewhat Novel",
+            "Low Novelty / Incremental": "Common",
+        }.get(report["overall_novelty_band"], ev.novelty_verdict)
+        if ev not in db:
+            db.add(ev)
+
+        project.extracted_entities = report["extracted_entities"]
+        project.pipeline_status = PipelineStatus.awaiting_review
+        db.commit()
+
+    except Exception as e:
+        log.error("Full pipeline failed for project %s: %s", project_id, e, exc_info=True)
+        project = db.query(Project).filter(Project.id == project_id).first()
         if project:
-            project.pipeline_status = PipelineStatus.ai_processing
+            project.pipeline_status = PipelineStatus.uploaded  # let it be retried
             db.commit()
     finally:
         db.close()

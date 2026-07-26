@@ -36,6 +36,7 @@ const Upload: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [mode, setMode] = useState<UploadMode>('document');
+  const [domain, setDomain] = useState('Artificial Intelligence');
   const [githubUrl, setGithubUrl] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -51,6 +52,7 @@ const Upload: React.FC = () => {
     mutationFn: () => {
       const fd = new FormData();
       fd.append('mode', mode);
+      fd.append('domain', domain);
       fd.append('studentId', user?.id || '');
       uploadedFiles.forEach(f => fd.append('files', f));
       if (githubUrl) fd.append('githubUrl', githubUrl);
@@ -131,6 +133,19 @@ const Upload: React.FC = () => {
           <div>
             <h2 className="text-lg font-semibold text-navy-900 mb-1">Full Document Submission</h2>
             <p className="text-sm text-slate-500">Upload your project report, slides, and optionally link your GitHub repository.</p>
+          </div>
+
+          <div>
+            <label className="label font-medium text-slate-700">Project Domain</label>
+            <select
+              value={domain}
+              onChange={e => setDomain(e.target.value)}
+              className="input w-full"
+            >
+              {DOMAINS.map(d => (
+                <option key={d} value={d}>{d}</option>
+              ))}
+            </select>
           </div>
 
           <FileUploader

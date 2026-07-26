@@ -59,6 +59,10 @@ class Project(Base):
         onupdate=lambda: datetime.now(timezone.utc),
     )
 
+    # Module 1 output — extracted full text and derived abstract
+    abstract: Mapped[str | None] = mapped_column(Text, nullable=True)
+    parsed_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+
     # Module 3 output — cached entity extraction result so it is never re-computed
     # on every report request. Shape mirrors extractor_service.extract_entities() output.
     extracted_entities: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
