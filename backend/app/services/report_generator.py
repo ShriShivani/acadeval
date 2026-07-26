@@ -26,9 +26,22 @@ class NoveltyReportGeneratorService:
         domain = classification["domain"]
         sub_domain = classification["sub_domain"]
 
-        # Step 2: Module 2 — Entity Extraction
-        full_text = f"{title}\n{abstract}"
-        entities = extractor_service.extract_entities(full_text)
+        # Step 2: Module 2 — Entity Extraction (use DB persisted entities if available)
+        entities = {}
+        try:
+            from app.database import SessionLocal
+            from app.models.project import Project
+            db = SessionLocal()
+            proj = db.query(Project).filter(Project.id == project_id).first()
+            if proj and proj.extracted_entities and any(proj.extracted_entities.values()):
+                entities = proj.extracted_entities
+            db.close()
+        except Exception:
+            pass
+
+        if not entities or not any(entities.values()):
+            full_text = f"{title}\n{abstract}"
+            entities = extractor_service.extract_entities(full_text)
 
         # Step 3: Module 3 — Graph Ingestion
         graph_stats = graph_service.build_project_graph(

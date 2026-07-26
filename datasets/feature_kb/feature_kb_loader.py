@@ -44,7 +44,7 @@ def get_spacy_entity_ruler_patterns() -> list[dict]:
     patterns = []
     for feat in features:
         label = feat["category"].upper()
-        fid = feat["feature_id"]
+        fid = feat.get("feature_id", feat["name"])
         
         # Primary name
         patterns.append({"label": label, "pattern": feat["name"], "id": fid})

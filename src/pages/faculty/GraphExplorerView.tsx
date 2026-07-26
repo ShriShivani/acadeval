@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   Share2, RefreshCw, Cpu, Database, Network, ShieldCheck, Activity, AlertCircle, Layers
 } from 'lucide-react';
@@ -8,6 +8,8 @@ import { getGraphSummary, getGraphVisualization, rebuildKnowledgeGraph } from '.
 export const GraphExplorerView: React.FC = () => {
   const [summary, setSummary] = useState<any>(null);
   const [graphData, setGraphData] = useState<{ nodes: any[]; links: any[] }>({ nodes: [], links: [] });
+  const [allProjectsList, setAllProjectsList] = useState<any[]>([]);
+  const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
   const [loading, setLoading] = useState<boolean>(true);
   const [rebuilding, setRebuilding] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,11 +19,13 @@ export const GraphExplorerView: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const [sumRes, vizRes] = await Promise.all([
+      const [sumRes, vizRes, projListRes] = await Promise.all([
         getGraphSummary(true),
         getGraphVisualization(400),
+        import('../../api/endpoints').then(m => m.getAllProjects()),
       ]);
       setSummary(sumRes?.metrics || null);
+      setAllProjectsList(projListRes || []);
       setGraphData({
         nodes: vizRes?.nodes || [],
         links: vizRes?.links || [],
@@ -37,6 +41,54 @@ export const GraphExplorerView: React.FC = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // Filter graph nodes & edges by selected project (include target Project node + ALL connected entity neighbors)
+  const { displayNodes, displayLinks } = useMemo(() => {
+    if (selectedProjectId === 'all' || !selectedProjectId) {
+      return { displayNodes: graphData.nodes, displayLinks: graphData.links };
+    }
+
+    const targetProj = allProjectsList.find(p => p.projectId === selectedProjectId);
+    const shortId = selectedProjectId.substring(0, 8);
+    const titleSnippet = targetProj?.title ? targetProj.title.substring(0, 15).toLowerCase() : '';
+
+    // Find the project node by UUID prefix or title snippet
+    const projNode = graphData.nodes.find(n =>
+      n.type === 'Project' && (
+        n.name.includes(shortId) ||
+        (titleSnippet && n.name.toLowerCase().includes(titleSnippet))
+      )
+    );
+
+    if (!projNode) {
+      return { displayNodes: graphData.nodes, displayLinks: graphData.links };
+    }
+
+    // Find all links attached to this project node
+    const projLinks = graphData.links.filter(l => {
+      const sId = typeof l.source === 'object' ? l.source.id : l.source;
+      const tId = typeof l.target === 'object' ? l.target.id : l.target;
+      return sId === projNode.id || tId === projNode.id;
+    });
+
+    const neighborIds = new Set<string | number>([projNode.id]);
+    projLinks.forEach(l => {
+      const sId = typeof l.source === 'object' ? l.source.id : l.source;
+      const tId = typeof l.target === 'object' ? l.target.id : l.target;
+      neighborIds.add(sId);
+      neighborIds.add(tId);
+    });
+
+    // Also include co-occurrence links between these connected entities
+    const allSubLinks = graphData.links.filter(l => {
+      const sId = typeof l.source === 'object' ? l.source.id : l.source;
+      const tId = typeof l.target === 'object' ? l.target.id : l.target;
+      return neighborIds.has(sId) && neighborIds.has(tId);
+    });
+
+    const subNodes = graphData.nodes.filter(n => neighborIds.has(n.id));
+    return { displayNodes: subNodes, displayLinks: allSubLinks };
+  }, [selectedProjectId, graphData, allProjectsList]);
 
   const handleRebuild = async () => {
     if (!window.confirm('Rebuild Knowledge Graph from all project submissions in PostgreSQL?')) return;
@@ -73,21 +125,28 @@ export const GraphExplorerView: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          <div className="flex flex-col">
+            <label className="text-[10px] text-slate-400 font-semibold uppercase mb-1">Filter by Project</label>
+            <select
+              value={selectedProjectId}
+              onChange={e => setSelectedProjectId(e.target.value)}
+              className="bg-slate-800 text-slate-200 border border-slate-700 text-xs rounded-xl px-3 py-2 font-medium focus:ring-2 focus:ring-indigo-500 outline-none"
+            >
+              <option value="all">🌐 All Projects Combined Subgraph</option>
+              {allProjectsList.map(p => (
+                <option key={p.projectId} value={p.projectId}>
+                  📁 {p.title.length > 35 ? p.title.substring(0, 35) + '...' : p.title} ({p.studentName})
+                </option>
+              ))}
+            </select>
+          </div>
+
           <button
             onClick={fetchData}
             disabled={loading}
-            className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl border border-slate-700 transition flex items-center gap-2 disabled:opacity-50"
+            className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl border border-slate-700 transition flex items-center gap-2 disabled:opacity-50 mt-4"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} /> Refresh
-          </button>
-
-          <button
-            onClick={handleRebuild}
-            disabled={rebuilding}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl shadow-lg transition flex items-center gap-2 disabled:opacity-50"
-          >
-            <Layers className={`w-4 h-4 ${rebuilding ? 'animate-spin' : ''}`} />
-            {rebuilding ? 'Rebuilding...' : 'Rebuild Graph'}
           </button>
         </div>
       </div>
@@ -160,8 +219,8 @@ export const GraphExplorerView: React.FC = () => {
 
       {/* Interactive Force-Directed Graph Component */}
       <ProjectGraphViewer
-        nodes={graphData.nodes}
-        links={graphData.links}
+        nodes={displayNodes}
+        links={displayLinks}
         isLoading={loading}
         onRefresh={fetchData}
       />

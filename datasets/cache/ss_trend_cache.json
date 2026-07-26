@@ -1,0 +1,32 @@
+{
+  "44bbee1552be9daf": {
+    "topic": "AI-assisted Requirements Analysis",
+    "growth_rate_pct": 25.0,
+    "paper_count_3yr": 2400,
+    "citation_velocity": 3.2,
+    "trend_status": "Hot",
+    "top_papers": [
+      {
+        "title": "\"It's like a rubber duck that talks back\": Understanding Generative AI-Assisted Data Analysis Workflows through a Participatory Prompting Study",
+        "year": 2024,
+        "citations": 35,
+        "url": "https://doi.org/10.1145/3663384.3663389"
+      },
+      {
+        "title": "Influence of exposure of customized dental implant abutments to different cleaning procedures: an in vitro study using AI-assisted SEM/EDS analysis",
+        "year": 2023,
+        "citations": 5,
+        "url": "https://doi.org/10.1186/s40729-023-00498-8"
+      },
+      {
+        "title": "Are AI-Assisted Works Copyrightable?",
+        "year": 2023,
+        "citations": 5,
+        "url": "https://doi.org/10.1109/COMSCI59259.2023.10315917"
+      }
+    ],
+    "data_source": "semantic_scholar",
+    "cached_at": "2026-07-26T10:16:43.787053+00:00",
+    "_topic_label": "AI-assisted Requirements Analysis"
+  }
+}

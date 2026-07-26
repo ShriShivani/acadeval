@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import {
-  Share2, Search, Filter, RefreshCw, ZoomIn, ZoomOut, Maximize2,
-  Info, CheckCircle2, ChevronRight, Cpu, Database, Code, ShieldCheck, Tag
-} from 'lucide-react';
+  Share2, Search, Filter, RefreshCw, ZoomIn, ZoomOut, Maximize2, Minimize2,
+  Info, Tag
+} from "lucide-react";
 
 export interface GraphNodeData {
   id: number | string;
@@ -31,22 +31,22 @@ interface ProjectGraphViewerProps {
 }
 
 const TYPE_COLORS: Record<string, { bg: string; text: string; border: string; colorHex: string }> = {
-  Project:     { bg: 'bg-indigo-900/60', text: 'text-indigo-200', border: 'border-indigo-500', colorHex: '#6366f1' },
-  Domain:      { bg: 'bg-purple-900/60', text: 'text-purple-200', border: 'border-purple-500', colorHex: '#a855f7' },
-  Subdomain:   { bg: 'bg-fuchsia-900/60', text: 'text-fuchsia-200', border: 'border-fuchsia-500', colorHex: '#d946ef' },
-  Algorithm:   { bg: 'bg-cyan-900/60',   text: 'text-cyan-200',   border: 'border-cyan-500',   colorHex: '#06b6d4' },
-  Technology:  { bg: 'bg-emerald-900/60',text: 'text-emerald-200',border: 'border-emerald-500',colorHex: '#10b981' },
-  Framework:   { bg: 'bg-teal-900/60',   text: 'text-teal-200',   border: 'border-teal-500',   colorHex: '#14b8a6' },
-  Library:     { bg: 'bg-sky-900/60',    text: 'text-sky-200',    border: 'border-sky-500',    colorHex: '#0ea5e9' },
-  Dataset:     { bg: 'bg-amber-900/60',  text: 'text-amber-200',  border: 'border-amber-500',  colorHex: '#f59e0b' },
-  Application: { bg: 'bg-rose-900/60',   text: 'text-rose-200',   border: 'border-rose-500',   colorHex: '#f43f5e' },
-  Hardware:    { bg: 'bg-pink-900/60',   text: 'text-pink-200',   border: 'border-pink-500',   colorHex: '#ec4899' },
-  Metric:      { bg: 'bg-slate-800',      text: 'text-slate-200',  border: 'border-slate-500',  colorHex: '#94a3b8' },
+  Project:     { bg: "bg-indigo-900/60", text: "text-indigo-200", border: "border-indigo-500", colorHex: "#6366f1" },
+  Domain:      { bg: "bg-purple-900/60", text: "text-purple-200", border: "border-purple-500", colorHex: "#a855f7" },
+  Subdomain:   { bg: "bg-fuchsia-900/60", text: "text-fuchsia-200", border: "border-fuchsia-500", colorHex: "#d946ef" },
+  Algorithm:   { bg: "bg-cyan-900/60",   text: "text-cyan-200",   border: "border-cyan-500",   colorHex: "#06b6d4" },
+  Technology:  { bg: "bg-emerald-900/60",text: "text-emerald-200",border: "border-emerald-500",colorHex: "#10b981" },
+  Framework:   { bg: "bg-teal-900/60",   text: "text-teal-200",   border: "border-teal-500",   colorHex: "#14b8a6" },
+  Library:     { bg: "bg-sky-900/60",    text: "text-sky-200",    border: "border-sky-500",    colorHex: "#0ea5e9" },
+  Dataset:     { bg: "bg-amber-900/60",  text: "text-amber-200",  border: "border-amber-500",  colorHex: "#f59e0b" },
+  Application: { bg: "bg-rose-900/60",   text: "text-rose-200",   border: "border-rose-500",   colorHex: "#f43f5e" },
+  Hardware:    { bg: "bg-pink-900/60",   text: "text-pink-200",   border: "border-pink-500",   colorHex: "#ec4899" },
+  Metric:      { bg: "bg-slate-800",      text: "text-slate-200",  border: "border-slate-500",  colorHex: "#94a3b8" },
 };
 
 const ALL_NODE_TYPES = [
-  'Project', 'Domain', 'Algorithm', 'Technology',
-  'Framework', 'Library', 'Dataset', 'Application', 'Hardware', 'Metric'
+  "Project", "Domain", "Algorithm", "Technology",
+  "Framework", "Library", "Dataset", "Application", "Hardware", "Metric"
 ];
 
 export const ProjectGraphViewer: React.FC<ProjectGraphViewerProps> = ({
@@ -58,356 +58,373 @@ export const ProjectGraphViewer: React.FC<ProjectGraphViewerProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
+  // All render-time values in refs to avoid stale closures
+  const panOffsetRef = useRef({ x: 0, y: 0 });
+  const zoomLevelRef = useRef(1);
+  const searchTermRef = useRef("");
+  const selectedNodeRef = useRef<GraphNodeData | null>(null);
+  const draggedNodeRef = useRef<GraphNodeData | null>(null);
+  const isDraggingRef = useRef(false);
+  const dragStartRef = useRef({ x: 0, y: 0 });
+  const ticksRef = useRef(0);
+  const simLoopRef = useRef<number>(0);
+
+  // React state (for UI re-renders only)
   const [selectedNode, setSelectedNode] = useState<GraphNodeData | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [activeTypes, setActiveTypes] = useState<Set<string>>(new Set(ALL_NODE_TYPES));
   const [zoomLevel, setZoomLevel] = useState(1);
-  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Filter nodes & links based on active types
-  const filteredNodes = useMemo(() => {
-    return nodes.filter(n => activeTypes.has(n.type));
-  }, [nodes, activeTypes]);
-
+  const filteredNodes = useMemo(() => nodes.filter(n => activeTypes.has(n.type)), [nodes, activeTypes]);
   const filteredNodeIds = useMemo(() => new Set(filteredNodes.map(n => n.id)), [filteredNodes]);
+  const filteredLinks = useMemo(() => links.filter(l => filteredNodeIds.has(l.source) && filteredNodeIds.has(l.target)), [links, filteredNodeIds]);
 
-  const filteredLinks = useMemo(() => {
-    return links.filter(l => filteredNodeIds.has(l.source) && filteredNodeIds.has(l.target));
-  }, [links, filteredNodeIds]);
+  const filteredLinksRef = useRef(filteredLinks);
+  useEffect(() => { filteredLinksRef.current = filteredLinks; }, [filteredLinks]);
 
-  // Simple force simulation calculation in 2D space
   const simulationNodesRef = useRef<Map<string | number, GraphNodeData>>(new Map());
 
-  useEffect(() => {
-    const simMap = simulationNodesRef.current;
-    const width = containerRef.current?.clientWidth || 800;
-    const height = containerRef.current?.clientHeight || 600;
+  // Resize canvas with devicePixelRatio support for crispness
+  const resizeCanvas = useCallback(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+  }, []);
 
-    // Initialize positions if new
-    filteredNodes.forEach((node, i) => {
-      if (!simMap.has(node.id)) {
-        const angle = (i / Math.max(1, filteredNodes.length)) * 2 * Math.PI;
-        const radius = Math.min(width, height) * 0.3 * Math.sqrt(Math.random());
-        simMap.set(node.id, {
-          ...node,
-          x: width / 2 + radius * Math.cos(angle),
-          y: height / 2 + radius * Math.sin(angle),
-          vx: 0,
-          vy: 0,
-        });
-      } else {
-        const existing = simMap.get(node.id)!;
-        existing.name = node.name;
-        existing.type = node.type;
-        existing.degree = node.degree;
-      }
-    });
-
-    let animationFrameId: number;
-    let ticks = 0;
-    const maxTicks = 120;
-
-    const runSimulationStep = () => {
-      if (ticks >= maxTicks) return;
-      ticks++;
-
-      const nodeList = Array.from(simMap.values());
-      const k = Math.sqrt((width * height) / Math.max(1, nodeList.length)) * 0.8;
-
-      // 1. Repulsion between nodes
-      for (let i = 0; i < nodeList.length; i++) {
-        for (let j = i + 1; j < nodeList.length; j++) {
-          const n1 = nodeList[i];
-          const n2 = nodeList[j];
-          let dx = (n2.x || 0) - (n1.x || 0);
-          let dy = (n2.y || 0) - (n1.y || 0);
-          let dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          if (dist < 200) {
-            let force = (k * k) / dist;
-            let fx = (dx / dist) * force * 0.05;
-            let fy = (dy / dist) * force * 0.05;
-            n1.vx = (n1.vx || 0) - fx;
-            n1.vy = (n1.vy || 0) - fy;
-            n2.vx = (n2.vx || 0) + fx;
-            n2.vy = (n2.vy || 0) + fy;
-          }
-        }
-      }
-
-      // 2. Attraction along links
-      filteredLinks.forEach(link => {
-        const source = simMap.get(link.source);
-        const target = simMap.get(link.target);
-        if (source && target) {
-          let dx = (target.x || 0) - (source.x || 0);
-          let dy = (target.y || 0) - (source.y || 0);
-          let dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          let force = (dist - k) * 0.05;
-          let fx = (dx / dist) * force;
-          let fy = (dy / dist) * force;
-          source.vx = (source.vx || 0) + fx;
-          source.vy = (source.vy || 0) + fy;
-          target.vx = (target.vx || 0) - fx;
-          target.vy = (target.vy || 0) - fy;
-        }
-      });
-
-      // 3. Center gravity
-      nodeList.forEach(n => {
-        let dx = width / 2 - (n.x || 0);
-        let dy = height / 2 - (n.y || 0);
-        n.vx = (n.vx || 0) + dx * 0.005;
-        n.vy = (n.vy || 0) + dy * 0.005;
-
-        // Apply velocity with damping
-        n.x = (n.x || 0) + (n.vx || 0) * 0.4;
-        n.y = (n.y || 0) + (n.vy || 0) * 0.4;
-        n.vx = (n.vx || 0) * 0.85;
-        n.vy = (n.vy || 0) * 0.85;
-      });
-
-      renderCanvas();
-      animationFrameId = requestAnimationFrame(runSimulationStep);
-    };
-
-    runSimulationStep();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [filteredNodes, filteredLinks]);
-
-  // Canvas render loop
-  const renderCanvas = () => {
+  // Core render � reads ONLY from refs, never from captured state
+  const renderCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
-    const width = canvas.width;
-    const height = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
 
     ctx.save();
-    ctx.clearRect(0, 0, width, height);
-
-    // Apply pan & zoom
-    ctx.translate(panOffset.x, panOffset.y);
-    ctx.scale(zoomLevel, zoomLevel);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.scale(dpr, dpr);
+    ctx.translate(panOffsetRef.current.x, panOffsetRef.current.y);
+    ctx.scale(zoomLevelRef.current, zoomLevelRef.current);
 
     const simMap = simulationNodesRef.current;
+    const currentLinks = filteredLinksRef.current;
 
-    // Draw links
-    filteredLinks.forEach(link => {
-      const source = simMap.get(link.source);
-      const target = simMap.get(link.target);
-      if (source && target && source.x && source.y && target.x && target.y) {
-        ctx.beginPath();
-        ctx.moveTo(source.x, source.y);
-        ctx.lineTo(target.x, target.y);
-        ctx.strokeStyle = link.relationship === 'CO_OCCURS' ? 'rgba(148, 163, 184, 0.25)' : 'rgba(99, 102, 241, 0.4)';
-        ctx.lineWidth = link.relationship === 'CO_OCCURS' ? 1 : 1.5;
-        ctx.stroke();
-      }
+    // Draw edges
+    currentLinks.forEach(link => {
+      const src = simMap.get(link.source);
+      const tgt = simMap.get(link.target);
+      if (!src || !tgt) return;
+      const sx = src.x ?? 0, sy = src.y ?? 0;
+      const tx = tgt.x ?? 0, ty = tgt.y ?? 0;
+      if (sx === 0 && sy === 0 && tx === 0 && ty === 0) return;
+      const isCoOccur = link.relationship === "CO_OCCURS";
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(tx, ty);
+      ctx.strokeStyle = isCoOccur ? "rgba(148,163,184,0.70)" : "rgba(129,140,248,0.95)";
+      ctx.lineWidth = isCoOccur ? 1.5 : 2.5;
+      ctx.setLineDash(isCoOccur ? [5, 5] : []);
+      ctx.stroke();
     });
+    ctx.setLineDash([]);
 
     // Draw nodes
-    const lowerSearch = searchTerm.trim().toLowerCase();
+    const lowerSearch = searchTermRef.current.trim().toLowerCase();
+    const selected = selectedNodeRef.current;
+    const dragged = draggedNodeRef.current;
 
     Array.from(simMap.values()).forEach(node => {
-      if (!node.x || !node.y) return;
+      const nx = node.x ?? 0, ny = node.y ?? 0;
+      if (nx === 0 && ny === 0) return;
+      const isSearch = lowerSearch.length > 0 && node.name.toLowerCase().includes(lowerSearch);
+      const isSel = selected?.id === node.id;
+      const isDrag = dragged?.id === node.id;
+      const style = TYPE_COLORS[node.type] || TYPE_COLORS["Metric"];
+      const r = node.type === "Project" ? 16 : Math.min(13, 7 + (node.degree || 1));
 
-      const isMatchingSearch = lowerSearch.length > 0 && node.name.toLowerCase().includes(lowerSearch);
-      const isSelected = selectedNode?.id === node.id;
-      const typeStyle = TYPE_COLORS[node.type] || TYPE_COLORS['Metric'];
-
-      const radius = node.type === 'Project' ? 14 : Math.min(12, 6 + (node.degree || 1));
-
-      // Outer glow for search match or selected
-      if (isSelected || isMatchingSearch) {
+      if (isSel || isSearch || isDrag) {
         ctx.beginPath();
-        ctx.arc(node.x, node.y, radius + 6, 0, 2 * Math.PI);
-        ctx.fillStyle = isSelected ? 'rgba(99, 102, 241, 0.35)' : 'rgba(234, 179, 8, 0.35)';
+        ctx.arc(nx, ny, r + (isDrag ? 10 : 7), 0, 2 * Math.PI);
+        ctx.fillStyle = isSel || isDrag ? "rgba(99,102,241,0.28)" : "rgba(234,179,8,0.25)";
         ctx.fill();
       }
 
-      // Main Circle
       ctx.beginPath();
-      ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
-      ctx.fillStyle = typeStyle.colorHex;
+      ctx.arc(nx, ny, r, 0, 2 * Math.PI);
+      ctx.fillStyle = style.colorHex;
       ctx.fill();
-      ctx.lineWidth = isSelected ? 3 : 1.5;
-      ctx.strokeStyle = isSelected ? '#ffffff' : 'rgba(255, 255, 255, 0.6)';
+      ctx.lineWidth = isSel || isDrag ? 2.5 : 1.2;
+      ctx.strokeStyle = isSel || isDrag ? "#fff" : "rgba(255,255,255,0.45)";
       ctx.stroke();
 
-      // Node Label
-      ctx.font = isSelected ? 'bold 12px Inter, sans-serif' : '10px Inter, sans-serif';
-      ctx.fillStyle = isSelected || isMatchingSearch ? '#ffffff' : 'rgba(226, 232, 240, 0.85)';
-      ctx.textAlign = 'center';
-      ctx.fillText(node.name.length > 18 ? node.name.substring(0, 16) + '…' : node.name, node.x, node.y + radius + 14);
+      const isHi = isSel || isSearch || isDrag;
+      const maxCh = isHi ? 22 : 14;
+      const label = node.name.length > maxCh ? node.name.substring(0, maxCh - 1) + "�" : node.name;
+      ctx.font = (isHi ? "bold " : "") + (isHi ? "11" : "9") + "px Inter, system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+      const ly = ny + r + 5;
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = "rgba(2,6,23,0.92)";
+      ctx.strokeText(label, nx, ly);
+      ctx.fillStyle = isHi ? "#fff" : "rgba(203,213,225,0.9)";
+      ctx.fillText(label, nx, ly);
     });
 
     ctx.restore();
-  };
-
-  // Canvas resize listener
-  useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current && canvasRef.current) {
-        canvasRef.current.width = containerRef.current.clientWidth;
-        canvasRef.current.height = containerRef.current.clientHeight;
-        renderCanvas();
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handle canvas click to select node
-  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    const clickX = (e.clientX - rect.left - panOffset.x) / zoomLevel;
-    const clickY = (e.clientY - rect.top - panOffset.y) / zoomLevel;
-
+  // Physics simulation
+  useEffect(() => {
+    cancelAnimationFrame(simLoopRef.current);
     const simMap = simulationNodesRef.current;
-    let clickedNode: GraphNodeData | null = null;
+    const container = containerRef.current;
+    const width = container?.clientWidth || 900;
+    const height = container?.clientHeight || 600;
 
-    Array.from(simMap.values()).forEach(node => {
-      if (node.x && node.y) {
-        const radius = node.type === 'Project' ? 14 : 10;
-        const dist = Math.sqrt((clickX - node.x) ** 2 + (clickY - node.y) ** 2);
-        if (dist <= radius + 5) {
-          clickedNode = node;
-        }
+    filteredNodes.forEach((node, i) => {
+      if (!simMap.has(node.id)) {
+        const angle = (i / Math.max(1, filteredNodes.length)) * 2 * Math.PI;
+        const rad = Math.min(width, height) * 0.28 * (0.5 + Math.random() * 0.5);
+        simMap.set(node.id, { ...node, x: width / 2 + rad * Math.cos(angle), y: height / 2 + rad * Math.sin(angle), vx: 0, vy: 0 });
+      } else {
+        const ex = simMap.get(node.id)!;
+        ex.name = node.name; ex.type = node.type; ex.degree = node.degree;
       }
     });
+    const activeIds = new Set(filteredNodes.map(n => n.id));
+    Array.from(simMap.keys()).forEach(id => { if (!activeIds.has(id)) simMap.delete(id); });
 
-    setSelectedNode(clickedNode);
-    if (clickedNode && onNodeClick) {
-      onNodeClick(clickedNode);
-    }
-  };
+    ticksRef.current = 0;
+    const MAX = 500;
 
-  // Pan controls
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
-  };
+    const step = () => {
+      if (ticksRef.current >= MAX) { renderCanvas(); return; }
+      ticksRef.current++;
+      const nl = Array.from(simMap.values());
+      const k = Math.sqrt((width * height) / Math.max(1, nl.length));
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) {
-      setPanOffset({
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y,
+      for (let i = 0; i < nl.length; i++) {
+        for (let j = i + 1; j < nl.length; j++) {
+          const a = nl[i], b = nl[j];
+          const dx = (b.x ?? 0) - (a.x ?? 0), dy = (b.y ?? 0) - (a.y ?? 0);
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const d = Math.max(70, dist);
+          const force = (k * k * 45) / (d * d);
+          const fx = (dx / dist) * force * 0.09, fy = (dy / dist) * force * 0.09;
+          a.vx = (a.vx ?? 0) - fx; a.vy = (a.vy ?? 0) - fy;
+          b.vx = (b.vx ?? 0) + fx; b.vy = (b.vy ?? 0) + fy;
+        }
+      }
+
+      filteredLinksRef.current.forEach(link => {
+        const s = simMap.get(link.source), t = simMap.get(link.target);
+        if (!s || !t) return;
+        const dx = (t.x ?? 0) - (s.x ?? 0), dy = (t.y ?? 0) - (s.y ?? 0);
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const force = (dist - k * 2.2) * 0.045;
+        const fx = (dx / dist) * force, fy = (dy / dist) * force;
+        s.vx = (s.vx ?? 0) + fx; s.vy = (s.vy ?? 0) + fy;
+        t.vx = (t.vx ?? 0) - fx; t.vy = (t.vy ?? 0) - fy;
       });
+
+      nl.forEach(n => {
+        n.vx = ((n.vx ?? 0) + (width / 2 - (n.x ?? 0)) * 0.0025) * 0.82;
+        n.vy = ((n.vy ?? 0) + (height / 2 - (n.y ?? 0)) * 0.0025) * 0.82;
+        n.x = (n.x ?? 0) + (n.vx ?? 0);
+        n.y = (n.y ?? 0) + (n.vy ?? 0);
+      });
+
+      renderCanvas();
+      simLoopRef.current = requestAnimationFrame(step);
+    };
+    simLoopRef.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(simLoopRef.current);
+  }, [filteredNodes, filteredLinks, renderCanvas]);
+
+  // ResizeObserver for layout changes
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const ro = new ResizeObserver(() => { resizeCanvas(); renderCanvas(); });
+    ro.observe(container);
+    resizeCanvas();
+    renderCanvas();
+    return () => ro.disconnect();
+  }, [resizeCanvas, renderCanvas]);
+
+  // Fullscreen
+  const toggleFullscreen = useCallback(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().then(() => setIsFullscreen(true)).catch(console.error);
+    } else {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(console.error);
+    }
+  }, []);
+
+  useEffect(() => {
+    const onFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+      setTimeout(() => { resizeCanvas(); renderCanvas(); }, 120);
+    };
+    document.addEventListener("fullscreenchange", onFsChange);
+    return () => document.removeEventListener("fullscreenchange", onFsChange);
+  }, [resizeCanvas, renderCanvas]);
+
+  // Hit-test helper
+  const getNodeAtPoint = useCallback((cx: number, cy: number): GraphNodeData | null => {
+    const wx = (cx - panOffsetRef.current.x) / zoomLevelRef.current;
+    const wy = (cy - panOffsetRef.current.y) / zoomLevelRef.current;
+    let found: GraphNodeData | null = null;
+    simulationNodesRef.current.forEach(node => {
+      const nx = node.x ?? 0, ny = node.y ?? 0;
+      const r = node.type === "Project" ? 16 : 12;
+      if (Math.sqrt((wx - nx) ** 2 + (wy - ny) ** 2) <= r + 6) found = node;
+    });
+    return found;
+  }, []);
+
+  const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (draggedNodeRef.current) return;
+    const rect = canvasRef.current!.getBoundingClientRect();
+    const node = getNodeAtPoint(e.clientX - rect.left, e.clientY - rect.top);
+    setSelectedNode(node);
+    selectedNodeRef.current = node;
+    if (node && onNodeClick) onNodeClick(node);
+    renderCanvas();
+  }, [getNodeAtPoint, onNodeClick, renderCanvas]);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
+    const rect = canvasRef.current!.getBoundingClientRect();
+    const node = getNodeAtPoint(e.clientX - rect.left, e.clientY - rect.top);
+    if (node) {
+      draggedNodeRef.current = node;
+      setSelectedNode(node); selectedNodeRef.current = node;
+      if (onNodeClick) onNodeClick(node);
+    } else {
+      isDraggingRef.current = true;
+      dragStartRef.current = { x: e.clientX - panOffsetRef.current.x, y: e.clientY - panOffsetRef.current.y };
+    }
+  }, [getNodeAtPoint, onNodeClick]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (draggedNodeRef.current) {
+      const rect = canvasRef.current!.getBoundingClientRect();
+      const wx = (e.clientX - rect.left - panOffsetRef.current.x) / zoomLevelRef.current;
+      const wy = (e.clientY - rect.top - panOffsetRef.current.y) / zoomLevelRef.current;
+      const n = simulationNodesRef.current.get(draggedNodeRef.current.id);
+      if (n) { n.x = wx; n.y = wy; n.vx = 0; n.vy = 0; }
+      ticksRef.current = 0;
+      renderCanvas();
+    } else if (isDraggingRef.current) {
+      const np = { x: e.clientX - dragStartRef.current.x, y: e.clientY - dragStartRef.current.y };
+      panOffsetRef.current = np;
       renderCanvas();
     }
-  };
+  }, [renderCanvas]);
 
-  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseUp = useCallback(() => {
+    draggedNodeRef.current = null;
+    isDraggingRef.current = false;
+  }, []);
+
+  const handleWheel = useCallback((e: React.WheelEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const nz = Math.min(3, Math.max(0.3, zoomLevelRef.current + (e.deltaY > 0 ? -0.1 : 0.1)));
+    zoomLevelRef.current = nz;
+    setZoomLevel(nz);
+    renderCanvas();
+  }, [renderCanvas]);
+
+  const zoomIn = () => { const nz = Math.min(3, zoomLevelRef.current + 0.25); zoomLevelRef.current = nz; setZoomLevel(nz); renderCanvas(); };
+  const zoomOut = () => { const nz = Math.max(0.3, zoomLevelRef.current - 0.25); zoomLevelRef.current = nz; setZoomLevel(nz); renderCanvas(); };
+  const resetView = () => { zoomLevelRef.current = 1; panOffsetRef.current = { x: 0, y: 0 }; setZoomLevel(1); renderCanvas(); };
 
   const toggleTypeFilter = (type: string) => {
     setActiveTypes(prev => {
       const next = new Set(prev);
-      if (next.has(type)) {
-        next.delete(type);
-      } else {
-        next.add(type);
-      }
+      if (next.has(type)) next.delete(type); else next.add(type);
       return next;
     });
   };
 
-  // Selected node neighbors
   const connectedLinks = useMemo(() => {
     if (!selectedNode) return [];
     return links.filter(l => l.source === selectedNode.id || l.target === selectedNode.id);
   }, [selectedNode, links]);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 h-[720px] bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-      {/* Main Canvas Graph Viewer */}
-      <div ref={containerRef} className="relative flex-1 bg-slate-950/80 overflow-hidden cursor-grab active:cursor-grabbing">
-        {/* Top Control Bar */}
-        <div className="absolute top-4 left-4 right-4 z-10 flex flex-wrap items-center justify-between gap-3 bg-slate-900/90 backdrop-blur-md p-3 rounded-xl border border-slate-800 shadow-lg">
-          {/* Search Box */}
-          <div className="relative flex-1 min-w-[200px] max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+    <div
+      ref={wrapperRef}
+      className={`flex flex-col lg:flex-row bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl ${isFullscreen ? "fixed inset-0 z-50 rounded-none border-0" : "h-[760px]"}`}
+    >
+      {/* Canvas Area */}
+      <div ref={containerRef} className="relative flex-1 bg-[#020617] overflow-hidden" style={{ cursor: "crosshair" }}>
+
+        {/* Top Bar */}
+        <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 bg-slate-900/95 backdrop-blur px-3 py-2 rounded-xl border border-slate-700/70 shadow-xl">
+          <div className="relative flex-1 min-w-[150px] max-w-xs">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
             <input
               type="text"
-              placeholder="Search graph node..."
+              placeholder="Search nodes�"
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-950 text-slate-100 pl-9 pr-4 py-1.5 rounded-lg border border-slate-700 text-xs focus:outline-none focus:border-indigo-500 transition"
+              onChange={e => { setSearchTerm(e.target.value); searchTermRef.current = e.target.value; renderCanvas(); }}
+              className="w-full bg-slate-950 text-slate-100 pl-8 pr-3 py-1.5 rounded-lg border border-slate-700 text-xs focus:outline-none focus:border-indigo-500 transition"
             />
           </div>
-
-          {/* Quick Controls */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setZoomLevel(z => Math.min(z + 0.25, 2.5))}
-              className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition"
-              title="Zoom In"
-            >
-              <ZoomIn className="w-4 h-4" />
+          <div className="flex items-center gap-1.5">
+            <button onClick={zoomIn} className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition" title="Zoom In"><ZoomIn className="w-3.5 h-3.5" /></button>
+            <button onClick={zoomOut} className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition" title="Zoom Out"><ZoomOut className="w-3.5 h-3.5" /></button>
+            <button onClick={resetView} className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition" title="Reset View">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V5H5v4h4zm0 10H5v-4h4v4zm10 0h-4v-4h4v4zm0-10h-4V5h4v4z" /></svg>
             </button>
-            <button
-              onClick={() => setZoomLevel(z => Math.max(z - 0.25, 0.4))}
-              className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition"
-              title="Zoom Out"
-            >
-              <ZoomOut className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => { setZoomLevel(1); setPanOffset({ x: 0, y: 0 }); }}
-              className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition"
-              title="Reset View"
-            >
-              <Maximize2 className="w-4 h-4" />
+            <button onClick={toggleFullscreen} className="p-1.5 bg-indigo-800 hover:bg-indigo-700 text-indigo-200 rounded-lg transition" title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}>
+              {isFullscreen ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
             </button>
             {onRefresh && (
-              <button
-                onClick={onRefresh}
-                className="p-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition flex items-center gap-1 text-xs px-2.5 font-medium"
-                title="Refresh Graph Data"
-              >
-                <RefreshCw className="w-3.5 h-3.5" /> Reload
+              <button onClick={onRefresh} className="flex items-center gap-1 px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition text-xs font-medium" title="Reload">
+                <RefreshCw className="w-3 h-3" /> Reload
               </button>
             )}
           </div>
         </div>
 
-        {/* Category Filter Badges Bar */}
-        <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-wrap items-center gap-1.5 bg-slate-900/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-800">
-          <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mr-2 flex items-center gap-1">
-            <Filter className="w-3.5 h-3.5" /> Filters:
+        {/* Zoom % badge */}
+        <div className="absolute top-[3.5rem] right-3 z-10 bg-slate-900/80 text-slate-400 text-[10px] font-mono px-2 py-0.5 rounded-lg border border-slate-700/50 select-none">
+          {Math.round(zoomLevel * 100)}%
+        </div>
+
+        {/* Filter bar */}
+        <div className="absolute bottom-3 left-3 right-3 z-20 flex flex-wrap items-center gap-1.5 bg-slate-900/95 backdrop-blur px-3 py-2 rounded-xl border border-slate-700/70 shadow-xl">
+          <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
+            <Filter className="w-3 h-3" /> Types:
           </span>
           {ALL_NODE_TYPES.map(type => {
-            const isActive = activeTypes.has(type);
-            const style = TYPE_COLORS[type];
+            const active = activeTypes.has(type);
+            const s = TYPE_COLORS[type];
             return (
-              <button
-                key={type}
-                onClick={() => toggleTypeFilter(type)}
-                className={`text-[10px] font-medium px-2.5 py-1 rounded-md border transition flex items-center gap-1 ${
-                  isActive
-                    ? `${style.bg} ${style.text} ${style.border}`
-                    : 'bg-slate-950/60 text-slate-500 border-slate-800 opacity-60 hover:opacity-100'
-                }`}
-              >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: style.colorHex }} />
-                {type}
+              <button key={type} onClick={() => toggleTypeFilter(type)}
+                className={`text-[10px] font-medium px-2 py-0.5 rounded border transition flex items-center gap-1 ${active ? `${s.bg} ${s.text} ${s.border}` : "bg-slate-950/60 text-slate-600 border-slate-800 opacity-40 hover:opacity-75"}`}>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: active ? s.colorHex : "#475569" }} />{type}
               </button>
             );
           })}
+          <span className="ml-auto text-[10px] text-slate-500 font-mono flex-shrink-0">{filteredNodes.length}N � {filteredLinks.length}E</span>
         </div>
 
-        {/* Interactive Canvas */}
+        {/* Canvas */}
         <canvas
           ref={canvasRef}
           onClick={handleCanvasClick}
@@ -415,86 +432,91 @@ export const ProjectGraphViewer: React.FC<ProjectGraphViewerProps> = ({
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          className="w-full h-full"
+          onWheel={handleWheel}
+          style={{ display: "block", width: "100%", height: "100%" }}
         />
 
         {isLoading && (
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-20">
+          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-30">
             <div className="flex flex-col items-center gap-3">
               <RefreshCw className="w-8 h-8 text-indigo-400 animate-spin" />
-              <p className="text-sm font-medium text-slate-300">Constructing Knowledge Graph...</p>
+              <p className="text-sm font-medium text-slate-300">Constructing Knowledge Graph�</p>
             </div>
           </div>
         )}
       </div>
 
-      {/* Side Inspector Drawer */}
-      <div className="w-full lg:w-80 bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-800 p-5 flex flex-col justify-between overflow-y-auto">
-        <div>
-          <div className="flex items-center gap-2 text-indigo-400 mb-4 font-semibold text-sm">
-            <Share2 className="w-4 h-4" /> Node Inspector
-          </div>
-
-          {selectedNode ? (
-            <div className="space-y-4">
-              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                <span className={`inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border mb-2 ${TYPE_COLORS[selectedNode.type]?.bg} ${TYPE_COLORS[selectedNode.type]?.text} ${TYPE_COLORS[selectedNode.type]?.border}`}>
-                  {selectedNode.type}
-                </span>
-                <h4 className="text-base font-bold text-slate-100 leading-snug">{selectedNode.name}</h4>
-                <p className="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
-                  <Tag className="w-3.5 h-3.5 text-slate-500" /> ID: <span className="font-mono text-slate-300">{selectedNode.id}</span>
-                </p>
-                <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Degree Connections:</span>
-                  <span className="font-bold text-indigo-300 bg-indigo-950 px-2 py-0.5 rounded border border-indigo-800">
-                    {selectedNode.degree || connectedLinks.length} edges
-                  </span>
-                </div>
-              </div>
-
-              {/* Connected Links List */}
-              <div>
-                <h5 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Connected Neighborhood ({connectedLinks.length})</h5>
-                <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
-                  {connectedLinks.length > 0 ? (
-                    connectedLinks.map((link, idx) => {
-                      const otherId = link.source === selectedNode.id ? link.target : link.source;
-                      const otherNode = nodes.find(n => n.id === otherId);
-                      return (
-                        <div key={idx} className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800 text-xs flex items-center justify-between">
-                          <div>
-                            <span className="text-[10px] text-slate-400 block font-mono uppercase">{link.relationship}</span>
-                            <span className="font-medium text-slate-200">{otherNode?.name || otherId}</span>
-                          </div>
-                          <span className={`text-[9px] px-1.5 py-0.5 rounded border ${TYPE_COLORS[otherNode?.type || '']?.bg || 'bg-slate-800'} ${TYPE_COLORS[otherNode?.type || '']?.text || 'text-slate-300'}`}>
-                            {otherNode?.type || 'Node'}
-                          </span>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <p className="text-xs text-slate-500 italic">No connected links in current view.</p>
-                  )}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="bg-slate-950/60 p-6 rounded-xl border border-slate-800 text-center text-slate-400 text-xs space-y-3">
-              <Info className="w-8 h-8 text-slate-600 mx-auto" />
-              <p className="font-medium text-slate-300">Click any node in the graph viewer to inspect its connections and structural metrics.</p>
-              <div className="pt-2 text-[11px] text-slate-500 space-y-1 text-left">
-                <p>💡 <b>Tip:</b> Scroll/drag to pan the graph layout.</p>
-                <p>💡 <b>Tip:</b> Filter categories using the bottom bar.</p>
-              </div>
-            </div>
-          )}
+      {/* Inspector Panel */}
+      <div className={`${isFullscreen ? "w-72" : "w-full lg:w-72"} bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-800 p-4 flex flex-col gap-4 overflow-y-auto flex-shrink-0`}>
+        <div className="flex items-center gap-2 text-indigo-400 font-semibold text-sm">
+          <Share2 className="w-4 h-4" /> Node Inspector
         </div>
 
-        {/* Legend Footer */}
-        <div className="pt-4 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
-          <span>AcadEval+ Module 4</span>
-          <span className="font-mono text-slate-400">NetworkX MultiDiGraph</span>
+        {selectedNode ? (
+          <div className="space-y-3">
+            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span className={`inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border mb-2 ${TYPE_COLORS[selectedNode.type]?.bg} ${TYPE_COLORS[selectedNode.type]?.text} ${TYPE_COLORS[selectedNode.type]?.border}`}>
+                {selectedNode.type}
+              </span>
+              <h4 className="text-sm font-bold text-slate-100 leading-snug">{selectedNode.name}</h4>
+              <p className="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+                <Tag className="w-3 h-3 text-slate-500" /> ID: <span className="font-mono text-slate-300">{selectedNode.id}</span>
+              </p>
+              <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                <span className="text-slate-400">Degree Connections:</span>
+                <span className="font-bold text-indigo-300 bg-indigo-950 px-2 py-0.5 rounded border border-indigo-800">
+                  {selectedNode.degree || connectedLinks.length} edges
+                </span>
+              </div>
+            </div>
+            <div>
+              <h5 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                Connected Neighborhood ({connectedLinks.length})
+              </h5>
+              <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+                {connectedLinks.length > 0 ? connectedLinks.map((link, idx) => {
+                  const otherId = link.source === selectedNode.id ? link.target : link.source;
+                  const otherNode = nodes.find(n => n.id === otherId);
+                  return (
+                    <div key={idx}
+                      className="bg-slate-950/60 px-2.5 py-2 rounded-lg border border-slate-800 text-xs flex items-center justify-between gap-2 cursor-pointer hover:border-slate-700 transition"
+                      onClick={() => { if (otherNode) { setSelectedNode(otherNode); selectedNodeRef.current = otherNode; renderCanvas(); } }}>
+                      <div className="min-w-0">
+                        <span className="text-[9px] text-slate-500 block font-mono uppercase tracking-wide">{link.relationship}</span>
+                        <span className="font-medium text-slate-200 truncate block">{otherNode?.name || String(otherId)}</span>
+                      </div>
+                      <span className={`text-[9px] px-1.5 py-0.5 rounded border flex-shrink-0 ${TYPE_COLORS[otherNode?.type || ""]?.bg || "bg-slate-800"} ${TYPE_COLORS[otherNode?.type || ""]?.text || "text-slate-300"} ${TYPE_COLORS[otherNode?.type || ""]?.border || "border-slate-600"}`}>
+                        {otherNode?.type || "Node"}
+                      </span>
+                    </div>
+                  );
+                }) : <p className="text-xs text-slate-500 italic">No connected links in current view.</p>}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="bg-slate-950/60 p-5 rounded-xl border border-slate-800 text-center text-xs space-y-2">
+            <Info className="w-7 h-7 text-slate-600 mx-auto" />
+            <p className="font-medium text-slate-300">Click any node to inspect connections.</p>
+            <div className="text-[11px] text-slate-500 space-y-1 text-left pt-1">
+              <p>?? <b>Click node</b> � inspect it</p>
+              <p>?? <b>Drag node</b> � reposition</p>
+              <p>?? <b>Drag canvas</b> � pan view</p>
+              <p>?? <b>Scroll</b> � zoom in/out</p>
+              <p>? <b>?</b> button � fullscreen</p>
+            </div>
+          </div>
+        )}
+
+        <div className="pt-3 border-t border-slate-800 mt-auto">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Legend</p>
+          <div className="grid grid-cols-2 gap-1">
+            {ALL_NODE_TYPES.map(type => (
+              <div key={type} className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[type].colorHex }} />{type}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

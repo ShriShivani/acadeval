@@ -180,7 +180,7 @@ const ReportDetail: React.FC = () => {
           <button onClick={() => navigate(`/student/viva?projectId=${r.projectId}`)} className="btn-navy">
             <BookOpen size={16} /> Viva Simulation
           </button>
-          <button className="btn-outline">
+          <button onClick={() => window.print()} className="btn-outline">
             <Download size={16} /> Download PDF
           </button>
         </div>

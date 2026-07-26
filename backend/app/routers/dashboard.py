@@ -15,14 +15,8 @@ router = APIRouter(tags=["Dashboard"])
 def faculty_dashboard(current_user: CurrentFaculty, db: DB):
     from sqlalchemy.orm import joinedload
 
-    # Scope based on role
-    q = db.query(Project)
-    if current_user.role == UserRole.guide:
-        q = q.filter(Project.assigned_guide_id == current_user.id)
-    else:
-        q = q.filter(Project.assigned_reviewer_id == current_user.id)
-
-    projects = q.all()
+    # Phase 1: Show all department projects to Guide and Reviewer
+    projects = db.query(Project).all()
     total = len(projects)
     pending = sum(1 for p in projects if p.pipeline_status == PipelineStatus.awaiting_review)
     flagged = sum(1 for p in projects if p.evaluation and p.evaluation.is_duplicate)

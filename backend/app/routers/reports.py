@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import Session
 
@@ -143,6 +144,22 @@ def _get_or_create_report(project: Project, db: Session) -> EvaluationReport:
     db.commit()
     db.refresh(stub)
     return stub
+
+
+@router.get("/projects/my/reports", response_model=List[PublicEvaluationReport])
+def get_my_reports(current_user: CurrentUser, db: DB):
+    """Student: list evaluation reports for all own submissions."""
+    projects = (
+        db.query(Project)
+        .filter(Project.student_id == current_user.id)
+        .order_by(Project.submitted_on.desc())
+        .all()
+    )
+    reports = []
+    for p in projects:
+        rep = _get_or_create_report(p, db)
+        reports.append(_report_to_public(p, rep))
+    return reports
 
 
 @router.get("/projects/{project_id}/report/public", response_model=PublicEvaluationReport)

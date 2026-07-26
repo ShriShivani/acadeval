@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FileText, Video, FileSearch, GitBranch, AlertCircle, CheckCircle, Loader2, ChevronRight } from 'lucide-react';
 import FileUploader from '../../components/FileUploader';
 import { uploadProject } from '../../api/endpoints';
@@ -35,7 +35,10 @@ const MODES: { id: UploadMode; icon: React.ReactNode; label: string; description
 const Upload: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [mode, setMode] = useState<UploadMode>('document');
+  const [projectTitle, setProjectTitle] = useState('');
+  const [projectDomain, setProjectDomain] = useState('AI/ML');
   const [githubUrl, setGithubUrl] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -45,18 +48,26 @@ const Upload: React.FC = () => {
   });
 
   const abstractText = watch('abstract', '');
-  const wordCount = abstractText.trim().split(/\s+/).filter(Boolean).length;
+  const wordCount = abstractText ? abstractText.trim().split(/\s+/).filter(Boolean).length : 0;
+
+  const invalidateAndSetSubmitted = () => {
+    queryClient.invalidateQueries({ queryKey: ['myProjects'] });
+    queryClient.invalidateQueries({ queryKey: ['myReports'] });
+    setSubmitted(true);
+  };
 
   const mutation = useMutation({
     mutationFn: () => {
       const fd = new FormData();
       fd.append('mode', mode);
       fd.append('studentId', user?.id || '');
+      if (projectTitle) fd.append('title', projectTitle);
+      if (projectDomain) fd.append('domain', projectDomain);
       uploadedFiles.forEach(f => fd.append('files', f));
       if (githubUrl) fd.append('githubUrl', githubUrl);
       return uploadProject(fd);
     },
-    onSuccess: () => setSubmitted(true),
+    onSuccess: invalidateAndSetSubmitted,
   });
 
   const onAbstractSubmit = (data: AbstractFormData) => {
@@ -66,7 +77,7 @@ const Upload: React.FC = () => {
     fd.append('domain', data.domain);
     fd.append('teamMembers', data.teamMembers);
     fd.append('abstract', data.abstract);
-    uploadProject(fd).then(() => setSubmitted(true));
+    uploadProject(fd).then(invalidateAndSetSubmitted);
   };
 
   if (submitted) {
@@ -131,6 +142,31 @@ const Upload: React.FC = () => {
           <div>
             <h2 className="text-lg font-semibold text-navy-900 mb-1">Full Document Submission</h2>
             <p className="text-sm text-slate-500">Upload your project report, slides, and optionally link your GitHub repository.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="label">Project Title (optional)</label>
+              <input
+                type="text"
+                value={projectTitle}
+                onChange={e => setProjectTitle(e.target.value)}
+                className="input"
+                placeholder="e.g. AI-Based Smart Attendance System"
+              />
+            </div>
+            <div>
+              <label className="label">Domain</label>
+              <select
+                value={projectDomain}
+                onChange={e => setProjectDomain(e.target.value)}
+                className="input"
+              >
+                {DOMAINS.map(d => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <FileUploader

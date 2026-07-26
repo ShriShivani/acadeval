@@ -15,6 +15,50 @@ import {
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
 const delay = (ms = 600) => new Promise(res => setTimeout(res, ms));
 
+// ─── Mock Persistence (survives Vite HMR reloads) ────────────────────────────
+// Extra fields stored per submitted project so entity extraction has real text.
+type PersistedProject = {
+  projectId: string;
+  title: string;
+  abstract: string;
+  githubUrl: string;
+  domain: string;
+  submissionType: string;
+  rollNo: string;
+  studentName: string;
+  submittedOn: string;
+  pipelineStatus: string;
+  overallScore: number;
+};
+
+const STORAGE_KEY = 'acadeval_submitted_projects';
+
+function loadPersistedProjects(): PersistedProject[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function savePersistedProjects(projects: PersistedProject[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+  } catch { /* storage full — ignore */ }
+}
+
+// Hydrate mockProjects with any persisted submissions (runs once on module load)
+(function hydrateFromStorage() {
+  const persisted = loadPersistedProjects();
+  for (const p of persisted) {
+    const alreadyIn = mockProjects.some(m => m.projectId === p.projectId);
+    if (!alreadyIn) {
+      mockProjects.unshift(p as any);
+    }
+  }
+})();
+
 // ─── Auth ─────────────────────────────────────────────────────────────────────
 export const login = async (req: LoginRequest): Promise<LoginResponse> => {
   if (USE_MOCK) {
@@ -44,6 +88,16 @@ export const getMyProjects = async (): Promise<ProjectSummary[]> => {
   return data;
 };
 
+export const deleteProject = async (projectId: string): Promise<void> => {
+  if (USE_MOCK) {
+    await delay(300);
+    const idx = mockProjects.findIndex(x => x.projectId === projectId);
+    if (idx !== -1) mockProjects.splice(idx, 1);
+    return;
+  }
+  await apiClient.delete(`/projects/${projectId}`);
+};
+
 export const getAllProjects = async (): Promise<ProjectSummary[]> => {
   if (USE_MOCK) { await delay(); return mockProjects; }
   const { data } = await apiClient.get<ProjectSummary[]>('/projects');
@@ -65,25 +119,35 @@ export const uploadProject = async (formData: FormData): Promise<{ projectId: st
     await delay(1200);
     const mode = (formData.get('mode') as SubmissionType) || 'document';
     const domain = (formData.get('domain') as string) || 'AI/ML';
-    
-    // Find uploaded file name if any
+    const githubUrl = (formData.get('githubUrl') as string) || '';
+    const abstract = (formData.get('abstract') as string) || '';
     const files = formData.getAll('files') as File[];
     const fileName = files[0]?.name;
     const defaultTitle = mode === 'video' ? 'Video Presentation Analysis' : 'Submitted Project Report';
     const title = (formData.get('title') as string) || fileName || defaultTitle;
     const projectId = `p_${Date.now()}`;
 
-    mockProjects.unshift({
+    const newProj: PersistedProject = {
       projectId,
       studentName: 'Priya Sharma',
       rollNo: 'CS2021001',
       title,
+      abstract,
+      githubUrl,
       submissionType: mode,
       domain,
       submittedOn: new Date().toISOString().split('T')[0],
       pipelineStatus: 'awaiting_review',
-      overallScore: 82,
-    });
+      overallScore: 84,
+    };
+
+    // Add to in-memory list
+    mockProjects.unshift(newProj as any);
+
+    // Persist so it survives Vite HMR reloads and page refreshes
+    const existing = loadPersistedProjects();
+    existing.unshift(newProj);
+    savePersistedProjects(existing);
 
     return { projectId };
   }
@@ -101,10 +165,11 @@ export const getEvaluationReport = async (
 ): Promise<PublicEvaluationReport | InternalEvaluationReport> => {
   if (USE_MOCK) {
     await delay();
-    const p = mockProjects.find(x => x.projectId === projectId);
+    const persisted = loadPersistedProjects().find(x => x.projectId === projectId);
+    const p = persisted ?? (mockProjects as any[]).find(x => x.projectId === projectId);
     const title = p ? p.title : mockPublicReport.title;
-    const domain = p ? p.domain : mockPublicReport.domain;
-    const mode = p ? p.submissionType : mockPublicReport.submissionType;
+    const domain = p ? (p as any).domain : mockPublicReport.domain;
+    const mode = p ? (p as any).submissionType : mockPublicReport.submissionType;
     const isAbstract = mode === 'abstract';
 
     const overallScore = p && p.overallScore !== null ? p.overallScore : mockPublicReport.overallScore;
@@ -141,7 +206,90 @@ export const getEvaluationReport = async (
 
 // ─── AcadEval+ Graph-Based Novelty Engine ─────────────────────────────────────
 export const getNoveltyReport = async (projectId: string, abstract: string): Promise<NoveltyReportData> => {
-  if (USE_MOCK) { await delay(900); return mockNoveltyReport(projectId); }
+  if (USE_MOCK) {
+    await delay(900);
+    const persisted = loadPersistedProjects().find(x => x.projectId === projectId);
+    const p = persisted ?? (mockProjects as any[]).find(x => x.projectId === projectId || x.id === projectId);
+    
+    const title = p?.title || 'Academic Capstone Project Proposal';
+    const domain = p?.domain || 'Artificial Intelligence';
+    const subDomain = (p as any)?.sub_domain || 'Deep Learning';
+
+    // Extract real entities
+    const actualAbstract = (p as any)?.abstract || abstract || '';
+    const githubUrl = (p as any)?.githubUrl || '';
+    const text = `${title}. Domain: ${domain}. ${actualAbstract} ${githubUrl}`;
+    const entities = extractEntitiesFromText(title, text);
+
+    // Calculate a stable novelty score based on the title string
+    let hash = 0;
+    for (let i = 0; i < title.length; i++) {
+      hash = (hash << 5) - hash + title.charCodeAt(i);
+      hash |= 0;
+    }
+    const stableScore = 55 + (Math.abs(hash) % 35) + (entities.algorithms.length * 1.5);
+    const noveltyScore = Math.min(98, Math.max(40, Math.round(stableScore * 10) / 10));
+    
+    const noveltyBand = noveltyScore >= 85 ? 'Highly Novel' : 
+                        noveltyScore >= 70 ? 'Novel' : 
+                        noveltyScore >= 55 ? 'Moderately Novel' : 'Low Novelty';
+
+    // Rarity metrics based on hash
+    const graphDistance = parseFloat((0.5 + (Math.abs(hash * 3) % 40) / 100).toFixed(2));
+    const featureRarity = parseFloat((0.4 + (Math.abs(hash * 7) % 50) / 100).toFixed(2));
+    const relationshipRarity = parseFloat((0.5 + (Math.abs(hash * 11) % 45) / 100).toFixed(2));
+    const graphDensity = parseFloat((0.3 + (Math.abs(hash * 13) % 40) / 100).toFixed(2));
+    const connectionDiscovery = parseFloat((0.4 + (Math.abs(hash * 17) % 50) / 100).toFixed(2));
+
+    // Pick top similar projects from mock projects in the same domain
+    const sameDomain = (mockProjects as any[]).filter(x => x.domain === domain && x.projectId !== projectId).slice(0, 2);
+    const similarProjects = sameDomain.map((x, idx) => ({
+      project_id: x.projectId,
+      title: x.title,
+      similarity_score: parseFloat((0.65 - (idx * 0.1)).toFixed(2))
+    }));
+    
+    if (similarProjects.length === 0) {
+      similarProjects.push({
+        project_id: 'CORPUS-P000412',
+        title: `Generic ${domain} Baseline Study`,
+        similarity_score: 0.52
+      });
+    }
+
+    return {
+      project_id: projectId,
+      title,
+      domain,
+      sub_domain: subDomain,
+      overall_novelty_band: noveltyBand,
+      overall_novelty_score: noveltyScore,
+      signals_breakdown: {
+        graph_distance: graphDistance,
+        feature_rarity: featureRarity,
+        relationship_rarity: relationshipRarity,
+        graph_density: graphDensity,
+        new_connection_discovery: connectionDiscovery,
+      },
+      extracted_entities: entities as any,
+      trend_context: {
+        topic: entities.applications[0] || title,
+        growth_rate_pct: 15 + (Math.abs(hash) % 25),
+        paper_count_3yr: 150 + (Math.abs(hash * 2) % 400),
+        citation_velocity: parseFloat((8.5 + (Math.abs(hash * 3) % 15)).toFixed(1)),
+        trend_status: noveltyScore >= 75 ? 'Hot' : 'Emerging',
+        data_source: 'semantic_scholar',
+      },
+      most_similar_projects: similarProjects,
+      explanation_lines: [
+        `Graph Distance Signal (${Math.round(graphDistance * 100)}%): Structural separation path from historical project clusters.`,
+        `Feature Rarity Signal (${Math.round(featureRarity * 100)}%): Uniqueness of the chosen tools/methods across ${domain}.`,
+        `Relationship Rarity Signal (${Math.round(relationshipRarity * 100)}%): Frequency of co-occurrence between the extracted nodes.`,
+        `Graph Density Signal (${Math.round(graphDensity * 100)}%): Neighbor node clustering coefficient indicating sparse territory.`,
+        `New-Connection Discovery (${Math.round(connectionDiscovery * 100)}%): Adamic-Adar metric indicating novel cross-domain path synthesis.`,
+      ],
+    };
+  }
   const { data } = await apiClient.get<NoveltyReportData>(`/v1/acadeval/report/${projectId}`, {
     params: { abstract },
   });
@@ -347,24 +495,69 @@ export const getKnowledgeBase = async (params?: {
   return data;
 };
 
+export const extractEntitiesFromText = (title: string, text: string) => {
+  const fullText = (title + " " + text).toLowerCase();
+
+  const rules: { cat: string; terms: string[] }[] = [
+    { cat: 'algorithms', terms: ['Quantum Neural Network', 'QNN', 'Parameterized Quantum Circuits', 'YOLOv8', 'YOLO', 'ResNet-50', 'ResNet', 'CNN', 'SVM', 'Random Forest', 'Vision Transformer', 'Transformer', 'BERT', 'FastRP', 'Adamic-Adar', 'Graph Neural Network', 'GCN', 'Federated Learning', 'LSTM', 'GRU', 'XGBoost', 'LightGBM', 'Autoencoder', '3D U-Net', 'FaceNet', 'Support Vector Machines'] },
+    { cat: 'technologies', terms: ['Qiskit', 'Pennylane', 'Edge Computing', 'GraphQL', 'REST API', 'WebSockets', 'Neo4j', 'PostgreSQL', 'SQLite', 'Docker', 'Kubernetes', 'FastAPI', 'Vite', 'React', 'TypeScript', 'Node.js', 'Redis', 'Kafka', 'Alembic', 'SQLAlchemy'] },
+    { cat: 'frameworks', terms: ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-Learn', 'NetworkX', 'spaCy', 'HuggingFace', 'TailwindCSS', 'Celery'] },
+    { cat: 'libraries', terms: ['OpenCV', 'NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Sentence-Transformers', 'fitz', 'PyMuPDF', 'python-docx', 'python-pptx'] },
+    { cat: 'datasets', terms: ['OpenBCI Dataset', 'OpenBCI', 'WikiText-103', 'WikiText103', 'LibriSpeech', 'Librispeech', 'CelebA', 'Cityscapes', 'LFW', 'Labeled Faces in the Wild', 'IMDb Movie Reviews', 'IMDb Reviews', 'AG News', 'AGNews', 'DBpedia', 'ADE20K', 'Pascal VOC', 'VOC2012', 'Yelp Reviews', 'Yelp Academic Dataset', 'WordNet', 'ESC-50', 'FSD50K', 'UrbanSound8K', 'MovieLens', 'DailyDialog', 'Cornell Movie-Dialogs', 'Penn Treebank', 'Sentiment140', 'Common Voice', 'Waymo Open Dataset', 'Waymo Perception Dataset', 'Bot-IoT', 'WMT14', 'Multi30K', 'PubMedQA', 'MedQA', 'CheXpert', 'CASIA-WebFace', 'DeepFashion', 'ShapeNet', 'ModelNet40', 'ScanNet', 'NSL-KDD', 'NSL KDD', 'KDD Cup 99', 'COCO', 'ImageNet', 'KITTI', 'BraTS 2021', 'BraTS', 'PlantVillage', 'MNIST', 'CIFAR-10', 'CIFAR-100', 'AcadEval_FeatureKnowledgeBase', 'Semantic Scholar'] },
+    { cat: 'applications', terms: ['Network Intrusion Detection', 'NIDPS', 'Cyber Security Threat Detection', 'Academic Evaluation', 'Autonomous Driving', 'Medical Diagnosis', 'Scam Website Classification', 'Herb Traceability', 'Dysgraphia Detection', 'Kabaddi Midline Crossing', 'Thyroid Classification', 'Oncology Diagnostics'] },
+    { cat: 'hardware', terms: ['IBM Quantum Falcon', 'Quantum Processor', 'NVIDIA RTX 4090', 'Raspberry Pi', 'Jetson Nano', 'NVIDIA GPU', 'CUDA', 'Coral TPU'] },
+    { cat: 'metrics', terms: ['Accuracy', 'F1-Score', 'Precision', 'Recall', 'mAP', 'FPS', 'Dice Score', 'Cosine Similarity', 'Graph Distance', 'Clustering Coefficient', 'Quantum Circuit Depth'] },
+  ];
+
+  const res: Record<string, string[]> = {
+    algorithms: [], technologies: [], frameworks: [], libraries: [],
+    datasets: [], applications: [], hardware: [], metrics: []
+  };
+
+  rules.forEach(({ cat, terms }) => {
+    terms.forEach(term => {
+      if (fullText.includes(term.toLowerCase())) {
+        if (!res[cat].includes(term)) {
+          res[cat].push(term);
+        }
+      }
+    });
+  });
+
+  // Dynamic fallback for unmatched terms
+  if (res.algorithms.length === 0) {
+    if (title.toLowerCase().includes('quantum')) res.algorithms.push('Quantum Neural Network', 'QNN');
+    else if (title.toLowerCase().includes('graph') || title.toLowerCase().includes('novelty')) res.algorithms.push('Graph Neural Network', 'FastRP');
+    else if (title.toLowerCase().includes('vision') || title.toLowerCase().includes('image')) res.algorithms.push('YOLOv8', 'CNN');
+    else if (title.toLowerCase().includes('text') || title.toLowerCase().includes('nlp')) res.algorithms.push('Transformer', 'BERT');
+    else res.algorithms.push('Deep Neural Network');
+  }
+
+  if (res.technologies.length === 0) res.technologies.push('FastAPI', 'PostgreSQL');
+  if (res.frameworks.length === 0) res.frameworks.push('PyTorch');
+  if (res.libraries.length === 0) res.libraries.push('NumPy', 'spaCy');
+  if (res.datasets.length === 0) res.datasets.push('Custom Benchmark Dataset');
+  if (res.applications.length === 0) res.applications.push(title || 'Capstone Project System');
+  if (res.hardware.length === 0) res.hardware.push('NVIDIA GPU');
+  if (res.metrics.length === 0) res.metrics.push('Accuracy', 'F1-Score');
+
+  return res;
+};
+
 export const getProjectEntities = async (projectId: string) => {
   if (USE_MOCK) {
     await delay(300);
+    // Prefer persisted data (has abstract + githubUrl) over in-memory mockProjects
+    const persisted = loadPersistedProjects().find(x => x.projectId === projectId);
+    const p = persisted ?? (mockProjects as any[]).find(x => x.projectId === projectId || x.id === projectId);
+    const title = p?.title || 'Academic Capstone Project Proposal';
+    const abstract = (p as any)?.abstract || '';
+    const githubUrl = (p as any)?.githubUrl || '';
+    const text = `${title}. Domain: ${(p as any)?.domain || ''}. ${abstract} ${githubUrl}`;
     return {
       project_id: projectId,
-      title: 'Sample Project',
-      extracted_entities: {
-        algorithms: ['CNN', 'SVM'],
-        technologies: ['Edge Computing', 'REST API'],
-        frameworks: ['TensorFlow'],
-        libraries: ['OpenCV', 'NumPy'],
-        datasets: ['COCO'],
-        applications: ['Medical Diagnosis'],
-        hardware: ['Raspberry Pi'],
-        metrics: ['F1-Score', 'Accuracy'],
-        unmatched_spans: [],
-        all_extracted: [],
-      },
+      title,
+      extracted_entities: extractEntitiesFromText(title, text),
       has_been_extracted: true,
     };
   }
@@ -400,22 +593,144 @@ export const rejectEntityReview = async (name: string) => {
 };
 
 // ─── Module 4 Knowledge Graph ────────────────────────────────────────────────
+// Helper to build a dynamic interconnected project knowledge graph for mock mode
+const buildDynamicMockGraph = () => {
+  const projects = [
+    ...mockProjects,
+    ...loadPersistedProjects()
+  ];
+
+  const nodesMap = new Map<string, { name: string; type: string; degree: number }>();
+  const rawLinks: { sourceKey: string; targetKey: string; relationship: string; confidence?: number }[] = [];
+
+  // Helper to register node
+  const registerNode = (key: string, name: string, type: string) => {
+    if (!nodesMap.has(key)) {
+      nodesMap.set(key, { name, type, degree: 0 });
+    }
+  };
+
+  // Helper to register link
+  const registerLink = (sourceKey: string, targetKey: string, relationship: string, confidence = 1.0) => {
+    rawLinks.push({ sourceKey, targetKey, relationship, confidence });
+    // Increment degrees
+    const s = nodesMap.get(sourceKey);
+    if (s) s.degree++;
+    const t = nodesMap.get(targetKey);
+    if (t) t.degree++;
+  };
+
+  projects.forEach((p: any) => {
+    const projKey = `P_${p.projectId}`;
+    registerNode(projKey, p.title, 'Project');
+
+    // Domain
+    if (p.domain) {
+      const domKey = `D_${p.domain}`;
+      registerNode(domKey, p.domain, 'Domain');
+      registerLink(projKey, domKey, 'HAS_DOMAIN');
+    }
+
+    // Dynamic Entity Extraction
+    const abstractText = p.abstract || '';
+    const text = `${p.title}. ${abstractText}`;
+    const entities = extractEntitiesFromText(p.title, text);
+
+    const catMap: { list: string[]; type: string; rel: string }[] = [
+      { list: entities.algorithms || [], type: 'Algorithm', rel: 'USES_ALGORITHM' },
+      { list: entities.technologies || [], type: 'Technology', rel: 'USES_TECHNOLOGY' },
+      { list: entities.frameworks || [], type: 'Framework', rel: 'USES_FRAMEWORK' },
+      { list: entities.libraries || [], type: 'Library', rel: 'USES_LIBRARY' },
+      { list: entities.datasets || [], type: 'Dataset', rel: 'USES_DATASET' },
+      { list: entities.applications || [], type: 'Application', rel: 'TARGETS_APPLICATION' },
+      { list: entities.hardware || [], type: 'Hardware', rel: 'RUNS_ON' },
+      { list: entities.metrics || [], type: 'Metric', rel: 'EVALUATED_BY' },
+    ];
+
+    const projectEntityKeys: string[] = [];
+
+    catMap.forEach(({ list, type, rel }) => {
+      list.forEach(name => {
+        if (!name) return;
+        const entKey = `E_${type}_${name.toLowerCase().trim()}`;
+        registerNode(entKey, name, type);
+        registerLink(projKey, entKey, rel);
+        projectEntityKeys.push(entKey);
+      });
+    });
+
+    // Add some CO_OCCURS links between entities in this project
+    for (let i = 0; i < projectEntityKeys.length; i++) {
+      for (let j = i + 1; j < Math.min(projectEntityKeys.length, i + 3); j++) {
+        registerLink(projectEntityKeys[i], projectEntityKeys[j], 'CO_OCCURS', 0.8);
+      }
+    }
+  });
+
+  // Assign numeric IDs to each unique node key
+  const keyToId = new Map<string, number>();
+  let nextId = 1;
+  const nodes: any[] = [];
+
+  nodesMap.forEach((val, key) => {
+    const id = nextId++;
+    keyToId.set(key, id);
+    nodes.push({
+      id,
+      name: val.name,
+      type: val.type,
+      degree: val.degree
+    });
+  });
+
+  // Map links to numeric IDs
+  const links = rawLinks.map(l => ({
+    source: keyToId.get(l.sourceKey)!,
+    target: keyToId.get(l.targetKey)!,
+    relationship: l.relationship,
+    confidence: l.confidence
+  })).filter(l => l.source !== undefined && l.target !== undefined);
+
+  return { nodes, links };
+};
+
 export const getGraphSummary = async (refresh = false) => {
   if (USE_MOCK) {
     await delay(300);
+    const { nodes, links } = buildDynamicMockGraph();
+    
+    // Count distribution
+    const nodeDist: Record<string, number> = {};
+    nodes.forEach(n => {
+      nodeDist[n.type] = (nodeDist[n.type] || 0) + 1;
+    });
+
+    const relDist: Record<string, number> = {};
+    links.forEach(l => {
+      relDist[l.relationship] = (relDist[l.relationship] || 0) + 1;
+    });
+
+    // Top central nodes based on degree
+    const topCentrality = [...nodes]
+      .sort((a, b) => b.degree - a.degree)
+      .slice(0, 5)
+      .map(n => ({
+        id: n.id,
+        name: n.name,
+        type: n.type,
+        degree: n.degree,
+        centrality_score: parseFloat((n.degree / Math.max(1, links.length)).toFixed(3))
+      }));
+
     return {
       status: 'ok',
       metrics: {
-        nodes_count: 42,
-        edges_count: 128,
-        density: 0.074,
-        node_type_distribution: { Project: 8, Algorithm: 12, Technology: 10, Dataset: 5, Application: 4, Metric: 3 },
-        relationship_distribution: { HAS_DOMAIN: 8, USES_ALGORITHM: 24, USES_TECHNOLOGY: 32, CO_OCCURS: 64 },
-        top_centrality_nodes: [
-          { id: 1, name: 'CNN', type: 'Algorithm', degree: 14, centrality_score: 0.34 },
-          { id: 2, name: 'PyTorch', type: 'Technology', degree: 11, centrality_score: 0.26 },
-          { id: 3, name: 'Medical Diagnosis', type: 'Application', degree: 9, centrality_score: 0.21 },
-        ],
+        nodes_count: nodes.length,
+        edges_count: links.length,
+        density: parseFloat((links.length / (nodes.length * (nodes.length - 1) || 1)).toFixed(4)),
+        node_type_distribution: nodeDist,
+        relationship_distribution: relDist,
+        top_centrality_nodes: topCentrality,
       },
     };
   }
@@ -426,29 +741,15 @@ export const getGraphSummary = async (refresh = false) => {
 export const getGraphVisualization = async (limit = 300, nodeTypes?: string) => {
   if (USE_MOCK) {
     await delay(400);
+    const { nodes, links } = buildDynamicMockGraph();
     return {
       status: 'ok',
-      total_graph_nodes: 25,
-      total_graph_edges: 40,
-      returned_nodes: 25,
-      returned_links: 40,
-      nodes: [
-        { id: 1, name: 'Brain MRI Tumor Segmentation', type: 'Project', degree: 8 },
-        { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
-        { id: 3, name: 'PyTorch', type: 'Technology', degree: 10 },
-        { id: 4, name: 'BraTS 2021', type: 'Dataset', degree: 4 },
-        { id: 5, name: 'Dice Score', type: 'Metric', degree: 3 },
-        { id: 6, name: 'Oncology Diagnostics', type: 'Application', degree: 5 },
-      ],
-      links: [
-        { source: 1, target: 2, relationship: 'USES_ALGORITHM', confidence: 1.0 },
-        { source: 1, target: 3, relationship: 'USES_TECHNOLOGY', confidence: 1.0 },
-        { source: 1, target: 4, relationship: 'USES_DATASET', confidence: 1.0 },
-        { source: 1, target: 5, relationship: 'EVALUATED_BY', confidence: 1.0 },
-        { source: 1, target: 6, relationship: 'TARGETS_APPLICATION', confidence: 1.0 },
-        { source: 2, target: 3, relationship: 'CO_OCCURS', confidence: 1.0 },
-        { source: 2, target: 4, relationship: 'CO_OCCURS', confidence: 1.0 },
-      ],
+      total_graph_nodes: nodes.length,
+      total_graph_edges: links.length,
+      returned_nodes: nodes.length,
+      returned_links: links.length,
+      nodes,
+      links,
     };
   }
   const params = new URLSearchParams();
@@ -461,22 +762,56 @@ export const getGraphVisualization = async (limit = 300, nodeTypes?: string) => 
 export const getNodeNeighborhood = async (query: string, radius = 1) => {
   if (USE_MOCK) {
     await delay(300);
+    const { nodes, links } = buildDynamicMockGraph();
+    
+    // Find target node
+    const qLower = query.toLowerCase();
+    const targetNode = nodes.find(n => n.name.toLowerCase().includes(qLower));
+    
+    if (!targetNode) {
+      return {
+        status: 'error',
+        message: `Node '${query}' not found in mock graph.`
+      };
+    }
+
+    // Simple BFS to find neighborhood nodes within radius
+    const visited = new Set<number>([targetNode.id]);
+    let currentLevel = new Set<number>([targetNode.id]);
+
+    for (let r = 0; r < radius; r++) {
+      const nextLevel = new Set<number>();
+      links.forEach(l => {
+        const s = typeof l.source === 'object' ? (l.source as any).id : l.source;
+        const t = typeof l.target === 'object' ? (l.target as any).id : l.target;
+        if (currentLevel.has(s) && !visited.has(t)) {
+          nextLevel.add(t);
+          visited.add(t);
+        }
+        if (currentLevel.has(t) && !visited.has(s)) {
+          nextLevel.add(s);
+          visited.add(s);
+        }
+      });
+      currentLevel = nextLevel;
+    }
+
+    const neighborhoodNodes = nodes.filter(n => visited.has(n.id));
+    const neighborhoodLinks = links.filter(l => {
+      const s = typeof l.source === 'object' ? (l.source as any).id : l.source;
+      const t = typeof l.target === 'object' ? (l.target as any).id : l.target;
+      return visited.has(s) && visited.has(t);
+    });
+
     return {
       status: 'ok',
-      target_node: { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
+      target_node: targetNode,
       radius,
-      neighborhood_nodes: 5,
+      neighborhood_nodes: neighborhoodNodes.length,
       graph: {
-        nodes: [
-          { id: 2, name: '3D U-Net', type: 'Algorithm', degree: 6 },
-          { id: 1, name: 'Brain MRI Tumor Segmentation', type: 'Project', degree: 8 },
-          { id: 3, name: 'PyTorch', type: 'Technology', degree: 10 },
-        ],
-        links: [
-          { source: 1, target: 2, relationship: 'USES_ALGORITHM' },
-          { source: 2, target: 3, relationship: 'CO_OCCURS' },
-        ],
-      },
+        nodes: neighborhoodNodes,
+        links: neighborhoodLinks
+      }
     };
   }
   const { data } = await apiClient.get(`/graph/node/${encodeURIComponent(query)}?radius=${radius}`);
@@ -486,7 +821,19 @@ export const getNodeNeighborhood = async (query: string, radius = 1) => {
 export const rebuildKnowledgeGraph = async () => {
   if (USE_MOCK) {
     await delay(600);
-    return { status: 'rebuilt', result: { projects_processed: 8, relational_nodes: 42, relational_edges: 128 } };
+    const { nodes, links } = buildDynamicMockGraph();
+    const projects = [
+      ...mockProjects,
+      ...loadPersistedProjects()
+    ];
+    return {
+      status: 'rebuilt',
+      result: {
+        projects_processed: projects.length,
+        relational_nodes: nodes.length,
+        relational_edges: links.length
+      }
+    };
   }
   const { data } = await apiClient.post('/graph/rebuild');
   return data;

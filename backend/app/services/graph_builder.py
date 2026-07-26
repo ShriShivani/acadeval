@@ -78,7 +78,9 @@ def ingest_project_to_relational_graph(
     edges_created = 0
 
     # 1. Project node
-    proj_node_id = upsert_node(db, "Project", str(project_id))
+    # 1. Project node (store title so canvas & visualizer display readable project name)
+    proj_name = f"{title} ({str(project_id)[:8]})" if title else str(project_id)
+    proj_node_id = upsert_node(db, "Project", proj_name)
     nodes_created += 1
 
     # 2. Domain & Subdomain nodes
