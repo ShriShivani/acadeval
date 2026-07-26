@@ -27,7 +27,7 @@ from app.services.extractor import extractor_service
 from app.services.graph_db import graph_service, GraphUnavailableError
 
 CORPUS_CSV = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "datasets", "corpus", "new_AcadEval_Corpus.csv")
+    os.path.join(os.path.dirname(__file__), "..", "..", "datasets", "AcadEval_Corpus_MASTER.csv")
 )
 
 

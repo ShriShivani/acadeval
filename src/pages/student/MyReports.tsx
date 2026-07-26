@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { getMyProjects } from '../../api/endpoints';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { getMyProjects, deleteProject } from '../../api/endpoints';
 import { LoadingState, ErrorState, EmptyState } from '../../components/States';
 import Badge from '../../components/Badge';
-import { FileText, Upload, ChevronRight, Clock, AlertCircle, Cpu, CheckCircle } from 'lucide-react';
+import { FileText, Upload, ChevronRight, Clock, Cpu, CheckCircle, Trash2, Loader2 } from 'lucide-react';
 import type { ProjectSummary } from '../../types';
 import clsx from 'clsx';
 
@@ -16,12 +16,17 @@ const statusLabels: Record<string, string> = {
   reviewed: 'Reviewed',
 };
 
-const ProjectCard: React.FC<{ project: ProjectSummary; onClick: () => void }> = ({ project, onClick }) => {
+const ProjectCard: React.FC<{
+  project: ProjectSummary;
+  onClick: () => void;
+  onDelete: (e: React.MouseEvent) => void;
+  isDeleting: boolean;
+}> = ({ project, onClick, onDelete, isDeleting }) => {
   const stepIndex = statusSteps.indexOf(project.pipelineStatus);
   const isReviewed = project.pipelineStatus === 'reviewed';
 
   return (
-    <div className="card-hover cursor-pointer" onClick={onClick}>
+    <div className="card-hover cursor-pointer relative group" onClick={onClick}>
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2">
@@ -31,22 +36,35 @@ const ProjectCard: React.FC<{ project: ProjectSummary; onClick: () => void }> = 
           <h3 className="font-semibold text-slate-800 text-base leading-snug">{project.title}</h3>
           <p className="text-sm text-slate-400 mt-1">Submitted {new Date(project.submittedOn).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
         </div>
-        {project.overallScore !== null ? (
-          <div className="flex-shrink-0 text-center">
-            <div className={clsx(
-              'w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-xl',
-              project.overallScore >= 80 ? 'bg-teal-50 text-teal-700' :
-              project.overallScore >= 60 ? 'bg-gold-50 text-gold-700' : 'bg-red-50 text-red-700'
-            )}>
-              {project.overallScore}
+        
+        <div className="flex flex-col items-end gap-2">
+          {project.overallScore !== null ? (
+            <div className="flex-shrink-0 text-center">
+              <div className={clsx(
+                'w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-xl',
+                project.overallScore >= 80 ? 'bg-teal-50 text-teal-700' :
+                project.overallScore >= 60 ? 'bg-gold-50 text-gold-700' : 'bg-red-50 text-red-700'
+              )}>
+                {project.overallScore}
+              </div>
+              <p className="text-xs text-slate-400 mt-1">/ 100</p>
             </div>
-            <p className="text-xs text-slate-400 mt-1">/ 100</p>
-          </div>
-        ) : (
-          <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-            <Cpu size={22} className="text-slate-400 animate-pulse-soft" />
-          </div>
-        )}
+          ) : (
+            <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+              <Cpu size={22} className="text-slate-400 animate-pulse-soft" />
+            </div>
+          )}
+
+          {/* Delete Button */}
+          <button
+            onClick={onDelete}
+            disabled={isDeleting}
+            title="Delete Project"
+            className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+          >
+            {isDeleting ? <Loader2 size={16} className="animate-spin text-red-600" /> : <Trash2 size={16} />}
+          </button>
+        </div>
       </div>
 
       {/* Pipeline progress */}
@@ -103,10 +121,31 @@ const ProjectCard: React.FC<{ project: ProjectSummary; onClick: () => void }> = 
 
 const MyReports: React.FC = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
   const { data: projects, isLoading, isError, refetch } = useQuery({
     queryKey: ['myProjects'],
     queryFn: getMyProjects,
   });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => deleteProject(id),
+    onMutate: (id) => setDeletingId(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['myProjects'] });
+      queryClient.invalidateQueries({ queryKey: ['allProjects'] });
+    },
+    onError: () => alert('Failed to delete project.'),
+    onSettled: () => setDeletingId(null),
+  });
+
+  const handleDelete = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    if (confirm('Are you sure you want to delete this submitted project? This action cannot be undone.')) {
+      deleteMutation.mutate(id);
+    }
+  };
 
   if (isLoading) return <LoadingState message="Loading your submissions..." />;
   if (isError) return <ErrorState retry={refetch} />;
@@ -141,6 +180,8 @@ const MyReports: React.FC = () => {
               key={project.projectId}
               project={project}
               onClick={() => navigate(`/student/report/${project.projectId}`)}
+              onDelete={(e) => handleDelete(e, project.projectId)}
+              isDeleting={deletingId === project.projectId}
             />
           ))}
         </div>

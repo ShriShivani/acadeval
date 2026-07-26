@@ -154,4 +154,26 @@ def publish_review(
         project.evaluation.published_at = datetime.now(timezone.utc)
 
     db.commit()
+
+    # Module 14 — Email Notification to Student upon Review Publishing
+    try:
+        from app.services.notification_service import send_email
+        student = project.student
+        if student and student.email:
+            score_val = project.evaluation.overall_score if project.evaluation else 0.0
+            grade_val = project.evaluation.grade if project.evaluation else "N/A"
+            subject = f"Faculty Review Published: {project.title}"
+            body_html = f"""
+                <p>Dear <strong>{student.name}</strong>,</p>
+                <p>Prof. <strong>{current_user.name}</strong> has published the final review for your project <strong>"{project.title}"</strong>.</p>
+                <div style="background:#f8fafc; border-left:4px solid #2a5298; padding:12px; margin:15px 0;">
+                    <p style="margin:0;"><strong>Final Score:</strong> {score_val} / 10.0</p>
+                    <p style="margin:5px 0 0 0;"><strong>Grade:</strong> {grade_val}</p>
+                </div>
+                <p>Log in to view the faculty feedback and notes.</p>
+            """
+            send_email(student.email, subject, body_html)
+    except Exception as exc:
+        pass
+
     return {"message": "Review published", "projectId": project_id}

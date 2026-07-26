@@ -8,7 +8,7 @@ import RadarChart from '../../components/RadarChart';
 import ScoreGauge from '../../components/ScoreGauge';
 import Badge from '../../components/Badge';
 import ExplainabilityViewer from '../../components/ExplainabilityViewer';
-import { NoveltyReportView } from '../../components/NoveltyReportView';
+import { NoveltyReportView, type NoveltyReportData } from '../../components/NoveltyReportView';
 import EntityExtractionPanel from '../../components/EntityExtractionPanel';
 import type { InternalEvaluationReport } from '../../types';
 import {
@@ -71,8 +71,8 @@ const ProjectReportView: React.FC = () => {
     onSuccess: () => { setShowPublishConfirm(false); setPublishSuccess(true); },
   });
 
-  const noveltyMutation = useMutation({
-    mutationFn: (abstractOverride?: string) =>
+  const noveltyMutation = useMutation<NoveltyReportData, Error, string | void>({
+    mutationFn: (abstractOverride?: string | void) =>
       getNoveltyReport(projectId!, abstractOverride || noveltyAbstract || `${r?.title}. Domain: ${r?.domain}.`),
   });
 
@@ -162,6 +162,9 @@ const ProjectReportView: React.FC = () => {
                 </button>
               )
             )}
+            <button onClick={() => window.print()} className="btn-outline">
+              Download PDF Report
+            </button>
           </div>
         )}
       </div>
@@ -197,37 +200,66 @@ const ProjectReportView: React.FC = () => {
         <div className="space-y-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div className="card">
-              <h2 className="font-semibold text-navy-900 mb-4">Dimension Scores</h2>
+              <h2 className="font-semibold text-navy-900 mb-1">Dimension Scores</h2>
+              <p className="text-xs text-slate-400 mb-4">Each score is out of 100. Overall = weighted average of all dimensions.</p>
               <div className="space-y-3">
                 {DIMENSION_KEYS.map(({ key, label }) => {
-                  const score = r.dimensionScores[key as keyof typeof r.dimensionScores];
+                  const rawScore = r.dimensionScores[key as keyof typeof r.dimensionScores];
                   const isEditing = overrideState?.dim === key;
+                  const isSimilarityRisk = key === 'similarityRisk';
+                  // Normalise to 0-100 for the progress bar
+                  const normScore = rawScore !== null
+                    ? (rawScore <= 10 && !isSimilarityRisk ? rawScore * 10 : rawScore)
+                    : null;
+                  // Display value: for similarity risk show as %
+                  const displayScore = rawScore !== null
+                    ? (rawScore <= 10 && !isSimilarityRisk ? Math.round(rawScore * 10 * 10) / 10 : rawScore)
+                    : null;
+
+                  let barColor = '';
+                  if (normScore !== null) {
+                    if (isSimilarityRisk) {
+                      barColor = normScore <= 20 ? 'bg-teal-500' : normScore <= 40 ? 'bg-amber-500' : 'bg-red-500';
+                    } else {
+                      barColor = normScore >= 75 ? 'bg-teal-500' : normScore >= 50 ? 'bg-amber-500' : 'bg-red-500';
+                    }
+                  }
+
                   return (
                     <div key={key} className="group">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-slate-600 w-36">{label}</span>
-                        {score !== null ? (
+                        <div className="flex items-center gap-1.5 w-40 flex-shrink-0">
+                          <span className="text-sm font-medium text-slate-600">{label}</span>
+                          {isSimilarityRisk && (
+                            <span className="text-[10px] text-slate-400" title="Lower similarity risk = more original work">↓ better</span>
+                          )}
+                        </div>
+                        {normScore !== null ? (
                           <>
                             <div className="flex-1 bg-slate-100 rounded-full h-2">
-                              <div className={clsx(
-                                'h-2 rounded-full',
-                                score >= 80 ? 'bg-teal-500' : score >= 60 ? 'bg-gold-500' : 'bg-red-500'
-                              )} style={{ width: `${score}%` }} />
+                              <div className={clsx('h-2 rounded-full transition-all', barColor)}
+                                style={{ width: `${Math.min(100, normScore)}%` }} />
                             </div>
                             {isEditing ? (
                               <input
-                                type="number"
-                                min="0"
-                                max="100"
+                                type="number" min="0" max="100"
                                 value={overrideState.value}
                                 onChange={e => setOverrideState(prev => prev ? { ...prev, value: Number(e.target.value) } : null)}
                                 className="w-16 text-center input py-1 text-sm"
                               />
                             ) : (
-                              <span className="font-bold text-sm w-8 text-right">{score}</span>
+                              <span className={clsx(
+                                'font-bold text-sm text-right flex items-center gap-0.5',
+                                isSimilarityRisk ? 'w-14' : 'w-10'
+                              )}>
+                                {displayScore}{isSimilarityRisk ? '%' : ''}
+                                {isSimilarityRisk && normScore !== null && normScore <= 20 && (
+                                  <span className="text-[10px] font-semibold text-teal-600 bg-teal-50 border border-teal-200 px-1 rounded ml-1">Low ✓</span>
+                                )}
+                              </span>
                             )}
                             <button
-                              onClick={() => isEditing ? setOverrideState(null) : setOverrideState({ dim: key, value: score, comment: '' })}
+                              onClick={() => isEditing ? setOverrideState(null) : setOverrideState({ dim: key, value: rawScore, comment: '' })}
                               className="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-lg hover:bg-slate-100"
                             >
                               {isEditing ? <X size={13} className="text-red-500" /> : <Edit2 size={13} className="text-slate-400" />}
@@ -238,7 +270,7 @@ const ProjectReportView: React.FC = () => {
                         )}
                       </div>
                       {isEditing && (
-                        <div className="mt-2 pl-36 space-y-2 animate-fade-in">
+                        <div className="mt-2 pl-40 space-y-2 animate-fade-in">
                           <input
                             className="input text-sm py-2"
                             placeholder="Required: reason for override..."
@@ -257,6 +289,21 @@ const ProjectReportView: React.FC = () => {
                     </div>
                   );
                 })}
+              </div>
+              {/* Overall Score total row */}
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-sm font-semibold text-slate-700">Overall Score (Total)</span>
+                <div className="flex items-center gap-2">
+                  <div className="text-right">
+                    <span className="text-2xl font-extrabold text-navy-900">{r.overallScore}</span>
+                    <span className="text-sm text-slate-400 ml-1">/ 100</span>
+                  </div>
+                  <span className={clsx(
+                    'px-2 py-0.5 text-xs font-bold rounded-lg',
+                    r.overallScore >= 85 ? 'bg-teal-100 text-teal-700' :
+                    r.overallScore >= 70 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'
+                  )}>{r.grade}</span>
+                </div>
               </div>
             </div>
             <div className="card">
@@ -354,6 +401,7 @@ const ProjectReportView: React.FC = () => {
 
               <NoveltyReportView
                 report={noveltyMutation.data}
+                realEntities={entityData?.extracted_entities ?? null}
                 onFacultyScoreSubmit={(facultyScore, reason) => facultyNoveltyReviewMutation.mutate({ facultyScore, reason })}
               />
             </div>

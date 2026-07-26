@@ -63,6 +63,9 @@ class Project(Base):
     # on every report request. Shape mirrors extractor_service.extract_entities() output.
     extracted_entities: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
 
+    # Module 11 — Celery task chain root id; used by /pipeline-status to poll AsyncResult
+    celery_task_id: Mapped[str | None] = mapped_column(String(128), nullable=True)
+
     # Relationships
     student: Mapped["User"] = relationship(
         "User", back_populates="projects", foreign_keys=[student_id]

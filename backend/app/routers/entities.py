@@ -156,8 +156,7 @@ def list_knowledge_base(
 def get_project_entities(project_id: str, current_user: CurrentUser, db: DB):
     """
     Returns the cached Module 3 extraction result stored on the project row.
-    If the project has never been submitted through the AcadEval+ pipeline,
-    `extracted_entities` will be null.
+    If extracted_entities is missing, dynamically runs FeatureExtractorService.
     """
     try:
         import uuid as _uuid
@@ -174,11 +173,46 @@ def get_project_entities(project_id: str, current_user: CurrentUser, db: DB):
     if current_user.role == UserRole.student and project.student_id != current_user.id:
         raise HTTPException(status_code=403, detail="Access denied.")
 
+    extracted = project.extracted_entities
+    # Trigger re-extraction if: never run (None) OR all lists are empty (prior extraction bug)
+    entity_lists_empty = extracted is not None and all(
+        len(v) == 0 for v in extracted.values() if isinstance(v, list)
+    )
+    if extracted is None or entity_lists_empty:
+        from app.services.extractor import extractor_service
+        from app.services.document_parser import document_parser_service
+        from pathlib import Path as _Path
+        try:
+            # Build the richest possible text for extraction
+            file_texts = []
+            for pf in (project.files or []):
+                if pf.storage_path and _Path(pf.storage_path).exists():
+                    try:
+                        parsed = document_parser_service.parse_uploaded_file(
+                            file_path=pf.storage_path, filename=pf.original_filename
+                        )
+                        file_texts.append(parsed.get("raw_text", ""))
+                    except Exception:
+                        pass
+
+            full_text = "\n".join(filter(None, [
+                project.title,
+                project.domain or "",
+            ] + file_texts)) or project.title
+
+            extracted = extractor_service.extract_entities(full_text)
+            project.extracted_entities = extracted
+            db.commit()
+            log.info("Dynamic extraction saved %d entity types for project %s", len(extracted), project_id)
+        except Exception as ee:
+            log.warning("Dynamic entity extraction failed for project %s: %s", project_id, ee)
+            extracted = {}
+
     return {
         "project_id": project_id,
         "title": project.title,
-        "extracted_entities": project.extracted_entities,
-        "has_been_extracted": project.extracted_entities is not None,
+        "extracted_entities": extracted,
+        "has_been_extracted": True,
     }
 
 

@@ -11,6 +11,20 @@ class Settings(BaseSettings):
 
     GEMINI_API_KEY: str = ""
     SEMANTIC_SCHOLAR_KEY: str = ""
+    GITHUB_TOKEN: str = ""            # Optional — raises rate limit 60→5000 req/hr
+
+    # Module 13 — Moodle LMS integration (optional)
+    MOODLE_URL: str = ""              # e.g. https://moodle.yourcollege.edu
+    MOODLE_TOKEN: str = ""            # Moodle web service token
+    MOODLE_ASSIGNMENT_ID: int = 0     # Moodle assignment ID to sync
+    MOODLE_FACULTY_USER_ID: str = "" # AcadEval UUID of the faculty uploader
+
+    # Module 14 — Email & Notification Service (Gmail SMTP)
+    SMTP_SERVER: str = "smtp.gmail.com"
+    SMTP_PORT: int = 465
+    SMTP_USER: str = "acadeval221@gmail.com"
+    SMTP_PASSWORD: str = "kymh spjy dyih dqqs"
+    SMTP_FROM_NAME: str = "AcadEval+ Platform"
 
     NEO4J_URI: str = "bolt://localhost:7687"
     NEO4J_USER: str = "neo4j"
@@ -23,6 +37,7 @@ class Settings(BaseSettings):
         return self.NEO4J_USERNAME or self.NEO4J_USER or "neo4j"
 
     REDIS_URL: str = "redis://localhost:6379/0"
+    GROBID_URL: str = "http://localhost:8070"
 
     UPLOAD_DIR: str = "uploads"
     MAX_UPLOAD_SIZE_MB: int = 500
