@@ -38,6 +38,10 @@ celery_app.conf.enable_utc         = True
 celery_app.conf.result_expires     = 86_400  # seconds
 
 # ── Worker reliability ────────────────────────────────────────────────────────
+import sys
+if sys.platform == "win32":
+    celery_app.conf.worker_pool = "solo"
+
 celery_app.conf.task_acks_late              = True   # only ack after success
 celery_app.conf.worker_prefetch_multiplier  = 1      # one task at a time per worker
 celery_app.conf.task_reject_on_worker_lost  = True

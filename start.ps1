@@ -48,7 +48,7 @@ Start-Sleep -Seconds 2
 
 # ── Step 3: Celery worker ─────────────────────────────────────────────────────
 Write-Host "  [3/5] Starting Celery worker..." -ForegroundColor Yellow
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Worker'; .\venv\Scripts\celery -A app.worker worker --loglevel=info --queues=pipeline,periodic --concurrency=2"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$Backend'; `$host.UI.RawUI.WindowTitle = 'AcadEval Celery Worker'; .\venv\Scripts\celery -A app.worker worker --loglevel=info --queues=pipeline,periodic --pool=solo"
 Write-Host "        [OK] Celery worker window launched" -ForegroundColor Green
 
 # ── Step 4: Celery beat ───────────────────────────────────────────────────────
