@@ -67,7 +67,7 @@ SEED_USERS = [
 
 def seed():
     db = SessionLocal()
-    print("─── AcadEval Seed Script ───────────────────────────────────")
+    print("--- AcadEval Seed Script -----------------------------------")
 
     # ── Create users ───────────────────────────────────────────────────────────
     created_users: dict[str, User] = {}
@@ -221,7 +221,7 @@ def seed():
         db.commit()
         print(f"  [OK]   Created project for Arjun: Real-Time Hand Gesture Recognition... [reviewed] score=91.0")
 
-    print("\n─── Seed complete! ─────────────────────────────────────────")
+    print("\n--- Seed complete! -----------------------------------------")
     print("\nDemo credentials (all passwords: demo123):")
     print("  Student:  priya@college.edu  / arjun@college.edu")
     print("  Guide:    meera@college.edu")

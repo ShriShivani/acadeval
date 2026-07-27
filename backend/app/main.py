@@ -55,9 +55,16 @@ app.include_router(integrations.router,  prefix=API_PREFIX)  # Module 13 — SS 
 
 @app.on_event("startup")
 def on_startup():
-    # Make sure AcadEval_NovelBench and other unregistered tables are created
-    Base.metadata.create_all(bind=engine)
-    graph_service.ensure_constraints()
+    import logging
+    log = logging.getLogger(__name__)
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        log.warning("Table creation skipped/encountered existing tables: %s", e)
+    try:
+        graph_service.ensure_constraints()
+    except Exception as e:
+        log.warning("Neo4j constraints check skipped: %s", e)
 
 
 @app.on_event("shutdown")
