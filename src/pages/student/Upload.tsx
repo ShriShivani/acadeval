@@ -60,9 +60,7 @@ const Upload: React.FC = () => {
       const fd = new FormData();
       fd.append('mode', mode);
       fd.append('domain', projectDomain);
-      fd.append('studentId', user?.id || '');
       if (projectTitle) fd.append('title', projectTitle);
-      if (projectDomain) fd.append('domain', projectDomain);
       uploadedFiles.forEach(f => fd.append('files', f));
       if (githubUrl) fd.append('githubUrl', githubUrl);
       return uploadProject(fd);
@@ -191,7 +189,7 @@ const Upload: React.FC = () => {
 
           {mutation.isError && (
             <div className="flex items-center gap-2 text-red-600 text-sm bg-red-50 px-4 py-3 rounded-xl">
-              <AlertCircle size={16} /> Upload failed. Please try again.
+              <AlertCircle size={16} /> {(mutation.error as any)?.response?.data?.detail || 'Upload failed. Please ensure you are logged in as a student and try again.'}
             </div>
           )}
 
